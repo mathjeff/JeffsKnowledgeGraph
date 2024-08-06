@@ -1,15 +1,14 @@
 function setupInterface() {
   console.log("setting up interface")
-  console.log("data:")
-  console.log(knowledgeGraph)
 
   analyzeGraph()
 
-  goToNode("What is a computer program?")
+  goToNode(rootNode["name"])
   console.log("done setting up interface")
 }
 
 function analyzeGraph() {
+  makeRootNode()
   groupNodesByName()
   findDependents()
 }
@@ -21,10 +20,16 @@ function groupNodesByName() {
     name = node["name"]
     nodesByName[name] = node
   }
+  nodesByName[rootNode["name"]] = rootNode
+}
+
+function makeRootNode() {
+  rootNode = {"name":"Welcome", "description":"This is Jeff's Knowledge Graph", dependencies:[]}
 }
 
 function findDependents() {
   nodeDependents = {}
+  nodeDependents[rootNode["name"]] = []
   // allocate map of dependents
   for (i = 0; i < knowledgeGraph.length; i++) {
     node = knowledgeGraph[i]
@@ -35,9 +40,13 @@ function findDependents() {
   for (i = 0; i < knowledgeGraph.length; i++) {
     node = knowledgeGraph[i]
     name = node["name"]
-    for (j = 0; j < node.dependencies.length; j++) {
-      dependencyName = node.dependencies[j]
-      nodeDependents[dependencyName].push(name)
+    if (node.dependencies.length > 0) {
+      for (j = 0; j < node.dependencies.length; j++) {
+        dependencyName = node.dependencies[j]
+        nodeDependents[dependencyName].push(name)
+      }
+    } else {
+      nodeDependents[rootNode["name"]].push(name)
     }
   }
 }
@@ -65,7 +74,6 @@ function goToNode(nodeName) {
   dependents = getDependentNames(nodeName)
   render = "<h1>" + name + "</h1>" +
            "<div>" + description.replaceAll("\n", "<br/>") + "</div>"
-  console.log("dependencies of " + nodeName + " length " + dependencies.length)
   if (dependencies.length > 0) {
     render += "<h2>Confused?</h2>"
     for (i = 0; i < dependencies.length; i++) {

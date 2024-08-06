@@ -68,7 +68,7 @@ How do I run commands in a terminal?
 
   - What is the format of a shell command?
 
-  - Which arguments can I give to a command?
+  - Which arguments can I give to a shell command?
 
 What is the format of a shell command?
 
@@ -109,7 +109,7 @@ How do I join shell commands inline?
 
   - What is a shell?
 
-Which arguments can I give to a command?
+Which arguments can I give to a shell command?
 
   Many built-in commands provide a manual page. You can often type `man <commandName>` to open the mnaual page for that command
 
@@ -118,6 +118,8 @@ Which arguments can I give to a command?
   Many commands will explain how to use them if you run them with no arguments. For example, you can run `git` to learn about using `git`.
 
   Many commands are documented on the internet. You can often ask a search engine a question like "<commandName> arguments" for more information
+
+  - What is a shell?
 
 Terminal tab complete
 
