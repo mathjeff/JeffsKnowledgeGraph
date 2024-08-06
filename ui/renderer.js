@@ -5,7 +5,7 @@ function setupInterface() {
 
   analyzeGraph()
 
-  goToNode("What is a terminal?")
+  goToNode("What is a computer program?")
   console.log("done setting up interface")
 }
 
@@ -37,7 +37,6 @@ function findDependents() {
     name = node["name"]
     for (j = 0; j < node.dependencies.length; j++) {
       dependencyName = node.dependencies[j]
-      console.log("dependency of " + name + " is " + dependencyName)
       nodeDependents[dependencyName].push(name)
     }
   }
@@ -52,7 +51,13 @@ function getNodeByName(name) {
   return result
 }
 
+function makeGoToButton(nodeName) {
+  goText = "goToNode(\"" + nodeName + "\")"
+  return "<button onclick='" + goText + "'>" + nodeName + "</button>"
+}
+
 function goToNode(nodeName) {
+  console.log("goToNode '" + nodeName + "'")
   node = getNodeByName(nodeName)
   name = node["name"]
   description = node["description"]
@@ -60,18 +65,19 @@ function goToNode(nodeName) {
   dependents = getDependentNames(nodeName)
   render = "<h1>" + name + "</h1>" +
            "<div>" + description.replaceAll("\n", "<br/>") + "</div>"
+  console.log("dependencies of " + nodeName + " length " + dependencies.length)
   if (dependencies.length > 0) {
     render += "<h2>Confused?</h2>"
     for (i = 0; i < dependencies.length; i++) {
       dependency = dependencies[i]
-      render += "<div>" + dependency + "</div>"
+      render += makeGoToButton(dependency) + "<br/>"
     }
   }
   if (dependents.length > 0) {
     render += "<h2>Curious?</h2>"
     for (i = 0; i < dependents.length; i++) {
       dependent = dependents[i]
-      render += "<div>" + dependent + "</div>"
+      render += makeGoToButton(dependent) + "<br/>"
     }
   }
 
