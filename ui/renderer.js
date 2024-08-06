@@ -24,7 +24,7 @@ function groupNodesByName() {
 }
 
 function makeRootNode() {
-  rootNode = {"name":"Welcome", "description":"This is Jeff's Knowledge Graph", dependencies:[]}
+  rootNode = {"name":"Welcome to Jeff's Knowledge Graph", "description":"", dependencies:[]}
 }
 
 function findDependents() {
