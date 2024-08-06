@@ -1,4 +1,7 @@
 #!/bin/bash
 set -e
 rm out -rf
-python util/build.py
+mkdir -p out/site
+python util/formatGraph.py
+cp ui/index.html out/site
+cp ui/renderer.js out/site

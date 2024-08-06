@@ -98,11 +98,10 @@ def addKnowledgeFile(filePath, graph):
 
 def main():
   print("building in " + str(os.getcwd()))
-  os.makedirs("out")
   files = findKnowledgeFiles("content")
   print("Processing " + str(len(files)) + " files: " + str(files))
   graph = parseKnowledgeFiles(files)
-  destPath = "out/knowledge.json"
+  destPath = "out/site/knowledge.json"
   graph.writeToPath(destPath)
   print("Wrote knowledge graph to " + destPath)
   print("done")
