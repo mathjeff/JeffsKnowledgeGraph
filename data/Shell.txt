@@ -1,0 +1,203 @@
+# Information about terminals
+
+Using the terminal efficiently
+
+ - What is a terminal?
+ - Terminal up arrow
+ - Terminal history search
+ - Terminal tab complete
+ - Terminal copy
+ - Terminal paste
+ - Shell functions
+ - Terminal directories
+ - Shell initialization scripts
+
+What is a terminal?
+
+ A terminal runs shell commands
+
+ - What is a shell?
+ - Other names for a terminal
+
+What is a shell?
+
+ A shell is a program that you can type into to easily run and combine commands
+
+ - What is a computer program?
+
+What is a computer program?
+
+ A computer program is a set of instructions that a computer can run
+
+ - What is a computer?
+
+Terminal up arrow
+
+  Pressing the up arrow in a terminal will restore the previous command
+
+  - What is a terminal?
+
+Terminal history search
+
+  There are several ways to search the history of a terminal
+
+  - Terminal reverse search
+  - Terminal history command
+  - SessionManager
+
+Terminal reverse search
+
+  In a terminal, you can press "Ctrl-R" and type some text to search for earlier instances where you typed that command
+
+  - What is a terminal?
+
+Terminal history command
+
+  In a terminal you can run the history command to view a history of commands you ran in that terminal
+
+  - How do I run commands in a terminal?
+
+How do I run commands in a terminal?
+
+  To run commands in a terminal, you can type a command into it and press Enter.
+
+  - What is a terminal?
+
+  - What is the format of a shell command?
+
+  - Which arguments can I give to a command?
+
+What is the format of a shell command?
+
+  A shell command can be one of:
+
+    A program and some arguments
+    The first word is the program name, and subsequent words are arguments
+
+      For example in the command `echo hi there`:
+        `echo` is the command
+        `hi` is the first argument
+        `there` is the second argument
+
+      When a user runs `echo hi there`, the shell will run the `echo` command and pass it "hi" as the first argument and "there" as the second argument".
+      This will cause the shell to output the text "hi there".
+
+    Multiple other shell commands joined by something else
+
+  - What is a shell?
+
+  - How do I join shell commands inline?
+
+How do I join shell commands inline?
+
+  You can join shell commands in several ways.
+
+  If you want to wait for the first command to complete, and only if it succeeds you want to run the second command, you can use '&&'. For example:
+
+    echo a && echo b
+
+  If you want to wait for the first command to complete, and run the second command regardless of its success or failure status, you can use '||'. For example:
+
+    stat /nonexistent || echo b
+
+  If you want to run both commands at the same time and use the output of one as the input of the other, you can use '|'. For example:
+
+    echo abcdefg | grep --color b
+
+  - What is a shell?
+
+Terminal tab complete
+
+  When typing a filepath in the terminal, you can press `tab` to autocomplete a filename
+
+  For example, if you have an empty directory with a file named "sample", you can type "echo sa" and press the tab key, and the terminal should autocomplete to say "echo sample"
+
+  - Terminal directories
+  - What is a shell?
+
+Terminal new directory
+
+  To make a new directory in the terminal, type `mkdir <somedir>`
+
+  For example, you can type `mkdir sample` to make an empty dir called "sample"
+
+  - Terminal directories
+
+Terminal directories
+
+  Files in a computer are organized into directories (also known as folders).
+  Each directory may contain files or directories (or even symlinks).
+  Each file or directory can be accessed by its absolute path.
+  An absolute path is a string starting with "/".
+
+    For example, "/tmp" is an absolute path.
+    To see the contents of the `/tmp` directory, you can run `ls /tmp`.
+
+  A relative path is a string that doesn't start with "/". A relative path can be converted into an absolute path by starting at another directory, called the working directory, and following the relative path.
+
+  Each program in a computer has a working directory which essentially refers to whichever directory it is currently looking at.
+
+    For example, "tmp" is a relative path.
+    Also, "example" is a relative path.
+    If the working directory is `/` and you want to check whether the file `/tmp/example` exists, you can run either `ls tmp/example` or `ls /tmp/example` to check.
+    If the working directory is `/tmp` and you want to check whether the file `/tmp/example` exists, you can run either `ls example` or `ls /tmp/example` to check.
+
+  To see the working directory, you can run `pwd`
+
+  To change the working directory, you can run `cd <someNewDir>`
+
+  - What is a shell?
+
+Terminal copy
+
+  When there is text on the screen in your terminal, you can copy it!
+
+    On Linux, press Ctrl-Shift-C.
+      Don't accidentally just press Ctrl-C . That will cancel the current command
+    On Mac, press Apple-C
+    On Windows, press Ctrl-Insert
+
+  - What is a shell?
+
+Terminal paste
+
+  You can paste text into your terminal that you previously copied
+
+    On Linux, press Ctrl-Shift-V
+    On Mac, press Apple-V
+    On Windows, press Shift-Insert
+
+  - Terminal copy
+
+Shell functions
+
+  If you feel that you are doing too much typing in your terminal, you can create functions to do things for you.
+
+  To declare a function, write something like this:
+
+  ```
+    function hello() {
+      echo hi
+    }
+  ```
+
+  You can put this text into your terminal initialization script if you want it to persist.
+
+  - Shell initialization scripts
+
+Shell initalization scripts
+
+  When a shell starts, it runs one or more initialization scripts.
+  On Linux, this path is usually ~/.bashrc for interactive sessions (like the terminal)
+  On Cygwin in Windows, this is the same as in Linux
+  On Mac, this path is usually ~/.bashrc for Bash or ~/.zshrc for Zsh
+
+  You can make modifications to these files if you want to change behavior or add features to your terminal
+
+  If you modify one of these files and want to apply the new file to your current shell, you can source it
+
+    For example, if you modify ~/.bashrc you could run `source ~/.bashrc`
+
+    This reruns the entire file
+
+  - What is a shell?
