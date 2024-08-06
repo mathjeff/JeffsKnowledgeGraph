@@ -70,12 +70,18 @@ function goToNode(nodeName) {
   node = getNodeByName(nodeName)
   name = node["name"]
   description = node["description"]
+  if (description == null)
+    description = ""
   dependencies = node["dependencies"]
   dependents = getDependentNames(nodeName)
   render = "<h1>" + name + "</h1>" +
            "<div>" + description.replaceAll("\n", "<br/>") + "</div>"
   if (dependencies.length > 0) {
-    render += "<h2>Confused?</h2>"
+    if (description == "")
+      dependenciesTitle = "Things to learn:"
+    else
+      dependenciesTitle = "Confused?"
+    render += "<h2>" + dependenciesTitle + "</h2>"
     for (i = 0; i < dependencies.length; i++) {
       dependency = dependencies[i]
       render += makeGoToButton(dependency) + "<br/>"
