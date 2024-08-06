@@ -2,34 +2,37 @@
 
 Using the terminal efficiently
 
- - What is a terminal?
- - Terminal up arrow
- - Terminal history search
- - Terminal tab complete
- - Terminal copy
- - Terminal paste
- - Shell functions
- - Terminal directories
- - Shell initialization scripts
+  - What is a terminal?
+  - Terminal up arrow
+  - Terminal history search
+  - Terminal tab complete
+  - Terminal copy
+  - Terminal paste
+  - Shell functions
+  - Terminal directories
+  - Shell initialization scripts
 
 What is a terminal?
 
- A terminal runs shell commands
+  A terminal is a window that you type text commands into.
 
- - What is a shell?
- - Other names for a terminal
+  Those text commands get executed by another program called a shell.
+
+  A terminal may also be called a command prompt or a console.
+
+  - What is a shell?
 
 What is a shell?
 
- A shell is a program that you can type into to easily run and combine commands
+  A shell is a program that parses strings, converts them into collections of commands, and runs them.
 
- - What is a computer program?
+  Bash is an example of a shell.
+
+  - What is a computer program?
 
 What is a computer program?
 
- A computer program is a set of instructions that a computer can run
-
- - What is a computer?
+  A computer program is a set of instructions that a computer can run
 
 Terminal up arrow
 
@@ -105,6 +108,16 @@ How do I join shell commands inline?
     echo abcdefg | grep --color b
 
   - What is a shell?
+
+Which arguments can I give to a command?
+
+  Many built-in commands provide a manual page. You can often type `man <commandName>` to open the mnaual page for that command
+
+  Many commands will explain how to use them if you add the "--help" argument. For example, you can run `grep --help` to learn about using `grep`.
+
+  Many commands will explain how to use them if you run them with no arguments. For example, you can run `git` to learn about using `git`.
+
+  Many commands are documented on the internet. You can often ask a search engine a question like "<commandName> arguments" for more information
 
 Terminal tab complete
 
@@ -185,7 +198,7 @@ Shell functions
 
   - Shell initialization scripts
 
-Shell initalization scripts
+Shell initialization scripts
 
   When a shell starts, it runs one or more initialization scripts.
   On Linux, this path is usually ~/.bashrc for interactive sessions (like the terminal)
@@ -201,3 +214,15 @@ Shell initalization scripts
     This reruns the entire file
 
   - What is a shell?
+
+SessionManager
+
+  SessionManager is a project by Jeff Gaston to make it easier to remember:
+
+    What tasks you've been doing
+
+    Why you've been doing them
+
+    What the status of each is
+
+  It can be found at https://github.com/mathjeff/SessionManager
