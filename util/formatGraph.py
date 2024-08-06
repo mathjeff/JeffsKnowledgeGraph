@@ -28,6 +28,7 @@ class KnowledgeGraph():
   def writeToPath(self, path):
     entries = [node.toDict() for node in self.nodesByName.values()]
     with open(path, 'w') as file:
+      file.write("knowledgeGraph=")
       json.dump(entries, file)
 
 class KnowledgeNode():
@@ -101,7 +102,7 @@ def main():
   files = findKnowledgeFiles("content")
   print("Processing " + str(len(files)) + " files: " + str(files))
   graph = parseKnowledgeFiles(files)
-  destPath = "out/site/knowledge.json"
+  destPath = "out/site/knowledge.json.js"
   graph.writeToPath(destPath)
   print("Wrote knowledge graph to " + destPath)
   print("done")
