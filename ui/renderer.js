@@ -59,7 +59,7 @@ function goToNode(nodeName) {
   dependencies = node["dependencies"]
   dependents = getDependentNames(nodeName)
   render = "<h1>" + name + "</h1>" +
-           "<div>" + description + "</div>"
+           "<div>" + description.replaceAll("\n", "<br/>") + "</div>"
   if (dependencies.length > 0) {
     render += "<h2>Confused?</h2>"
     for (i = 0; i < dependencies.length; i++) {
