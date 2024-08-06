@@ -56,7 +56,7 @@ Terminal reverse search
 
 Terminal history command
 
-  In a terminal you can run the history command to view a history of commands you ran in that terminal
+  To view a history of the commands you ran in a terminal, you can run the `history` command
 
   - How do I run commands in a terminal?
 
