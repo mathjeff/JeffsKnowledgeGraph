@@ -1,5 +1,5 @@
 #!python
-import os, shutil
+import json, os, shutil
 
 pathOfThisFile = __file__
 os.chdir(os.path.join(os.path.dirname(pathOfThisFile), ".."))
@@ -25,6 +25,11 @@ class KnowledgeGraph():
         if dependencyName not in self.nodesByName:
           raise Exception("In " + str(node.sourceFile) + ",\n  Node '" + str(node.name) + "'\n  declares dependency '" + str(dependencyName) + "'\n  which is not found")
 
+  def writeToPath(self, path):
+    entries = [node.toDict() for node in self.nodesByName.values()]
+    with open(path, 'w') as file:
+      json.dump(entries, file)
+
 class KnowledgeNode():
   def __init__(self, name, description, sourceFile, dependencyNames):
     self.name = name
@@ -32,6 +37,9 @@ class KnowledgeNode():
     self.sourceFile = sourceFile
     self.dependencyNames = dependencyNames
 
+
+  def toDict(self):
+    return {"name": self.name, "description": self.description, "dependencies": self.dependencyNames}
 
 def findKnowledgeFiles(rootPath):
   result = []
@@ -77,24 +85,27 @@ def addKnowledgeFile(filePath, graph):
       if content.startswith(dependencyPrefix):
         dependency = content[len(dependencyPrefix):]
         dependencies.append(dependency)
+        continue
       # Description
-      if description is None:
-        description = ""
-      else:
-        description += "\n"
-      description += content
+      if len(content) > 0:
+        if description is None:
+          description = ""
+        else:
+          description += "\n"
+        description += content
   # also add the last node
   graph.addNode(KnowledgeNode(title, description, filePath, dependencies))
 
 def main():
   print("building in " + str(os.getcwd()))
-  os.makedirs("build")
+  os.makedirs("out")
   files = findKnowledgeFiles("content")
   print("Processing " + str(len(files)) + " files: " + str(files))
   graph = parseKnowledgeFiles(files)
+  destPath = "out/knowledge.json"
+  graph.writeToPath(destPath)
+  print("Wrote knowledge graph to " + destPath)
   print("done")
-
-
 
 if __name__ == "__main__":
   main()

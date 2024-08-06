@@ -1,4 +1,4 @@
 #!/bin/bash
 set -e
-rm build -rf
+rm out -rf
 python util/build.py
