@@ -42,8 +42,6 @@ Terminal up arrow
 
 Terminal history search
 
-  There are several ways to search the history of a terminal
-
   - Terminal reverse search
   - Terminal history command
   - SessionManager

@@ -65,6 +65,87 @@ function makeGoToButton(nodeName) {
   return "<button onclick='" + goText + "'>" + nodeName + "</button>"
 }
 
+function getMatchScore(queryText, node) {
+  score = 0
+  queryText = queryText.toUpperCase()
+  if (node["name"].toUpperCase().includes(queryText)) {
+    score += 2
+  } else {
+    description = node["description"]
+    if (description != null) {
+      if (description.toUpperCase().includes(queryText))
+        score += 1
+    }
+  }
+  return score
+}
+
+function findQueryResults(queryText) {
+  // find the best few matches
+  matches = []
+  targetNumMatches = 5
+  for (i = 0; i < knowledgeGraph.length; i++) {
+    node = knowledgeGraph[i]
+    score = getMatchScore(queryText, node)
+    if (score > 0) {
+      insertIndex = matches.length
+      for (j = 0; j < matches.length; j++) {
+        other = matches[j]
+        if (score > other["score"]) {
+          insertIndex = j
+          break
+        }
+      }
+      matches.splice(insertIndex, 0, {"node": node, "score": score})
+      if (matches.length > targetNumMatches) {
+        matches.pop()
+      }
+    }
+  }
+
+  console.log("query text " + queryText)
+  console.log("result:")
+  console.log(matches)
+  results = []
+  for (i = 0; i < matches.length; i++) {
+    results.push(matches[i]["node"]["name"])
+  }
+  return results
+}
+
+function runQuery(queryText) {
+  queryResults = findQueryResults(queryText)
+  if (queryResults.length > 0) {
+    html = makeNodeList(queryResults)
+  } else {
+    html = "<div>No results found</div>"
+  }
+  document.getElementById("search-results").innerHTML = html
+}
+
+function queryBoxKeyPress(event) {
+  if (event.key == "Enter") {
+    queryBox = document.getElementById("query")
+    queryText = queryBox.value
+    runQuery(queryText)
+  }
+}
+
+function makeSearchBox() {
+  labelHtml = "<div>Search:</div>"
+  inputHtml = '<input type="text" id="query" onkeypress="queryBoxKeyPress(event)">'
+  return labelHtml + inputHtml
+}
+
+function makeNodeList(nodes) {
+  html = ""
+  for (i = 0; i < nodes.length; i++) {
+    dependency = nodes[i]
+    html += makeGoToButton(dependency) + "<br/>"
+  }
+  return html
+}
+
 function goToNode(nodeName) {
   console.log("goToNode '" + nodeName + "'")
   node = getNodeByName(nodeName)
@@ -76,23 +157,21 @@ function goToNode(nodeName) {
   dependents = getDependentNames(nodeName)
   render = "<h1>" + name + "</h1>" +
            "<div>" + description.replaceAll("\n", "<br/>") + "</div>"
+  if (node == rootNode)
+    render += makeSearchBox()
+
+  render += "<div id=\"search-results\"></div>"
   if (dependencies.length > 0) {
     if (description == "")
       dependenciesTitle = "Things to learn:"
     else
       dependenciesTitle = "Confused?"
     render += "<h2>" + dependenciesTitle + "</h2>"
-    for (i = 0; i < dependencies.length; i++) {
-      dependency = dependencies[i]
-      render += makeGoToButton(dependency) + "<br/>"
-    }
+    render += makeNodeList(dependencies)
   }
   if (dependents.length > 0) {
     render += "<h2>Curious?</h2>"
-    for (i = 0; i < dependents.length; i++) {
-      dependent = dependents[i]
-      render += makeGoToButton(dependent) + "<br/>"
-    }
+    render += makeNodeList(dependents)
   }
 
   document.getElementById("content").innerHTML = "<div>" + render + "</div>"
