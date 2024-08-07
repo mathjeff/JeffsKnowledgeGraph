@@ -1,0 +1,40 @@
+# Information about this knowledge graph itself
+
+What is Jeff's Knowledge Graph?
+
+  This is Jeff's Knowledge Graph!
+
+  It's an organized collection of information, originally populated with things that Jeff knows.
+
+  The idea is:
+
+    * People want to learn some certain things that they don't know
+    * Learning some things requires learning other things first
+    * People don't want to read again about things that they already know about
+
+  This web page tries to help you easily browse this knowledge graph
+
+Who is Jeff?
+
+  Jeff is the person that created this knowledge graph.
+
+  You can find his Github at https://github.com/mathjeff
+
+  - What is Jeff's Knowledge Graph?
+
+Can I contribute to Jeff's Knowledge Graph?
+
+  Jeff's Knowledge Graph is stored in GitHub at https://github.com/mathjeff/JeffsKnowledgeGraph/tree/main/content
+
+  - How do I modify a repository in GitHub?
+
+  - What is Jeff's Knowledge Graph?
+
+How do I modify a repository in GitHub?
+
+  First, clone the repository to your own GitHub account.
+  Then, download the repository to your computer.
+  Then, make the changes on your computer.
+  Then, inform Git about the changes: run `git commit -a`
+  Then, upload the changes to GitHub via `git push`
+  Then contribute the changes back to the original repository via a pull request
