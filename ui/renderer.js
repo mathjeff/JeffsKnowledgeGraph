@@ -8,9 +8,14 @@ function setupInterface() {
 }
 
 function analyzeGraph() {
+  emptyHistory()
   makeRootNode()
   groupNodesByName()
   findDependents()
+}
+
+function emptyHistory() {
+  nodeHistory = []
 }
 
 function groupNodesByName() {
@@ -63,6 +68,14 @@ function getNodeByName(name) {
 function makeGoToButton(nodeName) {
   goText = "goToNode(\"" + nodeName + "\")"
   return "<button onclick='" + goText + "'>" + nodeName + "</button>"
+}
+
+function makeHomeButton() {
+  return "<button onclick='goHome()'>Home</button>"
+}
+
+function makeBackButton() {
+  return "<button onclick='goBack()'>Back</button>"
 }
 
 function getMatchScore(queryText, node) {
@@ -149,14 +162,17 @@ function makeNodeList(nodes) {
 function goToNode(nodeName) {
   console.log("goToNode '" + nodeName + "'")
   node = getNodeByName(nodeName)
+  nodeHistory.push(node)
   name = node["name"]
   description = node["description"]
   if (description == null)
     description = ""
   dependencies = node["dependencies"]
   dependents = getDependentNames(nodeName)
-  render = "<h1>" + name + "</h1>" +
-           "<div>" + description.replaceAll("\n", "<br/>") + "</div>"
+  render = ""
+  render += makeHomeButton() + makeBackButton()
+  render += "<h1>" + name + "</h1>"
+  render += "<div>" + description.replaceAll("\n", "<br/>") + "</div>"
   if (node == rootNode)
     render += makeSearchBox()
 
@@ -175,4 +191,21 @@ function goToNode(nodeName) {
   }
 
   document.getElementById("content").innerHTML = "<div>" + render + "</div>"
+}
+
+function goHome() {
+  goToNode(rootNode["name"])
+}
+
+function goBack() {
+  if (nodeHistory.length >= 2) {
+    // identify the previous node
+    previousNode = nodeHistory[nodeHistory.length - 2]
+    // remove the current node from the history
+    nodeHistory.pop()
+    // jump to the previous node
+    goToNode(previousNode["name"])
+    // jumping to the previous node adds it to the history, so remove that new entry now too
+    nodeHistory.pop()
+  }
 }
