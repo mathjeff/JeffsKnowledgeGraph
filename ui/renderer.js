@@ -156,7 +156,7 @@ function queryBoxKeyPress(event) {
 }
 
 function makeSearchBox() {
-  labelHtml = "<div>Search:</div>"
+  labelHtml = "<div>Search " + knowledgeGraph.length + " entries:</div>"
   inputHtml = '<input type="text" id="query" onkeypress="queryBoxKeyPress(event)">'
   return labelHtml + inputHtml
 }
