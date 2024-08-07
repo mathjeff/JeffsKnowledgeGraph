@@ -170,6 +170,10 @@ function makeNodeList(nodeNames) {
   return html
 }
 
+function formatDescription(descriptionText) {
+  return marked.parse(descriptionText)
+}
+
 function goToNode(nodeIndex) {
   node = knowledgeGraph[nodeIndex]
   nodeName = node["name"]
@@ -184,7 +188,7 @@ function goToNode(nodeIndex) {
   render = ""
   render += makeHomeButton() + makeBackButton()
   render += "<h1>" + name + "</h1>"
-  render += "<div>" + description.replaceAll("\n", "<br/>") + "</div>"
+  render += "<div>" + formatDescription(description) + "</div>"
   if (node == rootNode)
     render += makeSearchBox()
 

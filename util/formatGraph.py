@@ -88,7 +88,7 @@ def addKnowledgeFile(filePath, graph):
         dependencies.append(dependency)
         continue
       # Description
-      if len(content) > 0:
+      if len(content) > 0 or description is not None:
         if description is None:
           description = ""
         else:
