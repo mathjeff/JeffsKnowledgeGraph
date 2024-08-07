@@ -12,7 +12,7 @@ Inspecting a computer program on Linux
 
   If you have a terminal which is not running anything, you can use it to inspect other programs.
 
-  To view a dynamic list of which programs are using the most cpu time, you can run `top`. You may alsobe able to run `htop`
+  To view a dynamic list of which programs are using the most cpu time, you can run `top`. You may also be able to run `htop`
 
   To view a list of all programs, you can run `ps -ef`
 
