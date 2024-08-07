@@ -3,19 +3,26 @@ function setupInterface() {
 
   analyzeGraph()
 
-  goToNode(rootNode["name"])
+  goToNode(rootNode["index"])
   console.log("done setting up interface")
 }
 
 function analyzeGraph() {
   emptyHistory()
   makeRootNode()
+  numberNodes()
   groupNodesByName()
   findDependents()
 }
 
 function emptyHistory() {
   nodeHistory = []
+}
+
+function numberNodes() {
+  for (i = 0; i < knowledgeGraph.length; i++) {
+    knowledgeGraph[i]["index"] = i
+  }
 }
 
 function groupNodesByName() {
@@ -30,6 +37,7 @@ function groupNodesByName() {
 
 function makeRootNode() {
   rootNode = {"name":"Welcome to Jeff's Knowledge Graph", "description":"", dependencies:[]}
+  knowledgeGraph.push(rootNode)
 }
 
 function findDependents() {
@@ -51,7 +59,8 @@ function findDependents() {
         nodeDependents[dependencyName].push(name)
       }
     } else {
-      nodeDependents[rootNode["name"]].push(name)
+      if (node != rootNode)
+        nodeDependents[rootNode["name"]].push(name)
     }
   }
 }
@@ -66,7 +75,9 @@ function getNodeByName(name) {
 }
 
 function makeGoToButton(nodeName) {
-  goText = "goToNode(\"" + nodeName + "\")"
+  node = nodesByName[nodeName]
+  nodeIndex = node["index"]
+  goText = "goToNode(\"" + nodeIndex + "\")"
   return "<button onclick='" + goText + "'>" + nodeName + "</button>"
 }
 
@@ -150,18 +161,19 @@ function makeSearchBox() {
   return labelHtml + inputHtml
 }
 
-function makeNodeList(nodes) {
+function makeNodeList(nodeNames) {
   html = ""
-  for (i = 0; i < nodes.length; i++) {
-    dependency = nodes[i]
+  for (i = 0; i < nodeNames.length; i++) {
+    dependency = nodeNames[i]
     html += makeGoToButton(dependency) + "<br/>"
   }
   return html
 }
 
-function goToNode(nodeName) {
+function goToNode(nodeIndex) {
+  node = knowledgeGraph[nodeIndex]
+  nodeName = node["name"]
   console.log("goToNode '" + nodeName + "'")
-  node = getNodeByName(nodeName)
   nodeHistory.push(node)
   name = node["name"]
   description = node["description"]
@@ -194,7 +206,7 @@ function goToNode(nodeName) {
 }
 
 function goHome() {
-  goToNode(rootNode["name"])
+  goToNode(rootNode["index"])
 }
 
 function goBack() {
@@ -204,7 +216,7 @@ function goBack() {
     // remove the current node from the history
     nodeHistory.pop()
     // jump to the previous node
-    goToNode(previousNode["name"])
+    goToNode(previousNode["index"])
     // jumping to the previous node adds it to the history, so remove that new entry now too
     nodeHistory.pop()
   }
