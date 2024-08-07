@@ -1,0 +1,39 @@
+# Information about debugging
+
+Why is a computer program taking so long?
+
+  - Inspecting a computer program on Windows
+
+  - Inspecting a computer program on Linux
+
+  - Cancelling a computer program on Linux
+
+Inspecting a computer program on Linux
+
+  If you have a terminal which is not running anything, you can use it to inspect other programs.
+
+  To view a dynamic list of which programs are using the most cpu time, you can run `top`. You may alsobe able to run `htop`
+
+  To view a list of all programs, you can run `ps -ef`
+
+  - What is a computer program?
+
+Cancelling a computer program on Linux
+
+  If you ran a command in the terminal that is still running, usually you can press Ctrl-C to quit it.
+
+  If that doesn't help, you can cancel the program using the `kill` command
+
+    You should be able to get the process id of `commandName` by running `ps -ef | grep <commandName>`
+
+    When you know the id of the process, you can do `kill <processId>` to ask the process to terminate
+
+    If that doesn't work and you are sure that you want to terminate the process right away, you can do `kill 9 <processId>` to terminate the process
+
+  - What is a computer program?
+
+Inspecting a computer program on Windows
+
+  You can press Ctrl-Alt-Delete to open the Task Manager which lists which programs are running and how much memory and cpu they are using
+
+  - What is a computer program?
