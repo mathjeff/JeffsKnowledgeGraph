@@ -17,10 +17,12 @@ function analyzeGraph() {
 
 function resetFamiliarity() {
   nodeHistory = []
-  // names of nodes that the user is probably directly interested in
+  // name of a node that the user is probably directly interested in
   latestCuriosity = null
   // full transitive dependency set of the nodes that the user is interested in
   curiousDependencyNames = new Set()
+  // name of a node that the user is probably familiar with
+  latestFamiliarity = null
   // names of nodes that the user is probably already familiar with
   familiarityByName = {}
 }
@@ -124,12 +126,15 @@ function declareFamiliar(nodeName) {
     // already know that this node is familiar
     return
   }
+
   console.log("familiar with " + nodeName)
+
   familiarityByName[nodeName] = true
   var dependencies = getDirectDependencyNames(nodeName)
   for (var i = 0; i < dependencies.length; i++) {
     declareFamiliar(dependencies[i])
   }
+  latestFamiliarity = nodeName
 }
 
 // Declares that the user is unfamiliar with this node
@@ -185,9 +190,7 @@ function countNumUnfamiliarDependencies(nodeName) {
   var allDependencies = getAllDependenciesOf(nodeName)
   var numUnfamiliarDependencies = 0
   for (var dependency of allDependencies) {
-    var familiarity = null
-    if (dependency in familiarityByName)
-      familiarity = familiarityByName[dependency]
+    var familiarity = familiarity = familiarityByName[dependency]
     //console.log("familiarity of " + dependency + " = " + familiarity)
     if (familiarity != true) {
       numUnfamiliarDependencies++
@@ -398,10 +401,18 @@ function goToNode(nodeIndex, actionType) {
     //linksInformation.push({"name":"I already knew this.", "content":makeNodeList(alreadyFamiliarHelpNames, "curious")})
   }
   render += makeTable(linksInformation)
+  statusSections = []
   if (latestCuriosity != null) {
+    statusSections.push("<h4>Curious about:</h4>" + latestCuriosity + "<br/>")
+  }
+  if (latestFamiliarity != null) {
+    statusSections.push("<h4>Familiar with:</h4>" + latestFamiliarity + "<br/>")
+  }
+  if (statusSections.length > 0) {
     render += "<h3>Status:</h3>"
-    render += "<h4>Curious about:</h4>"
-    render += latestCuriosity + "<br/>"
+    for (var i = 0; i < statusSections.length; i++) {
+      render += statusSections[i]
+    }
   }
 
   document.getElementById("content").innerHTML = "<div>" + render + "</div>"
