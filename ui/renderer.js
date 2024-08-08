@@ -17,8 +17,10 @@ function analyzeGraph() {
 
 function resetFamiliarity() {
   nodeHistory = []
-  // names of nodes that the user is probably interested in
-  curiosityByName = {}
+  // names of nodes that the user is probably directly interested in
+  latestCuriosity = null
+  // full transitive dependency set of the nodes that the user is interested in
+  curiousDependencyNames = new Set()
   // names of nodes that the user is probably already familiar with
   familiarityByName = {}
 }
@@ -88,20 +90,78 @@ function getAlreadyFamiliarHelpNames(nodeName) {
   return getDirectDependentNames(nodeName)
 }
 
-// Declares whether the user is familiar with this node
-// Doesn't make any other guesses based on user behavior
-function declareFamiliarity(nodeName, familiar) {
-  console.log("familiarity = " + familiar + " for " + nodeName)
-  familiarityByName[nodeName] = familiar
+// Declares that the user is familiar with this node
+function declareFamiliar(nodeName) {
+  if (familiarityByName[nodeName] == true) {
+    // already know that this node is familiar
+    return
+  }
+  console.log("familiar with " + nodeName)
+  familiarityByName[nodeName] = true
+  var dependencies = getDirectDependencyNames(nodeName)
+  for (var i = 0; i < dependencies.length; i++) {
+    declareFamiliar(dependencies[i])
+  }
 }
 
-// Declares whether the user is curious about this node
-// Doesn't make any other guesses based on user behavior
-function declareCuriosity(nodeName, curious) {
-  console.log("curiousity = " + curious + " for " + nodeName)
-  curiosityByName[nodeName] = curious
+// Declares that the user is unfamiliar with this node
+function declareUnfamiliar(nodeName) {
+  if (familiarityByName[nodeName] == false) {
+    // already know that this node is unfamiliar
+    return
+  }
+  console.log("unfamiliar with " + nodeName)
+  familiarityByName[nodeName] = false
+  var dependencies = getDirectDependentNames(nodeName)
+  for (var i = 0; i < dependencies.length; i++) {
+    declareUnfamiliar(dependencies[i])
+  }
 }
 
+function hasTransitiveDependency(nodeName, candidateDependency) {
+  var dependencies = getAllDependenciesOf(nodeName)
+  return dependencies.has(candidateDependency)
+}
+
+function getAllDependenciesOf(nodeName) {
+  var allDependencies = new Set()
+  addDependenciesRecursivelyTo(nodeName, allDependencies)
+  return allDependencies
+}
+
+function addDependenciesRecursivelyTo(newDependency, destinationSet) {
+  if (destinationSet.has(newDependency))
+    return
+  var newDependencies = getDirectDependencyNames(newDependency)
+  for (var dependency of newDependencies) {
+    addDependenciesRecursivelyTo(dependency, destinationSet)
+  }
+}
+
+// Declares that the user is curious about this node
+function declareCuriosity(nodeName) {
+  if (latestCuriosity != null && hasTransitiveDependency(latestCuriosity, nodeName)) {
+    // When the user asks about a dependency of their previous curiosity, they're probably still interested in the previous topic too
+    return
+  }
+
+  latestCuriosity = nodeName
+  console.log("curious about " + nodeName);
+  curiosityNeedsDependenciesOf(nodeName)
+}
+
+// Declares that something the user is curious about requires this node
+function curiosityNeedsDependenciesOf(nodeName) {
+  if (curiousDependencyNames.has(nodeName))
+    return
+  console.log("satisfying curiosity requires '" + nodeName + "'")
+  curiousDependencyNames.add(nodeName)
+  var dependencies = getDirectDependencyNames(nodeName)
+  for (var i = 0; i < dependencies.length; i++) {
+    dependency = dependencies[i]
+    curiosityNeedsDependenciesOf(dependency)
+  }
+}
 
 function getNodeByName(name) {
   result = nodesByName[name]
@@ -174,7 +234,7 @@ function findQueryResults(queryText) {
 function runQuery(queryText) {
   queryResults = findQueryResults(queryText)
   if (queryResults.length > 0) {
-    html = makeNodeList(queryResults)
+    html = makeNodeList(queryResults, "searchResult")
   } else {
     html = "<div>No results found</div>"
   }
@@ -234,38 +294,38 @@ function updateUserKnowledgeData(actionType) {
   nodeName = currentNode["name"]
   if (actionType == "curious") {
     // If the user is curious about more details, then the user is familiar with the existing information
-    declareFamiliarity(nodeName, true)
+    declareFamiliar(nodeName)
     return
   }
   if (actionType == "confused") {
     // If the user mentions being confused, then the user is probably interested in this
-    declareCuriosity(nodeName, true)
+    declareCuriosity(nodeName)
     // If the user mentions being confused, it means the user is not familiar with this
-    declareFamiliarity(nodeName, false)
+    declareUnfamiliar(nodeName)
     return
   }
   if (actionType == "alreadyFamiliar") {
     // the user knows about this and probably knows about the dependents
-    declareFamiliarity(nodeName, true)
+    declareFamiliar(nodeName)
     return
   }
 }
 
 function goToNode(nodeIndex, actionType) {
-  node = knowledgeGraph[nodeIndex]
+  var node = knowledgeGraph[nodeIndex]
   updateUserKnowledgeData(actionType)
-  nodeName = node["name"]
+  var nodeName = node["name"]
   console.log("goToNode '" + nodeName + "' actionType = " + actionType)
   nodeHistory.push(node)
-  name = node["name"]
-  description = node["description"]
+  var name = node["name"]
+  var description = node["description"]
   if (description == null)
     description = ""
-  dependencies = getDirectDependencyNames(nodeName)
-  soConfusedHelpNames = getSoConfusedHelpNames(nodeName)
-  dependents = getDirectDependentNames(nodeName)
-  alreadyFamiliarHelpNames = getAlreadyFamiliarHelpNames(nodeName)
-  render = ""
+  var dependencies = getDirectDependencyNames(nodeName)
+  var soConfusedHelpNames = getSoConfusedHelpNames(nodeName)
+  var dependents = getDirectDependentNames(nodeName)
+  var alreadyFamiliarHelpNames = getAlreadyFamiliarHelpNames(nodeName)
+  var render = ""
   render += makeHomeButton() + makeBackButton()
   render += "<h1>" + name + "</h1>"
   render += "<div>" + formatDescription(description) + "</div>"
@@ -292,6 +352,11 @@ function goToNode(nodeIndex, actionType) {
     //linksInformation.push({"name":"I already knew this.", "content":makeNodeList(alreadyFamiliarHelpNames, "curious")})
   }
   render += makeTable(linksInformation)
+  if (latestCuriosity != null) {
+    render += "<h3>Status:</h3>"
+    render += "<h4>Curious about:</h4>"
+    render += latestCuriosity + "<br/>"
+  }
 
   document.getElementById("content").innerHTML = "<div>" + render + "</div>"
 }
