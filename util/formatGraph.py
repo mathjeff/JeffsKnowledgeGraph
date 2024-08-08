@@ -18,12 +18,36 @@ class KnowledgeGraph():
 
   def validate(self):
     self.validateDependenciesExist()
+    self.validateNoCycles()
 
   def validateDependenciesExist(self):
     for node in self.nodesByName.values():
       for dependencyName in node.dependencyNames:
         if dependencyName not in self.nodesByName:
           raise Exception("In " + str(node.sourceFile) + ",\n  Node '" + str(node.name) + "'\n  declares dependency '" + str(dependencyName) + "'\n  which is not found")
+
+  def validateNoCycles(self):
+    # copy nodes by name
+    nodesToCheck = {}
+    for name in self.nodesByName.keys():
+      nodesToCheck[name] = self.nodesByName[name]
+
+    # Repeatedly find each node with having no dependencies referring to another node within the set, and remove that node
+    # If no such nodes are found, there's at least one cycle
+    while len(nodesToCheck) > 0:
+      newNodesToCheck = {}
+      for node in nodesToCheck.values():
+        hasDependency = False
+        for dependencyName in node.dependencyNames:
+          if dependencyName in nodesToCheck:
+            hasDependency = True
+            break
+        if hasDependency:
+          newNodesToCheck[node.name] = node
+      if len(newNodesToCheck) >= len(nodesToCheck):
+        raise Exception("Found cycle among these nodes: " + str(list(newNodesToCheck.keys())))
+      nodesToCheck = newNodesToCheck
+
 
   def writeToPath(self, path):
     entries = [node.toDict() for node in self.nodesByName.values()]
