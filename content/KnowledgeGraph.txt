@@ -16,7 +16,7 @@ What is Jeff's Knowledge Graph?
 
 Who is Jeff?
 
-  Jeff is the person that created this knowledge graph.
+  Jeff Gaston is the person that created this knowledge graph.
 
   You can find his Github at https://github.com/mathjeff
 

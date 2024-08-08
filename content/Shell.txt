@@ -112,7 +112,7 @@ How do I join shell commands inline?
 
 Which arguments can I give to a shell command?
 
-  Many built-in commands provide a manual page. You can often type `man <commandName>` to open the mnaual page for that command
+  Many built-in commands provide a manual page. You can often type `man <commandName>` to open the manual page for that command
 
   Many commands will explain how to use them if you add the "--help" argument. For example, you can run `grep --help` to learn about using `grep`.
 
@@ -229,3 +229,5 @@ SessionManager
     What the status of each is
 
   It can be found at https://github.com/mathjeff/SessionManager
+
+  - Who is Jeff?

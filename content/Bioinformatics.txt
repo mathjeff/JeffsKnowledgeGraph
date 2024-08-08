@@ -1,0 +1,21 @@
+# Bioinformatics
+
+Mapper
+
+  Mapper is a tool by Jeff and Anni that does sequence alignment. They spent a bunch of effort making it fast and accurate.
+
+  You can find it at https://github.com/mathjeff/mapper
+
+  - What is sequence alignment?
+
+  - Which arguments can I give to a shell command?
+
+What is sequence alignment?
+
+  Sequence alignment is the process of comparing two or more gene sequences and determining how they are similar, if at all.
+
+  Two sequences may differ in a few different ways:
+
+  * One or more nucleotides in one sequence may have been replaced by the same number of nucleotides in the other sequence
+
+  * One or more nucleotides may have been removed from either sequence. This is called an "indel" and can represent either an insertion or a deletion
