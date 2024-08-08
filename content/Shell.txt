@@ -72,40 +72,43 @@ What is the format of a shell command?
 
   A shell command can be one of:
 
-    A program and some arguments
-    The first word is the program name, and subsequent words are arguments
+    * A program and some arguments
 
-      For example in the command `echo hi there`:
-        `echo` is the command
-        `hi` is the first argument
-        `there` is the second argument
+        * The first word is the program name, and subsequent words are arguments
 
-      When a user runs `echo hi there`, the shell will run the `echo` command and pass it "hi" as the first argument and "there" as the second argument".
-      This will cause the shell to output the text "hi there".
+        * For example in the command `echo hi there`:
 
-    Multiple other shell commands joined by something else
+            * `echo` is the command
+
+            * `hi` is the first argument
+
+            * `there` is the second argument
+
+        * When a user runs `echo hi there`, the shell will run the `echo` command and pass it "hi" as the first argument and "there" as the second argument".
+
+            * This will cause the shell to output the text "hi there".
+
+    * Multiple other shell commands joined by something else
 
   - What is a shell?
-
-  - How do I join shell commands inline?
 
 How do I join shell commands inline?
 
   You can join shell commands in several ways.
 
-  If you want to wait for the first command to complete, and only if it succeeds you want to run the second command, you can use '&&'. For example:
+  If you want to wait for the first command to complete, and only if it succeeds you want to run the second command, you can use `&&`. For example:
 
-    echo a && echo b
+    `echo a && echo b`
 
-  If you want to wait for the first command to complete, and run the second command regardless of its success or failure status, you can use '||'. For example:
+  If you want to wait for the first command to complete, and run the second command regardless of its success or failure status, you can use `||`. For example:
 
-    stat /nonexistent || echo b
+    `stat /nonexistent || echo b`
 
-  If you want to run both commands at the same time and use the output of one as the input of the other, you can use '|'. For example:
+  If you want to run both commands at the same time and use the output of one as the input of the other, you can use ```. For example:
 
-    echo abcdefg | grep --color b
+    `echo abcdefg | grep --color b`
 
-  - What is a shell?
+  - What is the format of a shell command?
 
 Which arguments can I give to a shell command?
 
@@ -123,7 +126,7 @@ Terminal tab complete
 
   When typing a filepath in the terminal, you can press `tab` to autocomplete a filename
 
-  For example, if you have an empty directory with a file named "sample", you can type "echo sa" and press the tab key, and the terminal should autocomplete to say "echo sample"
+  For example, if you have a directory containing file named `sample`, you can type `echo sa` and press the tab key, and the terminal should autocomplete to say `echo sample` (assuming there are other no files or directories with names starting with `sa` in that directory)
 
   - Terminal directories
   - What is a shell?

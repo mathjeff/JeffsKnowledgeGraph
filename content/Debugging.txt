@@ -1,14 +1,14 @@
 # Information about debugging
 
-Why is a computer program taking so long?
+Why is a computer process taking so long?
 
-  - Inspecting a computer program on Windows
+  - Inspecting a process on Windows
 
-  - Inspecting a computer program on Linux
+  - Inspecting a process on Linux
 
-  - Cancelling a computer program on Linux
+  - Cancelling a process on Linux
 
-Inspecting a computer program on Linux
+Inspecting a process on Linux
 
   If you have a terminal which is not running anything, you can use it to inspect other programs.
 
@@ -16,9 +16,9 @@ Inspecting a computer program on Linux
 
   To view a list of all programs, you can run `ps -ef`
 
-  - What is a computer program?
+  - What is a computer process?
 
-Cancelling a computer program on Linux
+Cancelling a process on Linux
 
   If you ran a command in the terminal that is still running, usually you can press Ctrl-C to quit it.
 
@@ -30,10 +30,20 @@ Cancelling a computer program on Linux
 
     If that doesn't work and you are sure that you want to terminate the process right away, you can do `kill 9 <processId>` to terminate the process
 
-  - What is a computer program?
+  - What is a computer process?
 
-Inspecting a computer program on Windows
+Inspecting a process on Windows
 
   You can press Ctrl-Alt-Delete to open the Task Manager which lists which programs are running and how much memory and cpu they are using
+
+  - What is a computer process?
+
+What is a computer process?
+
+  A process is a running instance of a computer program
+
+  It has instructions and arguments.
+
+  For example, running `ls /tmp` in a terminal will create a new process running `ls` with one argument, `/tmp`.
 
   - What is a computer program?
