@@ -174,6 +174,24 @@ function formatDescription(descriptionText) {
   return marked.parse(descriptionText)
 }
 
+function makeTable(columns) {
+  result = ""
+  result += "<table>"
+  result += "<tr>"
+  for (i = 0; i < columns.length; i++) {
+    column = columns[i]
+    result += "<th>" + column["name"] + "</th>"
+  }
+  result += "</tr>\n"
+  result += "<tr>"
+  for (i = 0; i < columns.length; i++) {
+    column = columns[i]
+    result += "<td>" + column["content"] + "</td>\n"
+  }
+  result += "</table>"
+  return result
+}
+
 function goToNode(nodeIndex) {
   node = knowledgeGraph[nodeIndex]
   nodeName = node["name"]
@@ -193,18 +211,18 @@ function goToNode(nodeIndex) {
     render += makeSearchBox()
 
   render += "<div id=\"search-results\"></div>"
+  linksInformation = []
   if (dependencies.length > 0) {
     if (description == "")
       dependenciesTitle = "Things to learn:"
     else
-      dependenciesTitle = "Confused?"
-    render += "<h2>" + dependenciesTitle + "</h2>"
-    render += makeNodeList(dependencies)
+      dependenciesTitle = "I'm confused"
+    linksInformation.push({"name":dependenciesTitle, "content":makeNodeList(dependencies)})
   }
   if (dependents.length > 0) {
-    render += "<h2>Curious?</h2>"
-    render += makeNodeList(dependents)
+    linksInformation.push({"name":"Tell me more", "content":makeNodeList(dependents)})
   }
+  render += makeTable(linksInformation)
 
   document.getElementById("content").innerHTML = "<div>" + render + "</div>"
 }
