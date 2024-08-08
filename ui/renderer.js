@@ -78,7 +78,35 @@ function getDirectDependencyNames(nodeName) {
 
 // make a guess about how to help a user that is very confused
 function getSoConfusedHelpNames(nodeName) {
-  return getDirectDependencyNames(nodeName)
+  // find everything that the user will need to know to learn this topic
+  var allDependencies = getAllDependenciesOf(nodeName)
+  //console.log("all dependencies of " + nodeName + ": " + allDependencies.size + " nodes")
+  //console.log(allDependencies)
+  var fullCount = countNumUnfamiliarDependencies(nodeName)
+  var targetCount = fullCount / 2
+
+  // count number of unfamiliar dependencies for each one
+  var bestResult = null
+  var bestScore = -100000
+  for (var candidate of allDependencies) {
+    var count = countNumUnfamiliarDependencies(candidate)
+    console.log("num unfamiliar dependencies of " + candidate + " is " + count)
+    if (count > 0 && count < targetCount) {
+      var score = -Math.abs(count - targetCount)
+      if (bestResult == null || score >= bestScore) {
+        //console.log("updating score from " + bestScore + " to " + score + " by updating node from " + bestResult + " to " + nodeName)
+        bestResult = candidate
+        bestScore = score
+      }
+    }
+  }
+
+  //console.log("best confused help name for " + nodeName + " = " + bestResult)
+
+  if (bestResult == null) {
+    return []
+  }
+  return [bestResult]
 }
 
 function getDirectDependentNames(nodeName) {
@@ -132,8 +160,10 @@ function getAllDependenciesOf(nodeName) {
 function addDependenciesRecursivelyTo(newDependency, destinationSet) {
   if (destinationSet.has(newDependency))
     return
+  destinationSet.add(newDependency)
   var newDependencies = getDirectDependencyNames(newDependency)
   for (var dependency of newDependencies) {
+    //console.log("adding dependency " + dependency + " of " + newDependency)
     addDependenciesRecursivelyTo(dependency, destinationSet)
   }
 }
@@ -150,11 +180,27 @@ function declareCuriosity(nodeName) {
   curiosityNeedsDependenciesOf(nodeName)
 }
 
+function countNumUnfamiliarDependencies(nodeName) {
+  // TODO: make this faster: cancel a branch of the dependency search when it reaches a node that's familiar
+  var allDependencies = getAllDependenciesOf(nodeName)
+  var numUnfamiliarDependencies = 0
+  for (var dependency of allDependencies) {
+    var familiarity = null
+    if (dependency in familiarityByName)
+      familiarity = familiarityByName[dependency]
+    //console.log("familiarity of " + dependency + " = " + familiarity)
+    if (familiarity != true) {
+      numUnfamiliarDependencies++
+    }
+  }
+  return numUnfamiliarDependencies
+}
+
 // Declares that something the user is curious about requires this node
 function curiosityNeedsDependenciesOf(nodeName) {
   if (curiousDependencyNames.has(nodeName))
     return
-  console.log("satisfying curiosity requires '" + nodeName + "'")
+  //console.log("satisfying curiosity requires '" + nodeName + "'")
   curiousDependencyNames.add(nodeName)
   var dependencies = getDirectDependencyNames(nodeName)
   for (var i = 0; i < dependencies.length; i++) {
@@ -184,7 +230,7 @@ function makeBackButton() {
 }
 
 function getMatchScore(queryText, node) {
-  score = 0
+  var score = 0
   queryText = queryText.toUpperCase()
   if (node["name"].toUpperCase().includes(queryText)) {
     score += 2
@@ -204,7 +250,7 @@ function findQueryResults(queryText) {
   targetNumMatches = 5
   for (i = 0; i < knowledgeGraph.length; i++) {
     node = knowledgeGraph[i]
-    score = getMatchScore(queryText, node)
+    var score = getMatchScore(queryText, node)
     if (score > 0) {
       insertIndex = matches.length
       for (j = 0; j < matches.length; j++) {
@@ -335,7 +381,7 @@ function goToNode(nodeIndex, actionType) {
   render += "<div id=\"search-results\"></div>"
   linksInformation = []
   if (soConfusedHelpNames.length > 0) {
-    //linksInformation.push({"name":"I'm so confused.", "content":makeNodeList(soConfusedHelpNames, "confused")})
+    linksInformation.push({"name":"I'm so confused.", "content":makeNodeList(soConfusedHelpNames, "confused")})
   }
 
   if (dependencies.length > 0) {
