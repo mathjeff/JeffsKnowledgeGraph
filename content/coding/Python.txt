@@ -1,0 +1,268 @@
+# Information about Python
+
+Should I learn Python?
+
+  Python programs tend to be slow to run and fast to write
+
+  You may want to consider learning Python if:
+
+   * You want to quickly make a prototype program
+
+   * You don't want to spend time compiling your program
+
+   * The program you're making doesn't need to process very much data
+
+   * There's an existing program that you want to modify that already uses Python
+
+  - Why are Python programs slower?
+
+Why are Python programs slower?
+
+  - Python is interpreted
+
+  - Python lacks multithreading
+
+Python is interpreted
+
+  Python programs are generally run through the Python interpreter
+
+  - What's an interpreter in software?
+
+  - What is Python?
+
+What's an interpreter in software?
+
+  An interpreter is a program that executes another program that is written in a different language
+
+  The interpreter essentially translates the other program while it is running
+
+  - What is a computer program?
+
+Python lacks multithreading
+
+  The Python interpreter doesn't support multithreading
+
+  This was intentional, because multithreading tends to produce more bugs
+
+  - What is multithreading?
+
+  - Why is multithreading difficult?
+
+  - What is multiprocessing?
+
+  - What is Python?
+
+What is multithreading?
+
+  Multithreading is the idea of having one computer program with multiple threads, each of which can do something different
+
+  - What is a computer program?
+
+  - What is Python?
+
+Why is multithreading difficult?
+
+  A computer program that uses multithreading has multiple threads that can each do different work at the same time while reading and write the same memory.
+
+  If one thread is writing a value and another thread is reading a value, then the value that gets read will be dependent on whether the second thread read it before or after the first thread wrote it.
+
+  If neither thread makes sure to wait for the other thread, then the value that gets read will be affected by things like which thread is faster, which might not be consistent between runs.
+
+  This can cause results to be different from one run to the next, which is often unintended.
+
+  - What is a computer program?
+
+What is multiprocessing?
+
+  Multiprocessing is the idea of having one computer process spawn other processes
+
+  - What is a computer process?
+
+Learning Python
+
+  - Should I learn Python?
+  - Python editors
+  - Python variables
+  - Python functions
+  - Python scope
+  - Python classes
+  - Python lists
+  - Python slices
+
+Python editors
+
+  There are several programs that will help you write Python files
+
+  A popular one is [IDLE](https://docs.python.org/3/library/idle.html)
+
+  - What is Python?
+
+Python variables
+
+  In Python, you can create a variable and assign it a value using `=`.
+
+  For example:
+
+  ``
+    a=5
+    print(a)
+  ``
+
+  displays the value `5`
+
+  - What is Python?
+
+Python functions
+
+  In Python, you can create a function using the `def` keyword. For example:
+
+  ```
+  def sayHi():
+    print("hi")
+  ```
+
+  Then, you can call that function like this:
+
+  ```
+  sayHi()
+  ```
+
+  - What is Python?
+
+Python if
+
+  In Python, you an use `if statement` to check if something is true or false and run different code depending on the result
+
+  For example:
+
+  ```
+  if (today == yourBirthday):
+    print("Happy Birthday!")
+  else:
+    print("Hello")
+  ```
+
+  - What is Python?
+
+Python scope
+
+  Scope is the idea that when you call a function and that function creates a new variable, anything outside that function can't access that variable by its name.
+  This allows two functions to use the same name without any conflicts.
+
+  Suppose you have code like this:
+
+  ```
+  def add(first, second):
+    sum = first + second
+    print("adding first = " + str(first) + ", second = " + str(second) + ", sum = " + str(sum))
+    return sum
+  
+  numberOfPineapples = 2
+  numberOfOranges = 3
+  numberOfFruits = add(numberOfPineapples, numberOfOranges)
+  print(numberOfPineapples) # outputs "2"
+  print(numberOfOranges) # outputs "3"
+  print(numberOfFruits) # outputs 5
+  print(first) # error: 'first' is not defined
+  print(second) # error: 'second' is not defined
+  print(sum) # error: 'sum' is not defined
+  ```
+
+  This can be especially helpful if a function wants to call itself again!
+
+  For example:
+
+  ``
+  def repeatString(text, count):
+    if count <= 1:
+      return text
+    return repeatString(text, count - 1) + text
+  print(repeatString("a", 5))
+  ```
+
+  outputs `aaaaa`
+
+  - Python functions
+  
+Python lists
+
+  A list in Python is a container that can hold things in some order
+
+  Each item has an index, which its position in the list.
+  The first item has index 0, the second item has index 1, and so on.
+
+  For example:
+
+  ```
+  foods = ["apple", "banana", "pear"]
+  print(foods)
+  ```
+
+  should output `['apple', 'banana', 'pear']`
+
+  and then
+
+  ```
+  print(foods[0])
+  ```
+
+  should output `apple`
+
+  You can also add to a list like this:
+
+  ```
+  foods.append("blueberry")
+  ```
+
+  at which point `print(foods)` should say `['apple', 'banana', 'pear', 'blueberry']`
+
+  - What is Python?
+
+Python slices
+
+  A slice in Python is a subsection of a list. It looks like `someList[startIndexInclusive:endIndexExclusive]`.
+
+  For example, if you have a list like this:
+
+  ```
+  numbers = ["zero", "one", "two", "three", "four", "five"]
+  ```
+
+  then you can do
+  ```
+  print(numbers[1:3])
+  ```
+
+  to get `['one', 'two']`
+
+  - Python lists
+
+Python classes
+
+  Python classes allow you to make your own objects that have their own properties.
+
+  For example:
+
+  ```
+  class Fruit():
+    def __init__(self, name, color):
+      self.name = name
+      self.color = color
+    def __str__(self):
+      return self.name + " (" + self.color + ")"
+
+  blueberry = Fruit("blueberry", "blue")
+  apple = Fruit("apple", "red")
+  print(blueberry)
+  print(apple)
+  ```
+
+  This can be convenient because it can help you keep track of all of the properties of each object
+
+  - What is Python?
+
+What is Python?
+
+  Python is a programming language. Its files end with `.py`
+
+  - What is a computer program?
