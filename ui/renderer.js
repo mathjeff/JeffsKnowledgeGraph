@@ -115,9 +115,63 @@ function getDirectDependentNames(nodeName) {
   return nodeDependents[nodeName]
 }
 
+function getAllFamiliarNodes() {
+  var result = new Set()
+  for (var key in familiarityByName) {
+    var familiar = familiarityByName[key]
+    if (familiar)
+      result.add(key)
+  }
+  //console.log("all familiar nodes (" + result.size + "):")
+  //console.log(result)
+  return result
+}
+
+function mergeSets(setA, setB) {
+  return new Set([...setA, ...setB])
+}
+
 // make a guess about how to help a user that is already familiar with this
 function getAlreadyFamiliarHelpNames(nodeName) {
-  return getDirectDependentNames(nodeName)
+  if (curiousDependencyNames.size < 1) {
+    return []
+  }
+
+  var curious = curiousDependencyNames
+  var familiar = mergeSets(getAllDependenciesOf(nodeName), getAllFamiliarNodes())
+  var maxCount = 0
+  var items = []
+
+  for (var candidate of curious) {
+    var count = countNumDependenciesOutsideSet(candidate, familiar)
+
+    //console.log("candidate " + candidate + " has " + count + " dependencies outside set")
+    if (count < 2) {
+      // Skip showing nodes that are only slightly more complicated than things we've seen before
+      // We already link to slightly more complicated nodes in a separate section
+      continue
+    }
+    items.push({"count":count, "name": candidate})
+    maxCount = Math.max(maxCount, count)
+  }
+
+  var targetCount = maxCount / 2
+  var bestScore = 0
+  var bestNode = null
+  for (var item of items) {
+    var count = item["count"]
+    var score = -Math.abs(count - targetCount)
+    if (bestNode == null || score > bestScore) {
+      bestScore = score
+      bestNode = item["name"]
+    }
+  }
+
+  if (bestNode != null) {
+    return [bestNode]
+  }
+
+  return []
 }
 
 // Declares that the user is familiar with this node
@@ -193,6 +247,18 @@ function countNumUnfamiliarDependencies(nodeName) {
     var familiarity = familiarity = familiarityByName[dependency]
     //console.log("familiarity of " + dependency + " = " + familiarity)
     if (familiarity != true) {
+      numUnfamiliarDependencies++
+    }
+  }
+  return numUnfamiliarDependencies
+}
+
+function countNumDependenciesOutsideSet(nodeName, baseSet) {
+  // TODO: make this faster: cancel a branch of the dependency search when it reaches a node that's familiar
+  var allDependencies = getAllDependenciesOf(nodeName)
+  var numUnfamiliarDependencies = 0
+  for (var dependency of allDependencies) {
+    if (!baseSet.has(dependency)) {
       numUnfamiliarDependencies++
     }
   }
@@ -398,7 +464,7 @@ function goToNode(nodeIndex, actionType) {
     linksInformation.push({"name":"That's interesting.", "content":makeNodeList(dependents, "curious")})
   }
   if (alreadyFamiliarHelpNames.length > 0) {
-    //linksInformation.push({"name":"I already knew this.", "content":makeNodeList(alreadyFamiliarHelpNames, "curious")})
+    linksInformation.push({"name":"I already knew this.", "content":makeNodeList(alreadyFamiliarHelpNames, "curious")})
   }
   render += makeTable(linksInformation)
   statusSections = []
