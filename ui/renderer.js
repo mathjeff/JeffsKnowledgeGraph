@@ -299,6 +299,10 @@ function makeBackButton() {
   return "<button class='knowledge-button' onclick='goBack()'>Back</button>"
 }
 
+function makeExplainSelfButton() {
+  return "<button class='knowledge-button' onclick='explainSelf()'>Help</button>"
+}
+
 function getMatchScore(queryText, node) {
   var score = 0
   queryText = queryText.toUpperCase()
@@ -442,7 +446,7 @@ function goToNode(nodeIndex, actionType) {
   var dependents = getDirectDependentNames(nodeName)
   var alreadyFamiliarHelpNames = getAlreadyFamiliarHelpNames(nodeName)
   var render = ""
-  render += makeHomeButton() + makeBackButton()
+  render += makeHomeButton() + makeBackButton() + makeExplainSelfButton()
   render += "<h1>" + name + "</h1>"
   render += "<div>" + formatDescription(description) + "</div>"
   if (node == rootNode)
@@ -500,4 +504,11 @@ function goBack() {
     // jumping to the previous node adds it to the history, so remove that new entry now too
     nodeHistory.pop()
   }
+}
+
+function explainSelf() {
+  var name = "What is Jeff's Knowledge Graph?"
+  var node = nodesByName[name]
+  var index = node["index"]
+  goToNode(index, "explainSelf")
 }
