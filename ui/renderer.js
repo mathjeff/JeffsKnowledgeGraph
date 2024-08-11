@@ -351,7 +351,7 @@ function runQuery(queryText) {
   if (queryResults.length > 0) {
     html = makeNodeList(queryResults, "searchResult")
   } else {
-    html = "<div>No results found</div>"
+    html = "<div>No results found. <a href='https://github.com/mathjeff/JeffsKnowledgeGraph/issues/new'>Open an issue</a></div>"
   }
   document.getElementById("search-results").innerHTML = html
 }
