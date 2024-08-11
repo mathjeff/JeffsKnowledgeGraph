@@ -287,15 +287,16 @@ function makeGoToButton(nodeName, actionType) {
   node = nodesByName[nodeName]
   nodeIndex = node["index"]
   goText = "goToNode(" + nodeIndex + ", \"" + actionType + "\")"
-  return "<button onclick='" + goText + "'>" + nodeName + "</button>"
+  actionClass = "button-" + actionType
+  return "<button class='knowledge-button " + actionClass + "' onclick='" + goText + "'>" + nodeName + "</button>"
 }
 
 function makeHomeButton() {
-  return "<button onclick='goHome()'>Home</button>"
+  return "<button class='knowledge-button' onclick='goHome()'>Home</button>"
 }
 
 function makeBackButton() {
-  return "<button onclick='goBack()'>Back</button>"
+  return "<button class='knowledge-button' onclick='goBack()'>Back</button>"
 }
 
 function getMatchScore(queryText, node) {

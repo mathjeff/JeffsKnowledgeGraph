@@ -1,0 +1,15 @@
+.knowledge-button {
+  height: 30px;
+}
+
+body {
+  background-color: lightgrey;
+}
+
+.button-confused {
+  background-color: #ff9900;
+}
+
+.button-curious {
+  background-color: #3399ff;
+}
