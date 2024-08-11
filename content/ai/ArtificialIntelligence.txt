@@ -1,0 +1,95 @@
+# Some information about Artificial Intelligence
+
+What is AI?
+
+  An artificial intelligence is a computer system that has been trained on data to make decisions.
+
+AI uses patterns
+
+  AIs make predictions based on patterns.
+
+  If there is no pattern in the data given to the AI, the AI cannot reliably make precise, accurate predictions.
+
+  For example, if we flip a fair, random coin N times, we will get a sequence of N results. Then the result of the next flip has a 1/2 chance of being heads and a 1/2 chance of being tails. If we ask an AI to use that information to predict the next result, then whether the AI predicts heads or tails, that result will have a 1/2 chance of being incorrect.
+
+  - What is AI?
+
+We want AI models to be generalizable
+
+  When we train an AI model to give the correct answers for some training examples, it can theoretically just learn the exact answers to the specific examples.
+
+  This would allow the computer to make accurate predictions during training, but probably wouldn't be very useful after that.
+
+  In the cases where someone wants a tool that memorizes the answers, they don't usually train an AI for that task.
+
+  - What is AI?
+
+More complicated models benefit from more data
+
+  If an AI model has lots of parameters and is trained on a small amount of data, then even if it's not directly memorizing the answers, it is possible that the model is still essentially memorizing them.
+
+  Similar to a hash table, if an AI computed a hash code for each example and memorized the test result for each hash code, that would still be approximately the same as directly memorizing the answer for each example, as long as most hash codes were unique.
+
+  If we know the complexity of a model and the amount of data that the model was trained on, we can use [Hoeffding's inequality](https://en.wikipedia.org/wiki/Hoeffding%27s_inequality) to compute the probability of the model having a high error rate.
+
+  - We want AI models to be generalizable
+
+  - What is a hash table?
+
+  - What is a hash code?
+
+Decision trees
+
+  A decision tree is a type of AI model. When a tree makes a prediction about a specific datapoint, it evaluates a series of yes/no questions until it arrives an answer.
+
+  - What is AI?
+
+Neural networks
+
+  A neural network is a type of AI model.
+
+  It involves a collection of nodes, each of which is connected to many other nodes.
+
+  Most nodes combine their inputs and apply a nonlinear function to produce an output.
+
+  The details of how a node combines its inputs is dependent on its weights.
+
+  The weights of node connections in a graph make up the parameters of the neural network
+
+  Neural networks can model many different functions and can be trained
+
+  - What is AI?
+
+Training neural networks
+
+  A neural network is a complicated function that makes predictions for an input based on its internal parameters.
+
+  Training a neural network requires:
+
+  * Training data
+
+  * A way of computing a score for a given prediction and example
+
+      * This is called "loss", and lower numbers are better, with 0 being the best.
+
+  * A way of modifying the network's parameters to reduce the average penalty
+
+      * This is done using a separate mathematical optimization algorithm
+
+  The optimization algorithm repeatedly attempts to modify the parameters of the network in a way such that the average loss among examples in the training set is as low as possible
+
+  - Neural networks
+
+  - Gradient descent
+
+Gradient descent
+
+  [Gradient descent](https://en.wikipedia.org/wiki/Gradient_descent) is an algorithm that attempts to find the minimum of an arbitrary, unknown function.
+
+Large Language Models
+
+  Large language models are neural networks that attempt to understand language.
+
+  They're often trained to predict a specific word in a text given the rest of the surrounding words.
+
+  - Neural networks

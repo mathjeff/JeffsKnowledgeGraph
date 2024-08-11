@@ -1,0 +1,38 @@
+# Information about algorithms
+
+What is a hash table?
+
+  A hash table is a collection that attempts to provide very fast performance via the use of hash codes.
+
+  When a hash table is created (and sometimes when a new item is inserted), the hash table chooses a capacity and allocates an array of that many bins (and moves existing entries into the array if the collection was already nonempty). Each bin is intended to hold one item (although some implementations allow more by putting a list into each bin).
+
+  When a caller wants to put an item into a hash table, they provide a key and a value.
+  The hash table applies its hash function to the key, to compute an integer, which is called a hash code of that key. Then it uses that hash code to compute a bin number, by dividing the hash code by the number of bins and taking the remainder. This key and value are then inserted as an entry in that hash bin.
+
+  If no item is yet in that hash bin, the given value is put into that bin.
+  If an item is already in that bin, then depending on the implementation of the hash table, it may:
+  * Put the item in a new bin
+  * Append the item to a list in that bin
+
+  When a caller wants to get an item from a hash table, they provide a key. This key is then used to identify a hash bin in the same was as when inserting the item. If the given key exists in the hash table, it will be found in this bin. If the capacity of the hash table is more than the number of elements in the hash table, there will be an average of less than one item per bin. Then the hash table checks the keys in the bin to see which of them match, and returns the value for that key.
+
+  If the hash function is designed well such that different objects have different values, then most bins will have approximately an average number of items. So, in a hash table that is functioning well, most lookups will quickly find a bin with approximately one item. This makes hash tables very fast for large collections.
+
+
+  - What is a hash function?
+
+What is a hash code?
+
+  A hashcode is a number that was computed by applying a hash function to an object.
+
+What is a hash function?
+
+  A hash function is a deterministic function that accepts a specific type of object and returns an arbitrary number.
+
+  A hash function must return the same hash code for two objects that are equal
+
+  A good hash function will usually return a different hash code for two objects that are not equal
+
+  A good hash function should be fast.
+
+  - What is a hash code?
