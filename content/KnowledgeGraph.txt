@@ -8,10 +8,14 @@ What is Jeff's Knowledge Graph?
 
     * A prototype/experimental collection of information
     * Originally populated with things that Jeff knows
-    * Organized to make it easy to skip to what you're interested in.
-        * This web page keeps track of
-            * What you seem to know
-            * What you seem to be interested in
+    * Organized to make it easy to skip to what you're interested in
+        * The idea is:
+            * We've written down some information
+            * For each piece of information, we've written down what you should know before reading about it
+            * This web page keeps track of what you know and what you're interested in
+            * This web page tries to use this information to make it easy to jump to what you should read next.
+                * Various topics have several types of outgoing links to other topics ranging from much simpler to much more advanced
+                * Outgoing links are color-coded based on complexity
 
 Who is Jeff?
 
