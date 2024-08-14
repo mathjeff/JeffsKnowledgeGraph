@@ -57,3 +57,35 @@ What is a computer process?
   For example, running `ls /tmp` in a terminal will create a new process running `ls` with one argument, `/tmp`.
 
   - What is a computer program?
+
+What to do about a slow command?
+
+  If a computer process is slow but not stuck, here are some things you can do about it
+
+  * Make it faster
+      * This is easier if it is your own program
+
+  * Parallelism
+      * If the computer it is running on has extra resources available, you can try to increase the parallelism: either asking the program to use more threads, or directly running more copies of the program at once
+
+  * Incrementalism
+      * If the program might not finish all of its work at once, you can try to make sure that the program supports incrementalism so that if it is resumed, it doesn't have to repeat that work
+
+  * Notifications
+      * You can set up a notification to tell you when it is done so you can know when it's done even without checking it so often
+
+  - Why is a computer process taking so long?
+
+Memory vs storage
+
+  Computer memory is very fast, but it is expensive and is reset when the computer loses power.
+
+  Computer storage (also referred to as disk) is slower and keeps its information when the computer loses power.
+
+  Computers usually have more storage than memory.
+
+  Memory is usually used for processes that are running
+
+  Storage is usually used for holding files.
+
+  - What is a computer process?
