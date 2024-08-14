@@ -42,6 +42,8 @@ Terminal up arrow
 
 Terminal history search
 
+  Here are some ways to see which commands you ran in the terminal
+
   - Terminal reverse search
   - Terminal history command
   - SessionManager

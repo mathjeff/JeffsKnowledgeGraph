@@ -2,6 +2,16 @@
 
 Why is a computer process taking so long?
 
+  - What is a computer process doing?
+
+What is a computer process doing?
+
+  - Terminal history search
+
+  - Inspecting a computer process
+
+Inspecting a computer process
+
   - Inspecting a process on Windows
 
   - Inspecting a process on Linux
