@@ -261,3 +261,23 @@ Building code
 People make mistakes
 
   So, we try to set up systems to prevent the most common and most important mistakes
+
+Preparing for mistakes
+
+  Sometimes people make mistakes, which introduce problems that prevent us from being able to do what we want to do.
+
+  In a large enough system, mistakes will happen fairly often.
+
+  * If we can automatically detect a mistake and can prevent causing a problem for anyone else, that is usually the best outcome.
+
+  * If we can't prevent a mistake but we can quickly detect a problem
+
+      * That gives us more time to handle it before it causes much trouble
+
+      * That gives us more information about what triggered the problem
+
+          * That gives us more information about how to fix it
+
+  If you're interested in a simulation of a large system with lots of opportunities for mistakes, you might be interested in [Oxygen Not Included](https://store.steampowered.com/app/457140/Oxygen_Not_Included/) or [Factorio](https://www.factorio.com/).
+
+  - People make mistakes
