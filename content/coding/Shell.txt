@@ -122,6 +122,30 @@ Which arguments can I give to a shell command?
 
   - What is a shell?
 
+  - How can I read command help?
+
+How can I read command help?
+
+  If a command help contains text between "<" and ">", this is a variable name that you should replace with your own text.
+
+  If a command help contains text between "[" and "]", this is optional.
+
+  For example:
+
+  An excerpt of the output of `git --help` is:
+
+  `git [--help] <command> [<args>]`
+
+  The `[--help]` means that it's allowed to add the argument "--help" but not required.
+
+  The `<command>` means that it's required to include some other word and that that word will be interpreted as a command.
+
+  The `[<args>]` means that you may include other text after that, and if you do, it will be interpreted as args (which is short for "arguments").
+
+  For example, if you run `git log -p`, this means `command` is "log" and `args` is "-p"
+
+  - What is a shell?
+
 Terminal tab complete
 
   When typing a filepath in the terminal, you can press `tab` to autocomplete a filename
