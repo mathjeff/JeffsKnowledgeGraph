@@ -4,7 +4,7 @@ function setupInterface() {
   analyzeGraph()
   resetFamiliarity()
 
-  goToNode(rootNode["index"], "init")
+  goToInitialNode()
   console.log("done setting up interface")
 }
 
@@ -13,6 +13,26 @@ function analyzeGraph() {
   numberNodes()
   groupNodesByName()
   findDependents()
+}
+
+var urlParameters = new URLSearchParams(window.location.search);
+
+function goToInitialNode() {
+  var startingNodeName = urlParameters.get("initialNode");
+  var startingNode = null
+  if (startingNodeName) {
+    startingNode = nodesByName[startingNodeName]
+    if (startingNode == null) {
+      console.log("cannot find node with name '" + startingNodeName + "'")
+    } else {
+      declareCuriosity(startingNodeName)
+    }
+  }
+  if (!startingNode) {
+    startingNode = rootNode
+  }
+
+  goToNode(startingNode["index"], "init")
 }
 
 function resetFamiliarity() {
