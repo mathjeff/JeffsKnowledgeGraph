@@ -244,6 +244,32 @@ Shell initialization scripts
 
   - What is a shell?
 
+Stopping a command in the terminal
+
+  If you want to stop a command in the terminal, you can either cancel it or pause it
+
+  - Cancelling a command in the terminal
+
+  - Pausing a command in the terminal
+
+Cancelling a command in the terminal
+
+  To cancel a command in the terminal, press Ctrl-C
+
+  If that doesn't work, you can try terminating the process
+
+  - Cancelling a process on Linux
+
+Pausing a command in the terminal
+
+  To pause a command in the terminal, press Ctrl-Z.
+
+  To resume a paused command, run `fg` (which stands for "foreground")
+
+  To run a paused command in the background, run `bg`
+
+  - What is a computer process?
+
 SessionManager
 
   SessionManager is a project by Jeff Gaston to make it easier to remember:
