@@ -323,6 +323,22 @@ function makeExplainSelfButton() {
   return "<button class='knowledge-button' onclick='explainSelf()'>Help</button>"
 }
 
+function getBaseUrl() {
+  var existingUrl = window.location.href
+  var newUrl = existingUrl.replace(/\?.*/, "")
+  return newUrl
+}
+
+function getPermalink(nodeName) {
+  var baseUrl = getBaseUrl()
+  var nodeEncoded = encodeURIComponent(nodeName)
+  return baseUrl + "?initialNode=" + nodeEncoded
+}
+
+function makePermalinkAnchor(nodeName) {
+  return '<a href="' + getPermalink(nodeName) + '">Permalink</a>'
+}
+
 function getMatchScore(queryText, node) {
   var score = 0
   queryText = queryText.toUpperCase()
@@ -426,11 +442,15 @@ function makeTable(columns) {
   return result
 }
 
+function getCurrentNode() {
+  return nodeHistory[nodeHistory.length - 1]
+}
+
 // updates our information about what the user knows and is interested in
 function updateUserKnowledgeData(actionType) {
   if (nodeHistory.length < 1)
     return // the user hasn't visited any nodes yet
-  currentNode = nodeHistory[nodeHistory.length - 1]
+  currentNode = getCurrentNode()
   nodeName = currentNode["name"]
   if (actionType == "curious") {
     // If the user is curious about more details, then the user is familiar with the existing information
@@ -505,6 +525,8 @@ function goToNode(nodeIndex, actionType) {
       render += statusSections[i]
     }
   }
+
+  render += makePermalinkAnchor(nodeName)
 
   document.getElementById("content").innerHTML = "<div>" + render + "</div>"
 }
