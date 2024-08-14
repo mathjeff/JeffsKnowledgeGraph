@@ -1,0 +1,263 @@
+# Information about Software Engineering
+
+What is software engineering?
+
+  Software engineering is the process of developing software at scale
+
+Software engineering tips
+
+  - What is software engineering?
+
+  - Automating
+
+  - Avoid duplicate code
+
+  - Asking for help is efficient for unfamiliar tasks
+
+  - New people take time to become efficient
+
+  - Dependencies aren't free
+
+  - Software testing
+
+Automating
+
+  - Automating can be highly efficient
+
+  - Automating efficiently
+
+Automating can be highly efficient
+
+  Automating important tasks tends to provide substantial improvements to efficiency.
+
+  If, for example, every day you can improve average efficiency by 1%, then after 365 days, efficiency will be approximately 37 times as much as when you started.
+
+  - What is automation?
+
+Automating efficiently
+
+  - What is automation?
+
+  - How can I decide what to automate?
+
+  - How can I automate a task?
+
+  - Scale
+
+What is automation?
+
+  Automation is the process of creating a system to do something on its own that would otherwise be done by a person.
+
+How can I decide what to automate?
+
+  Tasks that are valuable to automate are tasks whose net present value of their benefits are higher than their costs.
+
+  If you want to know whether to automate a particular task, you should be reasonably about the costs and benefits, along with other things you could be doing instead.
+
+  You should also incorporate potential risks of automating a task incorrectly: what's the cost of a potential bug in an automation solution?
+
+  - What is net present value?
+
+  - How do you estimate the benefit of automating?
+
+  - How do you estimate the cost of automating?
+
+What is net present value?
+
+  The net present value of something in the future is a measurement of how much value today you would trade in exchange for that thing in the future.
+
+  In economics, we can compute the current value of future money via interest rates. For example, if someone has the opportunity to invest $1 today to get $1.10 next year, it means the net present value of $1.10 is $1. Then we can divide by 1.1 to get that the net present value of $1 next year is approximately $0.91.
+
+  Similarly, $1 two years from now would be worth $1.21 so $1 next year would be worth about $0.82 . If we want to know the net present value of getting $1 every year forever, assuming a compounding rate of 1.1, this sum equals 1 + 1/1.1 + 1/1.1^2... which equals $10.
+
+  Note that the net present value of a future event is dependent on the interest rate (0.1 in the example above).
+
+How do you estimate the benefit of automating?
+
+  The benefit of automation is to not have to do a certain task manually in the future.
+
+  One simple way to estimate the cost of doing a task in the future is to assume that it will remain similar to the cost in the present. For example, if you have repeatedly spent an average of 10 minutes every day on a specific task in the past, it may be reasonable to suppose that if nothing changes, you will spend an average of 10 minutes every day on this task in the future.
+
+  As a result, if a task is a little bit inconvenient to do manually and is more effort to automate, it is often worthwhile to do the task manually several times to get an estimate of the cost of not automating it, before spending the larger effort required to automate it.
+
+  Determining the cost of repeatedly doing a task manually can be difficult if the cost is spread out among several people. This means that learning what is inconvenient for others to do makes it easier to know what to improve.
+
+  There are several ways to learn what tasks are difficult for other people, including:
+
+  * Asking people if they have any complaints
+
+  * Surveying people about specific concerns
+
+  * Modifying the tool that they use to measure any inconveniences, such as time spent
+
+  * Modifying the tool to make it easy for users to complain when they are using it
+
+  If the task is difficult, boring, and important, then in addition to saving time, automation might also improve accuracy, by being more reliable than a human.
+
+  - What is automation?
+
+  - People make mistakes
+
+How do you estimate the cost of automating?
+
+  Estimating the cost of automation is difficult. Here are some possible approaches:
+
+  *   In many cases, it's not necessary to get a precise estimate, and instead it's adequate to just determine whether one task is more difficult than another.
+
+  *   One way to estimate the difficulty of the project is to start the project and see what difficulties are found.
+
+      * If you can identify the aspects of the project that are most unknown/risky and work on them first, this allows you to more quickly improve your estimate of the difficulty of the project
+
+  *   These types of things tend to take more time:
+
+      * Modifying a large amount of code
+
+      * Working in an unfamiliar system
+
+  - What is automation?
+
+How can I automate a task?
+
+  * If you would like to teach your computer to do the task, you might be interested in reading about terminals or Python
+
+  * If you would like to improve another system somewhere else, you might be interested in reaching out to the people that work on that system and asking if they have any interest or any advice
+
+  * If you would like to automate a physical task, you might be interested in reaching out to someone more familiar with it
+
+  - Using the terminal efficiently
+
+  - Should I learn Python?
+
+  - How can I decide what to automate?
+
+Scale
+
+  The impact of doing a small improvement for many people can be comparable to doing a large improvement for a small number of people.
+
+  - What is a software dependency?
+
+What is a software dependency?
+
+  A dependency in software is the idea that one entity uses something else.
+
+  This allows the second entity to reuse what has already been provided by the first entity.
+
+  For example, in the renderer for this knowledge graph, we use Marked to help generate appropriately styled html more easily
+
+  - What is Jeff's Knowledge Graph?
+
+  - What is Marked?
+
+Dependencies aren't free
+
+  Dependencies can have security issues
+
+  Dependencies can increase the size of the final product (requiring more bytes to download and store)
+
+  Dependencies can be complicated projects, and if their maintainers aren't interested in adding a new feature, they can be more difficult to change
+
+  As a result, if a dependency only provides a small amount of value to your project, it is often worthwhile to reimplement that small amount of logic yourself.
+
+  - What is a software dependency?
+
+People are initially not familiar with a given system
+
+Familiarity with a system tends to increase
+
+  As a person works with a given system:
+
+  * they should learn about it
+
+  * they should look for opportunities to work with it more easily
+
+  This should make the person become more familiar with the system over time
+
+  - How can I decide what to automate?
+
+New people take time to become efficient
+
+  When a person starts working on a new topic/project/area, it takes time for that person to become efficient.
+
+  - People are initially not familiar with a given system
+
+  - Familiarity with a system tends to increase
+
+Asking for help
+
+  - Asking for help is efficient for unfamiliar tasks
+
+Asking for help is efficient for unfamiliar tasks
+
+  If someone else is already familiar with a system that you need to work with or modify, and if that person has capacity to help, it is probably more efficient to reach out to that person for help instead
+
+  - New people take time to become efficient
+
+Avoid duplicate code
+
+  Code duplication is the idea of having multiple pieces of code that do the same thing.
+
+  This is usually a bad thing because if you want to change the logic, you have to remember to change each copy.
+
+  If you forget to change every copy, the improvement that you were adding might not be applied to the unmodified copies.
+
+  If you are writing the same code multiple times, you usually should put the code in one place and reuse it.
+
+  If several people or projects are reusing the same code, it's often helpful to move the code into another location and then specify a dependency so you can reuse it.
+
+  - What is a software dependency?
+
+  - Dependencies aren't free
+
+Software testing
+
+  - What is unit testing?
+
+  - What is integration testing?
+
+What is unit testing?
+
+  Unit testing is a way of verifying part of a computer system. A unit test is the smallest class of test. A good unit test only does in-memory operations and doesn't need to access the filesystem or the network.
+
+  - What is a computer program?
+
+What is integration testing?
+
+  Integration tests are automated tests that interact with a running instance of a computer system to make sure it is working correctly.
+
+  Integration tests run more slowly than unit tests.
+
+  Also, integration test failures provide less detail about the location of the problem than unit test failures do.
+
+  So, integration tests should be focused on checking things that are difficult to check with a unit test.
+
+  - What is a computer program?
+
+Continuous integration
+
+  Continuous integration is the idea of having a system that verifies that software builds correctly and passes tests
+
+  This can be helpful because as software grows, the number of ways to use it can grow too, and it can be easy to forget to verify all of the combinations.
+
+  - Building code
+
+  - Software testing
+
+  - People make mistakes
+
+Reliable builds
+
+  Software builds are often invoked many times by developers, and they should be reliable. If running the build twice in a row gives two different results, that is difficult to use and difficult to debug.
+
+  - Building code
+
+Building code
+
+  Building code refers to the process of converting from the source code to the distributable artifact.
+
+  In many cases this involves running a compiler.
+
+  - What is a computer program?
+
+People make mistakes
+
+  So, we try to set up systems to prevent the most common and most important mistakes

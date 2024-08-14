@@ -1,0 +1,47 @@
+# Information about web
+
+What is Marked?
+
+  [Marked](https://github.com/markedjs/marked) is a tool that makes it easy to style html more easily
+
+  - What is html?
+
+What is html?
+
+  HTML, or hypertext markup language, is the language that describes the content of a webpage.
+
+  The behavior of a webpage is described in javascript
+
+  The style of a webpage is described in css
+
+What is javascript?
+
+  Javascript is a programming language that that can used by web pages for specifying behaviors.
+
+  Javascript file names end with ".js"
+
+  Javascript files are usually loaded by html files on the internet but can also be executed separately by other execution engines like [Node](https://nodejs.org/en)
+
+  Javascript doesn't provide a location to store information about multiple users; that requires a web server.
+
+  - What is html?
+
+What is css?
+
+  CSS, or cascading style sheets, is a format for a web page to describe its style
+
+  - What is html?
+
+What is a web server?
+
+  A web server is a system that responds to web requests.
+
+  A simple web server just hosts static files, for example html, javascript, and css files
+
+  A more complicated web server can also store information or make more requests to other systems
+
+  - What is html?
+
+  - What is javascript?
+
+  - What is css?
