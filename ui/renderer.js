@@ -10,6 +10,7 @@ function setupInterface() {
 
 function analyzeGraph() {
   makeRootNode()
+  detectTopics()
   numberNodes()
   groupNodesByName()
   findDependents()
@@ -53,6 +54,37 @@ function numberNodes() {
   }
 }
 
+function detectTopics() {
+  var topics = []
+  var topicsByName = {}
+  for (var i = 0; i < knowledgeGraph.length; i++) {
+    var topicName = knowledgeGraph[i]["topic"]
+    if (topicName) {
+      if (!(topicName in topicsByName)) {
+        var topic = {"name": topicName, "dependencies":[], "subtopics":[]}
+        topicsByName[topicName] = topic
+        topics.push(topic)
+      }
+    }
+  }
+  for (var i = 0; i < knowledgeGraph.length; i++) {
+    var node = knowledgeGraph[i]
+    if (node != rootNode) {
+      var topicName = node["topic"]
+      var topic = topicsByName[topicName]
+      topic["subtopics"].push(node["name"])
+    }
+  }
+
+  rootNode["subtopics"] = []
+
+  for (var i = 0; i < topics.length; i++) {
+    var topic = topics[i]
+    knowledgeGraph.push(topic)
+    rootNode["subtopics"].push(topic["name"])
+  }
+}
+
 function groupNodesByName() {
   nodesByName = {}
   for (i = 0; i < knowledgeGraph.length; i++) {
@@ -64,7 +96,7 @@ function groupNodesByName() {
 }
 
 function makeRootNode() {
-  rootNode = {"name":"Welcome to Jeff's Knowledge Graph", "description":"", dependencies:[]}
+  rootNode = {"name":"Welcome to Jeff's Knowledge Graph", "description":"", dependencies:[], "topic":null}
   knowledgeGraph.push(rootNode)
 }
 
@@ -86,24 +118,27 @@ function findDependents() {
         dependencyName = node.dependencies[j]
         nodeDependents[dependencyName].push(name)
       }
-    } else {
-      if (node != rootNode)
-        nodeDependents[rootNode["name"]].push(name)
     }
   }
 }
 
 function getDirectDependencyNames(nodeName) {
-  node = nodesByName[nodeName]
+  var node = nodesByName[nodeName]
   return node["dependencies"]
+}
+
+function getSubtopicNames(nodeName) {
+  var node = nodesByName[nodeName]
+  var subtopics = node["subtopics"]
+  if (!subtopics)
+    subtopics = [] // this node might not be a topic
+  return subtopics
 }
 
 // make a guess about how to help a user that is very confused
 function getSoConfusedHelpNames(nodeName) {
   // find everything that the user will need to know to learn this topic
   var allDependencies = getAllDependenciesOf(nodeName)
-  //console.log("all dependencies of " + nodeName + ": " + allDependencies.size + " nodes")
-  //console.log(allDependencies)
   var fullCount = countNumUnfamiliarDependencies(nodeName)
   var targetCount = fullCount / 2
 
@@ -116,14 +151,11 @@ function getSoConfusedHelpNames(nodeName) {
     if (count > 0 && count < targetCount) {
       var score = -Math.abs(count - targetCount)
       if (bestResult == null || score >= bestScore) {
-        //console.log("updating score from " + bestScore + " to " + score + " by updating node from " + bestResult + " to " + nodeName)
         bestResult = candidate
         bestScore = score
       }
     }
   }
-
-  //console.log("best confused help name for " + nodeName + " = " + bestResult)
 
   if (bestResult == null) {
     return []
@@ -142,8 +174,6 @@ function getAllFamiliarNodes() {
     if (familiar)
       result.add(key)
   }
-  //console.log("all familiar nodes (" + result.size + "):")
-  //console.log(result)
   return result
 }
 
@@ -165,7 +195,6 @@ function getAlreadyFamiliarHelpNames(nodeName) {
   for (var candidate of curious) {
     var count = countNumDependenciesOutsideSet(candidate, familiar)
 
-    //console.log("candidate " + candidate + " has " + count + " dependencies outside set")
     if (count < 2) {
       // Skip showing nodes that are only slightly more complicated than things we've seen before
       // We already link to slightly more complicated nodes in a separate section
@@ -242,7 +271,6 @@ function addDependenciesRecursivelyTo(newDependency, destinationSet) {
   destinationSet.add(newDependency)
   var newDependencies = getDirectDependencyNames(newDependency)
   for (var dependency of newDependencies) {
-    //console.log("adding dependency " + dependency + " of " + newDependency)
     addDependenciesRecursivelyTo(dependency, destinationSet)
   }
 }
@@ -265,7 +293,6 @@ function countNumUnfamiliarDependencies(nodeName) {
   var numUnfamiliarDependencies = 0
   for (var dependency of allDependencies) {
     var familiarity = familiarity = familiarityByName[dependency]
-    //console.log("familiarity of " + dependency + " = " + familiarity)
     if (familiarity != true) {
       numUnfamiliarDependencies++
     }
@@ -289,7 +316,6 @@ function countNumDependenciesOutsideSet(nodeName, baseSet) {
 function curiosityNeedsDependenciesOf(nodeName) {
   if (curiousDependencyNames.has(nodeName))
     return
-  //console.log("satisfying curiosity requires '" + nodeName + "'")
   curiousDependencyNames.add(nodeName)
   var dependencies = getDirectDependencyNames(nodeName)
   for (var i = 0; i < dependencies.length; i++) {
@@ -452,7 +478,7 @@ function updateUserKnowledgeData(actionType) {
     return // the user hasn't visited any nodes yet
   currentNode = getCurrentNode()
   nodeName = currentNode["name"]
-  if (actionType == "curious") {
+  if (actionType == "elaborate") {
     // If the user is curious about more details, then the user is familiar with the existing information
     declareFamiliar(nodeName)
     return
@@ -482,6 +508,7 @@ function goToNode(nodeIndex, actionType) {
   if (description == null)
     description = ""
   var dependencies = getDirectDependencyNames(nodeName)
+  var subtopics = getSubtopicNames(nodeName)
   var soConfusedHelpNames = getSoConfusedHelpNames(nodeName)
   var dependents = getDirectDependentNames(nodeName)
   var alreadyFamiliarHelpNames = getAlreadyFamiliarHelpNames(nodeName)
@@ -495,7 +522,7 @@ function goToNode(nodeIndex, actionType) {
   render += "<div id=\"search-results\"></div>"
   linksInformation = []
   if (soConfusedHelpNames.length > 0) {
-    linksInformation.push({"name":"I'm so confused.", "content":makeNodeList(soConfusedHelpNames, "confused")})
+    linksInformation.push({"name":"I'm so confused.", "content": makeNodeList(soConfusedHelpNames, "confused")})
   }
 
   if (dependencies.length > 0) {
@@ -503,13 +530,16 @@ function goToNode(nodeIndex, actionType) {
       dependenciesTitle = "Things to learn:"
     else
       dependenciesTitle = "Explain."
-    linksInformation.push({"name":dependenciesTitle, "content":makeNodeList(dependencies, "confused")})
+    linksInformation.push({"name":dependenciesTitle, "content": makeNodeList(dependencies, "confused")})
+  }
+  if (subtopics.length > 0) {
+    linksInformation.push({"name": "Subtopics", "content": makeNodeList(subtopics, "narrowScope")})
   }
   if (dependents.length > 0) {
-    linksInformation.push({"name":"That's interesting.", "content":makeNodeList(dependents, "curious")})
+    linksInformation.push({"name":"That's interesting.", "content": makeNodeList(dependents, "elaborate")})
   }
   if (alreadyFamiliarHelpNames.length > 0) {
-    linksInformation.push({"name":"I already knew this.", "content":makeNodeList(alreadyFamiliarHelpNames, "curious")})
+    linksInformation.push({"name":"I already knew this.", "content": makeNodeList(alreadyFamiliarHelpNames, "elaborate")})
   }
   render += makeTable(linksInformation)
   statusSections = []

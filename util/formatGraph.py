@@ -56,15 +56,16 @@ class KnowledgeGraph():
       json.dump(entries, file)
 
 class KnowledgeNode():
-  def __init__(self, name, description, sourceFile, dependencyNames):
+  def __init__(self, name, description, sourceFile, dependencyNames, topic):
     self.name = name
     self.description = description
     self.sourceFile = sourceFile
     self.dependencyNames = dependencyNames
+    self.topic = topic
 
 
   def toDict(self):
-    return {"name": self.name, "description": self.description, "dependencies": self.dependencyNames}
+    return {"name": self.name, "description": self.description, "dependencies": self.dependencyNames, "topic": self.topic}
 
 def findKnowledgeFiles(rootPath):
   result = []
@@ -86,7 +87,8 @@ def addKnowledgeFile(filePath, graph):
   description = None
   nodes = []
   fileName = os.path.basename(filePath)
-  categoryName = "About " + fileName.replace(".txt", "")
+  categoryName = fileName.replace(".txt", "")
+  topic = categoryName
   dependencies = []
   with open(filePath) as file:
     for line in file:
@@ -100,7 +102,7 @@ def addKnowledgeFile(filePath, graph):
         newTitle = line
         if title is not None:
           # add previous node
-          nodes.append(KnowledgeNode(title, description, filePath, dependencies))
+          nodes.append(KnowledgeNode(title, description, filePath, dependencies, topic))
           # clear existing information
           title = None
           description = None
@@ -122,22 +124,11 @@ def addKnowledgeFile(filePath, graph):
           description += "\n"
         description += content
   # also add the last node
-  nodes.append(KnowledgeNode(title, description, filePath, dependencies))
-
-  # now find the nodes that don't depend on anything in this topic
-  nodeNames = set([node.name for node in nodes])
+  nodes.append(KnowledgeNode(title, description, filePath, dependencies, topic))
 
   for node in nodes:
-    dependsOnTopic = False
-    for dependencyName in node.dependencyNames:
-      if dependencyName in nodeNames:
-        dependsOnTopic = True
-        break
-    # if this node doesn't depend on anything else in this topic, declare that it depends on the topic
-    if not dependsOnTopic:
-      node.dependencyNames.append(categoryName)
     graph.addNode(node)
-  graph.addNode(KnowledgeNode(categoryName, None, filePath, []))
+  graph.addNode(KnowledgeNode(categoryName, None, filePath, [], topic))
 
 def main():
   print("building in " + str(os.getcwd()))
