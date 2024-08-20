@@ -54,16 +54,26 @@ function numberNodes() {
   }
 }
 
+function getParentTopicName(topicName) {
+  if (topicName.indexOf("/") >= 0)
+    return topicName.replace(/\/[^/]*$/, "")
+  return rootNode["name"]
+}
+
 function detectTopics() {
-  var topics = []
+  var rootName = rootNode["name"]
   var topicsByName = {}
+  topicsByName[rootName] = rootNode
   for (var i = 0; i < knowledgeGraph.length; i++) {
     var topicName = knowledgeGraph[i]["topic"]
     if (topicName) {
       if (!(topicName in topicsByName)) {
-        var topic = {"name": topicName, "dependencies":[], "subtopics":[]}
-        topicsByName[topicName] = topic
-        topics.push(topic)
+        var parentName = getParentTopicName(topicName)
+        if (parentName != topicName) {
+          var topic = {"name": topicName, "dependencies":[], "subtopics":[], "topic": parentName}
+          topicsByName[topicName] = topic
+          knowledgeGraph.push(topic)
+        }
       }
     }
   }
@@ -74,14 +84,6 @@ function detectTopics() {
       var topic = topicsByName[topicName]
       topic["subtopics"].push(node["name"])
     }
-  }
-
-  rootNode["subtopics"] = []
-
-  for (var i = 0; i < topics.length; i++) {
-    var topic = topics[i]
-    knowledgeGraph.push(topic)
-    rootNode["subtopics"].push(topic["name"])
   }
 }
 
@@ -96,7 +98,7 @@ function groupNodesByName() {
 }
 
 function makeRootNode() {
-  rootNode = {"name":"Welcome to Jeff's Knowledge Graph", "description":"", dependencies:[], "topic":null}
+  rootNode = {"name":"Welcome to Jeff's Knowledge Graph", "description":"", dependencies:[], "topic":null, "subtopics": []}
   knowledgeGraph.push(rootNode)
 }
 
@@ -130,6 +132,7 @@ function getDirectDependencyNames(nodeName) {
 function getSubtopicNames(nodeName) {
   var node = nodesByName[nodeName]
   var subtopics = node["subtopics"]
+  //console.log("Getting subtopics of '" + nodeName + "', got " + subtopics)
   if (!subtopics)
     subtopics = [] // this node might not be a topic
   return subtopics
@@ -509,6 +512,7 @@ function goToNode(nodeIndex, actionType) {
     description = ""
   var dependencies = getDirectDependencyNames(nodeName)
   var subtopics = getSubtopicNames(nodeName)
+  //console.log("subtopics of '" + nodeName + "' = " + subtopics)
   var soConfusedHelpNames = getSoConfusedHelpNames(nodeName)
   var dependents = getDirectDependentNames(nodeName)
   var alreadyFamiliarHelpNames = getAlreadyFamiliarHelpNames(nodeName)

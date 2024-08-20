@@ -86,8 +86,7 @@ def addKnowledgeFile(filePath, graph):
   title = None
   description = None
   nodes = []
-  fileName = os.path.basename(filePath)
-  categoryName = fileName.replace(".txt", "")
+  categoryName = filePath.replace(".txt", "").replace("\\", "/").replace("content/", "")
   topic = categoryName
   dependencies = []
   with open(filePath) as file:
@@ -128,7 +127,6 @@ def addKnowledgeFile(filePath, graph):
 
   for node in nodes:
     graph.addNode(node)
-  graph.addNode(KnowledgeNode(categoryName, None, filePath, [], topic))
 
 def main():
   print("building in " + str(os.getcwd()))
