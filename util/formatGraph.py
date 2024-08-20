@@ -84,6 +84,9 @@ def parseKnowledgeFiles(files):
 def addKnowledgeFile(filePath, graph):
   title = None
   description = None
+  nodes = []
+  fileName = os.path.basename(filePath)
+  categoryName = "About " + fileName.replace(".txt", "")
   dependencies = []
   with open(filePath) as file:
     for line in file:
@@ -97,7 +100,7 @@ def addKnowledgeFile(filePath, graph):
         newTitle = line
         if title is not None:
           # add previous node
-          graph.addNode(KnowledgeNode(title, description, filePath, dependencies))
+          nodes.append(KnowledgeNode(title, description, filePath, dependencies))
           # clear existing information
           title = None
           description = None
@@ -119,7 +122,22 @@ def addKnowledgeFile(filePath, graph):
           description += "\n"
         description += content
   # also add the last node
-  graph.addNode(KnowledgeNode(title, description, filePath, dependencies))
+  nodes.append(KnowledgeNode(title, description, filePath, dependencies))
+
+  # now find the nodes that don't depend on anything in this topic
+  nodeNames = set([node.name for node in nodes])
+
+  for node in nodes:
+    dependsOnTopic = False
+    for dependencyName in node.dependencyNames:
+      if dependencyName in nodeNames:
+        dependsOnTopic = True
+        break
+    # if this node doesn't depend on anything else in this topic, declare that it depends on the topic
+    if not dependsOnTopic:
+      node.dependencyNames.append(categoryName)
+    graph.addNode(node)
+  graph.addNode(KnowledgeNode(categoryName, None, filePath, []))
 
 def main():
   print("building in " + str(os.getcwd()))
