@@ -441,8 +441,17 @@ function makeSearchBox() {
 }
 
 function makeNodeList(nodeNames, actionType) {
+  // sort at least one help-related nodes before others
+  for (var i = 0; i < nodeNames.length; i++) {
+    if (nodeNames[i].indexOf("Knowledge") >= 0) {
+      var other = nodeNames[0]
+      nodeNames[0] = nodeNames[i]
+      nodeNames[i] = other
+      break
+    }
+  }
   html = ""
-  for (i = 0; i < nodeNames.length; i++) {
+  for (var i = 0; i < nodeNames.length; i++) {
     dependency = nodeNames[i]
     html += makeGoToButton(dependency, actionType) + "<br/>"
   }
