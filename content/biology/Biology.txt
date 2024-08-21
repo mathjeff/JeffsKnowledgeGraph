@@ -37,7 +37,7 @@ What are antibiotics?
 
 How can antibiotics be helpful?
 
-  Antibiotics are useful for fighting pathogenic bacteria that have infected a human
+  Antibiotics are useful for killing pathogenic bacteria that have infected a human
 
   - What are antibiotics?
 
@@ -61,7 +61,7 @@ What is a bacteria?
 
 What is a bacteriophage?
 
-  A bacteriophage is a type of virus that infects bacteria
+  A bacteriophage is a type of virus that infects bacteria and archaea
 
   - What is a virus?
 
