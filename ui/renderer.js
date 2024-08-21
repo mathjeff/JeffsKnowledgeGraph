@@ -464,16 +464,49 @@ function makeSearchBox(nodeName) {
   return labelHtml + inputHtml
 }
 
-function makeNodeList(nodeNames, actionType) {
-  // sort at least one help-related nodes before others
-  for (var i = 0; i < nodeNames.length; i++) {
-    if (nodeNames[i].indexOf("Knowledge") >= 0) {
-      var other = nodeNames[0]
-      nodeNames[0] = nodeNames[i]
-      nodeNames[i] = other
-      break
-    }
+function compareNodePriorities(nodeName1, nodeName2) {
+
+  // help-related nodes are more important
+  var knowledge1 = nodeName1.indexOf("Knowledge") >= 0
+  var knowledge2 = nodeName2.indexOf("Knowledge") >= 0
+  if (knowledge1 != knowledge2) {
+    if (knowledge1)
+      return -1
+    return 1
   }
+
+  // nodes that the user has expressed interest in are more important
+  var curious1 = nodeName1 in curiousDependencyNames
+  var curious2 = nodeName2 in curiousDependencyNames
+  if (curious1 != curious2) {
+    if (curious1)
+      return -1
+    return 1
+  }
+
+  // nodes that the user are slightly unfamiliar with are ideal
+  var numUnfamiliarDependencies1 = countNumUnfamiliarDependencies(nodeName1)
+  if (numUnfamiliarDependencies1 <= 0)
+    numUnfamiliarDependencies1 = 1000000
+  var numUnfamiliarDependencies2 = countNumUnfamiliarDependencies(nodeName2)
+  if (numUnfamiliarDependencies2 <= 0)
+    numUnfamiliarDependencies2 = 1000000
+  if (numUnfamiliarDependencies1 != numUnfamiliarDependencies2) {
+    if (numUnfamiliarDependencies1 < numUnfamiliarDependencies2)
+      return -1
+    return 1
+  }
+
+  return 0
+}
+
+function orderNodeNames(nodeNames) {
+  nodeNames.sort(compareNodePriorities)
+  return nodeNames
+}
+
+function makeNodeList(nodeNames, actionType) {
+  nodeNames = orderNodeNames(nodeNames)
   html = ""
   for (var i = 0; i < nodeNames.length; i++) {
     dependency = nodeNames[i]
