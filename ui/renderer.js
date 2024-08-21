@@ -549,10 +549,10 @@ function goToNode(nodeIndex, actionType) {
     linksInformation.push({"name": "Subtopics", "content": makeNodeList(subtopics, "narrowScope")})
   }
   if (dependents.length > 0) {
-    linksInformation.push({"name":"That's interesting.", "content": makeNodeList(dependents, "elaborate")})
+    linksInformation.push({"name":"Tell me more!", "content": makeNodeList(dependents, "elaborate")})
   }
   if (alreadyFamiliarHelpNames.length > 0) {
-    linksInformation.push({"name":"I already knew this.", "content": makeNodeList(alreadyFamiliarHelpNames, "elaborate")})
+    linksInformation.push({"name":"I already knew the above.", "content": makeNodeList(alreadyFamiliarHelpNames, "elaborate")})
   }
   render += makeTable(linksInformation)
   statusSections = []
