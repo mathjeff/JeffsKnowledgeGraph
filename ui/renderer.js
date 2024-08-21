@@ -129,13 +129,34 @@ function getDirectDependencyNames(nodeName) {
   return node["dependencies"]
 }
 
-function getSubtopicNames(nodeName) {
+function getDirectSubtopicNames(nodeName) {
   var node = nodesByName[nodeName]
   var subtopics = node["subtopics"]
   //console.log("Getting subtopics of '" + nodeName + "', got " + subtopics)
   if (!subtopics)
     subtopics = [] // this node might not be a topic
   return subtopics
+}
+
+function getAllSubtopicNames(nodeName) {
+  var resultList = []
+  var resultSet = new Set()
+  resultList.push(nodeName)
+  resultSet.add(nodeName)
+  for (var i = 0; i < resultList.length; i++) {
+    var topic = resultList[i]
+    var children = getDirectSubtopicNames(topic)
+    for (var j = 0; j < children.length; j++) {
+      var child = children[j]
+      if (!(child in resultSet)) {
+        resultList.push(child)
+        resultSet.add(child)
+      }
+    }
+  }
+  // remove the first item
+  resultList.splice(0, 1)
+  return resultList
 }
 
 // make a guess about how to help a user that is very confused
@@ -383,12 +404,13 @@ function getMatchScore(queryText, node) {
   return score
 }
 
-function findQueryResults(queryText) {
+function findQueryResults(queryText, currentNodeName) {
+  var subtopics = getAllSubtopicNames(currentNodeName)
   // find the best few matches
   matches = []
   targetNumMatches = 5
-  for (i = 0; i < knowledgeGraph.length; i++) {
-    node = knowledgeGraph[i]
+  for (i = 0; i < subtopics.length; i++) {
+    var node = getNodeByName(subtopics[i])
     var score = getMatchScore(queryText, node)
     if (score > 0) {
       insertIndex = matches.length
@@ -417,7 +439,8 @@ function findQueryResults(queryText) {
 }
 
 function runQuery(queryText) {
-  queryResults = findQueryResults(queryText)
+  var currentNode = getCurrentNode()
+  var queryResults = findQueryResults(queryText, currentNode["name"])
   if (queryResults.length > 0) {
     html = makeNodeList(queryResults, "searchResult")
   } else {
@@ -434,8 +457,9 @@ function queryBoxKeyPress(event) {
   }
 }
 
-function makeSearchBox() {
-  labelHtml = "<div>Search " + knowledgeGraph.length + " entries:</div>"
+function makeSearchBox(nodeName) {
+  var allSubtopics = getAllSubtopicNames(nodeName)
+  labelHtml = "<div>Search " + allSubtopics.length + " entries:</div>"
   inputHtml = '<input type="text" id="query" onkeypress="queryBoxKeyPress(event)">'
   return labelHtml + inputHtml
 }
@@ -520,7 +544,7 @@ function goToNode(nodeIndex, actionType) {
   if (description == null)
     description = ""
   var dependencies = getDirectDependencyNames(nodeName)
-  var subtopics = getSubtopicNames(nodeName)
+  var subtopics = getDirectSubtopicNames(nodeName)
   //console.log("subtopics of '" + nodeName + "' = " + subtopics)
   var soConfusedHelpNames = getSoConfusedHelpNames(nodeName)
   var dependents = getDirectDependentNames(nodeName)
@@ -529,8 +553,8 @@ function goToNode(nodeIndex, actionType) {
   render += makeHomeButton() + makeBackButton() + makeExplainSelfButton()
   render += "<h1>" + name + "</h1>"
   render += "<div>" + formatDescription(description) + "</div>"
-  if (node == rootNode)
-    render += makeSearchBox()
+  if (subtopics.length > 0)
+    render += makeSearchBox(nodeName)
 
   render += "<div id=\"search-results\"></div>"
   linksInformation = []
