@@ -6,8 +6,12 @@ body {
   background-color: lightgrey;
 }
 
-.button-narrowScope {
+.button-narrowTopic {
   background-color: #33cc33
+}
+
+.button-broadenTopic {
+  background-color: #b366ff;
 }
 
 .button-confused {

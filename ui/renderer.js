@@ -545,6 +545,10 @@ function goToNode(nodeIndex, actionType) {
     description = ""
   var dependencies = getDirectDependencyNames(nodeName)
   var subtopics = getDirectSubtopicNames(nodeName)
+  var topicName = node["topic"]
+  var containingTopics = []
+  if (topicName)
+    containingTopics.push(topicName)
   //console.log("subtopics of '" + nodeName + "' = " + subtopics)
   var soConfusedHelpNames = getSoConfusedHelpNames(nodeName)
   var dependents = getDirectDependentNames(nodeName)
@@ -569,8 +573,11 @@ function goToNode(nodeIndex, actionType) {
       dependenciesTitle = "Explain."
     linksInformation.push({"name":dependenciesTitle, "content": makeNodeList(dependencies, "confused")})
   }
+  if (containingTopics.length > 0) {
+    linksInformation.push({"name":"Change topic", "content": makeNodeList(containingTopics, "broadenTopic")})
+  }
   if (subtopics.length > 0) {
-    linksInformation.push({"name": "Subtopics", "content": makeNodeList(subtopics, "narrowScope")})
+    linksInformation.push({"name": "Interested in:", "content": makeNodeList(subtopics, "narrowTopic")})
   }
   if (dependents.length > 0) {
     linksInformation.push({"name":"Tell me more!", "content": makeNodeList(dependents, "elaborate")})
