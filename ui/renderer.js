@@ -616,7 +616,10 @@ function goToNode(nodeIndex, actionType) {
     linksInformation.push({"name":"Tell me more!", "content": makeNodeList(dependents, "elaborate")})
   }
   if (alreadyFamiliarHelpNames.length > 0) {
-    linksInformation.push({"name":"I already knew the above.", "content": makeNodeList(alreadyFamiliarHelpNames, "elaborate")})
+    // Give the user a chance to say that they already knew this, unless this is a topic
+    if (subtopics.length <= 0) {
+      linksInformation.push({"name":"I already knew the above.", "content": makeNodeList(alreadyFamiliarHelpNames, "elaborate")})
+    }
   }
   render += makeTable(linksInformation)
   statusSections = []
