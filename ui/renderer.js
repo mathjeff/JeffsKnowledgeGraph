@@ -465,7 +465,6 @@ function makeSearchBox(nodeName) {
 }
 
 function compareNodePriorities(nodeName1, nodeName2) {
-
   // help-related nodes are more important
   var knowledge1 = nodeName1.indexOf("Knowledge") >= 0
   var knowledge2 = nodeName2.indexOf("Knowledge") >= 0
@@ -487,9 +486,14 @@ function compareNodePriorities(nodeName1, nodeName2) {
   // nodes that the user are slightly unfamiliar with are ideal
   var numUnfamiliarDependencies1 = countNumUnfamiliarDependencies(nodeName1)
   if (numUnfamiliarDependencies1 <= 0)
+    numUnfamiliarDependencies1 = 2000000
+  // a node that has subtopics is worse than something new but better than something old
+  if (getDirectSubtopicNames(nodeName1).length > 0)
     numUnfamiliarDependencies1 = 1000000
   var numUnfamiliarDependencies2 = countNumUnfamiliarDependencies(nodeName2)
   if (numUnfamiliarDependencies2 <= 0)
+    numUnfamiliarDependencies2 = 2000000
+  if (getDirectSubtopicNames(nodeName2).length > 0)
     numUnfamiliarDependencies2 = 1000000
   if (numUnfamiliarDependencies1 != numUnfamiliarDependencies2) {
     if (numUnfamiliarDependencies1 < numUnfamiliarDependencies2)
@@ -607,13 +611,14 @@ function goToNode(nodeIndex, actionType) {
     linksInformation.push({"name":dependenciesTitle, "content": makeNodeList(dependencies, "confused")})
   }
   if (containingTopics.length > 0) {
-    linksInformation.push({"name":"Tell me something else.", "content": makeNodeList(containingTopics, "broadenTopic")})
+    linksInformation.push({"name":"Not interested.", "content": makeNodeList(containingTopics, "broadenTopic")})
   }
   if (subtopics.length > 0) {
     linksInformation.push({"name": "Tell me about:", "content": makeNodeList(subtopics, "narrowTopic")})
   }
   if (dependents.length > 0) {
-    linksInformation.push({"name":"Tell me more!", "content": makeNodeList(dependents, "elaborate")})
+    var more = dependents.concat(containingTopics)
+    linksInformation.push({"name":"Tell me more!", "content": makeNodeList(more, "elaborate")})
   }
   if (alreadyFamiliarHelpNames.length > 0) {
     // Give the user a chance to say that they already knew this, unless this is a topic
