@@ -603,14 +603,14 @@ function goToNode(nodeIndex, actionType) {
     if (description == "")
       dependenciesTitle = "Things to learn:"
     else
-      dependenciesTitle = "Explain."
+      dependenciesTitle = "What?"
     linksInformation.push({"name":dependenciesTitle, "content": makeNodeList(dependencies, "confused")})
   }
   if (containingTopics.length > 0) {
-    linksInformation.push({"name":"Change topic", "content": makeNodeList(containingTopics, "broadenTopic")})
+    linksInformation.push({"name":"Tell me something else.", "content": makeNodeList(containingTopics, "broadenTopic")})
   }
   if (subtopics.length > 0) {
-    linksInformation.push({"name": "Interested in:", "content": makeNodeList(subtopics, "narrowTopic")})
+    linksInformation.push({"name": "Tell me about:", "content": makeNodeList(subtopics, "narrowTopic")})
   }
   if (dependents.length > 0) {
     linksInformation.push({"name":"Tell me more!", "content": makeNodeList(dependents, "elaborate")})
