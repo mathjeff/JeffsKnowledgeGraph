@@ -20,6 +20,8 @@ Software engineering tips
 
   - Software testing
 
+  - Backwards compatibility
+
 Automating
 
   - Automating can be highly efficient
@@ -281,3 +283,15 @@ Preparing for mistakes
   If you're interested in a simulation of a large system with lots of opportunities for mistakes, you might be interested in [Oxygen Not Included](https://store.steampowered.com/app/457140/Oxygen_Not_Included/) or [Factorio](https://www.factorio.com/).
 
   - People make mistakes
+
+Backwards compatibility
+
+  Backwards compatibility is the idea of a new version of software being able to process the same inputs as its previous version
+
+Why backwards compatibility?
+
+  Backwards compatibility is nice because it means that users of the old version of the software can upgrade to the new version without having to make changes
+
+  Backwards compatibility is more important for software that has lots of users
+
+  - Backwards compatibility
