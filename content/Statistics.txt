@@ -1,0 +1,55 @@
+#! Information about statistics
+
+P-hacking
+
+  P-hacking is a certain type of mistake in estimating the probability that a certain pattern in the data may have happened by chance. It entails doing this:
+
+  1. Look for several different possible patterns that might occur in a dataset
+  1. For each pattern, independently compute the probability that it may have occurred by chance
+  1. Select the pattern that was least likely to have happened by chance
+  1. Report that the probability of this pattern having happened by chance was exactly the number you just computed
+
+  This is a mistake because if you compute lots of independent random probabilities, it is likely that one will be small just because there are many of them.
+
+  An example of p-hacking can be found in [this xkcd comic](https://xkcd.com/882/).
+
+  To avoid p-hacking, a person can correct for this by taking into account [FDR](https://en.wikipedia.org/wiki/False_discovery_rate).
+
+  - What is a p-value?
+
+What is a p-value?
+
+  A p-value represents the probability that a specific property of a specific dataset could have been produced by chance.
+
+  A p-value is produced by a statistical test.
+
+Cross validation
+
+  Cross validation is a way of estimating the error rate of a mathematical model
+
+  Suppose you have a model that can be trained on any number of datapoints
+
+  Suppose you have N datapoints available
+
+  Suppose you want to estimate the error rate of this model outside of your N datapoints.
+
+  Cross validation entails doing this:
+
+  1. Split the N datapoints into a training group and a testing group. For example, you can use N-1 datapoints for training and 1 datapoint for testing.
+  1. Train the model on the training datapoints
+  1. Compute the error rate on the test datapoints
+  1. Split the datapoints in a different way and repeat until every datapoint has been part of exactly one testing group.
+  1. Compute the average error rate of each of the above results and use that as an estimate of the overall error rate of the model
+
+  Is this estimate correct?
+   * We assume that the error rate of training a model with more datapoints won't be more than the error rate of training a model with fewer datapoints.
+       * This suggests that the error rate of a model trained on all datapoints is no more than the error rate of many of the individual models trained on fewer datapoints
+   * Every one of these individual error estimates should be an unbiased estimate of the error rate of its particular model, because its training an testing set are independent
+   * These individual estimates aren't necessarily independent from each other, though
+       * So, the standard deviation of the resulting estimate isn't necessarily low: the true error rate can still be substantially different from the estimated error rate.
+
+  Why would we do this?
+   * Obtaining datapoints can be difficult
+   * Training a model may require many datapoints
+   * Testing a model may require many datapoints
+   * Cross-validation can prevent us from having to acquire so many datapoints
