@@ -256,6 +256,15 @@ function declareFamiliar(nodeName) {
 
   console.log("familiar with " + nodeName)
 
+  var subtopics = getDirectSubtopicNames(nodeName)
+  if (subtopics.length > 0) {
+    // declaring familiarity with a topic really means declaring familiarity with everything in it
+    for (var i = 0; i < subtopics.length; i++) {
+      declareFamiliar(subtopics[i])
+    }
+    return
+  }
+
   familiarityByName[nodeName] = true
   var dependencies = getDirectDependencyNames(nodeName)
   for (var i = 0; i < dependencies.length; i++) {
@@ -616,9 +625,9 @@ function goToNode(nodeIndex, actionType) {
   if (subtopics.length > 0) {
     linksInformation.push({"name": "Tell me about:", "content": makeNodeList(subtopics, "narrowTopic")})
   }
-  if (dependents.length > 0) {
-    var more = dependents.concat(containingTopics)
-    linksInformation.push({"name":"Tell me more!", "content": makeNodeList(more, "elaborate")})
+  var seeMoreNodes = dependents.concat(containingTopics)
+  if (seeMoreNodes.length > 0) {
+    linksInformation.push({"name":"Tell me more!", "content": makeNodeList(seeMoreNodes, "elaborate")})
   }
   if (alreadyFamiliarHelpNames.length > 0) {
     // Give the user a chance to say that they already knew this, unless this is a topic
