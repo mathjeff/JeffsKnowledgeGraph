@@ -474,15 +474,6 @@ function makeSearchBox(nodeName) {
 }
 
 function compareNodePriorities(nodeName1, nodeName2) {
-  // help-related nodes are more important
-  var knowledge1 = nodeName1.indexOf("Knowledge") >= 0
-  var knowledge2 = nodeName2.indexOf("Knowledge") >= 0
-  if (knowledge1 != knowledge2) {
-    if (knowledge1)
-      return -1
-    return 1
-  }
-
   // nodes that the user has expressed interest in are more important
   var curious1 = nodeName1 in curiousDependencyNames
   var curious2 = nodeName2 in curiousDependencyNames
@@ -506,6 +497,15 @@ function compareNodePriorities(nodeName1, nodeName2) {
     numUnfamiliarDependencies2 = 1000000
   if (numUnfamiliarDependencies1 != numUnfamiliarDependencies2) {
     if (numUnfamiliarDependencies1 < numUnfamiliarDependencies2)
+      return -1
+    return 1
+  }
+
+  // help-related nodes are more important
+  var knowledge1 = nodeName1.indexOf("Knowledge") >= 0
+  var knowledge2 = nodeName2.indexOf("Knowledge") >= 0
+  if (knowledge1 != knowledge2) {
+    if (knowledge1)
       return -1
     return 1
   }
