@@ -363,11 +363,14 @@ function getNodeByName(name) {
 }
 
 function makeGoToButton(nodeName, actionType) {
-  node = nodesByName[nodeName]
-  nodeIndex = node["index"]
-  goText = "goToNode(" + nodeIndex + ", \"" + actionType + "\")"
-  actionClass = "button-" + actionType
-  return "<button class='knowledge-button " + actionClass + "' onclick='" + goText + "'>" + nodeName + "</button>"
+  var node = nodesByName[nodeName]
+  var nodeIndex = node["index"]
+  var goText = "goToNode(" + nodeIndex + ", \"" + actionType + "\")"
+  var actionClass = "button-" + actionType
+  var buttonText = nodeName
+  if (buttonText == rootNode["name"])
+    buttonText = "Welcome" // This is shorter
+  return "<button class='knowledge-button " + actionClass + "' onclick='" + goText + "'>" + buttonText + "</button>"
 }
 
 function makeHomeButton() {
