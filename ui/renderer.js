@@ -46,6 +46,8 @@ function resetFamiliarity() {
   latestFamiliarity = null
   // names of nodes that the user is probably already familiar with
   familiarityByName = {}
+  // names of nodes that the user has already visited
+  visitedNodes = new Set()
 }
 
 function numberNodes() {
@@ -477,6 +479,15 @@ function makeSearchBox(nodeName) {
 }
 
 function compareNodePriorities(nodeName1, nodeName2) {
+  // nodes that the user hasn't already seen are more interesting
+  var visited1 = (visitedNodes.has(nodeName1))
+  var visited2 = (visitedNodes.has(nodeName2))
+  if (visited1 != visited2) {
+    if (visited1)
+      return 1
+    return -1
+  }
+
   // nodes that the user has expressed interest in are more important
   var curious1 = nodeName1 in curiousDependencyNames
   var curious2 = nodeName2 in curiousDependencyNames
@@ -588,6 +599,7 @@ function goToNode(nodeIndex, actionType) {
   var nodeName = node["name"]
   console.log("goToNode '" + nodeName + "' actionType = " + actionType)
   nodeHistory.push(node)
+  visitedNodes.add(nodeName)
   var name = node["name"]
   var description = node["description"]
   if (description == null)
