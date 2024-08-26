@@ -83,6 +83,7 @@ Learning Python
   - Should I learn Python?
   - Python editors
   - Python variables
+  - Python if
   - Python functions
   - Python scope
   - Python classes
@@ -103,10 +104,10 @@ Python variables
 
   For example:
 
-  ``
+  ```
     a=5
     print(a)
-  ``
+  ```
 
   displays the value `5`
 
@@ -172,7 +173,7 @@ Python scope
 
   For example:
 
-  ``
+  ```
   def repeatString(text, count):
     if count <= 1:
       return text
