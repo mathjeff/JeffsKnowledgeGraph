@@ -2,21 +2,21 @@
 
 Why is a computer process taking so long?
 
-  - What is a computer process doing?
+ - What is a computer process doing?
 
 What is a computer process doing?
 
-  - Terminal history search
+ - Terminal history search
 
-  - Inspecting a computer process
+ - Inspecting a computer process
 
 Inspecting a computer process
 
-  - Inspecting a process on Windows
+ - Inspecting a process on Windows
 
-  - Inspecting a process on Linux
+ - Inspecting a process on Linux
 
-  - Cancelling a process on Linux
+ - Cancelling a process on Linux
 
 Inspecting a process on Linux
 
@@ -26,7 +26,7 @@ Inspecting a process on Linux
 
   To view a list of all programs, you can run `ps -ef`
 
-  - What is a computer process?
+ - What is a computer process?
 
 Cancelling a process on Linux
 
@@ -40,13 +40,13 @@ Cancelling a process on Linux
 
     If that doesn't work and you are sure that you want to terminate the process right away, you can do `kill 9 <processId>` to terminate the process
 
-  - What is a computer process?
+ - What is a computer process?
 
 Inspecting a process on Windows
 
   You can press Ctrl-Alt-Delete to open the Task Manager which lists which programs are running and how much memory and cpu they are using
 
-  - What is a computer process?
+ - What is a computer process?
 
 What is a computer process?
 
@@ -56,7 +56,7 @@ What is a computer process?
 
   For example, running `ls /tmp` in a terminal will create a new process running `ls` with one argument, `/tmp`.
 
-  - What is a computer program?
+ - What is a computer program?
 
 What to do about a slow command?
 
@@ -74,7 +74,7 @@ What to do about a slow command?
   * Notifications
       * You can set up a notification to tell you when it is done so you can know when it's done even without checking it so often
 
-  - Why is a computer process taking so long?
+ - Why is a computer process taking so long?
 
 Memory vs storage
 
@@ -88,4 +88,4 @@ Memory vs storage
 
   Storage is usually used for holding files.
 
-  - What is a computer process?
+ - What is a computer process?

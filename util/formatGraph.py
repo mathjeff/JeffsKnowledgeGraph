@@ -95,6 +95,11 @@ def addKnowledgeFile(filePath, graph):
       if line.startswith("#"):
         # Comment - ignore
         continue
+      dependencyPrefix = " - "
+      if line.startswith(dependencyPrefix):
+        dependency = line[len(dependencyPrefix):]
+        dependencies.append(dependency)
+        continue
       childPrefix = "  "
       if not line.startswith(childPrefix) and len(line) > 0:
         # Title
@@ -110,11 +115,6 @@ def addKnowledgeFile(filePath, graph):
         title = newTitle
         continue
       content = line[len(childPrefix):]
-      dependencyPrefix = "- "
-      if content.startswith(dependencyPrefix):
-        dependency = content[len(dependencyPrefix):]
-        dependencies.append(dependency)
-        continue
       # Description
       if len(content) > 0 or description is not None:
         if description is None:

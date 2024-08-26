@@ -4,9 +4,9 @@ What is phage therapy?
 
   Phage therapy is the idea of using a bacteriophage to help a human to fight bacteria
 
-  - What is a bacteriophage?
+ - What is a bacteriophage?
 
-  - What is a bacteria?
+ - What is a bacteria?
 
 How can phage therapy be helpful?
 
@@ -14,11 +14,11 @@ How can phage therapy be helpful?
 
   Phage therapy can also avoid harming non-pathogenic bacteria
 
-  - What is phage therapy?
+ - What is phage therapy?
 
-  - What is antibiotic resistance?
+ - What is antibiotic resistance?
 
-  - How can non-pathogenic bacteria be good?
+ - How can non-pathogenic bacteria be good?
 
 How can non-pathogenic bacteria be good?
 
@@ -26,22 +26,22 @@ How can non-pathogenic bacteria be good?
 
   Non-pathogenic bacteria in the gut can help with digestion
 
-  - What is a bacteria?
+ - What is a bacteria?
 
 
 What are antibiotics?
 
   Antibiotics are molecules that are more dangerous to many bacteria than they are dangerous to humans (bleach isn't considered an antibiotic because it's also dangerous to human cells).
 
-  - What is a bacteria?
+ - What is a bacteria?
 
 How can antibiotics be helpful?
 
   Antibiotics are useful for killing pathogenic bacteria that have infected a human
 
-  - What are antibiotics?
+ - What are antibiotics?
 
-  - What is a pathogen?
+ - What is a pathogen?
 
 What is a pathogen?
 
@@ -51,9 +51,9 @@ What is antibiotic resistance?
 
   Antibiotic resistance is the property where a bacteria resists an antibiotic
 
-  - What are antibiotics?
+ - What are antibiotics?
 
-  - What is a bacteria?
+ - What is a bacteria?
 
 What is a bacteria?
 
@@ -63,9 +63,9 @@ What is a bacteriophage?
 
   A bacteriophage is a type of virus that infects bacteria and archaea
 
-  - What is a virus?
+ - What is a virus?
 
-  - What is a bacteria?
+ - What is a bacteria?
 
 What is a virus?
 

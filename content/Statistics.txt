@@ -15,7 +15,7 @@ P-hacking
 
   To avoid p-hacking, a person can correct for this by taking into account [FDR](https://en.wikipedia.org/wiki/False_discovery_rate).
 
-  - What is a p-value?
+ - What is a p-value?
 
 What is a p-value?
 

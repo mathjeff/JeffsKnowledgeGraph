@@ -30,15 +30,15 @@ Who is Jeff?
 
   You can find his Github at https://github.com/mathjeff
 
-  - What is Jeff's Knowledge Graph?
+ - What is Jeff's Knowledge Graph?
 
 Can I contribute to Jeff's Knowledge Graph?
 
   Jeff's Knowledge Graph is stored in GitHub at https://github.com/mathjeff/JeffsKnowledgeGraph
 
-  - How do I modify a repository in GitHub?
+ - How do I modify a repository in GitHub?
 
-  - What is Jeff's Knowledge Graph?
+ - What is Jeff's Knowledge Graph?
 
 How do I modify a repository in GitHub?
 

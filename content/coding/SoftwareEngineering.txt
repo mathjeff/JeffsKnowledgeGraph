@@ -6,27 +6,27 @@ What is software engineering?
 
 Software engineering tips
 
-  - What is software engineering?
+ - What is software engineering?
 
-  - Automating
+ - Automating
 
-  - Avoid duplicate code
+ - Avoid duplicate code
 
-  - Asking for help is efficient for unfamiliar tasks
+ - Asking for help is efficient for unfamiliar tasks
 
-  - New people take time to become efficient
+ - New people take time to become efficient
 
-  - Dependencies aren't free
+ - Dependencies aren't free
 
-  - Software testing
+ - Software testing
 
-  - Backwards compatibility
+ - Backwards compatibility
 
 Automating
 
-  - Automating can be highly efficient
+ - Automating can be highly efficient
 
-  - Automating efficiently
+ - Automating efficiently
 
 Automating can be highly efficient
 
@@ -34,17 +34,17 @@ Automating can be highly efficient
 
   If, for example, every day you can improve average efficiency by 1%, then after 365 days, efficiency will be approximately 37 times as much as when you started.
 
-  - What is automation?
+ - What is automation?
 
 Automating efficiently
 
-  - What is automation?
+ - What is automation?
 
-  - How can I decide what to automate?
+ - How can I decide what to automate?
 
-  - How can I automate a task?
+ - How can I automate a task?
 
-  - Scale
+ - Scale
 
 What is automation?
 
@@ -58,11 +58,11 @@ How can I decide what to automate?
 
   You should also incorporate potential risks of automating a task incorrectly: what's the cost of a potential bug in an automation solution?
 
-  - What is net present value?
+ - What is net present value?
 
-  - How do you estimate the benefit of automating?
+ - How do you estimate the benefit of automating?
 
-  - How do you estimate the cost of automating?
+ - How do you estimate the cost of automating?
 
 What is net present value?
 
@@ -96,9 +96,9 @@ How do you estimate the benefit of automating?
 
   If the task is difficult, boring, and important, then in addition to saving time, automation might also improve accuracy, by being more reliable than a human.
 
-  - What is automation?
+ - What is automation?
 
-  - People make mistakes
+ - People make mistakes
 
 How do you estimate the cost of automating?
 
@@ -116,7 +116,7 @@ How do you estimate the cost of automating?
 
       * Working in an unfamiliar system
 
-  - What is automation?
+ - What is automation?
 
 How can I automate a task?
 
@@ -126,17 +126,17 @@ How can I automate a task?
 
   * If you would like to automate a physical task, you might be interested in reaching out to someone more familiar with it
 
-  - Using the terminal efficiently
+ - Using the terminal efficiently
 
-  - Should I learn Python?
+ - Should I learn Python?
 
-  - How can I decide what to automate?
+ - How can I decide what to automate?
 
 Scale
 
   The impact of doing a small improvement for many people can be comparable to doing a large improvement for a small number of people.
 
-  - What is a software dependency?
+ - What is a software dependency?
 
 What is a software dependency?
 
@@ -146,9 +146,9 @@ What is a software dependency?
 
   For example, in the renderer for this knowledge graph, we use Marked to help generate appropriately styled html more easily
 
-  - What is Jeff's Knowledge Graph?
+ - What is Jeff's Knowledge Graph?
 
-  - What is Marked?
+ - What is Marked?
 
 Dependencies aren't free
 
@@ -160,7 +160,7 @@ Dependencies aren't free
 
   As a result, if a dependency only provides a small amount of value to your project, it is often worthwhile to reimplement that small amount of logic yourself.
 
-  - What is a software dependency?
+ - What is a software dependency?
 
 People are initially not familiar with a given system
 
@@ -174,25 +174,25 @@ Familiarity with a system tends to increase
 
   This should make the person become more familiar with the system over time
 
-  - How can I decide what to automate?
+ - How can I decide what to automate?
 
 New people take time to become efficient
 
   When a person starts working on a new topic/project/area, it takes time for that person to become efficient.
 
-  - People are initially not familiar with a given system
+ - People are initially not familiar with a given system
 
-  - Familiarity with a system tends to increase
+ - Familiarity with a system tends to increase
 
 Asking for help
 
-  - Asking for help is efficient for unfamiliar tasks
+ - Asking for help is efficient for unfamiliar tasks
 
 Asking for help is efficient for unfamiliar tasks
 
   If someone else is already familiar with a system that you need to work with or modify, and if that person has capacity to help, it is probably more efficient to reach out to that person for help instead
 
-  - New people take time to become efficient
+ - New people take time to become efficient
 
 Avoid duplicate code
 
@@ -206,21 +206,21 @@ Avoid duplicate code
 
   If several people or projects are reusing the same code, it's often helpful to move the code into another location and then specify a dependency so you can reuse it.
 
-  - What is a software dependency?
+ - What is a software dependency?
 
-  - Dependencies aren't free
+ - Dependencies aren't free
 
 Software testing
 
-  - What is unit testing?
+ - What is unit testing?
 
-  - What is integration testing?
+ - What is integration testing?
 
 What is unit testing?
 
   Unit testing is a way of verifying part of a computer system. A unit test is the smallest class of test. A good unit test only does in-memory operations and doesn't need to access the filesystem or the network.
 
-  - What is a computer program?
+ - What is a computer program?
 
 What is integration testing?
 
@@ -232,7 +232,7 @@ What is integration testing?
 
   So, integration tests should be focused on checking things that are difficult to check with a unit test.
 
-  - What is a computer program?
+ - What is a computer program?
 
 Continuous integration
 
@@ -240,17 +240,17 @@ Continuous integration
 
   This can be helpful because as software grows, the number of ways to use it can grow too, and it can be easy to forget to verify all of the combinations.
 
-  - Building code
+ - Building code
 
-  - Software testing
+ - Software testing
 
-  - People make mistakes
+ - People make mistakes
 
 Reliable builds
 
   Software builds are often invoked many times by developers, and they should be reliable. If running the build twice in a row gives two different results, that is difficult to use and difficult to debug.
 
-  - Building code
+ - Building code
 
 Building code
 
@@ -258,7 +258,7 @@ Building code
 
   In many cases this involves running a compiler.
 
-  - What is a computer program?
+ - What is a computer program?
 
 People make mistakes
 
@@ -282,7 +282,7 @@ Preparing for mistakes
 
   If you're interested in a simulation of a large system with lots of opportunities for mistakes, you might be interested in [Oxygen Not Included](https://store.steampowered.com/app/457140/Oxygen_Not_Included/) or [Factorio](https://www.factorio.com/).
 
-  - People make mistakes
+ - People make mistakes
 
 Backwards compatibility
 
@@ -294,4 +294,4 @@ Why backwards compatibility?
 
   Backwards compatibility is more important for software that has lots of users
 
-  - Backwards compatibility
+ - Backwards compatibility

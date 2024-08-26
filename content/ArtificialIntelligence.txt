@@ -12,7 +12,7 @@ AI uses patterns
 
   For example, if we flip a fair, random coin N times, we will get a sequence of N results. Then the result of the next flip has a 1/2 chance of being heads and a 1/2 chance of being tails. If we ask an AI to use that information to predict the next result, then whether the AI predicts heads or tails, that result will have a 1/2 chance of being incorrect.
 
-  - What is AI?
+ - What is AI?
 
 We want AI models to be generalizable
 
@@ -22,7 +22,7 @@ We want AI models to be generalizable
 
   In the cases where someone wants a tool that memorizes the answers, they don't usually train an AI for that task.
 
-  - What is AI?
+ - What is AI?
 
 More complicated models benefit from more data
 
@@ -32,17 +32,17 @@ More complicated models benefit from more data
 
   If we know the complexity of a model and the amount of data that the model was trained on, we can use [Hoeffding's inequality](https://en.wikipedia.org/wiki/Hoeffding%27s_inequality) to compute the probability of the model having a high error rate.
 
-  - We want AI models to be generalizable
+ - We want AI models to be generalizable
 
-  - What is a hash table?
+ - What is a hash table?
 
-  - What is a hash code?
+ - What is a hash code?
 
 Decision trees
 
   A decision tree is a type of AI model. When a tree makes a prediction about a specific datapoint, it evaluates a series of yes/no questions until it arrives an answer.
 
-  - What is AI?
+ - What is AI?
 
 Neural networks
 
@@ -58,7 +58,7 @@ Neural networks
 
   Neural networks can model many different functions and can be trained
 
-  - What is AI?
+ - What is AI?
 
 Training neural networks
 
@@ -78,9 +78,9 @@ Training neural networks
 
   The optimization algorithm repeatedly attempts to modify the parameters of the network in a way such that the average loss among examples in the training set is as low as possible
 
-  - Neural networks
+ - Neural networks
 
-  - Gradient descent
+ - Gradient descent
 
 Gradient descent
 
@@ -92,4 +92,4 @@ Large Language Models
 
   They're often trained to predict a specific word in a text given the rest of the surrounding words.
 
-  - Neural networks
+ - Neural networks

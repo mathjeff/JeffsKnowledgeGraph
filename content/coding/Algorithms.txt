@@ -19,7 +19,7 @@ What is a hash table?
   If the hash function is designed well such that different objects have different values, then most bins will have approximately an average number of items. So, in a hash table that is functioning well, most lookups will quickly find a bin with approximately one item. This makes hash tables very fast for large collections.
 
 
-  - What is a hash function?
+ - What is a hash function?
 
 What is a hash code?
 
@@ -35,4 +35,4 @@ What is a hash function?
 
   A good hash function should be fast.
 
-  - What is a hash code?
+ - What is a hash code?

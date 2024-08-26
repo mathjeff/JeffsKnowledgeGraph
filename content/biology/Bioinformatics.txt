@@ -6,9 +6,9 @@ Mapper
 
   You can find it at https://github.com/mathjeff/mapper
 
-  - What is sequence alignment?
+ - What is sequence alignment?
 
-  - Which arguments can I give to a shell command?
+ - Which arguments can I give to a shell command?
 
 What is sequence alignment?
 

@@ -2,15 +2,15 @@
 
 Using the terminal efficiently
 
-  - What is a terminal?
-  - Terminal up arrow
-  - Terminal history search
-  - Terminal tab complete
-  - Terminal copy
-  - Terminal paste
-  - Shell functions
-  - Terminal directories
-  - Shell initialization scripts
+ - What is a terminal?
+ - Terminal up arrow
+ - Terminal history search
+ - Terminal tab complete
+ - Terminal copy
+ - Terminal paste
+ - Shell functions
+ - Terminal directories
+ - Shell initialization scripts
 
 What is a terminal?
 
@@ -20,7 +20,7 @@ What is a terminal?
 
   A terminal may also be called a command prompt or a console.
 
-  - What is a shell?
+ - What is a shell?
 
 What is a shell?
 
@@ -28,7 +28,7 @@ What is a shell?
 
   Bash is an example of a shell.
 
-  - What is a computer program?
+ - What is a computer program?
 
 What is a computer program?
 
@@ -38,37 +38,37 @@ Terminal up arrow
 
   Pressing the up arrow in a terminal will restore the previous command
 
-  - What is a terminal?
+ - What is a terminal?
 
 Terminal history search
 
   Here are some ways to see which commands you ran in the terminal
 
-  - Terminal reverse search
-  - Terminal history command
-  - SessionManager
+ - Terminal reverse search
+ - Terminal history command
+ - SessionManager
 
 Terminal reverse search
 
   In a terminal, you can press "Ctrl-R" and type some text to search for earlier instances where you typed that command
 
-  - What is a terminal?
+ - What is a terminal?
 
 Terminal history command
 
   To view a history of the commands you ran in a terminal, you can run the `history` command
 
-  - How do I run commands in a terminal?
+ - How do I run commands in a terminal?
 
 How do I run commands in a terminal?
 
   To run commands in a terminal, you can type a command into it and press Enter.
 
-  - What is a terminal?
+ - What is a terminal?
 
-  - What is the format of a shell command?
+ - What is the format of a shell command?
 
-  - Which arguments can I give to a shell command?
+ - Which arguments can I give to a shell command?
 
 What is the format of a shell command?
 
@@ -92,7 +92,7 @@ What is the format of a shell command?
 
     * Multiple other shell commands joined by something else
 
-  - What is a shell?
+ - What is a shell?
 
 How do I join shell commands inline?
 
@@ -110,7 +110,7 @@ How do I join shell commands inline?
 
     `echo abcdefg | grep --color b`
 
-  - What is the format of a shell command?
+ - What is the format of a shell command?
 
 Which arguments can I give to a shell command?
 
@@ -122,9 +122,9 @@ Which arguments can I give to a shell command?
 
   Many commands are documented on the internet. You can often ask a search engine a question like "<commandName> arguments" for more information
 
-  - What is a shell?
+ - What is a shell?
 
-  - How can I read command help?
+ - How can I read command help?
 
 How can I read command help?
 
@@ -146,7 +146,7 @@ How can I read command help?
 
   For example, if you run `git log -p`, this means `command` is "log" and `args` is "-p"
 
-  - What is a shell?
+ - What is a shell?
 
 Terminal tab complete
 
@@ -154,8 +154,8 @@ Terminal tab complete
 
   For example, if you have a directory containing file named `sample`, you can type `echo sa` and press the tab key, and the terminal should autocomplete to say `echo sample` (assuming there are other no files or directories with names starting with `sa` in that directory)
 
-  - Terminal directories
-  - What is a shell?
+ - Terminal directories
+ - What is a shell?
 
 Terminal new directory
 
@@ -163,7 +163,7 @@ Terminal new directory
 
   For example, you can type `mkdir sample` to make an empty dir called "sample"
 
-  - Terminal directories
+ - Terminal directories
 
 Terminal directories
 
@@ -188,7 +188,7 @@ Terminal directories
 
   To change the working directory, you can run `cd <someNewDir>`
 
-  - What is a shell?
+ - What is a shell?
 
 Terminal copy
 
@@ -199,7 +199,7 @@ Terminal copy
     On Mac, press Apple-C
     On Windows, press Ctrl-Insert
 
-  - What is a shell?
+ - What is a shell?
 
 Terminal paste
 
@@ -209,7 +209,7 @@ Terminal paste
     On Mac, press Apple-V
     On Windows, press Shift-Insert
 
-  - Terminal copy
+ - Terminal copy
 
 Shell functions
 
@@ -225,7 +225,7 @@ Shell functions
 
   You can put this text into your terminal initialization script if you want it to persist.
 
-  - Shell initialization scripts
+ - Shell initialization scripts
 
 Shell initialization scripts
 
@@ -242,15 +242,15 @@ Shell initialization scripts
 
     This reruns the entire file
 
-  - What is a shell?
+ - What is a shell?
 
 Stopping a command in the terminal
 
   If you want to stop a command in the terminal, you can either cancel it or pause it
 
-  - Cancelling a command in the terminal
+ - Cancelling a command in the terminal
 
-  - Pausing a command in the terminal
+ - Pausing a command in the terminal
 
 Cancelling a command in the terminal
 
@@ -258,7 +258,7 @@ Cancelling a command in the terminal
 
   If that doesn't work, you can try terminating the process
 
-  - Cancelling a process on Linux
+ - Cancelling a process on Linux
 
 Pausing a command in the terminal
 
@@ -268,7 +268,7 @@ Pausing a command in the terminal
 
   To run a paused command in the background, run `bg`
 
-  - What is a computer process?
+ - What is a computer process?
 
 SessionManager
 
@@ -282,4 +282,4 @@ SessionManager
 
   It can be found at https://github.com/mathjeff/SessionManager
 
-  - Who is Jeff?
+ - Who is Jeff?

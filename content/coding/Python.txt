@@ -14,21 +14,21 @@ Should I learn Python?
 
    * There's an existing program that you want to modify that already uses Python
 
-  - Why are Python programs slower?
+ - Why are Python programs slower?
 
 Why are Python programs slower?
 
-  - Python is interpreted
+ - Python is interpreted
 
-  - Python lacks multithreading
+ - Python lacks multithreading
 
 Python is interpreted
 
   Python programs are generally run through the Python interpreter
 
-  - What's an interpreter in software?
+ - What's an interpreter in software?
 
-  - What is Python?
+ - What is Python?
 
 What's an interpreter in software?
 
@@ -36,7 +36,7 @@ What's an interpreter in software?
 
   The interpreter essentially translates the other program while it is running
 
-  - What is a computer program?
+ - What is a computer program?
 
 Python lacks multithreading
 
@@ -44,21 +44,21 @@ Python lacks multithreading
 
   This was intentional, because multithreading tends to produce more bugs
 
-  - What is multithreading?
+ - What is multithreading?
 
-  - Why is multithreading difficult?
+ - Why is multithreading difficult?
 
-  - What is multiprocessing?
+ - What is multiprocessing?
 
-  - What is Python?
+ - What is Python?
 
 What is multithreading?
 
   Multithreading is the idea of having one computer program with multiple threads, each of which can do something different
 
-  - What is a computer program?
+ - What is a computer program?
 
-  - What is Python?
+ - What is Python?
 
 Why is multithreading difficult?
 
@@ -70,25 +70,25 @@ Why is multithreading difficult?
 
   This can cause results to be different from one run to the next, which is often unintended.
 
-  - What is a computer program?
+ - What is a computer program?
 
 What is multiprocessing?
 
   Multiprocessing is the idea of having one computer process spawn other processes
 
-  - What is a computer process?
+ - What is a computer process?
 
 Learning Python
 
-  - Should I learn Python?
-  - Python editors
-  - Python variables
-  - Python if
-  - Python functions
-  - Python scope
-  - Python classes
-  - Python lists
-  - Python slices
+ - Should I learn Python?
+ - Python editors
+ - Python variables
+ - Python if
+ - Python functions
+ - Python scope
+ - Python classes
+ - Python lists
+ - Python slices
 
 Python editors
 
@@ -96,7 +96,7 @@ Python editors
 
   A popular one is [IDLE](https://docs.python.org/3/library/idle.html)
 
-  - What is Python?
+ - What is Python?
 
 Python variables
 
@@ -111,7 +111,7 @@ Python variables
 
   displays the value `5`
 
-  - What is Python?
+ - What is Python?
 
 Python functions
 
@@ -128,7 +128,7 @@ Python functions
   sayHi()
   ```
 
-  - What is Python?
+ - What is Python?
 
 Python if
 
@@ -143,7 +143,7 @@ Python if
     print("Hello")
   ```
 
-  - What is Python?
+ - What is Python?
 
 Python scope
 
@@ -183,7 +183,7 @@ Python scope
 
   outputs `aaaaa`
 
-  - Python functions
+ - Python functions
   
 Python lists
 
@@ -217,7 +217,7 @@ Python lists
 
   at which point `print(foods)` should say `['apple', 'banana', 'pear', 'blueberry']`
 
-  - What is Python?
+ - What is Python?
 
 Python slices
 
@@ -236,7 +236,7 @@ Python slices
 
   to get `['one', 'two']`
 
-  - Python lists
+ - Python lists
 
 Python classes
 
@@ -260,10 +260,10 @@ Python classes
 
   This can be convenient because it can help you keep track of all of the properties of each object
 
-  - What is Python?
+ - What is Python?
 
 What is Python?
 
   Python is a programming language. Its files end with `.py`
 
-  - What is a computer program?
+ - What is a computer program?

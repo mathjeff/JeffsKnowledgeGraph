@@ -4,7 +4,7 @@ What is Marked?
 
   [Marked](https://github.com/markedjs/marked) is a tool that makes it easy to style html more easily
 
-  - What is html?
+ - What is html?
 
 What is html?
 
@@ -24,13 +24,13 @@ What is javascript?
 
   Javascript doesn't provide a location to store information about multiple users; that requires a web server.
 
-  - What is html?
+ - What is html?
 
 What is css?
 
   CSS, or cascading style sheets, is a format for a web page to describe its style
 
-  - What is html?
+ - What is html?
 
 What is a web server?
 
@@ -40,8 +40,8 @@ What is a web server?
 
   A more complicated web server can also store information or make more requests to other systems
 
-  - What is html?
+ - What is html?
 
-  - What is javascript?
+ - What is javascript?
 
-  - What is css?
+ - What is css?
