@@ -415,6 +415,10 @@ function getMatchScore(queryText, node) {
         score += 1
     }
   }
+  if (score > 0) {
+    // prefer shorter names
+    score += 0.5 / node["name"].length
+  }
   return score
 }
 
