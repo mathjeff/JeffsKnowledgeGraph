@@ -18,7 +18,6 @@ What is a hash table?
 
   If the hash function is designed well such that different objects have different values, then most bins will have approximately an average number of items. So, in a hash table that is functioning well, most lookups will quickly find a bin with approximately one item. This makes hash tables very fast for large collections.
 
-
  - What is a hash function?
 
 What is a hash code?
@@ -36,3 +35,64 @@ What is a hash function?
   A good hash function should be fast.
 
  - What is a hash code?
+
+What is a tree in computer science?
+
+  A tree is a special type of graph.
+
+  Each node in a tree either is the root node or has exactly one parent node.
+
+  A tree isn't allowed to have cycles.
+
+ - What is a graph in computer science?
+
+What is a graph in computer science?
+
+  A graph is a set of nodes that are connected by edges
+
+What is a binary tree?
+
+  A binary tree is a tree where each node has no more than two children
+
+ - What is a tree in computer science?
+
+What is a binary search tree?
+
+  A binary search tree is a tree where each node is assigned a value and the values are sorted like this:
+
+  * For every node `N` and every descendant `D`:
+      * If `D` is descended from the left child of `N`, the value of `D` is less than or equal to the value of `N`
+
+ - What is a binary tree?
+
+How do you find an item in a binary search tree?
+
+  To find an item in a binary search tree, you can use a binary search.
+
+  Start at the root node, and compare your item to its value.
+  * If your item has a larger value, move to the right child of the current node.
+  * If your item has a smaller value, move to the left child of the current node.
+  Repeat until you find a matching node or there are no nodes left to check, in which case the value is not present.
+
+ - What is a binary search tree?
+
+What is a balanced binary search tree?
+
+  A balanced binary search tree is a binary search tree where these values:
+
+  * the distance of the shortest path from the root node to any leaf node
+  * the distance of the longest path from the root node to any leaf node
+
+  differ by no more than 1.
+
+ - What is a binary search tree?
+
+A balanced binary search tree is fast
+
+  If a binary search tree is balanced, then while searching for an item in it, each test should cut the number of nodes in half. This should usually be pretty fast.
+
+  This is still usually not as fast as a hash table
+
+ - How do you find an item in a binary search tree?
+
+ - What is a hash table?
