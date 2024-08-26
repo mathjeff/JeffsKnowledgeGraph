@@ -20,6 +20,10 @@ What is Jeff's Knowledge Graph?
                 * Various topics have several types of outgoing links to other topics ranging from much simpler to much more advanced
                 * Outgoing links are color-coded based on type
 
+    * Different from a usual [knowledge graph](https://en.wikipedia.org/wiki/Knowledge_graph)
+        * Most other knowledge graphs are organized such that each node is an entity
+        * In Jeff's Knowledge Graph, each node tries to be a statement or other small piece of knowledge
+
 Who is Jeff?
 
   Jeff Gaston is the person that created this knowledge graph.
