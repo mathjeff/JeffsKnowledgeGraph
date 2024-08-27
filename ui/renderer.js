@@ -164,17 +164,17 @@ function getAllSubtopicNames(nodeName) {
 // make a guess about how to help a user that is very confused
 function getSoConfusedHelpNames(nodeName) {
   // find everything that the user will need to know to learn this topic
-  var allDependencies = getAllDependenciesOf(nodeName)
+  var candidates = getUnfamiliarDependencies(nodeName)
+
   var fullCount = countNumUnfamiliarDependencies(nodeName)
   var targetCount = fullCount / 2
 
   // count number of unfamiliar dependencies for each one
   var bestResult = null
   var bestScore = -100000
-  for (var candidate of allDependencies) {
+  for (var candidate of candidates) {
     var count = countNumUnfamiliarDependencies(candidate)
-    console.log("num unfamiliar dependencies of " + candidate + " is " + count)
-    if (count > 0 && count < targetCount) {
+    if (count < targetCount) {
       var score = -Math.abs(count - targetCount)
       if (bestResult == null || score >= bestScore) {
         bestResult = candidate
@@ -187,6 +187,38 @@ function getSoConfusedHelpNames(nodeName) {
     return []
   }
   return [bestResult]
+}
+
+function getUnfamiliarDependencies(nodeName) {
+  // find everything that the user will need to know to learn this topic
+  var allDependencies = getAllDependenciesOf(nodeName)
+  // count number of unfamiliar dependencies for each one
+  var result = []
+  for (var candidate of allDependencies) {
+    var count = countNumUnfamiliarDependencies(candidate)
+    console.log("num unfamiliar dependencies of " + candidate + " is " + count)
+    if (count > 0) {
+      result.push(candidate)
+    }
+  }
+
+  return result
+}
+
+function expandDependencies() {
+  var currentNode = getCurrentNode()
+  var nodeName = currentNode["name"]
+  var candidates = getUnfamiliarDependencies(nodeName)
+  var html = ""
+  console.log("expanding dependencies of " + nodeName)
+  
+  for (var i = candidates.length - 1; i >= 0; i--) {
+    var candidateName = candidates[i]
+    console.log("expansion candidate name = " + candidateName)
+    var candidate = getNodeByName(candidateName)
+    html += formatNodeText(candidate)
+  }
+  document.getElementById("text").innerHTML = html
 }
 
 function getDirectDependentNames(nodeName) {
@@ -295,18 +327,20 @@ function hasTransitiveDependency(nodeName, candidateDependency) {
 }
 
 function getAllDependenciesOf(nodeName) {
-  var allDependencies = new Set()
-  addDependenciesRecursivelyTo(nodeName, allDependencies)
-  return allDependencies
+  var allDependenciesSet = new Set()
+  var allDependenciesList = []
+  addDependenciesRecursivelyTo(nodeName, allDependenciesList, allDependenciesSet)
+  return allDependenciesList
 }
 
-function addDependenciesRecursivelyTo(newDependency, destinationSet) {
+function addDependenciesRecursivelyTo(newDependency, destinationList, destinationSet) {
   if (destinationSet.has(newDependency))
     return
+  destinationList.push(newDependency)
   destinationSet.add(newDependency)
   var newDependencies = getDirectDependencyNames(newDependency)
   for (var dependency of newDependencies) {
-    addDependenciesRecursivelyTo(dependency, destinationSet)
+    addDependenciesRecursivelyTo(dependency, destinationList, destinationSet)
   }
 }
 
@@ -385,6 +419,10 @@ function makeBackButton() {
 
 function makeExplainSelfButton() {
   return "<button class='knowledge-button' onclick='explainSelf()'>Help</button>"
+}
+
+function makeExpandDependenciesButton() {
+  return "<button class='knowledge-button' onclick='expandDependencies()'>Expand</button>"
 }
 
 function getBaseUrl() {
@@ -571,6 +609,13 @@ function formatDescription(descriptionText) {
   return marked.parse(descriptionText)
 }
 
+function formatNodeText(node) {
+  var description = node["description"]
+  if (description == null)
+    description = ""
+  return "<h1>" + node["name"] + "</h1>" +"<div>" + formatDescription(description) + "</div>"
+}
+
 function makeTable(columns) {
   result = ""
   result += "<table>"
@@ -598,7 +643,7 @@ function updateUserKnowledgeData(actionType) {
   if (nodeHistory.length < 1)
     return // the user hasn't visited any nodes yet
   currentNode = getCurrentNode()
-  nodeName = currentNode["name"]
+  var nodeName = currentNode["name"]
   if (actionType == "elaborate") {
     // If the user is curious about more details, then the user is familiar with the existing information
     declareFamiliar(nodeName)
@@ -640,9 +685,10 @@ function goToNode(nodeIndex, actionType) {
   var dependents = getDirectDependentNames(nodeName)
   var alreadyFamiliarHelpNames = getAlreadyFamiliarHelpNames(nodeName)
   var render = ""
-  render += makeHomeButton() + makeBackButton() + makeExplainSelfButton()
-  render += "<h1>" + name + "</h1>"
-  render += "<div>" + formatDescription(description) + "</div>"
+  render += makeHomeButton() + makeBackButton() + makeExplainSelfButton() + makeExpandDependenciesButton()
+  render += "<div id='text'>"
+  render +=   formatNodeText(node)
+  render += "</div>"
   if (subtopics.length > 0)
     render += makeSearchBox(nodeName)
 
