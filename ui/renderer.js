@@ -537,8 +537,29 @@ function orderNodeNames(nodeNames) {
 }
 
 function makeNodeList(nodeNames, actionType) {
-  nodeNames = orderNodeNames(nodeNames)
-  html = ""
+  var nodeNames = orderNodeNames(nodeNames)
+  var alreadyVisitedNames = []
+  var unvisitedNames = []
+  for (var i = 0; i < nodeNames.length; i++) {
+    var nodeName = nodeNames[i]
+    if (visitedNodes.has(nodeName)) {
+      alreadyVisitedNames.push(nodeName)
+    } else {
+      unvisitedNames.push(nodeName)
+    }
+  }
+  var unvisitedButtons = makeUnlabelledNodeList(unvisitedNames, actionType)
+  var alreadyVisitedButtons = makeUnlabelledNodeList(alreadyVisitedNames, actionType)
+  var separator = ""
+  if (unvisitedButtons.length > 0 && alreadyVisitedButtons.length > 0) {
+    separator = "<div>Revisit:</div>"
+  }
+  return unvisitedButtons + separator + alreadyVisitedButtons
+}
+
+function makeUnlabelledNodeList(nodeNames, actionType) {
+  var nodeNames = orderNodeNames(nodeNames)
+  var html = ""
   for (var i = 0; i < nodeNames.length; i++) {
     dependency = nodeNames[i]
     html += makeGoToButton(dependency, actionType) + "<br/>"
