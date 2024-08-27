@@ -16,13 +16,25 @@ What is a hash table?
 
   When a caller wants to get an item from a hash table, they provide a key. This key is then used to identify a hash bin in the same was as when inserting the item. If the given key exists in the hash table, it will be found in this bin. If the capacity of the hash table is more than the number of elements in the hash table, there will be an average of less than one item per bin. Then the hash table checks the keys in the bin to see which of them match, and returns the value for that key.
 
-  If the hash function is designed well such that different objects have different values, then most bins will have approximately an average number of items. So, in a hash table that is functioning well, most lookups will quickly find a bin with approximately one item. This makes hash tables very fast for large collections.
-
  - What is a hash function?
+
+ - What is Big O notation?
+
+A hash table is usually fast
+
+  If the hash table's hash function is designed well such that different objects have different hash codes, then most bins in the hash table will have approximately an average number of items.
+
+  So, in a hash table that is functioning well, most lookups will quickly find a bin with approximately one item. This makes hash tables very fast for large collections, usually `O(1)` for a lookup or insertion.
+
+ - What is a hash table?
+
+ - What is Big O notation?
 
 What is a hash code?
 
-  A hashcode is a number that was computed by applying a hash function to an object.
+  A hashcode is a number that represents some of the information from an object.
+
+  A hashcode is computed by applying a hash function to an object.
 
 What is a hash function?
 
@@ -72,6 +84,7 @@ How do you find an item in a binary search tree?
   Start at the root node, and compare your item to its value.
   * If your item has a larger value, move to the right child of the current node.
   * If your item has a smaller value, move to the left child of the current node.
+
   Repeat until you find a matching node or there are no nodes left to check, in which case the value is not present.
 
  - What is a binary search tree?
@@ -89,10 +102,27 @@ What is a balanced binary search tree?
 
 A balanced binary search tree is fast
 
-  If a binary search tree is balanced, then while searching for an item in it, each test should cut the number of nodes in half. This should usually be pretty fast.
+  If a binary search tree is balanced, then while searching for an item in it, each test should cut the number of nodes in half. This should usually be pretty fast: `O(n)` steps for a tree with `n` nodes.
 
-  This is still usually not as fast as a hash table
+  This is still usually not as fast as a lookup in a hash table (which is usually `O(1)` steps).
 
  - How do you find an item in a binary search tree?
 
  - What is a hash table?
+
+ - What is Big O notation?
+
+What is Big O notation?
+
+  Big O notation is a precise way of describing approximately how much time an algorithm requires to run.
+
+  If the runtime of an algorithm is `O(f(n))`, then it means there exists some constant `k` such that for every `n >= 1`, the runtime of the algorithm is no more than `k*f(n)`.
+
+  For example, if an algorithm takes exactly `sqrt(n) + 1` steps to run, then:
+  * It is correct correct to say that the algorithm is `O(sqrt(n))`
+      * In this case we can use `k = 2`:
+      * The algorithm takes no more than `k * sqrt(n)` steps to run for each `n >= 1`,
+  * It is incorrect to say that the algorithm is `O(log(n))`
+      * There is no contant `k` that we can find such that `sqrt(n) <= k * log(n)` for all `k >= 1`
+  * It is misleading to say that the algorithm is `O(n)`.
+      * This is technically a correct statement, but people don't say this because `O(sqrt(n))` is a better description
