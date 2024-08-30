@@ -212,7 +212,7 @@ function expandDependencies() {
   var html = ""
   console.log("expanding dependencies of " + nodeName)
   
-  for (var i = candidates.length - 1; i >= 0; i--) {
+  for (var i = 0; i < candidates.length; i++) {
     var candidateName = candidates[i]
     console.log("expansion candidate name = " + candidateName)
     var candidate = getNodeByName(candidateName)
@@ -343,12 +343,12 @@ function getAllDependenciesOf(nodeName) {
 function addDependenciesRecursivelyTo(newDependency, destinationList, destinationSet) {
   if (destinationSet.has(newDependency))
     return
-  destinationList.push(newDependency)
   destinationSet.add(newDependency)
   var newDependencies = getDirectDependencyNames(newDependency)
   for (var dependency of newDependencies) {
     addDependenciesRecursivelyTo(dependency, destinationList, destinationSet)
   }
+  destinationList.push(newDependency)
 }
 
 // Declares that the user is curious about this node
