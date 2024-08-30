@@ -283,3 +283,30 @@ SessionManager
   It can be found at https://github.com/mathjeff/SessionManager
 
  - Who is Jeff?
+
+Counting text
+
+  To count the number of lines in a text you can use `wc -l`
+
+    For example: `echo -e "abc\ndef" | wc -l` outputs `2`
+
+  To count the number of a specific type of line in a text, you can first filter it with `grep` and then count with `wc`
+
+ - What is grep?
+
+What is grep?
+
+  `grep` is a tool for searching for text in other text
+
+  For example: `echo -e "apple\nbanana\npotato" | grep 'p'` says
+
+  ```
+  apple
+  potato
+  ```
+
+ - What is echo?
+
+What is echo?
+
+  `echo` is a shell command that outputs text. For example, `echo abc` says `abc` and `echo` makes a blank line.

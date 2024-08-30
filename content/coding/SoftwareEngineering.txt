@@ -295,3 +295,44 @@ Why backwards compatibility?
   Backwards compatibility is more important for software that has lots of users
 
  - Backwards compatibility
+
+How do I modify a repository in GitHub?
+
+  To modify a repository in GitHub:
+
+  1. fork the repository to your account
+  1. modify your fork
+  1. contribute the changes back via a pull request
+
+ - How do I modify my own repository in GitHub?
+ - How do I fork a repository in GitHub?
+ - How do I make a pull request in GitHub?
+
+How do I fork a repository in GitHub?
+
+  There should be a button in GitHub to fork it.
+  This makes a copy in GitHub of the original repository and puts it under your account.
+
+How do I modify my own repository in GitHub?
+
+  Download the repository, make some changes, and upload your changes
+
+ - How do I download a repository from GitHub?
+ - How do I upload changes to a GitHub repository?
+
+How do I download a repository from GitHub?
+
+  Install [git](https://git-scm.com/) and use it to download the repository from GitHub
+
+How do I upload changes to a GitHub repository?
+
+  1. inform Git about any changes you made: run `git commit -a`
+  2. `git push`
+
+ - How do I download a repository from GitHub?
+
+How do I make a pull request in GitHub?
+
+  GitHub should have a button for making a pull request if you have forked the repository
+
+ - How do I fork a repository in GitHub?

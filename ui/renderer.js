@@ -322,8 +322,15 @@ function declareUnfamiliar(nodeName) {
 }
 
 function hasTransitiveDependency(nodeName, candidateDependency) {
-  var dependencies = getAllDependenciesOf(nodeName)
+  var dependencies = getAllDependenciesSetOf(nodeName)
   return dependencies.has(candidateDependency)
+}
+
+function getAllDependenciesSetOf(nodeName) {
+  var allDependenciesSet = new Set()
+  var allDependenciesList = []
+  addDependenciesRecursivelyTo(nodeName, allDependenciesList, allDependenciesSet)
+  return allDependenciesSet
 }
 
 function getAllDependenciesOf(nodeName) {

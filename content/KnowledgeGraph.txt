@@ -39,12 +39,3 @@ Can I contribute to Jeff's Knowledge Graph?
  - How do I modify a repository in GitHub?
 
  - What is Jeff's Knowledge Graph?
-
-How do I modify a repository in GitHub?
-
-  1. clone the repository to your own GitHub account.
-  1. download the cloned repository to your computer.
-  1. make the changes on your computer.
-  1. inform Git about the changes: run `git commit -a`
-  1. upload the changes to GitHub via `git push`
-  1. contribute the changes back to the original repository via a pull request
