@@ -428,8 +428,8 @@ function makeExplainSelfButton() {
   return "<button class='knowledge-button' onclick='explainSelf()'>Help</button>"
 }
 
-function makeExpandDependenciesButton() {
-  return "<button class='knowledge-button' onclick='expandDependencies()'>Expand</button>"
+function makeExpandDependenciesButton(numDependencies) {
+  return "<button class='knowledge-button button-expand' onclick='expandDependencies()'>Expand " + numDependencies + " unfamiliar dependencies</button>"
 }
 
 function getBaseUrl() {
@@ -692,7 +692,7 @@ function goToNode(nodeIndex, actionType) {
   var dependents = getDirectDependentNames(nodeName)
   var alreadyFamiliarHelpNames = getAlreadyFamiliarHelpNames(nodeName)
   var render = ""
-  render += makeHomeButton() + makeBackButton() + makeExplainSelfButton() + makeExpandDependenciesButton()
+  render += makeHomeButton() + makeBackButton() + makeExplainSelfButton()
   render += "<div id='text'>"
   render +=   formatNodeText(node)
   render += "</div>"
@@ -702,7 +702,11 @@ function goToNode(nodeIndex, actionType) {
   render += "<div id=\"search-results\"></div>"
   linksInformation = []
   if (soConfusedHelpNames.length > 0) {
-    linksInformation.push({"name":"I'm so confused.", "content": makeNodeList(soConfusedHelpNames, "confused")})
+    var confusedNodes = makeNodeList(soConfusedHelpNames, "confused")
+    var unfamiliarDependencies = getUnfamiliarDependencies(nodeName)
+    var expandAllNode = makeExpandDependenciesButton(unfamiliarDependencies.length)
+
+    linksInformation.push({"name":"I'm so confused.", "content": confusedNodes + expandAllNode})
   }
 
   if (dependencies.length > 0) {
