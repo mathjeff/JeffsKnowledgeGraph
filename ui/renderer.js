@@ -211,7 +211,7 @@ function expandDependencies() {
   var candidates = getUnfamiliarDependencies(nodeName)
   var html = ""
   console.log("expanding dependencies of " + nodeName)
-  
+
   for (var i = 0; i < candidates.length; i++) {
     var candidateName = candidates[i]
     console.log("expansion candidate name = " + candidateName)
@@ -724,7 +724,7 @@ function goToNode(nodeIndex, actionType) {
   }
   var seeMoreNodes = dependents.concat(containingTopics)
   if (seeMoreNodes.length > 0) {
-    linksInformation.push({"name":"Tell me more!", "content": makeNodeList(seeMoreNodes, "elaborate")})
+    linksInformation.push({"name":"Got it. What's next?", "content": makeNodeList(seeMoreNodes, "elaborate")})
   }
   if (alreadyFamiliarHelpNames.length > 0) {
     // Give the user a chance to say that they already knew this, unless this is a topic
