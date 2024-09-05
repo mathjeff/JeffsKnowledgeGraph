@@ -10,6 +10,10 @@ Mapper
 
  - Which arguments can I give to a shell command?
 
+ - How to do sequence alignment?
+
+ - What is x-mer?
+
 What is sequence alignment?
 
   Sequence alignment is the process of comparing two or more gene sequences and determining how they are similar, if at all.
@@ -19,3 +23,81 @@ What is sequence alignment?
   * One or more nucleotides in one sequence may have been replaced by the same number of nucleotides in the other sequence
 
   * One or more nucleotides may have been removed from either sequence. This is called an "indel" and can represent either an insertion or a deletion
+
+ - What is bioinformatics?
+
+What is bioinformatics?
+
+  The application of computational tools to interpret biological data
+
+How to install bioinformtics tools?
+
+  * [anaconda or miniconda](https://docs.anaconda.com/miniconda/)
+
+    Many tools and their required environments can be easily installed this way!
+
+    Can you install blast by conda?
+
+    Answer: `conda install blast`
+
+  * [pip](https://anaconda.org/anaconda/pip)
+
+    Many python packages can be easily installed by pip!
+
+    Can you install pandas by pip?
+
+    Answer: `pip install pandas`
+
+ - What is bioinformatics?
+
+How to do sequence alignment?
+
+  * Blast+
+
+    Benchmark, slow but accurate
+
+  * [Diamond](https://anaconda.org/bioconda/diamond)
+
+    Fast, protein database only
+
+  * [Usearch](https://www.drive5.com/usearch/download.html)
+
+    Fast, nucleotide database only
+
+  * [hmm](https://anaconda.org/bioconda/hmmer)
+
+    Based on protein function domain
+
+  * [Mapper](https://github.com/mathjeff/mapper)
+
+    X-mer based, fast, accurate, short read only, easy to use
+
+  * [bowtie2](http://bowtie-bio.sourceforge.net/bowtie2/manual.shtml)
+
+    Slow, short read only, designed for human genomes, requires downstream tools to summarize genetic variants
+
+  * [minimap2](https://github.com/lh3/minimap2)
+
+    Faster than bowtie2, long read too, designed for human genomes, requires downstream tools to summarize genetic variants
+
+ - What is sequence alignment?
+
+ - How to identify genetic variants?
+
+ - What is x-mer?
+
+How to identify genetic variants?
+
+  This process involves using sequence alignment tools to align the sequences to a reference genome and a summarization tool to identify and summarize the genetic variants shared by multiple sequences.
+
+  * [QuickVariants](https://github.com/caozhichongchong/QuickVariants)
+
+    Fast and accurate
+
+ - What is genetic variants?
+
+What is x-mer?
+
+  A k-mer is a short segment of DNA with a fixed length of k base pairs.
+
+  X-mers refers to many k-mers of various lengths.

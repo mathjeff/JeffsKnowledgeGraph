@@ -76,3 +76,103 @@ What is a virus?
    1. Gets living cells to make more copies of it
    1. Leaves that living cell
    1. Repeats the process again
+
+What is genetic variants?
+
+  Genetic variants are differences in the DNA sequences.
+
+  Genetic variants include:
+
+    * Point mutations: single base changes in the DNA sequence
+
+    * Indels: insertion or deletion of a small DNA segment
+
+    * Structural changes: deletion, duplication, or inversions of a long genome region
+
+ - What is evolution?
+
+How do point mutation occor?
+
+  Point mutations usually happen during DNA replication.
+
+  Natural mutation rate:
+
+    * For bacteria: 1E-9 to 1E-10 mutations per nucleotide per genration
+
+    * For human: 1E-8 mutations per nucleotide per genration
+
+    * For RNA viruses: 1E-3 to 1E-5 mutations per nucleotide per genration
+
+ - What is genetic variants?
+
+What is evolution?
+
+  Evolution is the process that living organisms change over time through changes in the genome.
+
+What is natural selection?
+
+  Natural selection is the process by which organisms with beneficial genetic changes reproduce more successfully or survive better (positive selection), while those with harmful genetic changes reproduce less effectively (negative selection).
+
+  Beneficial genetic changes have a higher chance of being passed onto the next generation, resulting in increased frequency of those changes in the population over time (selective sweeps).
+
+  This can lead to adaptation to the environment and the evolution of the species.
+
+ - What is evolution?
+
+What is selective sweep?
+
+  A selective sweep is the process where beneficial genetic changes increases in frequency in a population due to positive selection.
+
+  The neighboring genetic changes (variants) can also increase in frequency because they are next to the beneficial genetic changes (hitchhiking).
+
+  Genetic changes that are far away from the beneficial changes are less likely to hitchhike because recombination is more likely to occur in the genomic region between them.
+
+ - What is natural selection?
+
+ - What is recombination?
+
+What is recombination?
+
+  Recombination is the process by which DNA is exchanged between homologous chromosomes during cell replication, resulting new combinations of genetic variants in offspring.
+
+  Bacteria, however, do not have multiple chromosomes and do not go through recombination during cell replication. Instead, bacteria exchange DNA through horizontal gene transfer.
+
+ - What is horizontal gene transfer?
+
+ - What is a chromosome?
+
+What is horizontal gene transfer?
+
+  The transfer of DNA from parents to offspring is known as vertical gene transfer.
+
+  Any other form of DNA transfer is called horizontal gene transfer.
+
+  Different mechanisms of bacterial horizontal gene transfer:
+
+    * Transformation: bacteria take up free DNA from the environment.
+
+    * Conjugation: direct transfer of DNA (usually plasmids) from one bacterial cell to another through a physical connection.
+
+    * Transduction: DNA transfer from bacterial virus (bacteriophages) to bacteria during infection.
+
+    * Homologous recombination: DNA exchanged between two DNA regions that are similar in sequence (homologous).
+
+What is plasmid?
+
+  A plasmid is a small, circular, double stranded DNA, that is not chromosomal DNA.
+
+  A plasmid can replicate itself independently.
+
+  A plasmid can be transferred between bacterial cells through a physical connection.
+
+ - What is horizontal gene transfer?
+
+ - What is a chromosome?
+
+What is a chromosome?
+
+  Chromosomes carries most genetic information of a living organism.
+
+  It's a genetic blueprint that determines what this organism is.
+
+  Chromosomes in bacteria are circular, made of DNA. Chromosomes in eukaryotes are linear, made of DNA and proteins.
