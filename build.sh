@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
-rm out -rf
+rm -rf out
 mkdir -p out/site
 python util/formatGraph.py
 cp ui/index.html out/site
