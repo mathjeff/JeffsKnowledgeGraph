@@ -93,3 +93,39 @@ Large Language Models
   They're often trained to predict a specific word in a text given the rest of the surrounding words.
 
  - Neural networks
+
+Expectation Maximization
+
+  [Expectation maximization](https://en.wikipedia.org/wiki/Expectation%E2%80%93maximization_algorithm) is a method for guessing appropriate values for the parameters of a model based on some datapoints, most or all of which are usually unlabelled.
+  
+  It involves these steps:
+
+  1. Choose some initial guesses for the parameters
+  1. Repeatedly do this:
+      * For each datapoint and each label, compute the probability that that datapoint has that label based on the model parameters.
+      * Compute the most likely model parameters based on the previously computed labels.
+
+  An expectation maximization algorithm is a semi-supervised learning algorithm
+
+ - What is semi-supervised learning?
+
+What is supervised learning?
+
+  Supervised learning is learning where each datapoint in the training data knows what its classification is
+
+What is semi-supervised learning?
+
+  Semi-supervised learning is learning where some answers may be known and some may be unknown
+
+  If all answers are known, it is the same as supervised learning
+
+  If no answers are known, it is the same as unsupervised learning
+
+ - What is supervised learning?
+ - What is unsupervised learning?
+
+What is unsupervised learning?
+
+  Unsupervised learning is learning where no answers are known.
+
+  A common type of unsupervised learning is to cluster datapoints into groups
