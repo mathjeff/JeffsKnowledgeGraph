@@ -598,13 +598,33 @@ function makeNodeList(nodeNames, actionType) {
       unvisitedNames.push(nodeName)
     }
   }
-  var unvisitedButtons = makeUnlabelledNodeList(unvisitedNames, actionType)
-  var alreadyVisitedButtons = makeUnlabelledNodeList(alreadyVisitedNames, actionType)
-  var separator = ""
-  if (unvisitedButtons.length > 0 && alreadyVisitedButtons.length > 0) {
-    separator = "<div>Revisit:</div>"
+
+  var alreadyFamiliarNames = []
+  var unfamiliarNames = []
+  for (var i = 0; i < unvisitedNames.length; i++) {
+    var nodeName = nodeNames[i]
+    if (familiarityByName[nodeName] == true) {
+      alreadyFamiliarNames.push(nodeName)
+    } else {
+      unfamiliarNames.push(nodeName)
+    }
   }
-  return unvisitedButtons + separator + alreadyVisitedButtons
+  var result = ""
+  var unfamiliarButtons = makeUnlabelledNodeList(unfamiliarNames, actionType)
+  var familiarButtons = makeUnlabelledNodeList(alreadyFamiliarNames, actionType)
+  if (unfamiliarButtons.length > 0 && familiarButtons.length > 0) {
+    result += "<div>New:</div>" + unfamiliarButtons
+    result += "<div>Familiar:</div>" + familiarButtons
+  } else {
+    result += unfamiliarButtons + familiarButtons
+  }
+
+  if (unvisitedNames.length > 0 && alreadyVisitedNames.length > 0) {
+    result += "<div>Visited:</div>"
+  }
+  var visitedButtons = makeUnlabelledNodeList(alreadyVisitedNames, actionType)
+  result += visitedButtons
+  return result
 }
 
 function makeUnlabelledNodeList(nodeNames, actionType) {
