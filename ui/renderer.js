@@ -3,6 +3,7 @@ function setupInterface() {
 
   analyzeGraph()
   resetFamiliarity()
+  loadPersistentData()
 
   goToInitialNode()
   console.log("done setting up interface")
@@ -300,6 +301,8 @@ function declareFamiliar(nodeName) {
   }
 
   familiarityByName[nodeName] = true
+  savePersistentValue("familiar." + nodeName, "true")
+  // also declare familiarity with dependencies
   var dependencies = getDirectDependencyNames(nodeName)
   for (var i = 0; i < dependencies.length; i++) {
     declareFamiliar(dependencies[i])
@@ -774,4 +777,28 @@ function explainSelf() {
   var node = nodesByName[name]
   var index = node["index"]
   goToNode(index, "explainSelf")
+}
+
+// loads and interprets cookies
+function loadPersistentData() {
+  var persistentValues = getPersistentValues()
+  var count = persistentValues.length;
+  var familiarityMarker = "familiar."
+  for (var i = 0; i < count; i++) {
+    var key = persistentValues.key(i)
+    var value = persistentValues.getItem(key)
+    if (key.startsWith(familiarityMarker)) {
+      var topicName = key.substring(familiarityMarker.length)
+      declareFamiliar(topicName)
+    }
+  }
+}
+
+function getPersistentValues() {
+  return localStorage
+}
+
+function savePersistentValue(key, value) {
+  var values = getPersistentValues()
+  values.setItem(key, value)
 }
