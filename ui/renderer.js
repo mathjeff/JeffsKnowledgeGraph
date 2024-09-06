@@ -167,6 +167,18 @@ function getAllSubtopicNames(nodeName) {
   return resultList
 }
 
+function getNumLeafTopicNames(nodeName) {
+  var allSubtopics = getAllSubtopicNames(nodeName)
+  var numSubtopics = 0
+  for (var i = 0; i < allSubtopics.length; i++) {
+    var subtopic = allSubtopics[i]
+    if (!hasSubtopics(subtopic)) {
+      numSubtopics++
+    }
+  }
+  return numSubtopics
+}
+
 function getNumNewLeafTopics(nodeName) {
   var allSubtopics = getAllSubtopicNames(nodeName)
   var numNewSubtopics = 0
@@ -571,7 +583,6 @@ function queryBoxKeyPress(event) {
 }
 
 function makeSearchBox(nodeName) {
-  var allSubtopics = getAllSubtopicNames(nodeName)
   labelHtml = "<div>Search:</div>"
   inputHtml = '<input type="text" id="query" onkeypress="queryBoxKeyPress(event)">'
   return labelHtml + inputHtml
@@ -768,7 +779,7 @@ function goToNode(nodeIndex, actionType) {
   render += "</div>"
   if (subtopics.length > 0) {
     render += makeSearchBox(nodeName)
-    var numSubtopics = getAllSubtopicNames(nodeName).length
+    var numSubtopics = getNumLeafTopicNames(nodeName)
     var numNewSubtopics = getNumNewLeafTopics(nodeName)
     render += "<br/>"
     render += "Explore " + numSubtopics + " entries (" + numNewSubtopics + " new):"
