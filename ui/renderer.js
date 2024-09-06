@@ -304,47 +304,63 @@ function getAlreadyFamiliarHelpNames(nodeName) {
   return []
 }
 
+function clearFamiliarity() {
+  var familiarNames = getAllFamiliarNodes()
+  console.log(familiarNames)
+  for (var key of familiarNames) {
+    declareFamiliarity(key, false)
+  }
+  latestFamiliarity = null
+  goHome()
+}
+
+function requestClearFamiliarity() {
+  var warning = "Are you sure that you want to declare that you are unfamiliar with all of the information here?" + "<br/>"
+  warning += "<br/>"
+  warning += "This means you may have to reread " + numFamiliarNodes + " entries."
+  var homeButton = makeHomeButton()
+  var helpButton = makeExplainSelfButton()
+  var clearButton = makeClearFamiliarityButton()
+
+  var newContent = warning + "<br/>" + homeButton + helpButton + clearButton
+  document.getElementById("content").innerHTML = newContent
+}
+
 // Declares that the user is familiar with this node
-function declareFamiliar(nodeName) {
-  if (familiarityByName[nodeName] == true) {
-    // already know that this node is familiar
+function declareFamiliarity(nodeName, isFamiliar) {
+  if (familiarityByName[nodeName] == isFamiliar) {
+    // already knew this
     return
   }
 
-  console.log("familiar with " + nodeName)
+  console.log("familiarity with " + nodeName + " = " + isFamiliar)
 
   var subtopics = getDirectSubtopicNames(nodeName)
   if (subtopics.length > 0) {
     // declaring familiarity with a topic really means declaring familiarity with everything in it
     for (var i = 0; i < subtopics.length; i++) {
-      declareFamiliar(subtopics[i])
+      declareFamiliarity(subtopics[i], isFamiliar)
     }
     return
   }
 
-  familiarityByName[nodeName] = true
-  numFamiliarNodes++
-  savePersistentValue("familiar." + nodeName, "true")
+  var wasFamiliar = familiarityByName[nodeName] == true
+
+  familiarityByName[nodeName] = isFamiliar
+  if (isFamiliar) {
+    numFamiliarNodes++
+  } else {
+    if (wasFamiliar)
+      numFamiliarNodes--
+  }
+  savePersistentValue("familiar." + nodeName, isFamiliar)
   // also declare familiarity with dependencies
   var dependencies = getDirectDependencyNames(nodeName)
   for (var i = 0; i < dependencies.length; i++) {
-    declareFamiliar(dependencies[i])
+    declareFamiliarity(dependencies[i], isFamiliar)
   }
-  latestFamiliarity = nodeName
-}
-
-// Declares that the user is unfamiliar with this node
-function declareUnfamiliar(nodeName) {
-  if (familiarityByName[nodeName] == false) {
-    // already know that this node is unfamiliar
-    return
-  }
-  console.log("unfamiliar with " + nodeName)
-  familiarityByName[nodeName] = false
-  var dependencies = getDirectDependentNames(nodeName)
-  for (var i = 0; i < dependencies.length; i++) {
-    declareUnfamiliar(dependencies[i])
-  }
+  if (isFamiliar)
+    latestFamiliarity = nodeName
 }
 
 function hasTransitiveDependency(nodeName, candidateDependency) {
@@ -394,7 +410,7 @@ function countNumUnfamiliarDependencies(nodeName) {
   var allDependencies = getAllDependenciesOf(nodeName)
   var numUnfamiliarDependencies = 0
   for (var dependency of allDependencies) {
-    var familiarity = familiarity = familiarityByName[dependency]
+    var familiarity = familiarityByName[dependency]
     if (familiarity != true) {
       numUnfamiliarDependencies++
     }
@@ -456,6 +472,14 @@ function makeExplainSelfButton() {
 
 function makeExpandDependenciesButton(numDependencies) {
   return "<button class='knowledge-button button-expand' onclick='expandDependencies()'>Expand " + numDependencies + " unfamiliar dependencies</button>"
+}
+
+function makeRequestClearFamiliarityButton() {
+  return "<button class='knowledge-button button-request-clear-familiarity' onclick='requestClearFamiliarity()'>Clear Familiarity</button>"
+}
+
+function makeClearFamiliarityButton() {
+  return "<button class='knowledge-button button-clear-familiarity' onclick='clearFamiliarity()'>Clear Familiarity</button>"
 }
 
 function getBaseUrl() {
@@ -699,19 +723,19 @@ function updateUserKnowledgeData(actionType) {
   var nodeName = currentNode["name"]
   if (actionType == "elaborate") {
     // If the user is curious about more details, then the user is familiar with the existing information
-    declareFamiliar(nodeName)
+    declareFamiliarity(nodeName, true)
     return
   }
   if (actionType == "confused") {
     // If the user mentions being confused, then the user is probably interested in this
     declareCuriosity(nodeName)
     // If the user mentions being confused, it means the user is not familiar with this
-    declareUnfamiliar(nodeName)
+    declareFamiliarity(nodeName, false)
     return
   }
   if (actionType == "alreadyFamiliar") {
     // the user knows about this and probably knows about the dependents
-    declareFamiliar(nodeName)
+    declareFamiliarity(nodeName, true)
     return
   }
 }
@@ -738,7 +762,7 @@ function goToNode(nodeIndex, actionType) {
   var dependents = getDirectDependentNames(nodeName)
   var alreadyFamiliarHelpNames = getAlreadyFamiliarHelpNames(nodeName)
   var render = ""
-  render += makeHomeButton() + makeBackButton() + makeExplainSelfButton()
+  render += makeHomeButton() + makeBackButton() + makeExplainSelfButton() + makeRequestClearFamiliarityButton()
   render += "<div id='text'>"
   render +=   formatNodeText(node)
   render += "</div>"
@@ -798,7 +822,7 @@ function goToNode(nodeIndex, actionType) {
     }
   }
 
-  render += makePermalinkAnchor(nodeName)
+  render += makePermalinkAnchor(nodeName) + "<br/>"
 
   document.getElementById("content").innerHTML = "<div>" + render + "</div>"
 }
@@ -837,7 +861,11 @@ function loadPersistentData() {
     var value = persistentValues.getItem(key)
     if (key.startsWith(familiarityMarker)) {
       var topicName = key.substring(familiarityMarker.length)
-      declareFamiliar(topicName)
+      if (value == "true")
+        value = true
+      else
+        value = false
+      declareFamiliarity(topicName, value)
     }
   }
 }
