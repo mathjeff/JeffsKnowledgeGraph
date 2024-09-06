@@ -142,6 +142,10 @@ function getDirectSubtopicNames(nodeName) {
   return subtopics
 }
 
+function hasSubtopics(nodeName) {
+  return getDirectSubtopicNames(nodeName).length > 0
+}
+
 function getAllSubtopicNames(nodeName) {
   var resultList = []
   var resultSet = new Set()
@@ -161,6 +165,23 @@ function getAllSubtopicNames(nodeName) {
   // remove the first item
   resultList.splice(0, 1)
   return resultList
+}
+
+function getNumNewLeafTopics(nodeName) {
+  var allSubtopics = getAllSubtopicNames(nodeName)
+  var numNewSubtopics = 0
+  for (var i = 0; i < allSubtopics.length; i++) {
+    var subtopic = allSubtopics[i]
+    if (!hasSubtopics(subtopic) && getFamiliarityByName(allSubtopics[i]) != true) {
+      numNewSubtopics++
+    }
+  }
+  return numNewSubtopics
+}
+
+
+function getFamiliarityByName(name) {
+  return familiarityByName[name]
 }
 
 // make a guess about how to help a user that is very confused
@@ -527,7 +548,7 @@ function queryBoxKeyPress(event) {
 
 function makeSearchBox(nodeName) {
   var allSubtopics = getAllSubtopicNames(nodeName)
-  labelHtml = "<div>Search " + allSubtopics.length + " entries:</div>"
+  labelHtml = "<div>Search:</div>"
   inputHtml = '<input type="text" id="query" onkeypress="queryBoxKeyPress(event)">'
   return labelHtml + inputHtml
 }
@@ -721,8 +742,13 @@ function goToNode(nodeIndex, actionType) {
   render += "<div id='text'>"
   render +=   formatNodeText(node)
   render += "</div>"
-  if (subtopics.length > 0)
+  if (subtopics.length > 0) {
     render += makeSearchBox(nodeName)
+    var numSubtopics = getAllSubtopicNames(nodeName).length
+    var numNewSubtopics = getNumNewLeafTopics(nodeName)
+    render += "<br/>"
+    render += "Explore " + numSubtopics + " entries (" + numNewSubtopics + " new):"
+  }
 
   render += "<div id=\"search-results\"></div>"
   linksInformation = []
