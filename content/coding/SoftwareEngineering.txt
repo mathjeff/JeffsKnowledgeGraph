@@ -174,8 +174,6 @@ Familiarity with a system tends to increase
 
   This should make the person become more familiar with the system over time
 
- - How can I decide what to automate?
-
 New people take time to become efficient
 
   When a person starts working on a new topic/project/area, it takes time for that person to become efficient.
