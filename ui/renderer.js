@@ -742,7 +742,7 @@ function goToNode(nodeIndex, actionType) {
     linksInformation.push({"name":dependenciesTitle, "content": makeNodeList(dependencies, "confused")})
   }
   if (containingTopics.length > 0) {
-    linksInformation.push({"name":"Not interested.", "content": makeNodeList(containingTopics, "broadenTopic")})
+    linksInformation.push({"name":"Nevermind.", "content": makeNodeList(containingTopics, "broadenTopic")})
   }
   if (subtopics.length > 0) {
     linksInformation.push({"name": "Tell me about:", "content": makeNodeList(subtopics, "narrowTopic")})
