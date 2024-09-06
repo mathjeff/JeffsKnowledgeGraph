@@ -47,6 +47,7 @@ function resetFamiliarity() {
   latestFamiliarity = null
   // names of nodes that the user is probably already familiar with
   familiarityByName = {}
+  numFamiliarNodes = 0
   // names of nodes that the user has already visited
   visitedNodes = new Set()
 }
@@ -301,6 +302,7 @@ function declareFamiliar(nodeName) {
   }
 
   familiarityByName[nodeName] = true
+  numFamiliarNodes++
   savePersistentValue("familiar." + nodeName, "true")
   // also declare familiarity with dependencies
   var dependencies = getDirectDependencyNames(nodeName)
@@ -741,7 +743,7 @@ function goToNode(nodeIndex, actionType) {
     statusSections.push("<h4>Curious about:</h4>" + latestCuriosity + "<br/>")
   }
   if (latestFamiliarity != null) {
-    statusSections.push("<h4>Familiar with:</h4>" + latestFamiliarity + "<br/>")
+    statusSections.push("<h4>Familiar with " + numFamiliarNodes + " entries, including:</h4>" + latestFamiliarity + "<br/>")
   }
   if (statusSections.length > 0) {
     render += "<h3>Status:</h3>"
