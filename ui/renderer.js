@@ -134,9 +134,9 @@ function getDirectDependencyNames(nodeName) {
 }
 
 function getDirectSubtopicNames(nodeName) {
+  console.log("Getting subtopics of '" + nodeName + "', got " + subtopics)
   var node = nodesByName[nodeName]
   var subtopics = node["subtopics"]
-  //console.log("Getting subtopics of '" + nodeName + "', got " + subtopics)
   if (!subtopics)
     subtopics = [] // this node might not be a topic
   return subtopics
@@ -345,6 +345,10 @@ function declareFamiliarity(nodeName, isFamiliar) {
     return
   }
 
+  if (!hasNodeWithName(nodeName)) {
+    return
+  }
+
   console.log("familiarity with " + nodeName + " = " + isFamiliar)
 
   var subtopics = getDirectSubtopicNames(nodeName)
@@ -457,6 +461,10 @@ function curiosityNeedsDependenciesOf(nodeName) {
 function getNodeByName(name) {
   result = nodesByName[name]
   return result
+}
+
+function hasNodeWithName(name) {
+  return name in nodesByName
 }
 
 function makeGoToButton(nodeName, actionType) {
