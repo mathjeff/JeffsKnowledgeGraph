@@ -345,10 +345,6 @@ function declareFamiliarity(nodeName, isFamiliar) {
     return
   }
 
-  if (!hasNodeWithName(nodeName)) {
-    return
-  }
-
   console.log("familiarity with " + nodeName + " = " + isFamiliar)
 
   var subtopics = getDirectSubtopicNames(nodeName)
@@ -875,7 +871,7 @@ function loadPersistentData() {
   var persistentValues = getPersistentValues()
   var count = persistentValues.length;
   var familiarityMarker = "familiar."
-  for (var i = 0; i < count; i++) {
+  for (var i = count - 1; i >= 0; i--) {
     var key = persistentValues.key(i)
     var value = persistentValues.getItem(key)
     if (key.startsWith(familiarityMarker)) {
@@ -884,7 +880,12 @@ function loadPersistentData() {
         value = true
       else
         value = false
-      declareFamiliarity(topicName, value)
+      if (hasNodeWithName(topicName)) {
+        declareFamiliarity(topicName, value)
+      } else {
+        console.log("Removing familiarity for no longer existent topic '" + topicName + "'")
+        persistentValues.removeItem(key)
+      }
     }
   }
 }
