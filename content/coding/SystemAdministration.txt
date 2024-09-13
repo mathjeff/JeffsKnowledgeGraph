@@ -1,0 +1,94 @@
+# Information about System Administration
+
+Linux files have permissions
+
+  Each inode in Linux keeps track of which people can do which things to it
+
+  The things a person can do to a file:
+
+   * Read it
+   * Write to it
+   * Execute it
+
+  The relationships a person can have to a file:
+  * Owner of the file
+  * Share a group with the file
+  * Other (not the owner or in a group with it)
+
+ - What is an inode?
+
+What is an inode?
+
+  An inode is a file or a directory
+
+How to see the permissions of a file
+
+  To see the permissions of a file, you can do `ls -la <filename>`
+
+  This might output something like this:
+
+  ```
+   $ ls -la example.sh
+  -rwxrw-r-- 1 gasto gasto 0 Sep 13 19:01 example.sh
+  ```
+
+  There are 9 characters of permission information in this output.
+  1. Three characters describe permissions for the owner
+
+      The initial `rwx` means that the owner of the file can read it, write to it, and execute it
+
+  1. Three characters describe permissions for users that share a group with the file
+
+      The `rw-` means that other users in the same group as the file can read or write the file but not execute it
+
+  1. Three characters describe permissions for other users
+
+    The `r--` means that other users can read the file but not write it or execute it
+
+ - Linux files have permissions
+
+ - How can I read command help?
+
+How to change the permissions of a file
+
+  To change the permissions of a file, you can use `chmod <who><addOrRemove><permission> <file>`
+
+  `who` can be 'u' for the owner, 'g' for users in the same group, or 'o' for other users
+
+  `addOrRemove` should be '+' or '-'
+
+  `permission` can be 'r' for reading, 'w' for writing, or 'x' for executing.
+
+  For example, to allow the owner of a file to execute it, do `chmod u+x <file>`
+
+ - How to see the permissions of a file
+ - How can I read command help?
+
+How to change the owner of a file
+
+  To change the owner of a file, you can use `chown <newOwner> <file>`
+
+ - How to see the permissions of a file
+ - How can I read command help?
+
+Why should I change the permissions of a file?
+
+  * Security
+      * It's possible that an untrustworthy person might get permission to log in to a system as a certain user
+          * Maybe that person was given an account
+          * Maybe that person acquired someone else's login credentials
+          * Maybe that person found and took advantage of a security problem in another service running on the machine
+      * If most login accounts don't have permissions to do most things, then it prevents an attacker from easily taking over the entire system
+
+  * Bugs
+      * If a program has a bug in it, it might accidentally try to modify or delete files that it's not supposed to. If it doesn't have permission to do this, it won't succeed in doing it.
+
+  * Mistakes
+      * If you accidentally type a harmful command into the terminal (for example a command that specifies to delete all files on the system), it would be nice for that command to fail rather than cause a problem
+      * A common way to prevent this kind of thing is to remove your own permissions for taking these unwanted actions
+      * If you later decide you do want to allow yourself to do these things anyway, you might have to switch accounts or modify the permissions of the file to allow yourself to modify it
+
+
+ - Linux files have permissions
+
+
