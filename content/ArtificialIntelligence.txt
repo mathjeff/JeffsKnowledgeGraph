@@ -129,3 +129,31 @@ What is unsupervised learning?
   Unsupervised learning is learning where no answers are known.
 
   A common type of unsupervised learning is to cluster datapoints into groups
+
+What are embeddings for?
+
+  If a computer has two objects and wants to know how similar they are, it often works well to compute an embedding for each of the objects and compare the embeddings.
+
+  If there are lots of objects to compare, this only requires computing each embedding once.
+
+  If you want to search for similar objects, it's easier to search for similar embeddings because they are numbers that can be used as keys in a data structure.
+
+ - What is an embedding?
+
+What is an embedding?
+
+  An embedding is a list of numbers that represents an object
+
+  For example, if you want to compute an embedding for a fruit, you could choose to make a list of these numbers:
+
+  * The average amount of red in the fruit
+  * The average amount of green color in the fruit
+  * The average amount of blue color in the fruit
+  * The length of the fruit
+  * The mass of the fruit
+
+ - What is a vector?
+
+What is a vector?
+
+  A vector is a list of numbers
