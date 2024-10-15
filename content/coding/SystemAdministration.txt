@@ -88,7 +88,130 @@ Why should I change the permissions of a file?
       * A common way to prevent this kind of thing is to remove your own permissions for taking these unwanted actions
       * If you later decide you do want to allow yourself to do these things anyway, you might have to switch accounts or modify the permissions of the file to allow yourself to modify it
 
-
  - Linux files have permissions
 
+How can I ssh into another computer?
 
+  To ssh into another computer, type `ssh <username>@<computer>`
+
+  This requires that `sshd` is running on the computer you want to connect to
+
+  When you're done, you can type `exit` to exit
+
+ - What is ssh?
+ - Checking whether my computer can reach a certain host
+ - Getting ssh credentials
+ - Inspecting a computer process
+
+Getting ssh credentials
+
+  ssh accepts two types of credentials
+
+  * username and password
+
+  * ssh keys
+
+ - Getting an ssh username and password
+ - Enabling ssh keys
+
+Enabling ssh keys
+
+  Allowing someone to access a computer via ssh requires:
+
+  * Making an ssh key pair
+
+  * Asking the computer to trust this key pair by copying the public key to ~/.ssh/authorized_keys
+
+  * Making sure that `sshd` is running
+
+ - Getting ssh keys
+
+Getting an ssh username and password
+
+  When creating a Linux account via `adduser`, the ssh username and password should be the same as the account username and password, if username and password is enabled.
+
+  Note that using an ssh password is likely to be less convenient than an ssh key, and is also generally considered to be less secure
+
+ - What is ssh?
+ - Getting ssh keys
+
+Getting ssh keys
+
+  To generate an ssh key, you can run `ssh-keygen`.
+
+ - What is an ssh key?
+
+What is an ssh key?
+
+  An ssh key is a pair of files that allow you to demonstrate your identity to others.
+
+  One file is your private key which contains some secret text that is known only to you or your computer.
+
+  One file is your public key which can be used to verify the information in the private key.
+
+  * The name of this file should end with ".pub"
+
+  ssh keys are verified in [a clever way](https://en.wikipedia.org/wiki/RSA_(cryptosystem)) so that it's not necessary to share the contents of your private key to demonstrate your identity.
+
+What is ssh?
+
+  SSH stands for Secure Shell.
+
+  It lets you run commands on another computer that you enter into your own computer.
+
+  SSH is a type of shell.
+
+ - What is a shell?
+
+What is my hostname?
+
+  To get your computer's hostname, run `hostname -a` in a terminal
+
+ - What is a terminal?
+
+Checking whether my computer can reach a certain host
+
+  To determine whether your computer can reach a certain ip address, run `ping <address>` or `ping <hostname>` in a terminal
+
+ - How can I read command help?
+ - What is a terminal?
+ - What is my ip address?
+ - What is my hostname?
+
+What is my ip address?
+
+  On Windows, run `ifconfig`
+
+  On Linux, run `ipconfig`
+
+ - What is an ip address?
+
+What is an ip address?
+
+  An ip address is a way for computers to refer to each other on a network.
+
+  IPv4 addresses look like four numbers separated by dots, for example:
+
+  `127.0.0.1`
+
+How can I copy a file to or from another computer?
+
+  You can copy a file to or from another computer using `scp`
+
+  To send a file from your computer to another, run `scp <filepath> <remoteUsername>@<remoteHost>:<remotePath>` in a local shell
+
+  To get a file from another computer to yours, run `scp <remoteUsername>@<remoteHost>:<remotePath> <filepath>` in a local shell
+
+  If this doesn't work, check whether you can `ssh` into that computer
+
+ - How can I ssh into another computer?
+ - What is a shell?
+ - What is local in a computer?
+
+What is local in a computer?
+
+  "Local" refers to a computer that you can physically access or information in that computer, rather than something behind a network.
+
+  The device your are looking at now is considered local.
+
+  The server that hosts JeffsKnowledgeGraph is not local; it is remote.
