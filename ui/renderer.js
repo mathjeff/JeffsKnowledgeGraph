@@ -251,7 +251,10 @@ function expandDependencies() {
     var candidateName = candidates[i]
     console.log("expansion candidate name = " + candidateName)
     var candidate = getNodeByName(candidateName)
-    html += formatNodeText(candidate)
+    var description = candidate["description"]
+    if (description != null && description != "") {
+      html += formatNodeText(candidate)
+    }
   }
   document.getElementById("text").innerHTML = html
 }
