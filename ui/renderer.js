@@ -134,7 +134,6 @@ function getDirectDependencyNames(nodeName) {
 }
 
 function getDirectSubtopicNames(nodeName) {
-  console.log("Getting subtopics of '" + nodeName + "', got " + subtopics)
   var node = nodesByName[nodeName]
   var subtopics = node["subtopics"]
   if (!subtopics)
@@ -327,10 +326,10 @@ function getAlreadyFamiliarHelpNames(nodeName) {
 }
 
 function clearFamiliarity() {
-  var familiarNames = getAllFamiliarNodes()
+  var familiarNames = familiarityByName
   console.log(familiarNames)
-  for (var key of familiarNames) {
-    declareFamiliarity(key, false)
+  for (var key in familiarNames) {
+    declareFamiliarity(key, null)
   }
   latestFamiliarity = null
   goHome()
@@ -356,7 +355,6 @@ function declareFamiliarity(nodeName, isFamiliar) {
   }
 
   console.log("declaring familiarity with " + nodeName + " = " + isFamiliar)
-
   var subtopics = getDirectSubtopicNames(nodeName)
   if (subtopics.length > 0) {
     // declaring familiarity with a topic really means declaring familiarity with everything in it
@@ -376,10 +374,12 @@ function declareFamiliarity(nodeName, isFamiliar) {
       numFamiliarNodes--
   }
   savePersistentValue("familiar." + nodeName, isFamiliar)
-  // also declare familiarity with dependencies
-  var dependencies = getDirectDependencyNames(nodeName)
-  for (var i = 0; i < dependencies.length; i++) {
-    declareFamiliarity(dependencies[i], isFamiliar)
+  if (isFamiliar) {
+    // also declare familiarity with dependencies
+    var dependencies = getDirectDependencyNames(nodeName)
+    for (var i = 0; i < dependencies.length; i++) {
+      declareFamiliarity(dependencies[i], isFamiliar)
+    }
   }
   if (isFamiliar)
     latestFamiliarity = nodeName
@@ -886,17 +886,19 @@ function loadPersistentData() {
   for (var i = count - 1; i >= 0; i--) {
     var key = persistentValues.key(i)
     var value = persistentValues.getItem(key)
-    if (key.startsWith(familiarityMarker)) {
-      var topicName = key.substring(familiarityMarker.length)
-      if (value == "true")
-        value = true
-      else
-        value = false
-      if (hasNodeWithName(topicName)) {
-        declareFamiliarity(topicName, value)
-      } else {
-        console.log("Removing familiarity for no longer existent topic '" + topicName + "'")
-        persistentValues.removeItem(key)
+    if (value != null) {
+      if (key.startsWith(familiarityMarker)) {
+        var topicName = key.substring(familiarityMarker.length)
+        if (value == "true")
+          value = true
+        else
+          value = false
+        if (hasNodeWithName(topicName)) {
+          declareFamiliarity(topicName, value)
+        } else {
+          console.log("Removing familiarity for no longer existent topic '" + topicName + "'")
+          persistentValues.removeItem(key)
+        }
       }
     }
   }
@@ -908,5 +910,9 @@ function getPersistentValues() {
 
 function savePersistentValue(key, value) {
   var values = getPersistentValues()
-  values.setItem(key, value)
+  if (value == null) {
+    values.removeItem(key)
+  } else {
+    values.setItem(key, value)
+  }
 }
