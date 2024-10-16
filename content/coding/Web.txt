@@ -2,7 +2,7 @@
 
 What is Marked?
 
-  [Marked](https://github.com/markedjs/marked) is a tool that makes it easy to style html more easily
+  [Marked](https://github.com/markedjs/marked) is a tool that makes it easier to style html
 
  - What is html?
 
