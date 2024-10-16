@@ -21,6 +21,22 @@ What is an inode?
 
   An inode is a file or a directory
 
+  A directory is sometimes also called a folder
+
+What is a symlink?
+
+  A symlink is a special type of file that points to another file.
+
+  When a program reads from or writes to a symlink, it usually will instead read from or write to the file that the symlink points to.
+
+Filesystem directory hierarchy
+
+  Files in a computer are organized into directories (also known as folders).
+  Each directory may contain files or directories
+  Each file or directory can be accessed by its absolute path.
+
+ - What is an inode?
+
 How to see the permissions of a file
 
   To see the permissions of a file, you can do `ls -la <filename>`

@@ -9,7 +9,7 @@ Using the terminal efficiently
  - Terminal copy
  - Terminal paste
  - Shell functions
- - Terminal directories
+ - Shell paths
  - Shell initialization scripts
 
 What is a terminal?
@@ -154,7 +154,7 @@ Terminal tab complete
 
   For example, if you have a directory containing file named `sample`, you can type `echo sa` and press the tab key, and the terminal should autocomplete to say `echo sample` (assuming there are other no files or directories with names starting with `sa` in that directory)
 
- - Terminal directories
+ - Shell paths
  - What is a shell?
 
 Terminal new directory
@@ -163,32 +163,68 @@ Terminal new directory
 
   For example, you can type `mkdir sample` to make an empty dir called "sample"
 
- - Terminal directories
+ - Shell paths
 
-Terminal directories
+Shell paths
 
-  Files in a computer are organized into directories (also known as folders).
-  Each directory may contain files or directories (or even symlinks).
+  File paths in a shell are essentially the same as file paths for other programs, with some extra features.
+
+  * The path `~` in a shell refers to your home directory.
+      * In a shell you can run `echo ~` to see the file path of your home directory
+  * The path `*` will be expanded to all existent inodes.
+      * You can run `ls *.txt` to list all filenames that end with ".txt" in the current directory
+
+ - What is an inode?
+ - File paths
+
+File paths
+
+ - Relative file paths
+ - Absolute file paths
+
+Absolute file paths
+
+  An absolute path identifies a file or directory on a computer.
   Each file or directory can be accessed by its absolute path.
+
   An absolute path is a string starting with "/".
 
-    For example, "/tmp" is an absolute path.
+    For example, `/tmp` is an absolute path.
     To see the contents of the `/tmp` directory, you can run `ls /tmp`.
 
-  A relative path is a string that doesn't start with "/". A relative path can be converted into an absolute path by starting at another directory, called the working directory, and following the relative path.
+ - Filesystem directory hierarchy
+
+Relative file paths
+
+  A relative file path is any path that is not an absolute file path.
+
+  A relative path can be converted into an absolute path by starting at another directory, and following the relative path.
+
+  Many programs interpret a relative path based on their process's working directory.
+
+  Examples:
+
+  * `tmp` is a relative path.
+  * `example` is a relative path.
+  * If the working directory is `/` and you want to check whether the file `/tmp/example` exists, you can run either `ls tmp/example` or `ls /tmp/example` to check.
+  * If the working directory is `/tmp` and you want to check whether the file `/tmp/example` exists, you can run either `ls example` or `ls /tmp/example` to check.
+
+  Special relative paths
+  * The path `.` refers to the current directory.
+      * You can run `ls .` to look at the contents of the working directory. This is the same as running `ls`
+  * The path `..` refers to the parent directory.
+      * If the working directory is `/tmp/example/subdir`, you can run `ls ..` to list the contents of `/tmp/example`
+
+ - Absolute file paths
+ - Working directory
+
+Working directory
 
   Each program in a computer has a working directory which essentially refers to whichever directory it is currently looking at.
-
-    For example, "tmp" is a relative path.
-    Also, "example" is a relative path.
-    If the working directory is `/` and you want to check whether the file `/tmp/example` exists, you can run either `ls tmp/example` or `ls /tmp/example` to check.
-    If the working directory is `/tmp` and you want to check whether the file `/tmp/example` exists, you can run either `ls example` or `ls /tmp/example` to check.
 
   To see the working directory, you can run `pwd`
 
   To change the working directory, you can run `cd <someNewDir>`
-
- - What is a shell?
 
 Terminal copy
 
