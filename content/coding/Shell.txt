@@ -343,6 +343,23 @@ What is grep?
 
  - What is echo?
 
+Bash variables
+
+  In Bash, you can create a variable and assign it a value using `=`.
+
+  You can get the value of a variable by typing `$` followed by its name.
+
+  For example:
+
+  ```
+    a=5
+    echo "$a"
+  ```
+
+  should output `5`
+
+ - What is echo?
+
 What is echo?
 
   `echo` is a shell command that outputs text. For example, `echo abc` says `abc` and `echo` makes a blank line.
