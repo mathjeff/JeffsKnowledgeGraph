@@ -363,3 +363,33 @@ Bash variables
 What is echo?
 
   `echo` is a shell command that outputs text. For example, `echo abc` says `abc` and `echo` makes a blank line.
+
+What is this shell command?
+
+  A shell command starts with a command name.
+  The command name is the characters until the first space, tab or newline
+
+  For example, if you run
+
+  ```
+  echo hi
+  ```
+
+  then `echo` is the command name and `hi` is an argument.
+
+  If you want to know where a command is defined, you can run `type <command>`.
+
+  For example:
+
+  ```
+  /tmp $ type echo
+  echo is a shell builtin
+  /tmp  $ type ls
+  ls is hashed (/usr/bin/ls)
+  /tmp $ type gst # I made this function myself
+  gst is a function
+  gst ()
+  {
+      git status "$@"
+  }
+  ```
