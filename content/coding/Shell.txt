@@ -310,15 +310,13 @@ SessionManager
 
   SessionManager is a project by Jeff Gaston to make it easier to remember:
 
-    What tasks you've been doing
-
-    Why you've been doing them
-
-    What the status of each is
+  * What tasks you've been doing
+  * Why you've been doing them
+  * What the status of each is
 
   It can be found at https://github.com/mathjeff/SessionManager
 
- - Who is Jeff?
+ - Take notes
 
 Counting text
 

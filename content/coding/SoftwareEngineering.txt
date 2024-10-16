@@ -295,6 +295,28 @@ Preparing for mistakes
 
  - People make mistakes
 
+People are forgetful
+
+  Different people may forget different pieces of information at different times.
+
+  This type of information is often easier to remember:
+
+  * Information that makes sense to the person
+  * Information that the person has remembered for a while already
+  * Information that the person is interested in
+  * Information that doesn't change often
+  * Information that the person encountered recently
+
+Take notes
+
+  This can help you to more easily remember what you've been doing.
+  You might find it useful to record things that you're more likely to forget, such as:
+
+  * Important file paths that you discovered recently
+  * Your latest progress on your current project
+
+ - People are forgetful
+
 Backwards compatibility
 
   Backwards compatibility is the idea of a new version of software being able to process the same inputs as its previous version
