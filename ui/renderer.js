@@ -142,10 +142,13 @@ function getDirectSubtopicNames(nodeName) {
   return subtopics
 }
 
+// Tells whether this node has any child nodes
 function hasSubtopics(nodeName) {
   return getDirectSubtopicNames(nodeName).length > 0
 }
 
+// Returns a list of names of nodes that are descendants of this node or are this node
+// For a leaf node, should return a list with just its own name
 function getAllSubtopicNames(nodeName) {
   var resultList = []
   var resultSet = new Set()
@@ -163,10 +166,11 @@ function getAllSubtopicNames(nodeName) {
     }
   }
   // remove the first item
-  resultList.splice(0, 1)
   return resultList
 }
 
+// Returns the number of leaf nodes that have this node as an ancestor or are this node
+// Should always return at least 1
 function getNumLeafTopicNames(nodeName) {
   var allSubtopics = getAllSubtopicNames(nodeName)
   var numSubtopics = 0
@@ -179,7 +183,7 @@ function getNumLeafTopicNames(nodeName) {
   return numSubtopics
 }
 
-function getNumNewLeafTopics(nodeName) {
+function getNumUnfamiliarLeafTopics(nodeName) {
   var allSubtopics = getAllSubtopicNames(nodeName)
   var numNewSubtopics = 0
   for (var i = 0; i < allSubtopics.length; i++) {
@@ -191,6 +195,9 @@ function getNumNewLeafTopics(nodeName) {
   return numNewSubtopics
 }
 
+function hasUnfamiliarLeafTopic(nodeName) {
+  return getNumUnfamiliarLeafTopics(nodeName) > 0
+}
 
 function getFamiliarityByName(name) {
   return familiarityByName[name]
@@ -348,7 +355,7 @@ function declareFamiliarity(nodeName, isFamiliar) {
     return
   }
 
-  console.log("familiarity with " + nodeName + " = " + isFamiliar)
+  console.log("declaring familiarity with " + nodeName + " = " + isFamiliar)
 
   var subtopics = getDirectSubtopicNames(nodeName)
   if (subtopics.length > 0) {
@@ -651,6 +658,7 @@ function orderNodeNames(nodeNames) {
 
 function makeNodeList(nodeNames, actionType) {
   var nodeNames = orderNodeNames(nodeNames)
+
   var alreadyVisitedNames = []
   var unvisitedNames = []
   for (var i = 0; i < nodeNames.length; i++) {
@@ -665,17 +673,18 @@ function makeNodeList(nodeNames, actionType) {
   var alreadyFamiliarNames = []
   var unfamiliarNames = []
   for (var i = 0; i < unvisitedNames.length; i++) {
-    var nodeName = nodeNames[i]
-    if (familiarityByName[nodeName] == true) {
-      alreadyFamiliarNames.push(nodeName)
-    } else {
+    var nodeName = unvisitedNames[i]
+    if (hasUnfamiliarLeafTopic(nodeName)) {
       unfamiliarNames.push(nodeName)
+    } else {
+      alreadyFamiliarNames.push(nodeName)
     }
   }
+
   var result = ""
   var unfamiliarButtons = makeUnlabelledNodeList(unfamiliarNames, actionType)
   var familiarButtons = makeUnlabelledNodeList(alreadyFamiliarNames, actionType)
-  if (unfamiliarButtons.length > 0 && familiarButtons.length > 0) {
+  if (unfamiliarNames.length > 0 && alreadyFamiliarNames.length > 0) {
     result += "<div>New:</div>" + unfamiliarButtons
     result += "<div>Familiar:</div>" + familiarButtons
   } else {
@@ -787,7 +796,7 @@ function goToNode(nodeIndex, actionType) {
   if (subtopics.length > 0) {
     render += makeSearchBox(nodeName)
     var numSubtopics = getNumLeafTopicNames(nodeName)
-    var numNewSubtopics = getNumNewLeafTopics(nodeName)
+    var numNewSubtopics = getNumUnfamiliarLeafTopics(nodeName)
     render += "<br/>"
     render += "Explore " + numSubtopics + " entries (" + numNewSubtopics + " new):"
   }
