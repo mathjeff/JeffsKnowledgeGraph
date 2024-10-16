@@ -287,6 +287,10 @@ Preparing for mistakes
 
           * That gives us more information about how to fix it
 
+  * It can help to make backups of things that are important
+
+      * If one copy of a piece of information is lost, if there is a backup, it can be restored from the backup
+
   If you're interested in a simulation of a large system with lots of opportunities for mistakes, you might be interested in [Oxygen Not Included](https://store.steampowered.com/app/457140/Oxygen_Not_Included/) or [Factorio](https://www.factorio.com/).
 
  - People make mistakes
