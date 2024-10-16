@@ -185,12 +185,21 @@ New people take time to become efficient
 Asking for help
 
  - Asking for help is efficient for unfamiliar tasks
+ - Who to ask for help
 
 Asking for help is efficient for unfamiliar tasks
 
   If someone else is already familiar with a system that you need to work with or modify, and if that person has capacity to help, it is probably more efficient to reach out to that person for help instead
 
  - New people take time to become efficient
+
+Who to ask for help
+
+  If you can identify someone that is familiar with the topic you're interested in, that person may be a good person to ask for help
+
+  If your project involves source code, you may be able to determine who has made changes to this project, in which case that person is likely to be familiar with it.
+
+ - Examining a project's source code
 
 Avoid duplicate code
 
@@ -320,7 +329,7 @@ How do I modify my own repository in GitHub?
 
 How do I download a repository from GitHub?
 
-  Install [git](https://git-scm.com/) and use it to download the repository from GitHub
+  Install [git](https://git-scm.com/) and use it to download the repository from [GitHub](https://github.com/).
 
 How do I upload changes to a GitHub repository?
 

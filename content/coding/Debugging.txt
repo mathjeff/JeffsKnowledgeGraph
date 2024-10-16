@@ -89,3 +89,59 @@ Memory vs storage
   Storage is usually used for holding files.
 
  - What is a computer process?
+
+Debugging complicated systems
+
+ - Debugging complicated systems via binary search simplification
+ - Learning about complicated systems via version control
+ - Learning about complicated systems via string search and links
+ - Asking for help
+
+Debugging complicated systems via binary search simplification
+
+  If you have a complicated system that is doing something you don't understand, one way to understand it better is to simplify the system.
+
+  For example, if you have a computer program that has a bug, you can remove part of the computer program and see if it still has the same bug.
+
+  * If the program still has the same bug, then the problem is somewhere in the remaining part of the program
+  * If the program no longer has the same bug, then something about the code that you removed was important for observing the bug
+
+ - What is a computer bug?
+ - Examining a project's source code
+
+What is a computer bug?
+
+  A bug in software engineering is a mistake or error in a program that causes it to work incorrectly under some circumstances.
+
+Learning about complicated systems via version control
+
+  If you have a complicated system that you would like to learn about, one approach for understanding it better is to look at changes that have been made to its source code recently.
+
+  You can discover:
+
+  * What changes have been made
+      * If two different versions of a program do different things, this should be due to changes in the programs or their datasets
+      * If you know what changes have been made between two versions of a program it can be easier to determine why they behave differently
+  * Which source files have been changed together
+      * Files that are changed together are more likely to be related
+
+ - Examining a project's source code
+
+Learning about complicated systems via string search and links
+
+  If you have a complicated system that you would like to learn about, one approach for understanding it better is to search through its source code for terms that you recognize and then follow some links.
+
+  If your system displays any words onscreen, you can search through its source code for those words to make some guesses about where in the source code those words come from.
+
+  Then, you can look for other parts of the system that interact with those parts of the system, and repeat, until you find something that looks helpful
+
+Examining a project's source code
+
+ - How do I download a repository from GitHub?
+ - Examining source code history via git
+
+Examining source code history via git
+
+  Git has many features. One useful feature is to view the history of a specific file via `git log -p <filename>`
+
+ - Which arguments can I give to a shell command?
