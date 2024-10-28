@@ -157,3 +157,15 @@ What is an embedding?
 What is a vector?
 
   A vector is a list of numbers
+
+What is a GPU?
+
+  A graphics processing unit is a computer system made of a large number of simple processors. Each processor must execute the same instruction at a time but operates on different data.
+
+Why is a GPU called a GPU?
+
+  A GPU is useful for determining what information to display on a screen. That was what they were first used for.
+
+  Nowadays a GPU may also be used for artificial intelligence tasks that also involve running similar instructions on large amounts of data.
+
+ - What is a GPU?
