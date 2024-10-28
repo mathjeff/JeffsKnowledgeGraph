@@ -106,9 +106,23 @@ Why should I change the permissions of a file?
 
  - Linux files have permissions
 
+What is a port in networking?
+
+  A port is an identifier that is used in routing traffic to a program on a computer.
+
+  When someone starts a service, the service has to decide which port to listen on.
+
+  When you access a service on another computer, your computer must know which port it is listening on.
+
+  Two services cannot listen on the same port.
+
+  The default port for web servers to listen on is port 80.
+
+  The default port for an ssh server to listen on is port 22.
+
 How can I run a Jupyter Notebook on a workstation from my laptop?
 
-  On the workstation terminal, run `jupyter notebook --no-browser --port=8080`.
+  On the workstation terminal, run `jupyter notebook --no-browser --port=8080` (if someone else is already using this port, choose another port).
 
   On my laptop terminal, run `ssh -L 8080:localhost:8080 <username>@<computer>`
 
@@ -118,6 +132,7 @@ How can I run a Jupyter Notebook on a workstation from my laptop?
  - What is Jupyter Notebook?
  - How can I ssh into another computer?
  - Why using Jupyter Notebook?
+ - What is a port in networking?
 
 Why using Jupyter Notebook?
 
