@@ -54,9 +54,9 @@ Neural networks
 
   The details of how a node combines its inputs is dependent on its weights.
 
-  The weights of node connections in a graph make up the parameters of the neural network
+  The weights of node connections in a graph make up the parameters of the neural network.
 
-  Neural networks can model many different functions and can be trained
+  Neural networks can model many different functions and can be trained.
 
  - What is AI?
 
@@ -64,27 +64,47 @@ Training neural networks
 
   A neural network is a complicated function that makes predictions for an input based on its internal parameters.
 
-  Training a neural network requires:
+  Training a neural network involves changing its parameters in such a way that its predictions for a training set get more accurate.
 
-  * Training data
+  Usually the way this works is:
 
-  * A way of computing a score for a given prediction and example
+  1. The user identifies some training data
 
-      * This is called "loss", and lower numbers are better, with 0 being the best.
+  2. The user chooses a loss function
 
-  * A way of modifying the network's parameters to reduce the average penalty
+  3. Backpropagation identifies the gradient of the loss on this training set with respect to the network parameters
 
-      * This is done using a separate mathematical optimization algorithm
-
-  The optimization algorithm repeatedly attempts to modify the parameters of the network in a way such that the average loss among examples in the training set is as low as possible
+  4. Gradient descent repeatedly uses backpropagation to compute the gradient, and uses the gradient to change the network's parameters to reduce the loss
 
  - Neural networks
 
+ - What is a loss function?
+
  - Gradient descent
+
+ - What is backpropagation?
 
 Gradient descent
 
   [Gradient descent](https://en.wikipedia.org/wiki/Gradient_descent) is an algorithm that attempts to find the minimum of an arbitrary, unknown function.
+
+  The way that it works is:
+
+  1. Choose a point to start at.
+
+  2. Compute the gradient of the function at that point.
+
+  3. Move in the direction of the gradient.
+
+  4. Repeat until satisfied.
+
+  Note that this isn't guaranteed to find the absolute minimum of a function.
+
+  If the function has multiple regions separated by a mountain and the initial guessed point was on one side of the mountain, then other points on the other side of the mountain may not be considered and may have even smaller values.
+
+  One approach to increase the probability of finding the absolute minimum is to run this algorithm several times, each with a different initial guess.
+
+ - What is a gradient?
 
 Large Language Models
 
@@ -93,6 +113,46 @@ Large Language Models
   They're often trained to predict a specific word in a text given the rest of the surrounding words.
 
  - Neural networks
+
+What is a loss function?
+
+  A loss function is a function that compares the output of an AI model (for a given input) to the correct answer and computes a penalty.
+
+  This penalty is called "loss".
+
+  Smaller values are better, with 0 being the best
+
+  For example, suppose we have an AI that is supposed to identify objects.
+
+  * If we show it an apple and it outputs the text "apple", we might assign that a loss of 0.
+
+  * If we show it an apple and it says "cherry", we might assign that a loss of 0.1.
+
+  * If we show it an apple and it says "chair". we might assign that a loss of 1.
+
+ - What is AI?
+
+What is backpropagation?
+
+  Backpropagation is a way of determining the gradient of the output of a neural network with respect to each of the network's parameters
+
+  Backpropagation starts at the last layer in the neural network and computes the gradient of each output of the network with respect to each parameter in the last layer of the network.
+
+  Then, backpropagation proceeds to the previous layer (this is why it's called "backpropagation") and computes the gradient of each output of the network as a function of each parameter in that layer of the network.
+
+  This process continues until each gradient is computed.
+
+ - What is a gradient?
+
+ - Neural networks
+
+What is a gradient?
+
+  A gradient is a list of slopes, with one slope per dimension.
+
+  A gradient tells how much one value changes as a result of a small change in another value.
+
+  For example, for a function `z = 3x + y*y`, the gradient is `(3, 2y)` because increasing `x` by a tiny amount will increase `z` by three times that amount, and increasing `y` by a tiny amount will increase `z` by that amount times `2y`.
 
 Expectation Maximization
 
