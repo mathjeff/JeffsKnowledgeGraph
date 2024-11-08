@@ -5,6 +5,7 @@ function setupInterface() {
   resetFamiliarity()
   loadPersistentData()
 
+  enableBackButton()
   goToInitialNode()
   console.log("done setting up interface")
 }
@@ -800,7 +801,14 @@ function goToNode(nodeIndex, actionType) {
   updateUserKnowledgeData(actionType)
   var nodeName = node["name"]
   console.log("goToNode '" + nodeName + "' actionType = " + actionType)
-  nodeHistory.push(node)
+
+  if (actionType != "back") {
+    // keep track of this node
+    nodeHistory.push(node)
+    // Also inform the browser that when pressing the back button we undo this visit
+    history.pushState({}, "")
+  }
+
   visitedNodes.add(nodeName)
   var name = node["name"]
   var description = node["description"]
@@ -892,6 +900,16 @@ function goHome() {
   goToNode(rootNode["index"], "home")
 }
 
+// calling this function causes the back button to go back to our previous node if we have one, or otherwise go back to the previous website
+function enableBackButton() {
+  window.onpopstate = function() {
+    if (!goBack()) {
+      history.back()
+    }
+  }
+}
+
+// goes back to the previous node and returns true if it had another node to go to
 function goBack() {
   if (nodeHistory.length >= 2) {
     // identify the previous node
@@ -900,8 +918,9 @@ function goBack() {
     nodeHistory.pop()
     // jump to the previous node
     goToNode(previousNode["index"], "back")
-    // jumping to the previous node adds it to the history, so remove that new entry now too
-    nodeHistory.pop()
+    return true
+  } else {
+    return false
   }
 }
 
