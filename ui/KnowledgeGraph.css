@@ -29,3 +29,7 @@ body {
 .button-clear-familiarity {
   background-color: #ff0000;
 }
+
+table {
+  border-spacing: 10px;
+}
