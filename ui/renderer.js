@@ -885,7 +885,7 @@ function goToNode(nodeIndex, actionType) {
     statusSections.push("<h4>Familiar with " + numFamiliarNodes + " entries, including:</h4>" + latestFamiliarity + "<br/>")
   }
   if (statusSections.length > 0) {
-    render += "<h3>Status:</h3>"
+    render += "<h3>My Status:</h3>"
     for (var i = 0; i < statusSections.length; i++) {
       render += statusSections[i]
     }
