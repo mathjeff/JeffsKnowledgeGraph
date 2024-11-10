@@ -124,11 +124,12 @@ Which arguments can I give to a shell command?
 
   Some commands are documented in Jeff's Knowledge Graph.
 
- - What is a shell?
+ - What is the format of a shell command?
 
  - How can I read command help?
 
  - How do I find information in Jeff's Knowledge Graph?
+
 
 How can I read command help?
 
