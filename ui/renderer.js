@@ -591,7 +591,11 @@ function runQuery(queryText) {
   if (queryResults.length > 0) {
     html = makeNodeList(queryResults, "searchResult")
   } else {
-    html = "<div>No results found. " + makeOpenIssueLink() + "</div>"
+    var whereText = ""
+    if (currentNode != rootNode) {
+      whereText = " under " + currentNode["name"]
+    }
+    html = "No results found" + whereText + ". " + makeOpenIssueLink()
   }
   document.getElementById("search-results").innerHTML = html
 }
@@ -604,8 +608,8 @@ function queryBoxKeyPress(event) {
   }
 }
 
-function makeSearchBox(nodeName) {
-  labelHtml = "<div>Search:</div>"
+function makeSearchBox(nodeName, numEntries) {
+  labelHtml = "<div>Search (" + numEntries + " entries):</div>"
   inputHtml = '<input type="text" id="query" onkeypress="queryBoxKeyPress(event)">'
   return labelHtml + inputHtml
 }
@@ -834,11 +838,11 @@ function goToNode(nodeIndex, actionType) {
   render +=   formatNodeText(node)
   render += "</div>"
   if (subtopics.length > 0) {
-    render += makeSearchBox(nodeName)
     var numSubtopics = getNumLeafTopicNames(nodeName)
     var numNewSubtopics = getNumUnfamiliarLeafTopics(nodeName)
+    render += makeSearchBox(nodeName, numSubtopics)
     render += "<br/>"
-    render += "Explore " + numSubtopics + " entries (" + numNewSubtopics + " new):"
+    render += "Explore (" + numNewSubtopics + " new):"
   }
 
   render += "<div id=\"search-results\"></div>"
