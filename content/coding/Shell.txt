@@ -122,9 +122,13 @@ Which arguments can I give to a shell command?
 
   Many commands are documented on the internet. You can often ask a search engine a question like `<commandName> arguments` for more information
 
+  Some commands are documented in Jeff's Knowledge Graph.
+
  - What is a shell?
 
  - How can I read command help?
+
+ - How do I find information in Jeff's Knowledge Graph?
 
 How can I read command help?
 

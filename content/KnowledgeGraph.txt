@@ -39,3 +39,23 @@ Can I contribute to Jeff's Knowledge Graph?
  - How do I modify a repository in GitHub?
 
  - What is Jeff's Knowledge Graph?
+
+How do I find information in Jeff's Knowledge Graph?
+
+  * If you know the name of what you're looking for, first try going to the Home page, typing it into the Search box, and pressing Enter.
+
+      * If this gives too many results:
+
+          * Try making your query more specific by adding more words
+
+          * Trying going to a more specific subtopic and searching there instead
+
+      * If this gives too few results:
+
+          * Try making your query less specific
+
+          * Try [opening an issue](https://github.com/mathjeff/JeffsKnowledgeGraph/issues/new)
+
+  * If you don't know the name of what you're looking for, try clicking the buttons at the bottom to explore
+
+ - What is Jeff's Knowledge Graph?
