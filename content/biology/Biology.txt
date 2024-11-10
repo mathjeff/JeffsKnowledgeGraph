@@ -61,7 +61,7 @@ What is a bacteria?
 
 What is a bacteriophage?
 
-  A bacteriophage is a type of virus that infects bacteria and archaea
+  A [bacteriophage](https://en.wikipedia.org/wiki/Bacteriophage) is a type of virus that infects bacteria and archaea
 
  - What is a virus?
 
