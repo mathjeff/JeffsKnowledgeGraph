@@ -120,7 +120,7 @@ Which arguments can I give to a shell command?
 
   Many commands will explain how to use them if you run them with no arguments. For example, you can run `git` to learn about using `git`.
 
-  Many commands are documented on the internet. You can often ask a search engine a question like "<commandName> arguments" for more information
+  Many commands are documented on the internet. You can often ask a search engine a question like `<commandName> arguments` for more information
 
  - What is a shell?
 
