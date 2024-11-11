@@ -736,9 +736,13 @@ function makeTable(columns) {
   result = ""
   result += "<table>"
   result += "<tr>"
-  for (i = 0; i < columns.length; i++) {
-    column = columns[i]
-    result += "<th>" + column["name"] + "</th>"
+  // If there is only one column then we don't need to explain it ("Tell me about:") because it's already explained by the "Explore" above
+  var outputColumnHeaders = (columns.length > 1)
+  if (outputColumnHeaders) {
+    for (i = 0; i < columns.length; i++) {
+      column = columns[i]
+      result += "<th>" + column["name"] + "</th>"
+    }
   }
   result += "</tr>\n"
   result += "<tr>"
