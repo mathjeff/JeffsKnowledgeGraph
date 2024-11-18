@@ -157,7 +157,7 @@ What is a gradient?
 Expectation Maximization
 
   [Expectation maximization](https://en.wikipedia.org/wiki/Expectation%E2%80%93maximization_algorithm) is a method for guessing appropriate values for the parameters of a model based on some datapoints, most or all of which are usually unlabelled.
-  
+
   It involves these steps:
 
   1. Choose some initial guesses for the parameters
@@ -229,3 +229,79 @@ Why is a GPU called a GPU?
   Nowadays a GPU may also be used for artificial intelligence tasks that also involve running similar instructions on large amounts of data.
 
  - What is a GPU?
+
+What is pytorch?
+
+  Pytorch https://github.com/pytorch/pytorch is a python-based platform to train machine learning models with CPU/GPU.
+
+  You can install pytorch by `pip3 install torch` and run pytorch in python by `import torch`.
+
+ - What is a GPU?
+
+What is a tensor?
+
+  Tensor is a form to hold n-dimensional arrays in GPU.
+
+  You can convert numpy arrays to tensors by `your_tensor = torch.from_numpy(your_array.np())`.
+
+  You can save tensors to GPU by `your_tensor.to('cuda')`.
+
+ - What is a GPU?
+
+ - What is pytorch?
+
+ - What is a numpy?
+
+ - What is Python?
+
+What is a numpy?
+
+  Numpty is a python package to do computation on arrays.
+
+  You can install numpy by `pip install numpy` and run numpy in python by `import numpy as np`.
+
+ - What is Python?
+
+How to input data as tensors?
+
+  You can summarize your data in CSV files and import your data using pandas by `data = pd.read_csv(data_file)`.
+
+  Then you can convert the non-numeric columns of your data as catogories of 0s and 1s by `non_num_data = data.loc[:,['non_num_col1','non_num_col2',...]]` and `non_num_data = pd.get_dummies(non_num_data, dummy_na=True)`.
+
+  You can save the numeric columns of your data as `num_data = data.loc[:,['num_col1','num_col2',...]]`.
+
+  You can check your data by `num_data.head()` and `non_num_data.head()`, and check their size (number of rows and number of columns) by `num_data.shape` and `non_num_data.shape`.
+
+  Now you can convert your data into tensors by `non_num_data = torch.tensor(non_num_data.to_numpy(dtype=float))` and `num_data = torch.tensor(num_data.to_numpy(dtype=float))`.
+
+ - What is a tensor?
+
+ - What is pandas?
+
+ - What is Python?
+
+What is pandas?
+
+  Pandas is a python package that works with datasets.
+
+  You can install numpy by `pip install pandas` and run numpy in python by `import pandas as pd`.
+
+ - What is Python?
+
+How to deal with missing values in training/testing data?
+
+  Dealing with missing data (Na or NaN or '') properly is very important in data science.
+
+  In this an example of how missing data fools people. [Major data analysis errors invalidate cancer microbiome findings](https://journals.asm.org/doi/10.1128/mbio.01607-23)
+
+  1) You can delete all rows and columns that contain missing data.
+
+  2) You can convert missing data into two columns: column 1 shows all the existing catogories; and column 2 shows whether a catogory is missing by `data_with_catogories = pd.get_dummies(input_with_missing_data, dummy_na=True)`.
+
+  3) You can replace missing data with means by `data_with_means = input_with_missing_data.fillna(input_with_missing_data.mean())`.
+
+  Most importantly, you should always check whether the pattern you get from a model is associated with missing data.
+
+ - What is Python?
+
+ - How to input data as tensors?
