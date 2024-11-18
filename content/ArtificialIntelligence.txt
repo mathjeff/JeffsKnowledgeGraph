@@ -276,7 +276,7 @@ How to import Pandas data as tensors?
 
   You can check your data by `num_data.head()` and `non_num_data.head()`, and check their size (number of rows and number of columns) by `num_data.shape` and `non_num_data.shape`.
 
-  Now you can convert your data into tensors by `non_num_data = torch.tensor(non_num_data.to_Numpy(dtype=float))` and `num_data = torch.tensor(num_data.to_Numpy(dtype=float))`.
+  Now you can convert your data into tensors by `non_num_data = torch.tensor(non_num_data.to_numpy(dtype=float))` and `num_data = torch.tensor(num_data.to_Numpy(dtype=float))`.
 
  - What is a tensor?
 
@@ -298,4 +298,4 @@ How to deal with missing values in training/testing data?
 
  - What is Python?
 
- - How to input data as tensors?
+ - How to import Pandas data as tensors?
