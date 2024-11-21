@@ -76,6 +76,8 @@ Training neural networks
 
   4. Gradient descent repeatedly uses backpropagation to compute the gradient, and uses the gradient to change the network's parameters to reduce the loss
 
+  The purpose is not simply minimize the loss on training sets, but to find parameterst that can accuractly predict previously unseen data (testing sets) - generalization.
+
  - Neural networks
 
  - What is a loss function?
@@ -336,4 +338,36 @@ Terms in machine learning
 
   Optimization: a procedure for updating the parameters (w and b) in a model to improve its performance, such as gradient descent
 
+  Learning rate: the rate that a machine learning model updates its parameters (w and b) - by learning rate * gradient.
+
+  Hyperparameteres: parameters that are not updated in the training loop, but can be tuned by users, e.g. learning rate and batch size. Hyperparameters can be tune automatically by Bayesian optimization.
+
+  Inference: making predictions using the parameters of a model. A confusing term because inference refers to any conclusion reached on the basis of evidence, including both the parameters and the likely label (y) for an unseen example. We try to use prediction instead.
+
  - Neural networks
+
+Stochastic gradient descent (SGD)
+
+  Optimize the parameters in a machine learning model one example at a time.
+
+ - Gradient descent
+
+Minibatch SGD
+
+  Optimize the parameters in a machine learning model using a minibatch of examples.
+
+  The size of a minibatch is usually between 32-256, a multiple of a large power of 2.
+
+  0) Initialize the model parameters by random values
+
+  1) Randomly sample a minibatch.
+
+  2) Compute the gradient of the average loss for each model parameter (w and b).
+
+  3) Multiple the gradient by the learning rate and subtract the result from the current parameter value. Parameter_new = Parameter - learning rate * gradient (parameter)
+
+  This process is not deterministic.
+
+ - Stochastic gradient descent (SGD)
+
+ - Terms in machine learning
