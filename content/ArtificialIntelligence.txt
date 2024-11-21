@@ -84,6 +84,8 @@ Training neural networks
 
  - What is backpropagation?
 
+ - Terms in machine learning
+
 Gradient descent
 
   [Gradient descent](https://en.wikipedia.org/wiki/Gradient_descent) is an algorithm that attempts to find the minimum of an arbitrary, unknown function.
@@ -238,6 +240,8 @@ What is pytorch?
 
  - What is a GPU?
 
+ - Neural networks
+
 What is a tensor?
 
   Tensor is a form to hold n-dimensional arrays in GPU.
@@ -299,3 +303,37 @@ How to deal with missing values in training/testing data?
  - What is Python?
 
  - How to import Pandas data as tensors?
+
+Sampling size VS uncertainty
+
+  An estimate of how a larger sample (n) can reduce uncertainty by 1/n^0.5.
+
+  By going from 10 to 1000 observations, we see a 10-fold reduction of uncertainty.
+
+  The next 1000 observations only offer to 1.41 times reduction.
+
+ - Probability VS statistics
+
+Terms in machine learning
+
+  Training dataset: a collection of data used to train a machine learning model.
+
+  Example: a data point in the training dataset.
+
+  Label: the thing we are trying to predict using a machine learning model.
+
+  Features: variables that the predictions are based on.
+
+  Testing dataset: a collection of data used to evaluate the performance of a trained machine learning model during training. It contains data that the model has not seen during training to evaluate how well the model generalizes to unseen data.
+
+  Validation dataset: a collection of data used to evaluate the performance of a final machine learning model. The model should not have seen this data (or similar data) during training and testing!
+
+  Weights: the importance of each input feature in predicting the output.
+
+  Bias: a parameter that allows the model to shift the output independently of the input. The bias determines the value of the estimate when all features are zero. It acts like an offset or intercept in linear equations, y= w1(weight 1)*​x1​(feature 1) + w2*​x2 ​+ ⋯ + wn*​xn ​+ b (bias).
+
+  Loss function: a measure of the performance of a model (predicted y compared to real y).
+
+  Optimization: a procedure for updating the parameters (w and b) in a model to improve its performance, such as gradient descent
+
+ - Neural networks
