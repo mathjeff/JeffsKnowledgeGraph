@@ -53,3 +53,35 @@ Cross validation
    * Training a model may require many datapoints
    * Testing a model may require many datapoints
    * Cross-validation can prevent us from having to acquire so many datapoints
+
+Independence
+
+  Two variables are independent if conditioning on the value of A does not cause any change to the probability distribution associated with B and vice versa.
+
+  -> P(A|B) = P(A)
+
+  -> P(A,B) = P(B|A)*P(A) = P(B)*P(A)
+
+  Interestingly, two variables (e.g. broken bones and lung cancer) can be independent in general but become dependent when conditioning on a third variable (e.g. being in the hospital).
+
+  And conversely, two dependent random variables (e.g. shoe size and reading level in primariy school) can become independent upon conditioning on a third variable (e.g. age). This often happens when two otherwise unrelated events have a common cause.
+
+ - Conditional probabilities
+
+ - Probability VS statistics
+
+Conditional probabilities
+
+  Probability associated with the event B = b, once we condition on the fact A = a took place.
+
+  -> P(B = b | A = a) = P(A = a, B = b)/P(A = a)
+
+  -> P(A = a, B = b) = P(B = b | A = a)*P(A = a) or P(A,B) = P(B|A)*P(A) = P(A|B)*P(B)
+
+ - Probability VS statistics
+
+Probability VS statistics
+
+  Probabilities are theoretical quantities that underly the data generating process (e.g. P = 0.5 to get heads when toss a coin).
+
+  Statistics are empirical quantities that are computed as functions of the observed data (e.g. 48 heads in 100 tosses).

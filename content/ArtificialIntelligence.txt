@@ -242,7 +242,7 @@ What is a tensor?
 
   Tensor is a form to hold n-dimensional arrays in GPU.
 
-  You can convert Numpy arrays to tensors by `your_tensor = torch.from_Numpy(your_array.np())`.
+  You can convert Numpy arrays to tensors by `your_tensor = torch.from_numpy(your_array.np())`.
 
   You can save tensors to GPU by `your_tensor.to('cuda')`.
 
@@ -276,7 +276,7 @@ How to import Pandas data as tensors?
 
   You can check your data by `num_data.head()` and `non_num_data.head()`, and check their size (number of rows and number of columns) by `num_data.shape` and `non_num_data.shape`.
 
-  Now you can convert your data into tensors by `non_num_data = torch.tensor(non_num_data.to_numpy(dtype=float))` and `num_data = torch.tensor(num_data.to_Numpy(dtype=float))`.
+  Now you can convert your data into tensors by `non_num_data = torch.tensor(non_num_data.to_numpy(dtype=float))` and `num_data = torch.tensor(num_data.to_numpy(dtype=float))`.
 
  - What is a tensor?
 
