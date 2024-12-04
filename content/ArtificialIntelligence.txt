@@ -371,3 +371,57 @@ Minibatch SGD
  - Stochastic gradient descent (SGD)
 
  - Terms in machine learning
+
+How to train a neural network in Pytorch?
+
+  1) Define a neural network (model) using `def forward()`. `forward()` defines the calculation on inputs (x) to generate outputs (y).
+
+  2) Choose an optimization method (optimizer) using `torch.optim`, which improves the parameters in the neural network. Examples: Stochastic gradient descent (`torch.optim.SGD()`). Adam optimizer (`torch.optim.Adam()`).
+
+  3) Choose a loss fuction (loss_fn), that measures how wrong the prodictions (y_predicted by the model) are compared to the truth (y). Examples: MAE (mean absolute error) loss function for regression problems (predicting a number) or binary cross entropy loss function for classification problems (predicting one thing or another).
+
+  4) Prepare training data (60-80%), testing data (10-20%), and validation data (10-20%).
+
+  5) Define the training loop:
+    Set model mode to training by `model.train()`
+    Pass the training data through the model by `y_predicted = model(x_train)`
+    Calculate loss by `loss = loss_fn(y_predicted,y_train)`
+    Clean up old gradients in the optimizer by `optimizer.zero_grad()`
+    Backpropagation to compute the gradient of the loss for each model parameter by `loss.backward()`
+    Optimize the model parameters by `optimizer.step()`
+    NOTE: loss should be calculated before backpropagation; gradients should be cleaned before backpropagation; parameters should be optimized after backpropagation
+
+  6) Define the testing loop:
+    Set model mode to evaluation (model.eval())
+    Pass the testing data through the model by `y_predicted = model(x_test)`
+    Calculate loss by `loss = loss_fn(y_predicted,y_test)`
+    Evaluate model performance, for example, visualize average loss or accuracy for every 10 epochs
+    NOTE: testing loop doesn't contain backpropagation and paramater optimization.
+
+ - What is pytorch?
+
+ - Neural networks
+
+ - Terms in machine learning
+
+How to train a neural network on GPU?
+
+  1) Check whether GPU is available by `torch.cuda.is_available()` and set `device = "cuda" if torch.cuda.is_available() else "cpu"`
+
+  2) Move your neural network to GPU by `model_1.to(device)`
+
+  3) Move all data to GPU by
+  `x_train = x_train.to(device)`
+  `x_test = x_test.to(device)`
+  `y_train = y_train.to(device)`
+  `y_test = y_test.to(device)`
+
+ - How to train a neural network in Pytorch?
+
+ - What is a GPU?
+
+ - What is pytorch?
+
+ - Neural networks
+
+ - Terms in machine learning
