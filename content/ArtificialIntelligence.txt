@@ -425,3 +425,62 @@ How to train a neural network on GPU?
  - Neural networks
 
  - Terms in machine learning
+
+How to train a successful neural network?
+
+  1) Not overfitting: the neural network is not generalized for testing data. It performs well only for training data, maybe because it remembers the data.
+    Things we can do to prevent overfitting
+      1) Design representative training data and testing data. For examples, bacterial species in testing data should not be included in training data.
+      2) Early stop: stopping the training when testing loss reaches a minimum (it could be a local minimum though).
+      3) Drop out: randomly dropping out X% nodes (set activations to 0) in each epoch of training. It forces the neural network to not rely on any single node.
+      4) I guess trying different neural network size, structure, optimizers, activation functions?
+
+  2) Find the parameters that achieve global minimum loss
+    Things we can do to be not stuck with local minimum
+      1) adapt learning rates to the landscape of gradient - try different optimizers
+      2) try different initial status (random values we give to parameters before trainig)
+      3) Jeff has a smart idea to set initial status in an adaptive way - ask Jeff :)
+
+ - Neural networks
+
+ - Terms in machine learning
+
+What is a recurrent neural network (RNN)?
+
+  The computation its neurons is a product of both the current input (x_t) and the past memory of previous time steps of the neurons (h_t-1).
+  RNN is powerful with sequential data, such as voice, sentences, DNA/protein sequences, ..., where current states are determined by both input and previous states.
+  The loss of RNN is the sum loss of all time steps (y_precicted_t VS y_t).
+
+ - Neural networks
+
+ - Terms in machine learning
+
+Problems in training an RNN
+
+  Backpropagation in RNN changes the parameters way more (t) times than a simple neural network - a parameter can go too big (explode) or too small (vanish) very quickly.
+  Things we can do:
+    1) Better activation functions - ReLU
+    2) Initialize the parameters smartly - initialize weights to identity matrix, initialize biases to zero. This helps to prevent the weights from shrinking to zero. Why?
+    3) Gated call - add more computations within the recurrent cell to selectively keep or remove information, such as long short term memory (LSTMs).
+
+  It's hard for an RNN to deal with long sequencial data efficientyly. It's hard to paralize RNN computation.
+  Solution:
+    Not think about each time step in isolation. Let's learn which part of the sequence data is actually important - attention!
+
+ - What is a recurrent neural network (RNN)?
+
+What is a transformer?
+
+  Transformers are built on self-attentions -> attend to the most important parts of an input.
+
+  A transformer (head) has query, key, and value.
+    Query is the current word in a sentence.
+    Keys are all words in a sentence.
+      We compute the similarity between the query and a key, e.g. distance between two encoding vectors.
+      This is the attention weighting: how similar is the key to the query?
+    A value contain actual information for a key.
+      Multiple the attention weighting and the value to compute output. This extract relevant features based on the attention weighting.
+
+ - What is a recurrent neural network (RNN)?
+
+ - Problems in training an RNN
