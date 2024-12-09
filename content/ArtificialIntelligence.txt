@@ -484,3 +484,22 @@ What is a transformer?
  - What is a recurrent neural network (RNN)?
 
  - Problems in training an RNN
+
+What is a convolutional network (CNN)?
+
+  CNN applies convolution functions to the input (usually an image).
+
+  The convolution function is called a filter. CNN applies a filter to a small patch of the input (image) to pick up patterns from a small region.
+  The filter (weights) is trained by back propagation.
+  A CNN usually have multiple filters to pick up different patterns.
+
+  The output of a filter applied to a patch of input is called feature. A feature map contains all output of a filter applied to the whole input.
+
+  Activation, such as ReLu, is also necessary in CNN to learn non-linear relationships.
+
+  Usually, we want to decrease data size and increase filters to learn more patterns with simialr number of parameters.
+  This is done by pooling, which pool features of nearby image positions into one number, e.g. max or average.
+
+ - Neural networks
+
+ - Terms in machine learning
