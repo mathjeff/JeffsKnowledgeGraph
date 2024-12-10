@@ -503,3 +503,65 @@ What is a convolutional network (CNN)?
  - Neural networks
 
  - Terms in machine learning
+
+What is generative modeling?
+
+  Generative modeling takes as input training samples from some distribution and learn a model that represents that distribution.
+
+  Generative modeling can be used for generating new data, uncovering underlying features (latent variables) in a dataset, and detecting outliers.
+
+  We can use outliers during training to improve even more!
+
+ - Neural networks
+
+Autoencoders
+
+  Learning a lower-dimensional feature of an input in an unsupervised (unlabelled) way.
+
+  We want to compress the data to a lower-dimensional feature, to learn the latent variables/space (underlying or truly explanatory features) of the data.
+
+  How to do that? We can see whether we can reconstruct the original data using the latent space, e.g. loss = mean squared error (original data, reconstructed data)
+
+  Autoencoding is a type of compression. Dimensionality of latent space impacts the reconstruction quality.
+
+ - What is generative modeling?
+
+Variation Autoencoders
+
+  Making autoencoders a generative model by adding randomness (based on some probability distribution) to the latent space.
+
+  For each variable in the latent space, we compute mean and standard deviation to represent a probability (normal) distribution.
+
+  Then we sample from those probability distributions to generate new data.
+
+ - What is generative modeling?
+
+ - Autoencoders
+
+Regularization on the latent space
+
+  We choose an assumption or prioron the latent distribution to regulatarize the training.
+
+  For example, we use normal Gaussian distribution as a prior to
+  1) encourage encodings to distribute evenly around the center of the latent space;
+  2) penalize models that cheat by memorizing the data - which would not likely to follow a normal distribution
+
+  We want the latent space to be
+  1) continuity: points that are close in latent space should have similar content after decoding
+  2) completeness: samples from latent space should have meaningful content after deconding
+
+ - Variation Autoencoders
+
+ - What is generative modeling?
+
+ - Autoencoders
+
+How to interpret latent space?
+
+  We can hold all vairables but one fixed and see how changing the variable impact the reconstructed output.
+
+ - Variation Autoencoders
+
+ - What is generative modeling?
+
+ - Autoencoders
