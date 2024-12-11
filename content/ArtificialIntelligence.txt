@@ -613,3 +613,65 @@ Conditional GANs
  - What is generative modeling?
 
  - What is a generative adversarial network (GAN)?
+
+What is reinforcement learning?
+
+  Reinforcement learning takes state-action pairs as input and tries to maximize future rewards over many time steps.
+
+  Terms
+  Agent: Something that can take actions - here we refer to AI models that can take actions
+  Environment: the world in which the agent exists and operates
+  Observation: how the environment interacts back to the agent
+  State: an immediate observation that the agent is present in
+  Action: a move that an agent makes in the environment
+  Reward: feedback that measures the success/failure of the agent's action, can be immediate or delayed
+  Discounting factor: a discounting factor in the environment provides that dampens the effects of a reward over time - future reward worths much less than immediate reward.
+  Total reward: the discounted sum of all rewards obtained from time t to the future.
+  Q function: computes the expected total reward (from t to the future) an agent in state (s) can receive by executing a certain action (a).
+  Policy function (pie): to infer the best action (which maximizes the future reward) to take at its state (s). We can evaluate pie function using the Q function - to find an action a that gives the highest Q value.
+
+ - Neural networks
+
+ - Terms in machine learning
+
+Value learning in reinforcement learning
+
+  Is to find Q function (s,a).
+
+  For each state, we can take all possible actions, feed it into the Q function, compute the Q values, and find the best action as the one gives the maximum Q value.
+
+  Or for each state, the Q function outputs Q value for each action - more efficient. Then we infer the optimal policy pie function from Q values of all actions.
+
+ - What is reinforcement learning?
+
+Policy learning in reinforcement learning
+
+  Is to find policy function pie(s). More direct way to find the best action than value learning.
+
+  The policy learning finds a policy function that outputs the probability of an action being the best action given a state.
+
+  Then we can ask the model to learn parameters (e.g. mean and variance) of the probability distribution.
+
+  We can then sample from the probability distribution, and the model can even pick an action that doesn't yield the best reward, to explore more.
+
+  loss = -logProbability(action_t|state_t) * Reward_t
+
+ - What is reinforcement learning?
+
+ - Value learning in reinforcement learning
+
+How to build AlphaGo?
+
+  Train a supervised model with human data of play
+  Self-play of pretrained models against each other with reinforcement learning
+    Increase the probability of all the actions of the agent that won.
+    Decrease the probability of all the actions of the agent that lost the game.
+  Run millions or billions of steps
+  Intuition about the board state -> achieve state in and value out (Q function)
+  You can skil step 1 (observing human data) to achieve even better performance while it would take longer training steps.
+
+  Summary: human expert positions -> classification -> supervised learning policy network -> self-play - reinforcement learning policy network - self-play -> self-play data -> regression -> value network
+
+ - What is reinforcement learning?
+
+ - Policy learning in reinforcement learning
