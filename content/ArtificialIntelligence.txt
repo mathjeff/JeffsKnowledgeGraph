@@ -640,7 +640,9 @@ Value learning in reinforcement learning
 
   For each state, we can take all possible actions, feed it into the Q function, compute the Q values, and find the best action as the one gives the maximum Q value.
 
-  Or for each state, the Q function outputs Q value for each action - more efficient. Then we infer the optimal policy pie function from Q values of all actions.
+  Or for each state, the Q function outputs Q value for each action - more efficient. Then we infer the optimal policy pie function from the action yielding the max Q value.
+
+  Limitation: cannot learn continuous action spaces.
 
  - What is reinforcement learning?
 
