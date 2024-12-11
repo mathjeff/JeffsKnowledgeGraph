@@ -528,7 +528,7 @@ Autoencoders
 
 Variation Autoencoders
 
-  Making autoencoders a generative model by adding randomness (based on some probability distribution) to the latent space.
+  Variation autoencoders (VAEs) make autoencoders a generative model by adding randomness (based on some probability distribution) to the latent space.
 
   For each variable in the latent space, we compute mean and standard deviation to represent a probability (normal) distribution.
 
@@ -558,10 +558,58 @@ Regularization on the latent space
 
 How to interpret latent space?
 
-  We can hold all vairables but one fixed and see how changing the variable impact the reconstructed output.
+  We can hold all vairables but one fixed and see how changing that single variable impact the reconstructed output.
 
  - Variation Autoencoders
 
  - What is generative modeling?
 
  - Autoencoders
+
+Disentanglement in machine learning
+
+  We want the latent variables to be uncorrelated with each other -> to maximize the amount of information the model learns across a few set of latent variables.
+
+  This can be done by disentanglement - to enforce diagonal prior on the latent variables to encourage independence.
+
+  For example, to tune the relative strength of reconstruction term and regularization term (by increasing it) in the loss calculation.
+
+ - Variation Autoencoders
+
+ - What is generative modeling?
+
+ - Autoencoders
+
+ - Regularization on the latent space
+
+What is a generative adversarial network (GAN)?
+
+  Sometimes, when we focus on making the latent variables more interpretable, we could sacrifice the ability of the model to generate new samples.
+
+  We can use GANs to just generate good new samples without trying to decode and interpret latent variables.
+
+  GANs don't model density, but sample from something simple (e.g. Gaussian noise), learn a model that transform the distribution of noise to the real data distribution -> to generate new samples that fall in the real data distribution.
+
+  GANs have a generator and a discriminator in competition with each other (adversaries).
+
+  The generator turns noise into a real data distribution to try to trick the discriminator.
+
+  The discriminator tries to identify real data from fakes created by the generator.
+
+  The generator and discriminator are trained and optimized together -> the goal is to make the generator reproduces the true data distribution.
+
+  After training, we use the generator to create new data that's never been seen before.
+
+ - What is generative modeling?
+
+Conditional GANs
+
+  We supply random noise + conditioning factor as the starting point for the generator to guide the generation.
+
+  For example, paired translation - we can use pairs of inputs, e.g. a real scene and a segmentation map. The trained GANs can generate, e.g. a real scene based on a segmentation map.
+
+  We can also input two related data distribution (no explicit pairs) to learn relationships/transformation that links these two domains - cycleGAN (domain transformation).
+
+ - What is generative modeling?
+
+ - What is a generative adversarial network (GAN)?
