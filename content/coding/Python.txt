@@ -157,7 +157,7 @@ Python scope
     sum = first + second
     print("adding first = " + str(first) + ", second = " + str(second) + ", sum = " + str(sum))
     return sum
-  
+
   numberOfPineapples = 2
   numberOfOranges = 3
   numberOfFruits = add(numberOfPineapples, numberOfOranges)

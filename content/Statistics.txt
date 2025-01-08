@@ -82,6 +82,13 @@ Conditional probabilities
 
 Probability VS statistics
 
-  Probabilities are theoretical quantities that underly the data generating process (e.g. P = 0.5 to get heads when toss a coin).
+  A probability
 
-  Statistics are empirical quantities that are computed as functions of the observed data (e.g. 48 heads in 100 tosses).
+  * Refers to the likelihood that something will happen
+  * Is dependent on the process for generating the data
+      * For example, the probability for getting heads when tossing a coin is 0.5
+
+  A statistic
+
+  * Is a description of observed data
+      * For example, if you toss a coin 100 times and count the number of heads, that number is a statistic

@@ -26,17 +26,13 @@ We want AI models to be generalizable
 
 More complicated models benefit from more data
 
-  If an AI model has lots of parameters and is trained on a small amount of data, then even if it's not directly memorizing the answers, it is possible that the model is still essentially memorizing them.
-
-  Similar to a hash table, if an AI computed a hash code for each example and memorized the test result for each hash code, that would still be approximately the same as directly memorizing the answer for each example, as long as most hash codes were unique.
+  If our model is complicated and our dataset is small, we run the risk of overfitting.
 
   If we know the complexity of a model and the amount of data that the model was trained on, we can use [Hoeffding's inequality](https://en.wikipedia.org/wiki/Hoeffding%27s_inequality) to compute the probability of the model having a high error rate.
 
+ - What is overfitting?
+
  - We want AI models to be generalizable
-
- - What is a hash table?
-
- - What is a hash code?
 
 Decision trees
 
@@ -238,7 +234,7 @@ What is pytorch?
 
   Pytorch https://github.com/pytorch/pytorch is a python-based platform to train machine learning models with CPU/GPU.
 
-  You can install pytorch by `pip3 install torch` and run pytorch in python by `import torch`.
+  You can install pytorch by `pip3 install torch` and import pytorch in python by `import torch`.
 
  - What is a GPU?
 
@@ -246,7 +242,7 @@ What is pytorch?
 
 What is a tensor?
 
-  Tensor is a form to hold n-dimensional arrays in GPU.
+  Tensor is a form to hold n-dimensional arrays in a GPU.
 
   You can convert Numpy arrays to tensors by `your_tensor = torch.from_numpy(your_array.np())`.
 
@@ -262,13 +258,13 @@ What is a tensor?
 
 What is Numpy?
 
-  Numpty is a python package to do computation on arrays.
+  Numpy is a python package to do computation on arrays.
 
   You can install Numpy by `pip install numpy` and run Numpy in python by `import numpy as np`.
 
  - What is Python?
 
-How to import Pandas data as tensors?
+How can I import Pandas data as tensors?
 
   Pandas is a python package that works with datasets.
 
@@ -292,27 +288,29 @@ How to deal with missing values in training/testing data?
 
   Dealing with missing data (Na or NaN or '') properly is very important in data science.
 
-  An example of how missing data (as 0s) that fools people. [Major data analysis errors invalidate cancer microbiome findings](https://journals.asm.org/doi/10.1128/mbio.01607-23)
+  An example of how missing data (as 0s) fooling people: [Major data analysis errors invalidate cancer microbiome findings](https://journals.asm.org/doi/10.1128/mbio.01607-23)
 
   1) You can delete all rows and columns that contain missing data.
 
   2) You can convert missing data into two columns: column 1 shows all the existing categories; and column 2 shows whether a category is missing by `data_with_categories = pd.get_dummies(input_with_missing_data, dummy_na=True)`.
 
-  3) You can replace missing data with means by `data_with_means = input_with_missing_data.fillna(input_with_missing_data.mean())`.
+  3) You can replace missing data with averages by `data_with_means = input_with_missing_data.fillna(input_with_missing_data.mean())`.
 
   Most importantly, you should always check whether the pattern you get from a model is associated with missing data.
 
  - What is Python?
 
- - How to import Pandas data as tensors?
+ - How can I import Pandas data as tensors?
 
 Sampling size VS uncertainty
 
-  An estimate of how a larger sample (n) can reduce uncertainty by 1/n^0.5.
+  When a mathematical model has more data, it can often make more precise predictions.
 
-  By going from 10 to 1000 observations, we see a 10-fold reduction of uncertainty.
+  * For example, if the model is that a certain value comes from a Gaussian distribution, then multiplying the sample size by (n) should divide the uncertainty by `n^0.5`
 
-  The next 1000 observations only offer to 1.41 times reduction.
+      * By going from 10 to 1000 observations, we see a 10-fold reduction of uncertainty.
+
+      * The next 1000 observations only offer 1.41 times reduction.
 
  - Probability VS statistics
 
@@ -348,15 +346,22 @@ Terms in machine learning
 
 Stochastic gradient descent (SGD)
 
-  Optimize the parameters in a machine learning model one example at a time.
+  Stochastic gradient descent is an algorithm for optimizing the parameters of a machine learning model.
+
+  It estimates the gradient of the loss function using only one training example at a time.
+
+  This is generally much faster than Gradient Descent.
 
  - Gradient descent
 
 Minibatch SGD
 
-  Optimize the parameters in a machine learning model using a minibatch of examples.
+  Minibatch SGD is an algorithm for optimizing the parameters of a machine learning model.
+
+  It estimates the gradient of the loss function using a subset of the training examples at any one time.
 
   The size of a minibatch is usually between 32-256, a multiple of a large power of 2.
+  Steps:
 
   0) Initialize the model parameters by random values
 
@@ -366,7 +371,7 @@ Minibatch SGD
 
   3) Multiple the gradient by the learning rate and subtract the result from the current parameter value. Parameter_new = Parameter - learning rate * gradient (parameter)
 
-  This process is not deterministic.
+  Note that random sampling makes this process not deterministic.
 
  - Stochastic gradient descent (SGD)
 
@@ -376,27 +381,33 @@ How to train a neural network in Pytorch?
 
   1) Define a neural network (model) using `def forward()`. `forward()` defines the calculation on inputs (x) to generate outputs (y).
 
-  2) Choose an optimization method (optimizer) using `torch.optim`, which improves the parameters in the neural network. Examples: Stochastic gradient descent (`torch.optim.SGD()`). Adam optimizer (`torch.optim.Adam()`).
+  2) Choose an optimization method (optimizer) using `torch.optim`, which improves the parameters in the neural network.
 
-  3) Choose a loss fuction (loss_fn), that measures how wrong the prodictions (y_predicted by the model) are compared to the truth (y). Examples: MAE (mean absolute error) loss function for regression problems (predicting a number) or binary cross entropy loss function for classification problems (predicting one thing or another).
+      * Example: Stochastic gradient descent (`torch.optim.SGD()`).
+      * Example: Adam optimizer (`torch.optim.Adam()`).
+
+  3) Choose a loss function (loss_fn), that measures how wrong the predictions (y_predicted by the model) are compared to the truth (y).
+
+      * Example: MAE (mean absolute error) loss function for regression problems (predicting a number)
+      * Example: Binary cross entropy loss function for classification problems (predicting one thing or another).
 
   4) Prepare training data (60-80%), testing data (10-20%), and validation data (10-20%).
 
-  5) Define the training loop:
-    Set model mode to training by `model.train()`
-    Pass the training data through the model by `y_predicted = model(x_train)`
-    Calculate loss by `loss = loss_fn(y_predicted,y_train)`
-    Clean up old gradients in the optimizer by `optimizer.zero_grad()`
-    Backpropagation to compute the gradient of the loss for each model parameter by `loss.backward()`
-    Optimize the model parameters by `optimizer.step()`
-    NOTE: loss should be calculated before backpropagation; gradients should be cleaned before backpropagation; parameters should be optimized after backpropagation
+  5) Define the training loop:  
+    Set model mode to training by `model.train()`  
+    Pass the training data through the model by `y_predicted = model(x_train)`  
+    Calculate loss by `loss = loss_fn(y_predicted,y_train)`  
+    Clean up old gradients in the optimizer by `optimizer.zero_grad()`  
+    Backpropagation to compute the gradient of the loss for each model parameter by `loss.backward()`  
+    Optimize the model parameters by `optimizer.step()`  
+    NOTE: loss should be calculated before backpropagation; gradients should be cleaned before backpropagation; parameters should be optimized after backpropagation  
 
-  6) Define the testing loop:
-    Set model mode to evaluation (model.eval())
-    Pass the testing data through the model by `y_predicted = model(x_test)`
-    Calculate loss by `loss = loss_fn(y_predicted,y_test)`
-    Evaluate model performance, for example, visualize average loss or accuracy for every 10 epochs
-    NOTE: testing loop doesn't contain backpropagation and paramater optimization.
+  6) Define the testing loop:  
+    Set model mode to evaluation (model.eval())  
+    Pass the testing data through the model by `y_predicted = model(x_test)`  
+    Calculate loss by `loss = loss_fn(y_predicted,y_test)`  
+    Evaluate model performance, for example, visualize average loss or accuracy for every 10 epochs  
+    NOTE: testing loop doesn't contain backpropagation and paramater optimization.  
 
  - What is pytorch?
 
@@ -404,17 +415,17 @@ How to train a neural network in Pytorch?
 
  - Terms in machine learning
 
-How to train a neural network on GPU?
+How can I train a neural network on a GPU?
 
-  1) Check whether GPU is available by `torch.cuda.is_available()` and set `device = "cuda" if torch.cuda.is_available() else "cpu"`
+  1) Check whether a GPU is available by `torch.cuda.is_available()` and set `device = "cuda" if torch.cuda.is_available() else "cpu"`
 
   2) Move your neural network to GPU by `model_1.to(device)`
 
-  3) Move all data to GPU by
-  `x_train = x_train.to(device)`
-  `x_test = x_test.to(device)`
-  `y_train = y_train.to(device)`
-  `y_test = y_test.to(device)`
+  3) Move all data to GPU by  
+  `x_train = x_train.to(device)`  
+  `x_test = x_test.to(device)`  
+  `y_train = y_train.to(device)`  
+  `y_test = y_test.to(device)`  
 
  - How to train a neural network in Pytorch?
 
@@ -426,30 +437,53 @@ How to train a neural network on GPU?
 
  - Terms in machine learning
 
-How to train a successful neural network?
+What is overfitting?
 
-  1) Not overfitting: the neural network is not generalized for testing data. It performs well only for training data, maybe because it remembers the data.
-    Things we can do to prevent overfitting
-      1) Design representative training data and testing data. For examples, bacterial species in testing data should not be included in training data.
-      2) Early stop: stopping the training when testing loss reaches a minimum (it could be a local minimum though).
-      3) Drop out: randomly dropping out X% nodes (set activations to 0) in each epoch of training. It forces the neural network to not rely on any single node.
-      4) I guess trying different neural network size, structure, optimizers, activation functions?
+  Overfitting refers to the process of training a model with lots of parameters on a small dataset in a way that causes the model to essentially just memorize the training set rather than find any patterns.
 
-  2) Find the parameters that achieve global minimum loss
-    Things we can do to be not stuck with local minimum
-      1) adapt learning rates to the landscape of gradient - try different optimizers
-      2) try different initial status (random values we give to parameters before trainig)
-      3) Jeff has a smart idea to set initial status in an adaptive way - ask Jeff :)
+  Even if an AI model is not directly memorizing the training set, it is possible that it is essentially memorizing the training set via one of:
 
+  * Examining small, irrelevant changes in one or more attributes
+  * Computing a new attribute by combining other attributes, and then memorizing the correct answer for each of value of this new attribute
+      * This is how a hash table works
+          * Note that a hash table is not intended to predict results for other values. With a hash table, memorizing the data is intended!
+
+ - What is a hash table?
+
+Handling overfitting in neural networks
+
+  Things we can do to prevent overfitting in a neural network
+    1) Design representative training data and testing data. For examples, bacterial species in testing data should not be included in training data.
+    2) Early stop: stopping the training when testing loss reaches a minimum (it could be a local minimum though).
+    3) Drop out: randomly dropping out X% nodes (set activations to 0) in each epoch of training. It forces the neural network to not rely on any single node.
+    4) I guess trying different neural network size, structure, optimizers, activation functions?
+
+ - What is overfitting?
  - Neural networks
 
- - Terms in machine learning
+Handling neural network local minimums
+
+  Neural networks are often trained via gradient descent, which does not guarantee that the training process will find the set of parameters that produce the absolute minimum loss for the given training set. Sometimes it will find a local minimum instead.
+
+  Things we can try to be not stuck with local minimum
+    1) adapt learning rates to the landscape of gradient - try different optimizers
+    2) try different initial states (random values we give to parameters before trainig)
+
+ - Gradient descent
+ - Neural networks
+
+Common problems training a neural network
+
+ - Handling overfitting in neural networks
+ - Handling neural network local minimums
 
 What is a recurrent neural network (RNN)?
 
-  The computation its neurons is a product of both the current input (x_t) and the past memory of previous time steps of the neurons (h_t-1).
-  RNN is powerful with sequential data, such as voice, sentences, DNA/protein sequences, ..., where current states are determined by both input and previous states.
-  The loss of RNN is the sum loss of all time steps (y_precicted_t VS y_t).
+  A recurrent neural network is a network that remembers some past inputs for previous steps in a task.
+  This means its output at any given step is dependent on both the input (x_t) for the current step but also some special outputs from the previous step (h_t-1).
+
+  An RNN can work well with sequential data, such as voice, sentences, DNA/protein sequences, ..., where current states are determined by both input and previous states.
+  The loss of RNN is the sum of the losses over all time steps (y_predicted_t VS y_t).
 
  - Neural networks
 
@@ -463,7 +497,7 @@ Problems in training an RNN
     2) Initialize the parameters smartly - initialize weights to identity matrix, initialize biases to zero. This helps to prevent the weights from shrinking to zero. Why?
     3) Gated call - add more computations within the recurrent cell to selectively keep or remove information, such as long short term memory (LSTMs).
 
-  It's hard for an RNN to deal with long sequencial data efficientyly. It's hard to paralize RNN computation.
+  It's hard for an RNN to deal with long sequencial data efficiently. It's hard to paralize RNN computation.
   Solution:
     Not think about each time step in isolation. Let's learn which part of the sequence data is actually important - attention!
 
