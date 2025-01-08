@@ -189,15 +189,23 @@ Enabling ssh keys
 
   * Making sure that `sshd` is running
 
+ - Getting a Linux user account
  - Getting ssh keys
+
+Getting a Linux user account
+
+  To make a Linux user account, try `sudo adduser <username>` and follow the prompts.
+
+  If the computer tells you that you don't have permission to do this, find someone that does, and ask them to make an account for you.
 
 Getting an ssh username and password
 
-  When creating a Linux account via `adduser`, the ssh username and password should be the same as the account username and password, if username and password is enabled.
+  Your ssh username and password should be the same as your Linux account username and password, if password authentication is enabled.
 
-  Note that using an ssh password is likely to be less convenient than an ssh key, and is also generally considered to be less secure
+  Note that using an ssh password is likely to be less convenient (you have to type it every time) than an ssh key, and is also generally considered to be less secure
 
  - What is ssh?
+ - Getting a Linux user account
  - Getting ssh keys
 
 Getting ssh keys
