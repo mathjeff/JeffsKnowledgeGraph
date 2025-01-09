@@ -91,7 +91,7 @@ def addKnowledgeFile(filePath, graph):
   dependencies = []
   with open(filePath) as file:
     for line in file:
-      line = line.rstrip()
+      line = line.rstrip("\r\n")
       if line.startswith("#"):
         # Comment - ignore
         continue
