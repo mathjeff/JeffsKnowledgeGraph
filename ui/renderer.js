@@ -664,8 +664,9 @@ function compareNodePriorities(nodeName1, nodeName2) {
 }
 
 function orderNodeNames(nodeNames) {
-  nodeNames.sort(compareNodePriorities)
-  return nodeNames
+  var sorted = Array.from(nodeNames)
+  sorted.sort(compareNodePriorities)
+  return sorted
 }
 
 function makeNodeList(nodeNames, actionType) {
