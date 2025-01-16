@@ -428,3 +428,47 @@ How can I replace text in a shell?
   A common program for doing text replacement in the shell is `sed`.
 
  - How can I use sed?
+
+How can I modify lots of files at once?
+
+  If you have a simple change that you want to make to lots of files, you can make them using Bash.
+
+  Steps:
+
+  1. Get a list of changes you want to make.
+  2. Write some code for turning this list of changes into a list of instructions.
+  3. Read the list of instructions to make sure it looks right. You don't want to accidentally do it wrong!
+  4. Run the above commands in Bash.
+
+  For example:
+
+  If you have a bunch of files that you want to move into a subdirectory, you can do this:
+
+  ```
+  $ ls
+  a  b  c  d  e
+  $ mkdir child
+  $ ls
+  a  b  c  child  d  e
+  $ ls | grep -v child
+  a
+  b
+  c
+  d
+  e
+  $ ls | grep -v child | sed 's/^\(.*\)/mv \1 child/'
+  mv a child
+  mv b child
+  mv c child
+  mv d child
+  mv e child
+  $ ls | grep -v child | sed 's/^\(.*\)/mv \1 child/' | bash
+  $ ls
+  child
+  $ ls child
+  a  b  c  d  e
+  ```
+
+ - How can I replace text in a shell?
+ - What is grep?
+ - Terminal new directory
