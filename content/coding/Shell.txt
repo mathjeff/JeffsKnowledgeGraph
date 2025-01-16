@@ -396,3 +396,35 @@ What is this shell command?
       git status "$@"
   }
   ```
+
+How can I use sed?
+
+  Using [sed](https://www.howtogeek.com/666395/how-to-use-the-sed-command-on-linux/) usually looks like this:
+
+  `echo example | sed 's/<matcher>/<replacement>/`
+
+  For example:
+
+  ```
+  $ echo example | sed 's/e/E/'
+  Example
+
+  ```
+
+  To replace each match in a line, add a 'g' at the end like this:
+
+  ```
+  $ echo example | sed 's/e/E/g'
+  ExamplE
+  ```
+
+ - What is echo?
+ - How can I read command help?
+
+How can I replace text in a shell?
+
+  You can replace text in a shell using any command that can do the replacements that you need.
+
+  A common program for doing text replacement in the shell is `sed`.
+
+ - How can I use sed?
