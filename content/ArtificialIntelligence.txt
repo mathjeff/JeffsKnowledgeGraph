@@ -72,7 +72,7 @@ Training neural networks
 
   4. Gradient descent repeatedly uses backpropagation to compute the gradient, and uses the gradient to change the network's parameters to reduce the loss
 
-  The purpose is not simply minimize the loss on training sets, but to find parameterst that can accuractly predict previously unseen data (testing sets) - generalization.
+  The purpose is not simply to minimize the loss on training sets, but to find parameters that can accuractly predict previously unseen data (testing sets) - generalization.
 
  - Neural networks
 
@@ -503,21 +503,62 @@ Problems in training an RNN
 
  - What is a recurrent neural network (RNN)?
 
+What is an attention head?
+
+  An attention head (also described [here](https://towardsdatascience.com/all-you-need-to-know-about-attention-and-transformers-in-depth-understanding-part-1-552f0b41d021#8607)) takes as input a matrix representing a list of embeddings of tokens, and produces as output a list of attention values.
+
+  An attention head has three matrices of parameters that can be learned like other parameters in a neural network. Let's call these matrices P1, P2, and P3.
+
+  When evaluating an attention head for a specific input matrix, we do this:
+
+  ```
+  Queries = Input * P1
+  Keys = Input * P2
+  Values = Input * P3
+  ```
+
+  Then, for each token, we compute the similarity of its entry in Queries with each other entry in Keys via a dot product. This generates a list of similarities.
+
+  Then, we renormalize these similarities so that the total similarity for a given token equals 1.
+
+  Then, for each token, we multiply each similarity by the corresponding entry from the Values.
+
+  The output of this process is the attention values.
+
+  Each attention head in a model is given the raw input directly (usually tokenized words), but has its own set of parameters that can be learned independently.
+
+ - What is an embedding?
+ - Neural networks
+ - Training neural networks
+
+What is multi-head attention?
+
+  Multi-head attention is the idea of using and training several attention heads separately, and concatenating their results into a single output.
+
+ - What is an attention head?
+
 What is a transformer?
 
-  Transformers are built on self-attentions -> attend to the most important parts of an input.
+  A [transformer](https://en.wikipedia.org/wiki/Transformer_(deep_learning_architecture)) is a machine learning model that consists of several layers.
+  Each layer contains a multi-headed attention block, and a neural network.
 
-  A transformer (head) has query, key, and value.
-    Query is the current word in a sentence.
-    Keys are all words in a sentence.
-      We compute the similarity between the query and a key, e.g. distance between two encoding vectors.
-      This is the attention weighting: how similar is the key to the query?
-    A value contain actual information for a key.
-      Multiple the attention weighting and the value to compute output. This extract relevant features based on the attention weighting.
+  The attention blocks help the model to identify important words.
+  The neural network allows the model to learn more complicated patterns, and generates the output for that layer.
 
+  The output of the last layer of the transformer is considered to be the output of the transformer.
+
+ - What is multi-head attention?
+ - Neural networks
+
+Why use a transformer?
+
+  A transformer can be more easily parallelized than some other algorithms like CNN or RNN.
+  A transformer isn't affected by the vanishing-gradient problem that can affect RNNs.
+
+ - What is a transformer?
  - What is a recurrent neural network (RNN)?
-
  - Problems in training an RNN
+ - What is a convolutional network (CNN)?
 
 What is a convolutional network (CNN)?
 
