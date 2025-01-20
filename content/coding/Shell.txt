@@ -106,7 +106,7 @@ How do I join shell commands inline?
 
     `stat /nonexistent || echo b`
 
-  If you want to run both commands at the same time and use the output of one as the input of the other, you can use ```. For example:
+  If you want to run both commands at the same time and use the output of one as the input of the other, you can use `|`. For example:
 
     `echo abcdefg | grep --color b`
 
