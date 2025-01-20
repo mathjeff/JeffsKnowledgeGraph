@@ -369,3 +369,97 @@ How do I make a pull request in GitHub?
   GitHub should have a button for making a pull request if you have forked the repository
 
  - How do I fork a repository in GitHub?
+
+What is a merge conflict?
+
+  A [merge conflict](https://stackoverflow.com/questions/24852116/what-exactly-is-a-merge-conflict) is when two different people make different changes to the same part of a file, and someone is trying to apply both of these changes at once.
+
+What is a mergetool?
+
+  A mergetool is a tool that Git runs to help you resolve merge conflicts.
+
+ - What is a merge conflict?
+
+How can I enable vimdiff as the default mergetool in Git?
+
+  As described [here](https://gist.github.com/karenyyng/f19ff75c60f18b4b8149), run this:
+
+  ```
+  git confit --global merge.tool vimdiff
+  git config merge.conflictstyle diff3
+  ```
+
+ - What is a mergetool?
+
+How can I interact with vimdiff?
+
+  Vimdiff is essentially vim with multiple windows. Specifically:
+
+  * To move your cursor to another window, press `ctrl-W ctrl-W`
+  * To search forward for text, press "/" and type the text and press <Enter>
+  * To search reverse for text, press "?" and type the text and press <Enter>
+  * To move your cursor when using Cygwin, you might have to use "h", "j", "k", and "l" instead of the arrow keys
+  * To insert text, type "i" and type some text and press <Escape>
+  * To save and quit all files, type ":wqa"
+
+How can I resolve merge conflicts with vimdiff?
+
+ - How can I enable vimdiff as the default mergetool in Git?
+ - How can I interact with vimdiff?
+
+How can I resolve merge conflicts without a mergetool?
+
+  To resolve a merge conflict without a mergetool, you can edit the files directly.
+  Run `git status` to see the files that need changing.
+  Use your favorite editor to edit them.
+  Use `git add <filename>` to tell git when you are done editing a file.
+
+How can I restore state from a git commit?
+
+  Each git commit has a set of files and some history.
+
+  Your git repository also has a HEAD pointer, some files, and usually a current branch
+
+  * If you want to update the commit that the current branch points to:
+      * If you want to update your files too, run `git reset <otherCommit> --hard`
+          * Careful - this will overwrite any uncommitted changes you have and can be dangerous
+      * If you don't want to update your files, run `git reset <otherCommit>`
+  * If you don't want to update the commit that the current branch points to:
+      * If you want to update the HEAD pointer and your current files, run `git checkout <otherCommit>`
+      * If you don't want to update the HEAD pointer:
+          * If you want to update all your files, do `git checkout <otherCommit> -- .`
+              * This will also overwrite any changes
+          * If you want to update some of your files, do `git chekout <otherCommit> -- <subdirectory>`
+
+What is git reflog?
+
+  Git's reflog is a history of commits that you have checked out. Run `git reflog` to see it.
+
+  This will output a history of:
+
+  * The hash of the commit
+  * The names of any branches pointing at this commit
+  * A description of which git commit brought you to that commit
+
+How do I restore changes from the reflog?
+
+  After you get a history of changes from `git reflog`, you can get them back like any other commit.
+
+ - What is git reflog?
+ - How can I restore state from a git commit?
+
+How can I resolve a merge conflict?
+
+  If you would like to see all of the versions of the file (common ancestor, left version, right version, and merge version) at once and would like to use `vim`, tell `git` to use `vimdiff` as a mergetool.
+
+  If you would like to edit the file with another program, you don't need to configure a mergetool.
+
+  When you think you have resolved all of the conflicts, make sure to check that your changes look right (`git status` and `git log -p`)
+
+  If you make a mistake, you can go back to old versions of files or commits using the reflog
+
+  When you are sure you have resolved all of the conflicts, tell Git that you are done by rerunning the command that caused the conflict: either `git rebase --continue` or `git merge --continue`
+
+ - How can I resolve merge conflicts with vimdiff?
+ - How can I resolve merge conflicts without a mergetool?
+ - How do I restore changes from the reflog?
