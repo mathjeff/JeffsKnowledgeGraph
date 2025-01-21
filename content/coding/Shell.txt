@@ -472,3 +472,37 @@ How can I modify lots of files at once?
  - How can I replace text in a shell?
  - What is grep?
  - Terminal new directory
+
+What commands can I run in Bash?
+
+  When you run a command in Bash:
+
+  * If the command name contains a "/", then Bash will interpret this as a filepath and look for the file with that path.
+
+  * If the command name doesn't contain a "/", Bash will check whether the command is a builtin (or a function or an alias).
+
+      * A builtin command is a command that the shell understands but is not a program and is not a file
+
+      * For example, `pwd` is built into the shell (and displays the current working directory), but there isn't a program named `pwd` on your computer that you can click on
+
+  * If the command isn't a path or a builtin, then Bash will look at a variable named "$PATH", convert it to a list of directories, and check each of those directories for a command with that name
+
+      * The value of `$PATH` could, for example, be `/usr/local/bin:/usr/bin`
+
+          * This means that Bash will check the `/usr/local/bin` directory and the `/usr/bin` directory for programs matching a name that you type
+
+      * If you want to see the list of paths that Bash will search, you can do `echo $PATH`
+
+          * If you want to display each one on its own line, you can replace ':' with '\n' by running `echo $PATH | sed 's/:/\n/g'`
+
+              * In the example above, this will output
+
+                  ```
+                  /usr/local/bin
+                  /usr/bin
+                  ```
+
+
+ - Shell paths
+ - What is this shell command?
+ - How can I use sed?
