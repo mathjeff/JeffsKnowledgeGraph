@@ -24,6 +24,9 @@ What is Jeff's Knowledge Graph?
         * Most other knowledge graphs are organized such that each node is an entity
         * In Jeff's Knowledge Graph, each node tries to be a statement or other small piece of knowledge
 
+  Sample screenshot
+  ![Screenshot](./resources/JKGScreenshot.jpg)
+
 Who is Jeff?
 
   Jeff Gaston is the person that created this knowledge graph.

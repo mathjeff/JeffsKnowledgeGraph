@@ -7,3 +7,4 @@ cp ui/index.html out/site
 cp ui/renderer.js out/site
 cp deps/marked.min.js out/site
 cp ui/KnowledgeGraph.css out/site
+cp -r resources out/site
