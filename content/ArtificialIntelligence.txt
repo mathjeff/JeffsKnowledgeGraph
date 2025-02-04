@@ -996,7 +996,7 @@ DeepSeek-R1
 
   Rules/policies for math and coding such as accuracy, language consistency, compiler should not fail...
 
-  I think this is the future of machine learning -> sets good rules/policies to help AI learn based on our knowledge!
+  I think this is the future of AI -> sets good rules/policies in our domain to help AI learn based on our knowledge!
 
   3) DeepSeek-R1 generates new training data, and filtered by human beings.
 
