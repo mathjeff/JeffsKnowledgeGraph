@@ -250,20 +250,45 @@ function getUnfamiliarDependencies(nodeName) {
   return result
 }
 
+function shouldShowNodeInDependencyGraph(node) {
+  return node["description"] != null && node["description"] != ""
+}
+
 function expandDependencies() {
   var currentNode = getCurrentNode()
   var nodeName = currentNode["name"]
   var candidates = getUnfamiliarDependencies(nodeName)
   var html = ""
   console.log("expanding dependencies of " + nodeName)
+  var indentations = {}
+  var lastCandidateName = candidates[candidates.length - 1]
+  indentations[lastCandidateName] = 0
+  for (var i = candidates.length - 1; i >= 0; i--) {
+    var candidateName = candidates[i]
+    var currentIndentation = indentations[candidateName]
+    var dependencyNames = getDirectDependencyNames(candidateName)
+    var nextIndentation = 0
+    if (shouldShowNodeInDependencyGraph(getNodeByName(candidateName)))
+      nextIndentation = currentIndentation + 1
+    else
+      nextIndentation = currentIndentation
+    for (dependencyName of dependencyNames) {
+      var existingIndentation = 0
+      if (dependencyName in indentations)
+        existingIndentation = indentations[dependencyName]
+      indentations[dependencyName] = Math.max(existingIndentation, nextIndentation)
+    }
+  }
 
   for (var i = 0; i < candidates.length; i++) {
     var candidateName = candidates[i]
-    console.log("expansion candidate name = " + candidateName)
     var candidate = getNodeByName(candidateName)
-    var description = candidate["description"]
-    if (description != null && description != "") {
-      html += formatNodeText(candidate)
+    if (shouldShowNodeInDependencyGraph(candidate)) {
+      var nodeText = formatNodeText(candidate)
+      var indentation = indentations[candidateName]
+      var margin = indentation * 20
+      var newDiv = "<div style='margin-left:" + margin + "px'>" + nodeText + "</div>"
+      html += newDiv
     }
   }
   document.getElementById("text").innerHTML = html
