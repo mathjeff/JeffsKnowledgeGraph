@@ -417,21 +417,21 @@ How to train a neural network in Pytorch?
 
   4) Prepare training data (60-80%), testing data (10-20%), and validation data (10-20%).
 
-  5) Define the training loop:  
-    Set model mode to training by `model.train()`  
-    Pass the training data through the model by `y_predicted = model(x_train)`  
-    Calculate loss by `loss = loss_fn(y_predicted,y_train)`  
-    Clean up old gradients in the optimizer by `optimizer.zero_grad()`  
-    Backpropagation to compute the gradient of the loss for each model parameter by `loss.backward()`  
-    Optimize the model parameters by `optimizer.step()`  
-    NOTE: loss should be calculated before backpropagation; gradients should be cleaned before backpropagation; parameters should be optimized after backpropagation  
+  5) Define the training loop:
+    Set model mode to training by `model.train()`
+    Pass the training data through the model by `y_predicted = model(x_train)`
+    Calculate loss by `loss = loss_fn(y_predicted,y_train)`
+    Clean up old gradients in the optimizer by `optimizer.zero_grad()`
+    Backpropagation to compute the gradient of the loss for each model parameter by `loss.backward()`
+    Optimize the model parameters by `optimizer.step()`
+    NOTE: loss should be calculated before backpropagation; gradients should be cleaned before backpropagation; parameters should be optimized after backpropagation
 
-  6) Define the testing loop:  
-    Set model mode to evaluation (model.eval())  
-    Pass the testing data through the model by `y_predicted = model(x_test)`  
-    Calculate loss by `loss = loss_fn(y_predicted,y_test)`  
-    Evaluate model performance, for example, visualize average loss or accuracy for every 10 epochs  
-    NOTE: testing loop doesn't contain backpropagation and paramater optimization.  
+  6) Define the testing loop:
+    Set model mode to evaluation (model.eval())
+    Pass the testing data through the model by `y_predicted = model(x_test)`
+    Calculate loss by `loss = loss_fn(y_predicted,y_test)`
+    Evaluate model performance, for example, visualize average loss or accuracy for every 10 epochs
+    NOTE: testing loop doesn't contain backpropagation and paramater optimization.
 
  - What is pytorch?
 
@@ -445,11 +445,11 @@ How can I train a neural network on a GPU?
 
   2) Move your neural network to GPU by `model_1.to(device)`
 
-  3) Move all data to GPU by  
-  `x_train = x_train.to(device)`  
-  `x_test = x_test.to(device)`  
-  `y_train = y_train.to(device)`  
-  `y_test = y_test.to(device)`  
+  3) Move all data to GPU by
+  `x_train = x_train.to(device)`
+  `x_test = x_test.to(device)`
+  `y_train = y_train.to(device)`
+  `y_test = y_test.to(device)`
 
  - How to train a neural network in Pytorch?
 
@@ -772,3 +772,76 @@ How to build AlphaGo?
  - What is reinforcement learning?
 
  - Policy learning in reinforcement learning
+
+What is multi-head latent attention (MLA)?
+
+  Generative LLMs output one word a time. Each round, it uses previous words to predict the next word. Therefore, people cache K and V values of previous words to avoid duplicated computation - called KV cache.
+  KV cache is two big matrixes (embedding dimension * dimension per head), and multi-head attention makes it even bigger (* number of heads). This requires lots of GPU memory during inference (model prediction).
+  To reduce GPU memory, DeepSeek creates a latent vector for KV cache (lower dimension like PCA), by jointly compressing the keys and values.
+ - What is multi-head attention?
+ - What is an attention head?
+
+What is feed-forward network of transformers?
+
+  Feed-forward network is a neural network with many parameters to transforms token embeddings into an output, e.g. model prediction.
+  Feed-forward network allows the model to learn more complicated patterns, and generates the output for that layer.
+ - What is a transformer?
+
+What is mixture of experts (MOE)?
+  Feed-forward network has multiple sections/groups to do different tasks (experts).
+  MOE has a gate to compute different probabilities and 1) give different weights to different experts for a weighted sum (dense MOE); or 2) rank and pick top K experts and then weighted sum (sparse MOE).
+  MOE can help scale-up transformers, reducing computation costs.
+ - What is feed-forward network of transformers?
+
+What is DeepSeekMOE?
+  1) fine grained expert segmentation: use more smaller experts (double the number, half the parameters). Each expert has less variants, together they make better decisions.
+  2) shared experts: to store common knolwedge, which is always picked during inference.
+  Problem: load balancing problem: during training, the model might reinforce the most strongest experts - might not be able to generalize.
+  Solution:
+  1) give loss or penalty to experts that received many training tokens.
+  2) loss-free: add a bias in softmax, bias is controlled by how many training tokens an expert received (more tokens, less bias). This bias does not impact the loss function and inference.
+ - What is mixture of experts (MOE)?
+
+What else does DeepSeekMOE do?
+  1) Node-limited routing: Moving tokens from a GPU node to another is expensive. DeepSeek sets a limit that each token can only be transferred to m GPU nodes.
+  2) Token dropping: when some experts have high load balance, tokens would skip FFN and go directly to residue layer (directly add the input to the output layer).
+ - What is DeepSeekMOE?
+
+How to train LLMs?
+  LLMs uses previous tokens to predict the next token.
+  If the next token is wrong, training process will ignore the wrong token, replace it with the right token, for the prediction/training of the next token.
+  This is called teacher forcing.
+  We also don't want previous tokens to see future tokens. Therefore, we add a mask of future tokens in the attention of previous tokens -> parallelization.
+  Predicting one token at the time, the model is short-sighted and lacks planning.
+  How about we ask the LLMs to predict multiple tokens at once -> multi-token prediction?
+
+What is multi-token prediction (MTP)?
+  Split one head into several heads, head 1 predicts the next token, head 2 predicts the next next, heads 3 predicts the next next next, ...
+  Advantage:
+  1) Training signal comes from all heads -> stronger training efficiency.
+  2) Predicting several tokens ahead -> longer sighted, better at reasoning.
+  3) Give more weights on learning hard transitions.
+  Disadvantage:
+  Not autoregressive or causal, because head 2 and 3 do not rely on head 1.
+ - How to train LLMs?
+
+Why LLM inference is expensive/slow?
+  Transferring data and parameters (huge) from GPU memory to cache (for matrix dot computation) is slow.
+  Can we use small LLMs to speed up big LLMs?
+  e.g. Small models compute all answers. Big LLMs can check the answers of small LLMs and recompute those that are wrong.
+ - What is a transformer?
+
+Speculative decode
+  1) quick guess: small LLMs -> even better some heads with small parameters in big LLMs, e.g. medusa or EAGLE
+  2) cheap verification: big LLMs, check whether the probability of each token is the biggest.
+  3) recompute: accept correct tokens and recompute the wrong token -> small LLMs recompute the next token
+ - Why LLM inference is expensive/slow?
+
+What is DeepSeekMTP?
+  Main model: traditional transformer model, predict the next tokens
+  MTP module 1: predict the next next tokens
+  MTP module 2: predict the next next next tokens
+  Main model gives its feature to the MTP module 1, concat with the MTP module 1 input embedding -> causal/autoregressive
+  MTP module 1 gives its feature to the MTP module 2 -> causal/autoregressive
+ - Speculative decode
+ - What is multi-token prediction (MTP)?
