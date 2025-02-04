@@ -120,19 +120,50 @@ What is a port in networking?
 
   The default port for an ssh server to listen on is port 22.
 
+SSH Port Forwarding
+
+  Port forwarding is a feature of `ssh` that allows it to listen on your computer for connections and pass them along to another computer.
+
+  To ask `ssh` to forward a port, do `ssh -L <localPort>:localhost:<remotePort> <username>@<computer>`
+
+  This will start an `ssh` process that listens for connections and passes them to along to `<computer>:<remotePort>`
+
+  To cancel this, exit `ssh` by running `exit` in the same window
+
+  Although it's possible to type other commands into this `ssh` session, this can be confusing so we don't recommend it:
+
+  * Errors get reported in this terminal window, which might get in the way of output of other commands that you ran in the same window
+
+      * If the remote computer isn't currently listening for connections on this port, then when something tries to connect to this port on your local computer, `ssh` will report an error
+
+          * For example, if you shut down a Jupyter server running on the other computer while you still have a browser window open using it, your web browser will try to reconnect and `ssh` will report connection errors
+
+  * If you want to stop the port forwarding, you will have to exit the `ssh` session
+
+      * You'll have to stop any commands running in this window
+
+      * It won't be as easy to see the history of commands that you ran in this session after closing this `ssh` session
+
+ - What is a port in networking?
+ - How can I read command help?
+ - What is local in a computer?
+ - What is a computer process?
+ - What is ssh?
+
 How can I run a Jupyter Notebook on a workstation from my laptop?
 
-  On the workstation terminal, run `jupyter notebook --no-browser --port=8080` (if someone else is already using this port, choose another port).
+  On the workstation, start Juypter: `jupyter notebook --no-browser --port=8080` (if someone else is already using this port, choose another port).
 
-  On my laptop terminal, run `ssh -L 8080:localhost:8080 <username>@<computer>`
+  On your computer, forward the port: `ssh -L 8080:localhost:8080 <username>@<computer>`
 
-  On my laptop chrome, open http://localhost:8080/
+  On your computer, open http://localhost:8080/ in a web browser
 
- - What is ssh?
  - What is Jupyter Notebook?
- - How can I ssh into another computer?
  - Why using Jupyter Notebook?
+ - What is ssh?
+ - How can I ssh into another computer?
  - What is a port in networking?
+ - SSH Port Forwarding
 
 Why using Jupyter Notebook?
 
