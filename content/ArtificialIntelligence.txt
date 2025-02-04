@@ -845,3 +845,15 @@ What is DeepSeekMTP?
   MTP module 1 gives its feature to the MTP module 2 -> causal/autoregressive
  - Speculative decode
  - What is multi-token prediction (MTP)?
+
+DeepSeek-R1
+  It's a reasoning model based on DeepSeek V3.
+  DeepSeek-R1-Zero only trained with reinforcement learning without supervised fine-tuning (SFT) has poor readability, and language mixing.
+  DeepSeek-R1 uses a small set of starting data (cold-start) for fine-tuning, and then do reinforcement learning with bootstrapping (generating new SFT synthetic data to train in iterations).
+  I think the coolest part of DeepSeek-R1 reinforcement learning is that it regulates loss optimization by small steps (by clipping) to avoid jumping too far.
+  This made their training very stable and efficient.
+ - What is reinforcement learning?
+
+Knowledge distillation
+  Use a big LLM (teacher) to train a small LLM (student). Usually generates better performance than directly trainin a small LLM.
+ - What is a transformer?
