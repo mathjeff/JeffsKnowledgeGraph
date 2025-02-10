@@ -862,9 +862,9 @@ How to build AlphaGo?
 
 What is multi-head latent attention (MLA)?
 
-  Generative LLMs output one word a time. Each round, it uses previous words to predict the next word. Therefore, people cache K and V values of previous words to avoid duplicated computation - called KV cache.
+  Generative LLMs output one word a time. Each round, it uses previous words to predict the next word. So, people cache K and V values of previous words to avoid duplicated computation - called KV cache.
 
-  KV cache is two big matrixes (embedding dimension * dimension per head), and multi-head attention makes it even bigger (* number of heads). This requires lots of GPU memory during inference (model prediction).
+  A KV cache is two big matrixes (embedding dimension * dimension per head), and multi-head attention makes it even bigger (* number of heads). This requires lots of GPU memory during inference (model prediction).
 
   To reduce GPU memory, DeepSeek creates a latent vector for KV cache (lower dimension like PCA), by jointly compressing the keys and values.
 
@@ -872,27 +872,29 @@ What is multi-head latent attention (MLA)?
 
  - What is an attention head?
 
-What is feed-forward network of transformers?
+What is a feed-forward network of transformers?
 
-  Feed-forward network is a neural network with many parameters to transforms token embeddings into an output, e.g. model prediction.
+  A feed-forward network is a network in which information only moves in one direction: it has no cycles.
 
-  Feed-forward network allows the model to learn more complicated patterns, and generates the output for that layer.
-
+ - Neural networks
  - What is a transformer?
 
 What is mixture of experts (MOE)?
 
-  Feed-forward network has multiple sections/groups to do different tasks (experts).
+  A mixture of experts machine learning model is one model that asks several other models (called "experts") to make predictions, and then uses those predictions to make its own prediction.
 
-  MOE has a gate to compute different probabilities and 1) give different weights to different experts for a weighted sum (dense MOE); or 2) rank and pick top K experts and then weighted sum (sparse MOE).
+  Some common ways to combine predictions from individual experts:
+
+  * Have each expert compute its own probability, give different weights to different experts, and compute a weighted sum (dense MOE)
+  * Rank experts by their confidence, pick the top K experts, and compute a weighted sum (sparse MOE).
 
   MOE can help scale-up transformers, reducing computation costs.
 
- - What is feed-forward network of transformers?
+ - What is a feed-forward network of transformers?
 
 What is DeepSeekMOE?
 
-  1) fine grained expert segmentation: use more smaller experts (double the number, half the parameters). Each expert has less variants, together they make better decisions.
+  1) fine grained expert segmentation: use a larger number of smaller experts (double the number, half the parameters compared to other conventional MoE models). Each expert has less variants, together they make better decisions.
 
   2) shared experts: to store common knolwedge, which is always picked during inference.
 
@@ -908,43 +910,62 @@ What is DeepSeekMOE?
 
 What else does DeepSeekMOE do?
 
-  1) Node-limited routing: Moving tokens from a GPU node to another is expensive. DeepSeek sets a limit that each token can only be transferred to m GPU nodes.
+  1) Node-limited routing: Moving tokens from a GPU node to another is expensive. DeepSeek sets a limit that each token can only be transferred to `m` GPU nodes.
 
-  2) Token dropping: when some experts have high load balance, tokens would skip FFN and go directly to residue layer (directly add the input to the output layer).
+  2) Token dropping: when some experts have high load balance, tokens would skip the feed-forward network and go directly to residue layer (directly add the input to the output layer).
 
  - What is DeepSeekMOE?
 
 How to train LLMs?
 
-  LLMs uses previous tokens to predict the next token.
+  The purpose of an LLM is to output text. Training an LLM involves asking it to generate text, assigning a score to the text that it generated, and changing its parameters in a way that improves the score.
 
-  If the next token is wrong, training process will ignore the wrong token, replace it with the right token, for the prediction/training of the next token.
+ - Large Language Models
 
-  This is called teacher forcing.
+ - Training neural networks
 
-  We also don't want previous tokens to see future tokens. Therefore, we add a mask of future tokens in the attention of previous tokens -> parallelization.
+What is teacher forcing?
 
-  Predicting one token at the time, the model is short-sighted and lacks planning.
+  Teacher forcing is the idea of asking an LLM to generate one token and scoring that one token alone, rather than asking the model to generate an entire sentence at once.
 
-  How about we ask the LLMs to predict multiple tokens at once -> multi-token prediction?
+  After the model generates one token, regardless of whether that token was correct or not, the next step is to give the model the correct token and ask it to generate the following token.
+
+  When an LLM generates one token at a time, this should be:
+
+  * faster: it's not necessary to generate the entire sentence
+  * more meaningful. If the model predicts that token #2 is the best to follow token #1, but it turns out that token #1 isn't the best starting token, it doesn't necessarily mean that token #2 isn't the best token to follow token #1.
+
+ - How to train LLMs?
 
 What is multi-token prediction (MTP)?
 
-  Split one head into several heads, head 1 predicts the next token, head 2 predicts the next next, heads 3 predicts the next next next, ...
+  [Multi-token prediction](https://www.clioapp.ai/research/multi-token-prediction) in an LLM involves splitting one head into several heads: head 1 predicts the next token, head 2 predicts the next next, heads 3 predicts the next next next, ...
 
-  Advantage:
+  During training, the overall loss for the model is based on the combined losses of each head.
 
-  1) Training signal comes from all heads -> stronger training efficiency.
+  During inference, there are two possible approaches:
 
-  2) Predicting several tokens ahead -> longer sighted, better at reasoning.
+  * Only the first head is used, and the other heads are ignored. This is expected to be more accurate.
 
-  3) Give more weights on learning hard transitions.
+  * Each head is used to generate its own token in parallel. This is expected to be faster.
+
+  Advantages:
+
+  * Speed: predicting the next `N` tokens generally requires less than `N` times as much time but allows us to compute `N` different scores, so this takes less time per score
+  * Accuracy:
+      * Sometimes a word in a sentence isn't very important and can be replaced with another word.
+      * Sometimes a word in a sentence is important, and to change it requires changing other words in the sentence.
+      * If you train an LLM by giving it the beginning of the desired text and asking it to predict the next token in the sentence, then getting either of these cases wrong produces an equal loss (1 token).
+      * However, the case of dependent words is more important than the case of mostly interchangeable words, and deserves to be assigned a larger loss.
+          * This larger loss is produced with multi-token prediction for other heads that predict subsequent words.
 
   Disadvantage:
 
   Not autoregressive or causal, because head 2 and 3 do not rely on head 1.
 
  - How to train LLMs?
+ - What is an attention head?
+ - What is teacher forcing?
 
 Why LLM inference is expensive/slow?
 
