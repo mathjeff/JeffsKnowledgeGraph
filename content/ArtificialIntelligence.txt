@@ -939,7 +939,7 @@ What is teacher forcing?
 
 What is multi-token prediction (MTP)?
 
-  [Multi-token prediction](https://www.clioapp.ai/research/multi-token-prediction) in an LLM involves splitting one head into several heads: head 1 predicts the next token, head 2 predicts the next next, heads 3 predicts the next next next, ...
+  [Multi-token prediction](https://www.clioapp.ai/research/multi-token-prediction) in an LLM involves splitting one head into several heads: head 1 predicts the next token, head 2 predicts the next next, heads 3 predicts the next next next, etc. Each head makes its predictions independently of the other heads.
 
   During training, the overall loss for the model is based on the combined losses of each head.
 
@@ -951,13 +951,14 @@ What is multi-token prediction (MTP)?
 
   Advantages:
 
-  * Speed: predicting the next `N` tokens generally requires less than `N` times as much time but allows us to compute `N` different scores, so this takes less time per score
+  * Speed: predicting the next `N` tokens generally requires less than `N` times as much time but allows us to compute `N` different scores (one per head per token), so this takes less time per score
   * Accuracy:
       * Sometimes a word in a sentence isn't very important and can be replaced with another word.
       * Sometimes a word in a sentence is important, and to change it requires changing other words in the sentence.
       * If you train an LLM by giving it the beginning of the desired text and asking it to predict the next token in the sentence, then getting either of these cases wrong produces an equal loss (1 token).
       * However, the case of dependent words is more important than the case of mostly interchangeable words, and deserves to be assigned a larger loss.
           * This larger loss is produced with multi-token prediction for other heads that predict subsequent words.
+      * This is expected to cause the model to prioritize these important words more highly.
 
   Disadvantage:
 
