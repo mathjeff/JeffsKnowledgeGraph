@@ -334,9 +334,13 @@ What is a testing dataset?
 
   A testing dataset is a collection of data used to evaluate the performance of a trained machine learning model during training. It contains data that the model has not seen during training to evaluate how well the model generalizes to unseen data.
 
+ - What is a training dataset?
+
 What is a validation dataset?
 
   A validation dataset is a collection of data used to evaluate the performance of a final machine learning model. The model should not have seen this data (or similar data) during training and testing!
+
+ - What is a training dataset?
 
 What is a label in machine learning?
 
@@ -346,15 +350,23 @@ What is a label in machine learning?
 
   If a label is not known, we can try to predict it using a machine learning model.
 
+ - What is a training dataset?
+
 What is a feature in machine learning?
 
   A feature is a variable that a prediction can be based on.
 
   For example, if you have a piece of fruit, you can measure its height; height is a feature.
 
+ - What is a training dataset?
+
+ - What is a label in machine learning?
+
 What is a bias term in machine learning?
 
   Bias is a parameter that allows the model to shift the output independently of the input. The bias determines the value of the estimate when all features are zero. It acts like an offset or intercept in linear equations, y= w1(weight 1)*​x1​(feature 1) + w2*​x2 ​+ ⋯ + wn*​xn ​+ b (bias).
+
+ - What is optimization?
 
 What is optimization?
 
@@ -1026,6 +1038,8 @@ DeepSeek-R1
 
   SFT -> RL -> SFT -> RL is a very efficient way of machine learning.
 
+  Another improvement of DeepSeek-R1 compared to GPT-o is that it removes the reward model (a small model trained based on human feedback) from the reinforcement learning, but uses rules to give feedback.
+
   I think another cool part of DeepSeek-R1 reinforcement learning is that it regulates loss optimization by small steps (by clipping) to avoid jumping too far.
 
   This made their training very stable and efficient.
@@ -1037,3 +1051,12 @@ Knowledge distillation
   Use a big LLM (teacher) to train a small LLM (student). Usually generates better performance than directly trainin a small LLM.
 
  - What is a transformer?
+
+Machine learning scaling law
+
+  Machine learning model performance usually shows a linear regression with computational time (log-scale), data size (log-scale), a total number of parameters (log-scale).
+
+The bitter lesson
+
+  1) The great power of general purpose methods (search or learn) - the less structured by human knowledge, the better
+  2) Their performance can be efficiently scale up with increased computation
