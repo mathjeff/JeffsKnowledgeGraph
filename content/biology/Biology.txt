@@ -2,7 +2,7 @@
 
 What is phage therapy?
 
-  Phage therapy is the idea of using a bacteriophage to help a human to fight bacteria
+  Phage therapy is the idea of using a bacteriophage to help a human to fight bacteria.
 
  - What is a bacteriophage?
 
@@ -10,9 +10,9 @@ What is phage therapy?
 
 How can phage therapy be helpful?
 
-  Phage therapy can potentially fight pathogenic bateria, even when those bacteria are resistant to antibiotics
+  Phage therapy can potentially fight pathogenic bacteria, even when those bacteria are resistant to antibiotics.
 
-  Phage therapy can also avoid harming non-pathogenic bacteria
+  Phage therapy can also avoid harming non-pathogenic bacteria.
 
  - What is phage therapy?
 
@@ -22,12 +22,11 @@ How can phage therapy be helpful?
 
 How can non-pathogenic bacteria be good?
 
-  Non-pathogenic bacteria can discourage pathogens from colonizing the human body
+  Non-pathogenic bacteria can discourage pathogens from colonizing the human body.
 
-  Non-pathogenic bacteria in the gut can help with digestion
+  Non-pathogenic bacteria in the gut can help with digestion.
 
  - What is a bacteria?
-
 
 What are antibiotics?
 
@@ -37,7 +36,7 @@ What are antibiotics?
 
 How can antibiotics be helpful?
 
-  Antibiotics are useful for killing pathogenic bacteria that have infected a human
+  Antibiotics are useful for killing pathogenic bacteria that have infected a human.
 
  - What are antibiotics?
 
@@ -45,11 +44,11 @@ How can antibiotics be helpful?
 
 What is a pathogen?
 
-  A pathogen is an entity that causes disease
+  A pathogen is an entity that causes disease.
 
 What is antibiotic resistance?
 
-  Antibiotic resistance is the property where a bacteria resists an antibiotic
+  Antibiotic resistance is the property where a bacteria resists an antibiotic.
 
  - What are antibiotics?
 
@@ -61,7 +60,7 @@ What is a bacteria?
 
 What is a bacteriophage?
 
-  A [bacteriophage](https://en.wikipedia.org/wiki/Bacteriophage) is a type of virus that infects bacteria and archaea
+  A [bacteriophage](https://en.wikipedia.org/wiki/Bacteriophage) is a type of virus that infects bacteria and archaea.
 
  - What is a virus?
 
@@ -72,7 +71,7 @@ What is a virus?
   A virus is a small entity that:
 
    1. Contains DNA or RNA
-   1. Attemps to infect a living cell
+   1. Attempts to infect a living cell
    1. Gets living cells to make more copies of it
    1. Leaves that living cell
    1. Repeats the process again
@@ -89,6 +88,72 @@ What is a genetic variant?
 
     * Structural changes: deletion, duplication, or inversions of a long genome region
 
+What is an allele?
+
+  An allele is one variant form of a gene. A gene can have many variant forms, leading to different genotypes for that gene.
+
+  Alternatively an allele is a version of coding DNA sequence (CDS) at a specific chromosomal position (locus).
+
+ - What is a genetic variant?
+
+ - What is the genotype?
+
+ - What is the phenotype?
+
+ - What is a locus?
+
+What is a genome?
+
+  Genome of an individual organism is the complete set of DNA (genetic material) in that organism.
+
+What is a metagenome?
+
+  A metagenome is a collection of genomes from different individual organisms, sometimes from different species.
+
+ - What is a genome?
+
+What is a pangenome?
+
+  Pangenome of a species is all the unique genes you can find for it.
+
+  Pangenome can be divided into a core genome, with genes present in all or most your samples, and an accessory genome, with genes present in only a fraction of your sampled population.
+
+ - What is a genome?
+
+What is the genotype?
+
+  The genotype of an organism is its complete set of genetic material. Genotype can also be used to refer to the alleles an individual carries for a particular gene.
+
+ - What is a trait?
+
+What is the phenotype?
+
+  The phenotype of an organism is its set of observable characteristics.
+
+  Phenotype can also be used to refer to the superficial variant an individual shows for a particular gene (trait).
+
+  For instance, blue eyes would be one's phenotype for the trait of eye color. The variants of genes that encoded blue eyes would be the person's genotype for this trait.
+
+ - What is a trait?
+
+ - What is fitness?
+
+What is a trait?
+
+  A trait is a specific characteristic of an individual. It can be determined by corresponding genes, environmental factors or both. A trait can be qualitative (eye color, blood type, etc.) or quantitative (stature).
+
+What is fitness?
+
+  Fitness is the quantitative measurement of an organism's ability to survive, usually translated into its reproductive success.
+
+What is a niche?
+
+  For a certain environment, a niche is like an ecological occupation one or many species can be attuned to. For instance, an environment with a high death rate tends to create a niche for detritivores.
+
+What is a locus?
+
+  Locus (multiple=loci) is a specific position on the chromosome where a certain gene is located.
+
 How do point mutations occur?
 
   Point mutations usually happen when cells are replicating their DNA: sometimes those cells make small errors and create another genome that isn't an exact duplicate of the original.
@@ -101,20 +166,33 @@ How do point mutations occur?
 
     * For RNA viruses: 1E-3 to 1E-5 mutations per nucleotide per generation
 
- - What is a genetic variant?
+ - What is genetic drift?
 
 What is evolution?
 
   Evolution is the process by which living organisms change over time through changes in the genome.
 
   Evolution happens because:
-  * Different organisms have their own genetic variants
-  * Different organisms survive differently
-  * Organisms pass their genetic changes on to the next generation
+
+    * Different organisms have their own genetic variants
+
+    * Different organisms survive differently
+
+    * Organisms pass their genetic changes on to the next generation
+
+ - What is a genome?
 
  - What is a genetic variant?
 
  - What is natural selection?
+
+ - What is convergent evolution?
+
+What is convergent evolution?
+
+  Convergent evolution describes the case in which natural selection leads to the evolution of similar traits independently, in different species/lineages.
+
+  An example can be similar wing structures between flying insects and birds; These traits have different evolutionary history (not inherited from a common ancestor) but similar properties.
 
 What is natural selection?
 
@@ -132,6 +210,16 @@ What is a selective sweep?
 
  - What is recombination?
 
+ - What is a haplotype?
+
+ - What is a gene-specific sweep?
+
+ - What is a whole-genome sweep?
+
+ - What is a soft sweep?
+
+ - What is a hard sweep?
+
 What is recombination?
 
   Recombination is the process by which DNA is exchanged between homologous portions of two genomes.
@@ -144,11 +232,51 @@ What is recombination?
 
       * Do not have multiple chromosomes and do not go through recombination during cell replication.
 
+ - What is homology?
+
+ - What is a genome?
+
  - What is horizontal gene transfer?
 
  - What is a chromosome?
 
  - What is a eukaryote?
+
+What is adaptive radiation?
+
+  Adaptive radiation describes a scenario in which a lineage quickly diversifies into multiple ones during adaptation.
+
+  A classic example would be one species of birds arriving in a uninhabited island, which provides a variety of food sources and thus many potential niches. These birds quickly evolve into several species to occupy these niches, e.g. long beaks for worms, large beaks for nuts, etc.
+
+ - What is a niche?
+
+What is genetic drift?
+
+  Genetic drift is the change of allele frequencies due to pure random chance, as opposed to changes caused by natural selection.
+
+What is a gene-specific sweep?
+
+  Gene-specific sweep is similar to selective sweep, but no other genetic variants (alleles) are carried along during the process, e.g. only the specific gene was able to spread.
+
+  This leads to less reduction in genetic diversity (compared to a normal selective sweep).
+
+What is a whole-genome sweep?
+
+  Whole-genome sweep is a case of selective sweep in which the entire genome spreads across the population.
+
+What is a soft sweep?
+
+  A soft selective sweep describes the case in which the spreading beneficial allele originated from multiple sources.
+
+  This would have a less profound effect on the reduction of genetic diversity (compared to hard sweeps), as multiple haplotypes shall exist in the population.
+
+What is a hard sweep?
+
+  A hard selective sweep describes the case in which the spreading beneficial allele originated from a single source.
+
+What is a haplotype?
+
+  A haplotype refers a set of genetic variants (alleles) that tends to be inherited together, e.g. during a selective sweep.
 
 What is a eukaryote?
 
@@ -190,3 +318,65 @@ What is a chromosome?
   It's a genetic blueprint that determines what this organism is.
 
   Chromosomes in bacteria are circular, made of DNA. Chromosomes in eukaryotes are linear, made of DNA and proteins.
+
+ - What is a locus?
+
+What is CDS?
+
+  CDS simply stands for "Coding DNA Sequences". Self-explanatory. Commonly seen in genomes.
+
+ - What is a genome?
+
+What is MSA?
+
+  MSA stands for "Mulit Sequence Alignment".
+
+What is MRCA?
+
+  MRCA stands for "Most Recent Common Ancestor". A term more commonly used when talking about long-term evolution.
+
+What is epistasis?
+
+  Epistasis describes the phenomenon that the expressions of genes (or mutations) interfere each other.
+
+  This can be related to the amount of mutations needed for a gene to alter function, or related to the amount of alterations needed to cause changes in a pathway.
+
+What is homoplasy?
+
+  Homoplasy (descriptive=homoplastic) describes the case in which a feature that has been gained or lost independently in separate lineages over the course of evolution, in contrast to homology.
+
+  Both convergent evolution and horizontal gene transfer could lead to homoplastic patterns when comparing different genomes.
+
+ - What is convergent evolution?
+
+ - What is horizontal gene transfer?
+
+What are orthologs?
+
+  Genes separated (found in different species) by speciation events are called orthologs.
+
+  Descriptive=orthologous.
+
+What are paralogs?
+
+  Genes separated by gene duplication events are called paralogs (I haven't encountered this term very often).
+
+  Descriptive=paralogous.
+
+What is homology?
+
+  Homology (descriptive=homologous) describes the case in which a feature that has been gained or lost in separate lineages due to common ancestry, in contrast to homoplasy.
+
+  Both orthologs and paralogs are homologous genes.
+
+  The term homology can also mean that the things are similar or the same.
+
+ - What is homoplasy?
+
+ - What are orthologs?
+
+ - What are paralogs?
+
+What are isolates?
+
+  In microbiology, isolates are strains of microorganisms that have been separated from a mixed population.
