@@ -319,3 +319,39 @@ What is local in a computer?
   The device your are looking at now is considered local.
 
   The server that hosts JeffsKnowledgeGraph is not local; it is remote.
+
+What is a bitmask?
+
+  A bitmask:
+  *  Is an integer whose representation has a fixed length
+  *  Represents a list of bits
+  *  Is intended to be applied to a second integer (of the same length) to produce a third integer (of the same length)
+    *  To apply a bitmask to another integer:
+        1. Split the bitmask into individual bits
+        1. Split the input into individual bits
+        1. Choose a binary function for combining corresponding bits
+        1. For each bit in the bitmask and corresponding bit in the input, combine them as defined by the function
+        1. Combine the resulting bits into a new number
+
+  For example, if you have a bitmask of `9` and want to `and` it with `10`:
+  1. Convert `9` to binary to get `1001`
+  1. Convert `5` to binary to get `1010`
+  1. For each pair of bits, compute the `and` of each one
+      1. `1` and `1` is `1`
+      1. `0` and `0` is `0`
+      1. `0` and `1` is `0`
+      1. `1` and `0` is `0`
+  1. Concatenate the resulting bits to get `1000`
+  1. These bits can be stored as a new number: `8`
+
+What is a umask?
+
+  A umask is a bitmask that controls the permissions that a new file or directory on your computer will have by default
+
+  To view your user's umask, run `umask`
+
+  Individual programs may still create files having different permissions.
+  * For example, `unzip` may make files having fewer permissions if the contained `zip` file specifies fewer permissions.
+
+ - What is a bitmask?
+ - How to change the permissions of a file
