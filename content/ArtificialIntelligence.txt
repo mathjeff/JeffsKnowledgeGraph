@@ -364,7 +364,7 @@ What is a feature in machine learning?
 
 What is a bias term in machine learning?
 
-  Bias is a parameter that allows the model to shift the output independently of the input. The bias determines the value of the estimate when all features are zero. It acts like an offset or intercept in linear equations, y= w1(weight 1)*​x1​(feature 1) + w2*​x2 ​+ ⋯ + wn*​xn ​+ b (bias).
+  Bias is a parameter that allows the model to shift the output independently of the input. The bias determines the value of the estimate when all features are zero. It acts like an offset or intercept in linear equations, `y= w1`(weight 1)`*x1`(feature 1)` + w2*x2 + ... + wn*xn + b` (bias).
 
  - What is optimization?
 
@@ -716,7 +716,7 @@ Variation Autoencoders
 
 Regularization on the latent space
 
-  We choose an assumption or prioron the latent distribution to regulatarize the training.
+  We choose an assumption or prior on the latent distribution to regulatarize the training.
 
   For example, we use normal Gaussian distribution as a prior to
 
