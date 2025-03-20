@@ -50,41 +50,52 @@ How to install bioinformatics tools?
 
  - What is bioinformatics?
 
-How to do sequence alignment?
-
-  * Blast+
-
-    Benchmark, slow but accurate
+How to compare proteins
 
   * [Diamond](https://anaconda.org/bioconda/diamond)
 
-    Fast, protein database only
-
-  * [Usearch](https://www.drive5.com/usearch/download.html)
-
-    Fast, nucleotide database only
+    Fast
 
   * [hmm](https://anaconda.org/bioconda/hmmer)
 
     Based on protein function domain
 
-  * [Mapper](https://github.com/mathjeff/mapper)
+How to compare DNA
 
-    X-mer based, fast, accurate, short read only, easy to use
+  * Comparing to an existing database
 
-  * [bowtie2](http://bowtie-bio.sourceforge.net/bowtie2/manual.shtml)
+    * Run BLAST online [here](https://blast.ncbi.nlm.nih.gov/Blast.cgi)
 
-    Slow, short read only, designed for human genomes, requires downstream tools to summarize genetic variants
+  * Comparing to your own database
 
-  * [minimap2](https://github.com/lh3/minimap2)
+    * Run [BLAST on your own computer](https://www.ncbi.nlm.nih.gov/guide/howto/run-blast-local/)
 
-    Faster than bowtie2, long read too, designed for human genomes, requires downstream tools to summarize genetic variants
+      May be slower than some other tools but should be highly accurate
+
+    * [Mapper](https://github.com/mathjeff/mapper)
+
+      X-mer based, fast, accurate, short read only, easy to use
+
+    * [bowtie2](http://bowtie-bio.sourceforge.net/bowtie2/manual.shtml)
+
+      Slow, short read only, designed for human genomes, requires downstream tools to summarize genetic variants
+
+    * [minimap2](https://github.com/lh3/minimap2)
+
+      Faster than bowtie2, long read too, designed for human genomes, requires downstream tools to summarize genetic variants
+
+    * [Usearch](https://www.drive5.com/usearch/download.html)
+
+      Fast, nucleotide database only
 
  - What is sequence alignment?
-
- - How to identify genetic variants?
-
  - What is an x-mer?
+
+How to do sequence alignment?
+
+ - How to compare DNA
+ - How to compare proteins
+ - How to identify genetic variants?
 
 How to identify genetic variants?
 
