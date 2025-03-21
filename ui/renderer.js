@@ -254,7 +254,7 @@ function shouldShowNodeInDependencyGraph(node) {
   return node["description"] != null && node["description"] != ""
 }
 
-function expandDependencies() {
+function expandDependencies(moreComplicatedFirst, shouldIndent) {
   var currentNode = getCurrentNode()
   var nodeName = currentNode["name"]
   var candidates = getUnfamiliarDependencies(nodeName)
@@ -279,19 +279,31 @@ function expandDependencies() {
       indentations[dependencyName] = Math.max(existingIndentation, nextIndentation)
     }
   }
-
+  if (moreComplicatedFirst) {
+    candidates.reverse()
+  }
   for (var i = 0; i < candidates.length; i++) {
     var candidateName = candidates[i]
     var candidate = getNodeByName(candidateName)
     if (shouldShowNodeInDependencyGraph(candidate)) {
       var nodeText = formatNodeText(candidate)
       var indentation = indentations[candidateName]
-      var margin = indentation * 20
+      var margin = 0
+      if (shouldIndent)
+        margin = indentation * 40
       var newDiv = "<div style='margin-left:" + margin + "px'>" + nodeText + "</div>"
       html += newDiv
     }
   }
   document.getElementById("text").innerHTML = html
+}
+
+function expandDependenciesList() {
+  expandDependencies(false, false)
+}
+
+function expandDependenciesOutline() {
+  expandDependencies(true, true)
 }
 
 function getDirectDependentNames(nodeName) {
@@ -525,8 +537,12 @@ function makeExplainSelfButton() {
   return "<button class='knowledge-button' onclick='explainSelf()'>Help</button>"
 }
 
-function makeExpandDependenciesButton(numDependencies) {
-  return "<button class='knowledge-button button-expand' onclick='expandDependencies()'>Expand " + numDependencies + " unfamiliar dependencies</button>"
+function makeListDependenciesButton(numDependencies) {
+  return "<button class='knowledge-button button-expand' onclick='expandDependenciesList()'>List " + numDependencies + " unfamiliar dependencies</button>"
+}
+
+function makeOutlineDependenciesButton(numDependencies) {
+  return "<button class='knowledge-button button-expand' onclick='expandDependenciesOutline()'>Outline " + numDependencies + " unfamiliar dependencies</button>"
 }
 
 function makeRequestClearFamiliarityButton() {
@@ -880,9 +896,10 @@ function goToNode(nodeIndex, actionType) {
   if (soConfusedHelpNames.length > 0) {
     var confusedNodes = makeNodeList(soConfusedHelpNames, "confused")
     var unfamiliarDependencies = getUnfamiliarDependencies(nodeName)
-    var expandAllNode = makeExpandDependenciesButton(unfamiliarDependencies.length)
+    var listDependenciesNode = makeListDependenciesButton(unfamiliarDependencies.length)
+    var outlineDependenciesNode = makeOutlineDependenciesButton(unfamiliarDependencies.length)
 
-    linksInformation.push({"name":"I'm so confused.", "content": confusedNodes + expandAllNode})
+    linksInformation.push({"name":"I'm so confused.", "content": confusedNodes + listDependenciesNode + "<br/>" + outlineDependenciesNode})
   }
 
   if (dependencies.length > 0) {
