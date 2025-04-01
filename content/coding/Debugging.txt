@@ -3,6 +3,7 @@
 Why is a computer process taking so long?
 
  - What is a computer process doing?
+ - How busy is my computer?
 
 What is a computer process doing?
 
@@ -75,6 +76,7 @@ What to do about a slow command?
       * You can set up a notification to tell you when it is done so you can know when it's done even without checking it so often
 
  - Why is a computer process taking so long?
+ - How can I parallelize my program?
 
 Memory vs storage
 
