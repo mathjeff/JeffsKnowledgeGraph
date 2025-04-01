@@ -362,10 +362,89 @@ What is multithreading?
 
  - What is a computer program?
 
- - What is Python?
-
 What is multiprocessing?
 
   Multiprocessing is the idea of having one computer process spawn other processes
 
  - What is a computer process?
+
+What is parallelization?
+
+  Parallelization is instructing a computer to do multiple tasks at the same time.
+
+ - What is multithreading?
+ - What is multiprocessing?
+
+How do I open the Windows Task Manager?
+
+  To [open the task manager](https://www.wikihow.com/Open-Windows-Task-Manager), press Ctrl-Shift-Esc
+
+How long has my Linux computer been running?
+
+  To see how long your Linux computer has been running since it was last started, run `uptime` like [here](https://www.geeksforgeeks.org/linux-uptime-command-with-examples/)
+
+How busy are my CPUs using Linux?
+
+  * To see how busy the CPUs in your computer have been, on average, since your computer started, run `mpstat` like [here](https://www.geeksforgeeks.org/check-cpu-utilization-linux-command/#check-cpu-utilization-mpstat-command)
+  * To see how busy the CPUs in your computer are now, run `top` like [here](https://www.geeksforgeeks.org/check-cpu-utilization-linux-command/#top-command-to-view-linux-cpu-load)
+
+ - How long has my Linux computer been running?
+
+How busy are my CPUs using Windows?
+
+  You can see this information in the Task Manager
+
+ - How do I open the Windows Task Manager?
+
+How busy is my memory using Linux?
+
+  * To see a lot of information at once including memory usage, run `htop` like [here](https://www.geeksforgeeks.org/htop-command-in-linux-with-examples/) and look for the line that says "Mem"
+      * The green bar indicates memory that is needed by running tasks
+      * The yellow bar indicates memory that is used by the cache
+  * To see a short, text-based description of the available memory, run `free -h` like [here](https://www.howtogeek.com/659529/how-to-check-memory-usage-from-the-linux-terminal/)
+
+ - How long has my Linux computer been running?
+
+How busy is my memory using Windows?
+
+  * To view memory usage, open the task manager and click Performance
+
+ - How do I open the Windows Task Manager?
+
+How busy is my drive using Linux?
+
+  * In Linux, to see the recent disk reads and writes (since the system started), run `iostat` like [here](https://www.geeksforgeeks.org/iostat-command-in-linux-with-examples/)
+
+ - How long has my Linux computer been running?
+
+How busy is my Linux computer?
+
+ - How busy are my CPUs using Linux?
+ - How busy is my memory using Linux?
+ - How busy is my drive using Linux?
+
+How busy is my Windows computer?
+
+ - How busy are my CPUs using Windows?
+ - How busy is my memory using Windows?
+
+How busy is my computer?
+
+ - How busy is my Linux computer?
+ - How busy is my Windows computer?
+
+Can I parallelize my program?
+
+  Parallelization can be faster if your computer has extra capacity that it's not using.
+  For example, if your computer has 2 CPUs and is only running one program, it can be faster to instead run two programs that each do half of the work.
+
+ - What is parallelization?
+ - How busy is my computer?
+
+How can I parallelize my program?
+
+  Parallelizing a program can involve either creating multiple processes or multiple threads
+
+ - Can I parallelize my program?
+ - What is multiprocessing?
+ - What is multithreading?
