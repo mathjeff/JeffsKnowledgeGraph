@@ -355,3 +355,17 @@ What is a umask?
 
  - What is a bitmask?
  - How to change the permissions of a file
+
+What is multithreading?
+
+  Multithreading is the idea of having one computer program with multiple threads, each of which can do something different
+
+ - What is a computer program?
+
+ - What is Python?
+
+What is multiprocessing?
+
+  Multiprocessing is the idea of having one computer process spawn other processes
+
+ - What is a computer process?
