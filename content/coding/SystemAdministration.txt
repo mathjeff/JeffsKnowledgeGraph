@@ -29,6 +29,18 @@ What is a symlink?
 
   When a program reads from or writes to a symlink, it usually will instead read from or write to the file that the symlink points to.
 
+How can I make a symlink?
+
+  Run `ln -s <existingPath> <newName>` to make a symlink named `<newName>` pointing at `<existingPath>`
+
+  The value of `<existingPath>` should either be an absolute filepath, or should be the relative path from the symlink's parent directory to the destination file.
+
+  So, it's easiest if you don't use `/` in `<newName>`, because then you can use terminal tab completion to help you type `<existingPath>`
+
+ - How can I read command help?
+ - File paths
+ - Terminal tab complete
+
 Filesystem directory hierarchy
 
   Files in a computer are organized into directories (also known as folders).
@@ -448,3 +460,60 @@ How can I parallelize my program?
  - Can I parallelize my program?
  - What is multiprocessing?
  - What is multithreading?
+
+Which partition is my file in?
+
+  To list the partitions in the system, you can run `df -h`.
+  Each partition is mounted to a specific directory.
+  The most specific directory containing your filepath is the partition that the file belongs to.
+
+  For example, if `df -h` says this:
+
+  ```
+  Filesystem 1K-blocks Used Available Use% Mounted on
+  /dev/sda1  1000      100  900       10%  /
+  /dev/sdb2  1000      200  800       10%  /media/other
+  ```
+  then:
+  * files under the `/media/other` directory are stored in the `/dev/sdb2` partition
+  * files that are not under the `/media/other` directory are stored in the `/dev/sda1` partition
+
+ - What is a partition?
+
+What is a partition?
+
+  A partition is a special, named section of one or more drives
+
+  A drive must have at least one partition to allow writing to it
+
+Why do computers have partitions?
+
+  * One drive can be split into multiple partitions that each has its own size limit.
+
+      * This can ensure that a process writing to one partition can't cause another process writing to another partition to run out of space.
+
+ - What is a partition?
+ - Preparing for mistakes
+
+How can I compress a file or directory?
+ - How can I compress a directory?
+ - How can I compress a file?
+
+How can I compress a directory?
+  An easy way to compress a directory is via `zip -r <zipFileName> [<directoryName>...]`
+
+  Later:
+  * To regenerate this directory, you can run `unzip <zipFileName> -d <destinationDirectory>`
+  * To simply view a list of files stored in the .zip, you can run `unzip -l <zipFileName>`
+
+ - How can I read command help?
+
+How can I compress a file?
+
+  An easy way to compress a file is via `gzip <file>`.
+
+  Later:
+  * To uncompress the file, regenerate the original file, and remove the uncompressed file, you can run `gunzip <file>.gz`
+  * To simply view the original contents of the uncompressed file, you can run `zcat <file>.gz`
+
+ - How can I read command help?

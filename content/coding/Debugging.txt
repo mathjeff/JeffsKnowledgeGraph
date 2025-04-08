@@ -147,3 +147,50 @@ Examining source code history via git
   Git has many features. One useful feature is to view the history of a specific file via `git log -p <filename>`
 
  - Which arguments can I give to a shell command?
+
+What to do about 'No space left on device'
+
+  A Linux command may say 'No space left on device' if the corresponding partition is full
+
+  It should also specify which filepath it tried to write to
+
+ - Which partition is my file in?
+ - Freeing drive space on a computer
+
+Freeing drive space on a computer
+
+  If you want to free some space on your computer, first identify which partition you want to free some space in.
+
+  Then, identify which directories in the partition are using a substantial amount of space.
+
+  Finally, for large files or directories, do one of:
+  * If nobody will ever need it, you can delete it
+  * If you have another copy on your computer, consider removing one and just using the other one
+      * You can update the program that uses one file to instead use the other file
+      * You can replace one file with a symlink pointing at the other file
+  * If you don't need it often and can get it from somewhere else (like the internet), consider deleting it
+  * If you don't need it often, consider compressing it
+  * If you have another partition with more space, consider moving it to that other partition
+
+ - Which partition is my file in?
+ - What is using space on my drive?
+ - How can I make a symlink?
+ - How can I compress a file or directory?
+
+What is using space on my drive?
+
+  To see how much space is being used by files in a directory, run `du`
+
+  To see the total for that directory, add `-c`
+
+  To see convenient human-readable suffixes (kilobytes, megabytes, and gigabytes), add `-h`
+
+  To limit the summary to just immediate subdirectories, add `--max-depth 1`
+
+  Combining the above:
+  * `du -ch --max-depth 1` will give a summary of what is using space in the working directory
+
+  To get more information about a specific subdirectory, you can run `cd <subdirectory>` and run the same `du` command again
+
+ - Working directory
+ - How can I read command help?
