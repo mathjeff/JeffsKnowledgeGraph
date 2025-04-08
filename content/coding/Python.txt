@@ -52,14 +52,6 @@ Python lacks multithreading
 
  - What is Python?
 
-What is multithreading?
-
-  Multithreading is the idea of having one computer program with multiple threads, each of which can do something different
-
- - What is a computer program?
-
- - What is Python?
-
 Why is multithreading difficult?
 
   A computer program that uses multithreading has multiple threads that can each do different work at the same time while reading and write the same memory.
@@ -71,12 +63,6 @@ Why is multithreading difficult?
   This can cause results to be different from one run to the next, which is often unintended.
 
  - What is a computer program?
-
-What is multiprocessing?
-
-  Multiprocessing is the idea of having one computer process spawn other processes
-
- - What is a computer process?
 
 Learning Python
 
