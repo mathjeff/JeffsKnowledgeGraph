@@ -458,6 +458,7 @@ How can I parallelize my program?
   Parallelizing a program can involve either creating multiple processes or multiple threads
 
  - Can I parallelize my program?
+ - How can I run multiple commands in parallel in the shell?
  - What is multiprocessing?
  - What is multithreading?
 

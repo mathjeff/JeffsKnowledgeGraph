@@ -111,6 +111,7 @@ How do I join shell commands inline?
     `echo abcdefg | grep --color b`
 
  - What is the format of a shell command?
+ - What is a shell pipe?
 
 Which arguments can I give to a shell command?
 
@@ -506,3 +507,109 @@ What commands can I run in Bash?
  - Shell paths
  - What is this shell command?
  - How can I use sed?
+
+How can I run multiple commands in parallel in the shell?
+
+ - Manually running multiple commands in a shell
+ - Automatically running multiple commands in a shell
+
+Manually running multiple commands in a shell
+
+  If you have a few commands that you want to run at the same time in a shell, you can:
+
+  * Open multiple terminals and run each command in a different one
+  * Run a command in the background of your shell via `&` and then run another command in the same shell before it is done.
+      * For example:
+      ```
+      $ sleep 4 && echo slept 4 &
+      [1] 43325
+      $ echo hi
+      hi
+      $ slept 4
+      [1]+  Done                    sleep 4 && echo slept 4
+      ```
+
+ - What is a shell?
+
+Automatically running multiple commands in a shell
+
+  If you have many commands that you want to run at the same time, you can do that via the `parallel` command described [here](https://www.gnu.org/software/parallel/parallel_tutorial.html).
+
+  It reads standard input to get a list of jobs to run
+
+  It looks at its arguments for information about how to run these jobs
+
+  * To specify how many jobs to run at once, use the `-j` argument.
+
+      * To specify to run 4 jobs at once, do `parallel -j4`
+
+  * To specify what `parallel` should do if one job fails, use the `--halt` argument
+
+      * To specify that when one job fails, no new jobs should be started, add `--halt soon,fail=1`
+
+  * If you want to run the same command repeatedly and just add different arguments, you can add that command as an argument to `parallel`
+
+      * For example: `echo -ne "file1\nfile2" | parallel wc` will run `wc file1` and `wc file2` in parallel
+
+      * You can also add additional arguments to each invocation of the command by adding them as additional arguments to `parallel`
+
+          * For example, `echo -ne "file1\nfile2" | parallel wc -l` will run `wc -l file1` and `wc -l file2` in parallel
+
+  For example, if you want to `ls -la <file>` for each of several files, run two jobs at a time, and stop launching new jobs after one fails, you can do this:
+
+    ```
+    $ echo -e "a\nb\nc\nd\nmissing\nnonexistent\ne\nf\ng\nh\ni\nj" | parallel -j2 --halt soon,fail=1 ls -la
+    -rw-rw-r-- 1 jeff users 0 Apr 29 02:22 a
+    -rw-rw-r-- 1 jeff users 0 Apr 29 02:22 b
+    -rw-rw-r-- 1 jeff users 0 Apr 29 02:22 c
+    -rw-rw-r-- 1 jeff users 0 Apr 29 02:22 d
+    ls: cannot access 'missing': No such file or directory
+    parallel: This job failed:
+    ls -la missing
+    parallel: Starting no more jobs. Waiting for 1 jobs to finish.
+    ls: cannot access 'nonexistent': No such file or directory
+    parallel: This job failed:
+    ls -la nonexistent
+    ```
+
+ - What is a shell pipe?
+ - What is echo?
+
+What is standard input?
+
+  Standard input (often called `stdin`) is somewhere where a process can read text from.
+
+  When a process is running in a shell, the process's standard input is usually reading the letters that you type
+
+  For example:
+
+  * Run `head -n 3` and press `<enter>`.
+
+      * This will start a program called `head`, ask it to read the first 3 lines of input, and output them to the screen.
+
+      * The next 3 lines of text that you type will be echoed back to you like they usually are, and they will also be echoed again by the `head` command, so they will be displayed twice each.
+
+      * For example:
+        ```
+        $ head -n 3
+        This is the first line that I typed
+        This is the first line that I typed
+        This is the second line that I typed
+        This is the second line that I typed
+        This is the third line that I typed
+        This is the third line that I typed
+        ```
+
+ - What is a computer process?
+ - What is a shell?
+
+What is a shell pipe?
+
+  A shell pipe runs multiple commands at once and uses the output of one command as the input of the other.
+
+  For example:
+
+    `echo abcdefg | grep --color b`
+
+ - What is standard input?
+ - What is echo?
