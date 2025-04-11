@@ -310,6 +310,7 @@ Pausing a command in the terminal
 
   To run a paused command in the background, run `bg`
 
+ - Shell background jobs
  - What is a computer process?
 
 SessionManager
@@ -513,23 +514,30 @@ How can I run multiple commands in parallel in the shell?
  - Manually running multiple commands in a shell
  - Automatically running multiple commands in a shell
 
+Shell background jobs
+
+  You can run a command in the background of your shell by adding `&` at the end. This lets you run another command in the same shell before it is done.
+  * For example:
+  ```
+  $ sleep 4 && echo slept 4 &
+  [1] 43325
+  $ echo hi
+  hi
+  $ slept 4
+  [1]+  Done                    sleep 4 && echo slept 4
+  ```
+
+ - What is a shell?
+
 Manually running multiple commands in a shell
 
   If you have a few commands that you want to run at the same time in a shell, you can:
 
   * Open multiple terminals and run each command in a different one
-  * Run a command in the background of your shell via `&` and then run another command in the same shell before it is done.
-      * For example:
-      ```
-      $ sleep 4 && echo slept 4 &
-      [1] 43325
-      $ echo hi
-      hi
-      $ slept 4
-      [1]+  Done                    sleep 4 && echo slept 4
-      ```
+  * Run a command in the background of your shell
 
  - What is a shell?
+ - Shell background jobs
 
 Automatically running multiple commands in a shell
 
@@ -613,3 +621,43 @@ What is a shell pipe?
 
  - What is standard input?
  - What is echo?
+
+Tips for slow shell commands
+
+ - What to do about a slow command?
+ - Keeping a shell command running after closing the terminal
+
+Keeping a shell command running after closing the terminal
+
+  When you `ssh` into another computer to run a command, by default your command will stop running when you exit your `ssh` sssion (like when your turn off your own computer).
+
+  Similarly, if you run a command on your own computer and then you close your terminal, by default your command will be terminated.
+
+  To keep your command running after closing the terminal, you can use `nohup` (easier) or `tmux` (create sessions and give them custom names)
+
+ - Shell nohup
+ - Shell tmux
+
+Shell nohup
+
+  When you `ssh` into another computer to run a command, by default your command will stop running when you exit your `ssh` sssion (like when your turn off your own computer).
+
+  Similarly, if you run a command on your own computer and then you close your terminal, by default your command will be terminated.
+
+  If you don't want your command to stop when you close your terminal, you can use `nohup`.
+
+  To use `nohup`, you can run `nohup <command>`. Output from the command will usually be put into a file called `nohup.out`
+
+  If you still want to be able to run more commands in your terminal, you can run this command in the background
+
+ - Shell background jobs
+
+Shell tmux
+
+  [tmux](https://man.openbsd.org/OpenBSD-current/man1/tmux.1) is a terminal program that allows you to create other virtual terminals:
+
+  * Each one can have its own name
+  * Each one can keep running its commands even when you close the original termianl
+  * Each one can be reattached to later by another terminal
+
+  You can find some information about how to use it [here](https://www.howtogeek.com/671422/how-to-use-tmux-on-linux-and-why-its-better-than-screen/)
