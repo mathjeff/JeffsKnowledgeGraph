@@ -82,7 +82,10 @@ Python editors
 
   A popular one is [IDLE](https://docs.python.org/3/library/idle.html)
 
+  Another one is Jupyter Notebook
+
  - What is Python?
+ - What is Jupyter Notebook?
 
 Python variables
 
