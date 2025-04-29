@@ -89,8 +89,10 @@ def addKnowledgeFile(filePath, graph):
   categoryName = filePath.replace(".txt", "").replace("\\", "/").replace("content/", "")
   topic = categoryName
   dependencies = []
+  lineNumber = 0
   with open(filePath) as file:
     for line in file:
+      lineNumber += 1
       line = line.rstrip("\r\n")
       if line.startswith("#"):
         # Comment - ignore
@@ -112,6 +114,8 @@ def addKnowledgeFile(filePath, graph):
           description = None
           dependencies = []
         # update title
+        if newTitle.strip() != newTitle: # prevent whitespace at the ends
+          raise Exception("In " + str(filePath) + ", line " + str(lineNumber) + " looks like a title but starts or ends with whitespace: '" + str(newTitle) + "'")
         title = newTitle
         continue
       content = line[len(childPrefix):]
