@@ -1,0 +1,55 @@
+# Information about Vim
+
+How can I use Vim?
+
+ - What is Vim?
+ - How can I start Vim?
+ - How can I quit Vim?
+ - How can I move my cursor in Vim?
+
+How can I start Vim?
+
+  To start Vim, run `vi` in a terminal
+
+ - What is a terminal?
+
+How can I quit Vim?
+
+  To exit Vim, go to normal mode and type ":q" and press `<Enter>`
+
+ - What are Vim modes?
+
+What are Vim modes?
+
+  When using Vim, you can either type commands or you can enter plain text directly.
+
+  * When Vim is in Insert mode, Vim will interpret your input to be plain text
+  * When Vim is in Normal mode, Vim will interpret your input to be commands
+
+  In the last line of the screen, Vim will tell you what mode it is in.
+
+  * If the last line says "-- INSERT --", Vim is in Insert mode
+      * To leave Insert mode, press Escape
+  * If the last line says nothing, Vim is in normal mode
+      * To enter Insert mode, press the letter "i"
+  * If the last line says something else, it usually means you are in the middle of typing a command
+      To cancel a command that you have typed, press Escape or `<ctrl-C>`
+
+ - What is Vim?
+
+What is Vim?
+
+  [vim](https://www.vim.org/) is a text editor. You control it solely using letters rather than using a mouse.
+
+How can I move my cursor in Vim?
+
+  To move your cursor by one character, you can press the corresponding arrow key
+
+  Additionally, in Normal mode, you can use the following commands:
+  * To move your cursor to the top of the file, type "gg"
+  * To move your cursor to the bottom of the file, type "G"
+  * To search forward for some text, type "/", type the text to search for, and press `<Enter>`
+  * To search reverse for some text, type "?", type the text to search for, and press `<Enter>`
+  * To jump to a specific line number, type ":" and type the line number and press `<Enter>`
+
+ - What are Vim modes?

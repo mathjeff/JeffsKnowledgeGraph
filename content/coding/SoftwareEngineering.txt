@@ -463,3 +463,21 @@ How can I resolve a merge conflict?
  - How can I resolve merge conflicts with vimdiff?
  - How can I resolve merge conflicts without a mergetool?
  - How do I restore changes from the reflog?
+
+How can I make a file?
+
+  If you want to make a file, you can:
+  * Type it yourself using an editor
+  * Make your own program for making the file
+  * Find an existing program for making the file
+      * Which program you should use depends on what kind of file you want to make
+
+ - How can I modify lots of files at once?
+ - Editor programs
+
+Editor programs
+
+  An editor is a program where you can type text and the program will put that information into a file.
+
+ - Python editors
+ - What is Vim?
