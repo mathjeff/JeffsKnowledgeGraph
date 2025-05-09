@@ -250,8 +250,20 @@ function getUnfamiliarDependencies(nodeName) {
   return result
 }
 
-function shouldShowNodeInDependencyGraph(node) {
-  return node["description"] != null && node["description"] != ""
+function shouldShowNodeInDependencyGraph(node, isRootOfGraph, moreComplicatedFirst) {
+  if (node["description"] != null && node["description"] != "") {
+    // If the node has a description, the node should be shown
+    return true
+  }
+  if (isRootOfGraph && moreComplicatedFirst) {
+    // When the user is viewing a graph:
+    //   We show the root node even when its description is empty so the user can remember what they're looking at
+    //   We don't show other nodes having empty descriptions because their purposes should already be clear
+    // When the user is not viewing the graph:
+    //   We don't have any good ideas about where to put the title of the root node, so for now we don't include it anyhere
+    return true
+  }
+  return false
 }
 
 function expandDependencies(moreComplicatedFirst, shouldIndent) {
@@ -268,7 +280,8 @@ function expandDependencies(moreComplicatedFirst, shouldIndent) {
     var currentIndentation = indentations[candidateName]
     var dependencyNames = getDirectDependencyNames(candidateName)
     var nextIndentation = 0
-    if (shouldShowNodeInDependencyGraph(getNodeByName(candidateName)))
+    var candidateIsRoot = (candidateName == nodeName)
+    if (shouldShowNodeInDependencyGraph(getNodeByName(candidateName), candidateIsRoot, moreComplicatedFirst))
       nextIndentation = currentIndentation + 1
     else
       nextIndentation = currentIndentation
@@ -285,7 +298,8 @@ function expandDependencies(moreComplicatedFirst, shouldIndent) {
   for (var i = 0; i < candidates.length; i++) {
     var candidateName = candidates[i]
     var candidate = getNodeByName(candidateName)
-    if (shouldShowNodeInDependencyGraph(candidate)) {
+    var candidateIsRoot = (candidateName == nodeName)
+    if (shouldShowNodeInDependencyGraph(candidate, candidateIsRoot, moreComplicatedFirst)) {
       var nodeText = formatNodeText(candidate)
       var indentation = indentations[candidateName]
       var margin = 0
