@@ -202,11 +202,14 @@ How can I ssh into another computer?
 
   To ssh into another computer, type `ssh <username>@<computer>`
 
-  This requires that `sshd` is running on the computer you want to connect to
+  * This requires providing ssh credentials to verify your identity
+    * If you want to use an ssh key and it is not at the default path for ssh keys, you may have to tell `ssh` where it is by adding something like `-i <keypath>` to this command
+  * This requires that `sshd` is running on the computer you want to connect to
 
   When you're done, you can type `exit` to exit
 
  - What is ssh?
+ - How do I run commands in a terminal?
  - Checking whether my computer can reach a certain host
  - Getting ssh credentials
  - Inspecting a computer process
@@ -256,6 +259,7 @@ Getting ssh keys
   To generate an ssh key, you can run `ssh-keygen`.
 
  - What is an ssh key?
+ - How do I run commands in a terminal?
 
 What is an ssh key?
 
