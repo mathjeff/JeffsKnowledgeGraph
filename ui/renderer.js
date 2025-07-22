@@ -234,9 +234,9 @@ function getSoConfusedHelpNames(nodeName) {
   return [bestResult]
 }
 
-function getUnfamiliarDependencies(nodeName) {
+function getUnfamiliarDependencies(nodeName, order = "list") {
   // find everything that the user will need to know to learn this topic
-  var allDependencies = getAllDependenciesOf(nodeName)
+  var allDependencies = getAllDependenciesOf(nodeName, order)
   // count number of unfamiliar dependencies for each one
   var result = []
   for (var candidate of allDependencies) {
@@ -269,13 +269,18 @@ function shouldShowNodeInDependencyGraph(node, isRootOfGraph, moreComplicatedFir
 function expandDependencies(moreComplicatedFirst, shouldIndent) {
   var currentNode = getCurrentNode()
   var nodeName = currentNode["name"]
-  var candidates = getUnfamiliarDependencies(nodeName)
+  var order = ""
+  if (moreComplicatedFirst)
+    order = "tree"
+  else
+    order = "list"
+  var candidates = getUnfamiliarDependencies(nodeName, order)
   var html = ""
   console.log("expanding dependencies of " + nodeName)
   var indentations = {}
-  var lastCandidateName = candidates[candidates.length - 1]
-  indentations[lastCandidateName] = 0
-  for (var i = candidates.length - 1; i >= 0; i--) {
+  var firstCandidateName = candidates[0]
+  indentations[firstCandidateName] = 0
+  for (var i = 0; i < candidates.length; i++) {
     var candidateName = candidates[i]
     var currentIndentation = indentations[candidateName]
     var dependencyNames = getDirectDependencyNames(candidateName)
@@ -286,14 +291,10 @@ function expandDependencies(moreComplicatedFirst, shouldIndent) {
     else
       nextIndentation = currentIndentation
     for (dependencyName of dependencyNames) {
-      var existingIndentation = 0
-      if (dependencyName in indentations)
-        existingIndentation = indentations[dependencyName]
-      indentations[dependencyName] = Math.max(existingIndentation, nextIndentation)
+      if (!(dependencyName in indentations)) {
+        indentations[dependencyName] = nextIndentation
+      }
     }
-  }
-  if (moreComplicatedFirst) {
-    candidates.reverse()
   }
   for (var i = 0; i < candidates.length; i++) {
     var candidateName = candidates[i]
@@ -452,22 +453,34 @@ function getAllDependenciesSetOf(nodeName) {
   return allDependenciesSet
 }
 
-function getAllDependenciesOf(nodeName) {
+// Transitively gets all dependencies of the given node, in the given order
+// There are two types of orders defined:
+//   list: In this order, each node will be later in the list than any of its dependencies
+//         This is convenient for reading items in a list form
+//   tree: In this order, each node will be after its first dependent but before other dependents
+//         This is convenient for reading items in a tree form
+function getAllDependenciesOf(nodeName, order = "list") {
+  console.log("getting all dependencies of '" + nodeName + "' in " + order + " order")
   var allDependenciesSet = new Set()
   var allDependenciesList = []
-  addDependenciesRecursivelyTo(nodeName, allDependenciesList, allDependenciesSet)
+  addDependenciesRecursivelyTo(nodeName, allDependenciesList, allDependenciesSet, order)
   return allDependenciesList
 }
 
-function addDependenciesRecursivelyTo(newDependency, destinationList, destinationSet) {
+function addDependenciesRecursivelyTo(newDependency, destinationList, destinationSet, order = "list") {
   if (destinationSet.has(newDependency))
     return
   destinationSet.add(newDependency)
+  if (order != "list") {
+    destinationList.push(newDependency)
+  }
   var newDependencies = getDirectDependencyNames(newDependency)
   for (var dependency of newDependencies) {
-    addDependenciesRecursivelyTo(dependency, destinationList, destinationSet)
+    addDependenciesRecursivelyTo(dependency, destinationList, destinationSet, order)
   }
-  destinationList.push(newDependency)
+  if (order == "list") {
+    destinationList.push(newDependency)
+  }
 }
 
 // Declares that the user is curious about this node
