@@ -39,7 +39,7 @@ Cancelling a process on Linux
 
     When you know the id of the process, you can do `kill <processId>` to ask the process to terminate
 
-    If that doesn't work and you are sure that you want to terminate the process right away, you can do `kill 9 <processId>` to terminate the process
+    If that doesn't work and you are sure that you want to terminate the process right away, you can do `kill -9 <processId>` to terminate the process
 
  - What is a computer process?
 
