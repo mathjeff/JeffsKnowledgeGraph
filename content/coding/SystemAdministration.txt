@@ -522,3 +522,17 @@ How can I compress a file?
   * To simply view the original contents of the uncompressed file, you can run `zcat <file>.gz`
 
  - How can I read command help?
+
+How can I find a file?
+
+  You can find files by [using the find command](https://www.geeksforgeeks.org/linux-unix/find-command-in-linux-with-examples/).
+
+  For example, to find everything that is in the `/tmp` directory whose name ends with ".txt", you can run this:
+
+    `find /tmp -name "\*.txt"`
+
+  To find everything that is up to 2 levels deep in the `/opt` directory and whose name contains "sample", you can run this:
+
+    `cd /opt && find -maxdepth 2 -name "*sample*"`
+
+ - How do I run commands in a terminal?
