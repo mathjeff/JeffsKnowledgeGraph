@@ -172,6 +172,7 @@ How can I run a Jupyter Notebook on a workstation from my laptop?
 
  - What is Jupyter Notebook?
  - Why using Jupyter Notebook?
+ - How can I install Jupyter Notebook?
  - What is ssh?
  - How can I ssh into another computer?
  - What is a port in networking?
@@ -192,8 +193,6 @@ What is Jupyter Notebook?
 
   It supports various programming languages, such as Python, R, and Julia.
 
-  You can install Jupyter Notebook by `pip install jupyter` or `conda install -c conda-forge notebook`
-
   You can run Jupyter Notebook by `jupyter notebook`
 
  - What is Python?
@@ -213,6 +212,12 @@ How can I ssh into another computer?
  - Checking whether my computer can reach a certain host
  - Getting ssh credentials
  - Inspecting a computer process
+
+How can I install Jupyter Notebook?
+
+  You can install Jupyter Notebook by `pip install jupyter` or `conda install -c conda-forge notebook`
+
+ - What is Jupyter Notebook?
 
 Getting ssh credentials
 
