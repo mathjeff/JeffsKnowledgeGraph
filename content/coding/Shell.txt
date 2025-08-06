@@ -541,7 +541,13 @@ Manually running multiple commands in a shell
 
 Automatically running multiple commands in a shell
 
-  If you have many commands that you want to run at the same time, you can do that via the `parallel` command described [here](https://www.gnu.org/software/parallel/parallel_tutorial.html).
+  If you have many commands that you want to run at the same time, you can do that via the `parallel` command
+
+ - The parallel command
+
+The parallel command
+
+  The `parallel` command is also described [here](https://www.gnu.org/software/parallel/parallel_tutorial.html).
 
   It reads standard input to get a list of jobs to run
 
