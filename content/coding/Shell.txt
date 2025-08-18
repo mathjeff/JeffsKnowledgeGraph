@@ -639,9 +639,10 @@ Keeping a shell command running after closing the terminal
 
   Similarly, if you run a command on your own computer and then you close your terminal, by default your command will be terminated.
 
-  To keep your command running after closing the terminal, you can use `nohup` (easier) or `tmux` (create sessions and give them custom names)
+  To keep your command running after closing the terminal, you can simply use `nohup`, or you can use `screen` or `tmux` to create sessions and give them custom names
 
  - Shell nohup
+ - Shell screen command
  - Shell tmux
 
 Shell nohup
@@ -657,6 +658,17 @@ Shell nohup
   If you still want to be able to run more commands in your terminal, you can run this command in the background
 
  - Shell background jobs
+
+
+Shell screen command
+
+  `screen` is a shell program that allows you to create shell sessions
+
+  * Each one can have its own name
+  * Each one can keep running its commands even when you exit your shell
+  * Each one can be reattached to later by another shell
+
+  You can find some information about how to use it [here](https://www.golinuxcloud.com/command-screen-linux/)
 
 Shell tmux
 
