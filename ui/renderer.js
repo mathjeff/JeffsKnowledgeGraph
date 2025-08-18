@@ -596,18 +596,29 @@ function makePermalinkAnchor(nodeName) {
   return '<a href="' + getPermalink(nodeName) + '">Permalink</a>'
 }
 
-function getMatchScore(queryText, node) {
-  var score = 0
-  queryText = queryText.toUpperCase()
-  if (node["name"].toUpperCase().includes(queryText)) {
-    score += 2
-  } else {
-    description = node["description"]
-    if (description != null) {
-      if (description.toUpperCase().includes(queryText))
-        score += 1
+function stringScore(queryWords, nodeText) {
+  var numMatchingWords = 0
+  var numWords = 0
+  if (nodeText == null || nodeText == "")
+    return 0;
+  for (var queryWord of queryWords) {
+    if (nodeText.includes(queryWord)) {
+      numMatchingWords += 1
     }
   }
+  return numMatchingWords / Math.max(1, queryWords.length)
+}
+
+function getMatchScore(queryText, node) {
+  var score = 0
+  var queryWords = queryText.toUpperCase().split(" ")
+  var nodeName = node["name"].toUpperCase()
+  var nodeDescription = node["description"]
+
+  // prioritize matching words in the title
+  score += 2 * stringScore(queryWords, nodeName)
+  // give some value to matching words in the description
+  score += stringScore(queryWords, nodeDescription)
   if (score > 0) {
     // prefer shorter names
     score += 0.5 / node["name"].length
