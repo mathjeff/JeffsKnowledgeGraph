@@ -56,6 +56,19 @@ Neural networks
 
  - What is AI?
 
+What is a deep neural network?
+
+  A deep neural network is a neural network with at least 3 layers
+
+ - Neural networks
+
+What is deep learning?
+
+  Deep learning refers to training a deep neural network
+
+ - What is a deep neural network?
+ - Training neural networks
+
 Training neural networks
 
   A neural network is a complicated function that makes predictions for an input based on its internal parameters.
