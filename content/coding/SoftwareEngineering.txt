@@ -340,6 +340,7 @@ How do I modify a repository in GitHub?
  - How do I modify my own repository in GitHub?
  - How do I fork a repository in GitHub?
  - How do I make a pull request in GitHub?
+ - How do I submit a pull request in GitHub?
 
 How do I fork a repository in GitHub?
 
@@ -369,6 +370,18 @@ How do I make a pull request in GitHub?
   GitHub should have a button for making a pull request if you have forked the repository
 
  - How do I fork a repository in GitHub?
+
+How do I submit a pull request in GitHub?
+
+  The pull request should have a button for submitting it
+
+  You may have to wait for all of the checks to be satisfied first
+
+  * This may include automated checks ensuring that the code works correctly
+  * This usually includes getting a person to review your change and approve it
+
+ - How do I make a pull request in GitHub?
+ - What is code review?
 
 What is a merge conflict?
 
@@ -481,3 +494,22 @@ Editor programs
 
  - Python editors
  - What is Vim?
+
+What is code review?
+
+  Code review is the process of having a person look at code you've written to check for problems.
+
+  Code review is done before the code is submitted, usually.
+
+  If a code reviewer finds a problem, they usually write a comment on the change, which can often be located on a certain line of a certain file.
+
+Why do code review?
+
+  * Code review can reduce issues in the near future
+    * Code review can prevent bugs from being submitted into the system
+    * Code review can prevent performance issues from being submitted into the system
+  * Code review can improve quality later
+    * Reviewers can share things that they have learned that are relevant to the code
+    * Reviewers can learn things from code that they are reviewing
+
+ - What is code review?
