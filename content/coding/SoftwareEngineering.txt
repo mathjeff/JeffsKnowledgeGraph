@@ -513,3 +513,41 @@ Why do code review?
     * Reviewers can learn things from code that they are reviewing
 
  - What is code review?
+
+What is Conda?
+
+  [Conda](https://github.com/conda/conda) is a tool that makes it easy to create independent environments that each have their own tools and their own versions of dependencies.
+
+  Since these environments are independent, updating the version of a dependency in one environment doesn't need to also update the version of that dependency in another environment. This reduces the number of opportunities for version conflicts, in case two tools each require a different version of a third tool.
+
+How do I create a Conda environment?
+
+  You can [create a Conda environment](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-with-commands) via `conda create`
+
+  For example, to create a Conda environment named "sample" having Jupyter Notebook in it, you can do this:
+
+  ```
+  conda create -n sample jupyterlab
+  ```
+
+ - What is Conda?
+
+How do I add a local tool to Conda?
+
+  1. [Create a meta.yaml file](https://docs.conda.io/projects/conda-build/en/latest/resources/define-metadata.html) explaining how to run this tool
+  2. Run `conda build` (see [here](https://docs.conda.io/projects/conda-build/en/latest/resources/commands/conda-build.html) ) to ask Conda to create a package for it
+
+ - What is Conda?
+ - What is local in a computer?
+
+How do I use a Conda tool that I just built locally?
+
+  When you ask Conda to create a package, Conda puts the package in a directory containing a `repodata.json` file. This directory represents a Conda channel, so you can just specify its directory after the `-c` option.
+
+  For example, to create an environment named "sample-environment" using the tool named "mytool" using the channel represented by the working directory, do this:
+
+  `conda create -n sample-environment -c ./ mytool`
+
+ - How do I create a Conda environment?
+ - How do I add a local tool to Conda?
+ - Working directory

@@ -30,25 +30,22 @@ What is bioinformatics?
 
   The application of computational tools to interpret biological data
 
-How to install bioinformatics tools?
+How can I install bioinformatics tools?
 
-  * [anaconda or miniconda](https://docs.anaconda.com/miniconda/)
+  * Many tools can be installed via [anaconda or miniconda](https://docs.anaconda.com/miniconda/)
 
-    Many tools and their required environments can be easily installed this way!
+    To install blast via `conda`, run this:
 
-    Can you install blast by conda?
+    `conda install blast`
 
-    Answer: `conda install blast`
+  * Many python packages can be installed via [pip](https://anaconda.org/anaconda/pip)
 
-  * [pip](https://anaconda.org/anaconda/pip)
+    To install `pandas` via `pip`:
 
-    Many python packages can be easily installed by pip!
-
-    Can you install pandas by pip?
-
-    Answer: `pip install pandas`
+    `pip install pandas`
 
  - What is bioinformatics?
+ - How do I create a Conda environment?
 
 How to compare proteins
 
