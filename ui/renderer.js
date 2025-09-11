@@ -614,6 +614,8 @@ function getMatchScore(queryText, node) {
   var queryWords = queryText.toUpperCase().split(" ")
   var nodeName = node["name"].toUpperCase()
   var nodeDescription = node["description"]
+  if (nodeDescription != null)
+    nodeDescription = nodeDescription.toUpperCase()
 
   // prioritize matching words in the title
   score += 2 * stringScore(queryWords, nodeName)
