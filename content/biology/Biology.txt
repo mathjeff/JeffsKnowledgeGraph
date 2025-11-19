@@ -380,3 +380,21 @@ What is homology?
 What are isolates?
 
   In microbiology, isolates are strains of microorganisms that have been separated from a mixed population.
+
+What is genome sequencing?
+
+  Genome sequencing is the process of converting a physical sample into a file containing a set of reads, each of which is a list of A, C, G, and T
+
+  Sequencing often involves cutting genomes into pieces, so the resulting read may often be shorter than the full sequence from the original source organism
+
+How can I use genome sequencing?
+
+  There are several companies that provide sequencing services. This is our understanding of popular choices:
+  
+  * [Illumina](https://www.illumina.com/) generally offers the lowest cost for short reads with high accuracy.
+
+  * [PacBio](https://www.pacb.com/products-and-services/applications/whole-genome-sequencing/) offers longer reads of particularly high accuracy and consistent length.
+
+  * [Oxford Nanopore](https://nanoporetech.com/) can offer the longest reads.
+
+ - What is genome sequencing?

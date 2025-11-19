@@ -10,8 +10,6 @@ Mapper
 
  - Which arguments can I give to a shell command?
 
- - How to do sequence alignment?
-
  - What is an x-mer?
 
 What is sequence alignment?
@@ -75,7 +73,7 @@ How to compare DNA
 
     * [bowtie2](http://bowtie-bio.sourceforge.net/bowtie2/manual.shtml)
 
-      Slow, short read only, designed for human genomes, requires downstream tools to summarize genetic variants
+      Slower, short read only, designed for human genomes, requires downstream tools to summarize genetic variants
 
     * [minimap2](https://github.com/lh3/minimap2)
 
@@ -86,23 +84,36 @@ How to compare DNA
       Fast, nucleotide database only
 
  - What is sequence alignment?
- - What is an x-mer?
+ - How can I choose a reference genome for sequence alignment?
+ - Mapper
 
-How to do sequence alignment?
+How can I identify genetic variants?
 
- - How to compare DNA
- - How to compare proteins
- - How to identify genetic variants?
+  Identifying genetic variants involves:
 
-How to identify genetic variants?
-
-  This process involves using sequence alignment tools to align the sequences to a reference genome and a summarization tool to identify and summarize the genetic variants shared by multiple sequences.
-
-  * [QuickVariants](https://github.com/caozhichongchong/QuickVariants)
-
-    Fast and accurate
+  1. Identify a genome to use as a reference
+  1. Identify a genetic sample to compare to this reference
+  1. Run a sequence aligner
+  1. Run a variant detector
+    * If the sequence aligner you used was [Mapper](https://github.com/mathjeff/mapper), it can do this step too
+    * See [QuickVariants](https://github.com/caozhichongchong/QuickVariants)
 
  - What is a genetic variant?
+ - How can I choose a reference genome for sequence alignment?
+ - How to compare DNA
+ - How can I use genome sequencing?
+
+How can I choose a reference genome for sequence alignment?
+
+  This depends on what you'd like to do with your reference genome
+  * If you are interested in a specific genome that someone else has already studied, you may be able to find it via [BLAST](https://blast.ncbi.nlm.nih.gov/Blast.cgi) and download it from there
+  * If you are interested in a specific physical organism, you might be able to put its genome into a sequencer to identify its genome
+
+ - What is a reference genome?
+
+What is a reference genome?
+
+  A reference genome is a named set of gene sequences
 
 What is an x-mer?
 
