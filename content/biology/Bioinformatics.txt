@@ -10,8 +10,6 @@ Mapper
 
  - Which arguments can I give to a shell command?
 
- - What is an x-mer?
-
 What is sequence alignment?
 
   Sequence alignment is the process of comparing two or more gene sequences and determining how they are similar, if at all.
@@ -113,9 +111,3 @@ How can I choose a reference genome for sequence alignment?
 What is a reference genome?
 
   A reference genome is a named set of gene sequences
-
-What is an x-mer?
-
-  A k-mer is a short segment of DNA with a fixed length of k base pairs.
-
-  X-mers refers to many k-mers of various lengths.
