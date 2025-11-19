@@ -94,9 +94,8 @@ How can I identify genetic variants?
   1. Identify a genome to use as a reference
   1. Identify a genetic sample to compare to this reference
   1. Run a sequence aligner
-  1. Run a variant detector
+  1. Run a variant detector such as [QuickVariants](https://github.com/caozhichongchong/QuickVariants)
     * If the sequence aligner you used was [Mapper](https://github.com/mathjeff/mapper), it can do this step too
-    * See [QuickVariants](https://github.com/caozhichongchong/QuickVariants)
 
  - What is a genetic variant?
  - How can I choose a reference genome for sequence alignment?
