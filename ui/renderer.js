@@ -955,17 +955,20 @@ function goToNode(nodeIndex, actionType) {
   render += "<div id=\"search-results\"></div>"
   linksInformation = []
   var allDependencies = getAllDependenciesOf(nodeName)
-  if (soConfusedHelpNames.length > 0 || allDependencies.length > 1) {
+  if (soConfusedHelpNames.length > 0 || allDependencies.length >= 3) {
     var confusedNodes = makeNodeList(soConfusedHelpNames, "confused")
     var unfamiliarDependencies = removeFamiliarDependencies(allDependencies)
     var expansionNodes = []
-    if (unfamiliarDependencies.length > 0) {
-      expansionNodes.push(makeListUnfamiliarDependenciesButton(unfamiliarDependencies.length))
-      expansionNodes.push(makeOutlineUnfamiliarDependenciesButton(unfamiliarDependencies.length))
+    var numDependencies = allDependencies.length - 1 // exclude self from the count
+    var numUnfamiliarDependencies = unfamiliarDependencies.length - 1 // exclude self from the count
+    if (numUnfamiliarDependencies >= 2) {
+      // exclude self from the count so subtract 1 from the count
+      expansionNodes.push(makeListUnfamiliarDependenciesButton(numUnfamiliarDependencies))
+      expansionNodes.push(makeOutlineUnfamiliarDependenciesButton(numUnfamiliarDependencies))
     }
-    if (allDependencies.length > unfamiliarDependencies.length) {
-      expansionNodes.push(makeListAllDependenciesButton(allDependencies.length))
-      expansionNodes.push(makeOutlineAllDependenciesButton(allDependencies.length))
+    if (numDependencies > numUnfamiliarDependencies && numDependencies >= 2) {
+      expansionNodes.push(makeListAllDependenciesButton(numDependencies))
+      expansionNodes.push(makeOutlineAllDependenciesButton(numDependencies))
     }
     var expansionText = ""
     for (var i = 0; i < expansionNodes.length; i++) {
