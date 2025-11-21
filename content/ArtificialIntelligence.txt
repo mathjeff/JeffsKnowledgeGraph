@@ -1068,8 +1068,3 @@ Knowledge distillation
 Machine learning scaling law
 
   Machine learning model performance usually shows a linear regression with computational time (log-scale), data size (log-scale), a total number of parameters (log-scale).
-
-The bitter lesson
-
-  1) The great power of general purpose methods (search or learn) - the less structured by human knowledge, the better
-  2) Their performance can be efficiently scale up with increased computation
