@@ -237,7 +237,10 @@ function getSoConfusedHelpNames(nodeName) {
 function getUnfamiliarDependencies(nodeName, order = "list") {
   // find everything that the user will need to know to learn this topic
   var allDependencies = getAllDependenciesOf(nodeName, order)
-  // count number of unfamiliar dependencies for each one
+  return removeFamiliarDependencies(allDependencies)
+}
+
+function removeFamiliarDependencies(allDependencies) {
   var result = []
   for (var candidate of allDependencies) {
     var count = countNumUnfamiliarDependencies(candidate)
@@ -266,7 +269,7 @@ function shouldShowNodeInDependencyGraph(node, isRootOfGraph, moreComplicatedFir
   return false
 }
 
-function expandDependencies(moreComplicatedFirst, shouldIndent) {
+function expandDependencies(includeFamiliar, moreComplicatedFirst, shouldIndent) {
   var currentNode = getCurrentNode()
   var nodeName = currentNode["name"]
   var order = ""
@@ -274,7 +277,9 @@ function expandDependencies(moreComplicatedFirst, shouldIndent) {
     order = "tree"
   else
     order = "list"
-  var candidates = getUnfamiliarDependencies(nodeName, order)
+  var candidates = getAllDependenciesOf(nodeName, order)
+  if (!includeFamiliar)
+    candidates = removeFamiliarDependencies(candidates)
   var html = ""
   console.log("expanding dependencies of " + nodeName)
   var indentations = {}
@@ -313,12 +318,20 @@ function expandDependencies(moreComplicatedFirst, shouldIndent) {
   document.getElementById("text").innerHTML = html
 }
 
-function expandDependenciesList() {
-  expandDependencies(false, false)
+function expandUnfamiliarDependenciesList() {
+  expandDependencies(false, false, false)
 }
 
-function expandDependenciesOutline() {
-  expandDependencies(true, true)
+function expandUnfamiliarDependenciesOutline() {
+  expandDependencies(false, true, true)
+}
+
+function expandAllDependenciesList() {
+  expandDependencies(true, false, false)
+}
+
+function expandAllDependenciesOutline() {
+  expandDependencies(true, true, true)
 }
 
 function getDirectDependentNames(nodeName) {
@@ -564,12 +577,20 @@ function makeExplainSelfButton() {
   return "<button class='knowledge-button' onclick='explainSelf()'>Help</button>"
 }
 
-function makeListDependenciesButton(numDependencies) {
-  return "<button class='knowledge-button button-expand' onclick='expandDependenciesList()'>List " + numDependencies + " unfamiliar dependencies</button>"
+function makeListUnfamiliarDependenciesButton(numDependencies) {
+  return "<button class='knowledge-button button-expand' onclick='expandUnfamiliarDependenciesList()'>List " + numDependencies + " unfamiliar dependencies</button>"
 }
 
-function makeOutlineDependenciesButton(numDependencies) {
-  return "<button class='knowledge-button button-expand' onclick='expandDependenciesOutline()'>Outline " + numDependencies + " unfamiliar dependencies</button>"
+function makeOutlineUnfamiliarDependenciesButton(numDependencies) {
+  return "<button class='knowledge-button button-expand' onclick='expandUnfamiliarDependenciesOutline()'>Outline " + numDependencies + " unfamiliar dependencies</button>"
+}
+
+function makeListAllDependenciesButton(numDependencies) {
+  return "<button class='knowledge-button button-expand' onclick='expandAllDependenciesList()'>List all " + numDependencies + " dependencies</button>"
+}
+
+function makeOutlineAllDependenciesButton(numDependencies) {
+  return "<button class='knowledge-button button-expand' onclick='expandAllDependenciesOutline()'>Outline all " + numDependencies + " dependencies</button>"
 }
 
 function makeRequestClearFamiliarityButton() {
@@ -933,13 +954,27 @@ function goToNode(nodeIndex, actionType) {
 
   render += "<div id=\"search-results\"></div>"
   linksInformation = []
-  if (soConfusedHelpNames.length > 0) {
+  var allDependencies = getAllDependenciesOf(nodeName)
+  if (soConfusedHelpNames.length > 0 || allDependencies.length > 1) {
     var confusedNodes = makeNodeList(soConfusedHelpNames, "confused")
-    var unfamiliarDependencies = getUnfamiliarDependencies(nodeName)
-    var listDependenciesNode = makeListDependenciesButton(unfamiliarDependencies.length)
-    var outlineDependenciesNode = makeOutlineDependenciesButton(unfamiliarDependencies.length)
+    var unfamiliarDependencies = removeFamiliarDependencies(allDependencies)
+    var expansionNodes = []
+    if (unfamiliarDependencies.length > 0) {
+      expansionNodes.push(makeListUnfamiliarDependenciesButton(unfamiliarDependencies.length))
+      expansionNodes.push(makeOutlineUnfamiliarDependenciesButton(unfamiliarDependencies.length))
+    }
+    if (allDependencies.length > unfamiliarDependencies.length) {
+      expansionNodes.push(makeListAllDependenciesButton(allDependencies.length))
+      expansionNodes.push(makeOutlineAllDependenciesButton(allDependencies.length))
+    }
+    var expansionText = ""
+    for (var i = 0; i < expansionNodes.length; i++) {
+      if (i > 0)
+        expansionText = expansionText + "<br/>"
+      expansionText = expansionText + expansionNodes[i]
+    }
 
-    linksInformation.push({"name":"I'm so confused.", "content": confusedNodes + listDependenciesNode + "<br/>" + outlineDependenciesNode})
+    linksInformation.push({"name":"I'm so confused.", "content": confusedNodes + expansionText})
   }
 
   if (dependencies.length > 0) {
