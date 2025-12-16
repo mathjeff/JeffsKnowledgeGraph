@@ -1,0 +1,74 @@
+#! Information about communication
+
+Why is communication important?
+
+ - Communication allows people to make trades
+ - Communication allows people to learn from other people
+
+Communication allows people to make trades
+
+  Different people have different efficiencies at different tasks. If each person spends more time on what they are good at, the whole system can be more efficient. This requires people to communicate to other people about what they need so that other people know what to work on.
+
+ - New people take time to become efficient
+
+Communication allows people to learn from other people
+
+  You are reading JeffsKnowledgeGraph right now!
+
+ - What is Jeff's Knowledge Graph?
+
+Communication mistakes
+
+ - Correcting yourself
+ - Correcting other people
+ - People make mistakes
+
+Correcting yourself
+
+  If you notice that you have said something incorrect, it is often helpful to mention that.
+
+  Otherwise, people may continue to believe your previous, incorrect statement.
+
+  Any easy way to do this is often just to say you're sorry that after thinking about the topic some more, you now have a different conclusion, and explain why.
+
+ - People make mistakes
+
+Correcting other people
+
+  If you think that someone else has said something incorrect, it is often helpful to point that out.
+
+  Otherwise, one of the two of you may believe something incorrect.
+
+  You might have to choose an appropriate time for this, so that the set of people present for the conversation matches the set of people that should be there.
+  * If too many people are part of the discussion then it might waste the time of many of the people in it.
+  * If too few people are part of the discussion:
+      * There might be important expertise that is missing from the conversation, causing the discussion to reach the wrong conclusion
+      * The discussion might reach the right conclusion but other people might not know about it, causing them to still believe the previous conclusion or have a similar discussion
+          * This can often be addressed by separating the decision-making discussion (having fewer people) from the conclusion-sharing discussion (having more people).
+
+  If the other person gets offended without giving a helpful response, it might mean:
+  * This person doesn't appreciate that this might be an opportunity for you to learn too
+      * It can be helpful to word corrections as questions. For example:
+          * Asking about what happens in a specific case (which you believe might contradict their statement)
+          * Asking why something would be true
+  * This person prefers to appear right than to learn
+      * This might become a less significant factor if you involve a smaller number of people in the conversation
+      * This might become a less significant factor if you phrase your concern as a question 
+
+ - People make mistakes
+
+Being thanked for something you don't plan to do
+
+  If someone thanks you for a task, volunteers you for it, or otherwise says that you plan to do it, it indicates that this person expects you to do this task.
+
+  If you don't intend to do it, it can be helpful to correct that person, so that people can plan accordingly
+  * Maybe someone else should do this task
+  * Maybe some other things that depend on this task should be skipped
+  * Maybe you should do this task anyway
+
+  It can also be helpful to explain why, so that people can try to find solutions and notice trends
+  * Perhaps you discovered a more important task
+  * Perhaps you remembered a more important task
+  * Perhaps you never agreed to work on the task that you are being volunteered for, and you don't agree that it is the most important thing to be doing
+
+ - Correcting other people
