@@ -234,9 +234,9 @@ function getSoConfusedHelpNames(nodeName) {
   return [bestResult]
 }
 
-function getUnfamiliarDependencies(nodeName, order = "list") {
+function getUnfamiliarDependencies(nodeName) {
   // find everything that the user will need to know to learn this topic
-  var allDependencies = getAllDependenciesOf(nodeName, order)
+  var allDependencies = getAllDependenciesOf(nodeName)
   return removeFamiliarDependencies(allDependencies)
 }
 
@@ -273,11 +273,11 @@ function expandDependencies(includeFamiliar, moreComplicatedFirst, shouldIndent)
   var currentNode = getCurrentNode()
   var nodeName = currentNode["name"]
   var order = ""
+  var candidates = null
   if (moreComplicatedFirst)
-    order = "tree"
+    candidates = getAllDependenciesInTreeOrderOf(nodeName)
   else
-    order = "list"
-  var candidates = getAllDependenciesOf(nodeName, order)
+    candidates = getAllDependenciesOf(nodeName)
   if (!includeFamiliar)
     candidates = removeFamiliarDependencies(candidates)
   var html = ""
@@ -467,11 +467,8 @@ function getAllDependenciesSetOf(nodeName) {
 }
 
 // Transitively gets all dependencies of the given node, in the given order
-// There are two types of orders defined:
 //   list: In this order, each node will be later in the list than any of its dependencies
 //         This is convenient for reading items in a list form
-//   tree: In this order, each node will be after its first dependent but before other dependents
-//         This is convenient for reading items in a tree form
 function getAllDependenciesOf(nodeName, order = "list") {
   console.log("getting all dependencies of '" + nodeName + "' in " + order + " order")
   var allDependenciesSet = new Set()
@@ -484,15 +481,32 @@ function addDependenciesRecursivelyTo(newDependency, destinationList, destinatio
   if (destinationSet.has(newDependency))
     return
   destinationSet.add(newDependency)
-  if (order != "list") {
-    destinationList.push(newDependency)
-  }
   var newDependencies = getDirectDependencyNames(newDependency)
   for (var dependency of newDependencies) {
     addDependenciesRecursivelyTo(dependency, destinationList, destinationSet, order)
   }
-  if (order == "list") {
-    destinationList.push(newDependency)
+  destinationList.push(newDependency)
+}
+
+// Transitively gets all dependencies of the given node, in the given order
+//   tree: In this order, each node will be after one dependent but before other dependents
+//         This is convenient for reading items in a tree form
+function getAllDependenciesInTreeOrderOf(nodeName) {
+  console.log("getting all dependencies of '" + nodeName + "' in tree order")
+  var allDependenciesSet = new Set()
+  var allDependenciesList = []
+  addDependenciesRecursivelyInTreeOrderTo(nodeName, allDependenciesList, allDependenciesSet)
+  return allDependenciesList
+}
+
+function addDependenciesRecursivelyInTreeOrderTo(newDependency, destinationList, destinationSet) {
+  if (destinationSet.has(newDependency))
+    return
+  destinationSet.add(newDependency)
+  destinationList.push(newDependency)
+  var newDependencies = getDirectDependencyNames(newDependency)
+  for (var dependency of newDependencies) {
+    addDependenciesRecursivelyInTreeOrderTo(dependency, destinationList, destinationSet)
   }
 }
 
