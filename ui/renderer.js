@@ -244,7 +244,6 @@ function removeFamiliarDependencies(allDependencies) {
   var result = []
   for (var candidate of allDependencies) {
     var count = countNumUnfamiliarDependencies(candidate)
-    console.log("num unfamiliar dependencies of " + candidate + " is " + count)
     if (count > 0) {
       result.push(candidate)
     }
@@ -356,7 +355,7 @@ function mergeSets(setA, setB) {
 
 // make a guess about how to help a user that is already familiar with this
 function getAlreadyFamiliarHelpNames(nodeName) {
-  if (curiousDependencyNames.size < 1) {
+  if (curiousDependencyNames.length < 1) {
     return []
   }
 
@@ -472,7 +471,6 @@ function getAllDependenciesSetOf(nodeName) {
 //   list: In this order, each node will be later in the list than any of its dependencies
 //         This is convenient for reading items in a list form
 function getAllDependenciesOf(nodeName, order = "list") {
-  console.log("getting all dependencies of '" + nodeName + "' in " + order + " order")
   var allDependenciesSet = new Set()
   var allDependenciesList = []
   addDependenciesRecursivelyTo(nodeName, allDependenciesList, allDependenciesSet, order)
@@ -495,7 +493,6 @@ function addDependenciesRecursivelyTo(newDependency, destinationList, destinatio
 //         Also, each child will be sorted by decreasing indent
 //         This is convenient for reading items in a tree form
 function getAllDependenciesInTreeOrderOf(nodeName, indentations) {
-  console.log("getting all dependencies of '" + nodeName + "' in tree order")
   var allDependenciesSet = new Set()
   var allDependenciesList = []
   addDependenciesRecursivelyInTreeOrderTo(nodeName, allDependenciesList, allDependenciesSet, indentations)
