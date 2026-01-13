@@ -269,24 +269,23 @@ function shouldShowNodeInDependencyGraph(node, isRootOfGraph, moreComplicatedFir
   return false
 }
 
-function computeIndentations(baseNode, candidates) {
+function computeIndentations(candidates) {
   var indentations = {}
-  var firstCandidateName = candidates[0]
+  var firstCandidateName = candidates[candidates.length - 1]
   indentations[firstCandidateName] = 0
-  for (var i = 0; i < candidates.length; i++) {
+  for (var i = candidates.length - 1; i >= 0; i--) {
     var candidateName = candidates[i]
     var currentIndentation = indentations[candidateName]
     var dependencyNames = getDirectDependencyNames(candidateName)
     var nextIndentation = 0
-    var candidateIsRoot = (candidateName == baseNode)
+    var candidateIsRoot = (candidateName == firstCandidateName)
     if (shouldShowNodeInDependencyGraph(getNodeByName(candidateName), candidateIsRoot, true))
       nextIndentation = currentIndentation + 1
     else
       nextIndentation = currentIndentation
     for (dependencyName of dependencyNames) {
-      if (!(dependencyName in indentations)) {
+      if ((!(dependencyName in indentations)) || indentations[dependencyName] > nextIndentation)
         indentations[dependencyName] = nextIndentation
-      }
     }
   }
   return indentations
@@ -296,16 +295,14 @@ function expandDependencies(includeFamiliar, moreComplicatedFirst, shouldIndent)
   var currentNode = getCurrentNode()
   var nodeName = currentNode["name"]
   var order = ""
-  var candidates = null
-  if (moreComplicatedFirst)
-    candidates = getAllDependenciesInTreeOrderOf(nodeName)
-  else
-    candidates = getAllDependenciesOf(nodeName)
+  var candidates = getAllDependenciesOf(nodeName)
+  var indentations = computeIndentations(candidates)
   if (!includeFamiliar)
     candidates = removeFamiliarDependencies(candidates)
   var html = ""
   console.log("expanding dependencies of " + nodeName)
-  var indentations = computeIndentations(nodeName, candidates)
+  if (moreComplicatedFirst && shouldIndent)
+    candidates = getAllDependenciesInTreeOrderOf(nodeName, indentations)
   for (var i = 0; i < candidates.length; i++) {
     var candidateName = candidates[i]
     var candidate = getNodeByName(candidateName)
@@ -495,23 +492,38 @@ function addDependenciesRecursivelyTo(newDependency, destinationList, destinatio
 
 // Transitively gets all dependencies of the given node, in the given order
 //   tree: In this order, each node will be after one dependent but before other dependents
+//         Also, each child will be sorted by decreasing indent
 //         This is convenient for reading items in a tree form
-function getAllDependenciesInTreeOrderOf(nodeName) {
+function getAllDependenciesInTreeOrderOf(nodeName, indentations) {
   console.log("getting all dependencies of '" + nodeName + "' in tree order")
   var allDependenciesSet = new Set()
   var allDependenciesList = []
-  addDependenciesRecursivelyInTreeOrderTo(nodeName, allDependenciesList, allDependenciesSet)
+  addDependenciesRecursivelyInTreeOrderTo(nodeName, allDependenciesList, allDependenciesSet, indentations)
   return allDependenciesList
 }
 
-function addDependenciesRecursivelyInTreeOrderTo(newDependency, destinationList, destinationSet) {
+function addDependenciesRecursivelyInTreeOrderTo(newDependency, destinationList, destinationSet, indentations) {
   if (destinationSet.has(newDependency))
     return
   destinationSet.add(newDependency)
   destinationList.push(newDependency)
   var newDependencies = getDirectDependencyNames(newDependency)
+  // process dependencies from maximum indent to minimum indent, in case an ancestor node decreased the indent of one of our children
+  var dependenciesByIndent = []
   for (var dependency of newDependencies) {
-    addDependenciesRecursivelyInTreeOrderTo(dependency, destinationList, destinationSet)
+    var indent = indentations[dependency]
+    if (!(indent >= 0))
+      indent = 0
+    while (dependenciesByIndent.length <= indent) {
+      dependenciesByIndent.push([])
+    }
+    dependenciesByIndent[indent].push(dependency)
+  }
+  for (var i = dependenciesByIndent.length - 1; i >= 0; i--) {
+    var dependenciesHere = dependenciesByIndent[i]
+    for (var dependency of dependenciesHere) {
+      addDependenciesRecursivelyInTreeOrderTo(dependency, destinationList, destinationSet, indentations)
+    }
   }
 }
 
