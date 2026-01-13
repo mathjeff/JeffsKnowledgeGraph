@@ -269,6 +269,29 @@ function shouldShowNodeInDependencyGraph(node, isRootOfGraph, moreComplicatedFir
   return false
 }
 
+function computeIndentations(baseNode, candidates) {
+  var indentations = {}
+  var firstCandidateName = candidates[0]
+  indentations[firstCandidateName] = 0
+  for (var i = 0; i < candidates.length; i++) {
+    var candidateName = candidates[i]
+    var currentIndentation = indentations[candidateName]
+    var dependencyNames = getDirectDependencyNames(candidateName)
+    var nextIndentation = 0
+    var candidateIsRoot = (candidateName == baseNode)
+    if (shouldShowNodeInDependencyGraph(getNodeByName(candidateName), candidateIsRoot, true))
+      nextIndentation = currentIndentation + 1
+    else
+      nextIndentation = currentIndentation
+    for (dependencyName of dependencyNames) {
+      if (!(dependencyName in indentations)) {
+        indentations[dependencyName] = nextIndentation
+      }
+    }
+  }
+  return indentations
+}
+
 function expandDependencies(includeFamiliar, moreComplicatedFirst, shouldIndent) {
   var currentNode = getCurrentNode()
   var nodeName = currentNode["name"]
@@ -282,25 +305,7 @@ function expandDependencies(includeFamiliar, moreComplicatedFirst, shouldIndent)
     candidates = removeFamiliarDependencies(candidates)
   var html = ""
   console.log("expanding dependencies of " + nodeName)
-  var indentations = {}
-  var firstCandidateName = candidates[0]
-  indentations[firstCandidateName] = 0
-  for (var i = 0; i < candidates.length; i++) {
-    var candidateName = candidates[i]
-    var currentIndentation = indentations[candidateName]
-    var dependencyNames = getDirectDependencyNames(candidateName)
-    var nextIndentation = 0
-    var candidateIsRoot = (candidateName == nodeName)
-    if (shouldShowNodeInDependencyGraph(getNodeByName(candidateName), candidateIsRoot, moreComplicatedFirst))
-      nextIndentation = currentIndentation + 1
-    else
-      nextIndentation = currentIndentation
-    for (dependencyName of dependencyNames) {
-      if (!(dependencyName in indentations)) {
-        indentations[dependencyName] = nextIndentation
-      }
-    }
-  }
+  var indentations = computeIndentations(nodeName, candidates)
   for (var i = 0; i < candidates.length; i++) {
     var candidateName = candidates[i]
     var candidate = getNodeByName(candidateName)
