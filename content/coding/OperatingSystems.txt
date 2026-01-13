@@ -1,0 +1,251 @@
+About operating systems
+
+ - Why does a computer need an operating system?
+ - How does an operating system work?
+
+Why does a computer need an operating system?
+
+  There are many low-level tasks that a computer needs to do.
+
+  The operating system takes care of them so individual programs don't have to.
+
+  These tasks might include prioritizing which process to run, reading from a drive, and more.
+
+ - What is low-level in a computer system?
+
+What is low-level in a computer system?
+
+  "low-level" refers to a much smaller task that is part of a larger task, where we don't usually need to think about the implementation of the smaller task while working on the larger task.
+
+  For example, reading memory from a drive is a low-level task that happens as part of running a process
+
+How does an operating system work?
+
+ - How does an operating system start a process?
+ - How does an operating system decide which processes to run?
+ - How does a computer process perform input or output?
+ - How does a CPU work?
+ - What is a GPU?
+
+How does an operating system start a process?
+
+  An operating system starts a process by these steps:
+  1. It allocates memory to hold the state of the process, including program counters and variables
+  1. It updates the process table to record that this process is active
+  1. It begins to execute the instructions in the process
+
+ - How does an operating system allocate memory?
+
+How does an operating system allocate memory?
+
+  An operating system groups memory into pages. Each page is a fixed block of memory, usually at least 4096 bytes.
+
+  When an operating system needs to allocate new memory, first it looks in memory for an empty page. If it cannot find one, it attempts to reclaim a previously used page.
+
+  If it still cannot find an empty page of memory, the allocation fails.
+
+  If an empty page is found, then the operating system records that this page is now in use, and returns it to the caller.
+
+ - What does an operating system do when there is insufficient memory?
+
+How does an operating system decide which processes to run?
+
+  An operating system starts by running an initial process that is responsible for setting up everything.
+
+  Each process, including the first process, can create new processes.
+
+  When processes are running, the operating system chooses processes to prioritize
+
+ - How does an operating system prioritize processes?
+
+How does an operating system prioritize processes?
+
+  An operating system tries to balance:
+  * Doing what the user has asked
+      * This requires avoiding running out of memory
+      * This may involve giving higher priority to some processes than others
+  * Completing work quickly
+      * This can be done more effectively via parallelism
+  * Giving the user status updates
+      * This involves context switching
+
+ - About computer memory constraints
+ - About CPU parallelism
+ - About CPU context switching
+ - About computer process priorities
+
+About computer memory constraints
+
+  When a computer runs a process, it tries to store the necessary instructions and data in memory so they can be accessed quickly.
+
+  Computers only have a limited amount of memory, so it's not always feasible to store all of this information in memory at once.
+
+ - How does an operating system allocate memory?
+ - What does an operating system do when there is insufficient memory?
+
+What does an operating system do when there is insufficient memory?
+
+  * It might clear the page cache to free pages that haven't been used recently
+  * It might invoke the OOM Killer to terminate processes
+  * It might start using swap to store more information in storage
+  * It might crash if it needs more memory than it can find
+
+ - What is a page cache?
+ - About the OOM Killer
+ - About computer swap
+
+What is a page cache?
+
+  A page cache stores a set of memory pages that originally came from somewhere else such as storage.
+
+  Storing information in a page cache can often be faster than having to reread the same information from that other location.
+
+  If pages in the page cache are modified, they must be written back to that location before it is safe to remove those pages from the page cache without losing data.
+
+ - What is a page of memory?
+
+What is a page of memory?
+
+  A page is a unit of memory that operating systems use. Each page is generally assigned to a single process to use at one time.
+
+  A page is usually at least 4096 bytes
+
+ - What is a byte?
+
+About the OOM Killer
+
+  The OOM Killer is a computer process that terminates other computer processes when available memory is too low
+
+  The OOM Killer is more likely to prioritize processes that are using more memory or are lower priority
+
+  If the OOM Killer accidentally terminates an important process, the operating system may crash
+
+ - What is computer memory?
+
+About computer swap
+
+  Swap is a strategy for allowing a computer to work with more information at once without expanding the amount of physical memory in the system.
+
+  If an operating system has enabled swap then it means the operating system will use a portion of storage as though it were memory: instructions and data about running processes that don't fit in main memory will be allowed to spill over into the swap portion of the storage.
+
+  Because computer storage is slower than computer memory, using swap is slower than avoiding swap. As a result, it's not uncommon for a computer system to be configured to set the maximum allowed swap usage to zero.
+
+ - What is computer memory?
+
+What is computer memory?
+
+  Memory is a place where a computer can very quickly store information and very quickly read it again.
+
+  Memory gets erased when a computer loses power.
+
+  Memory is usually costs more money per byte than storage does
+
+  Storage also is able to retain information after power is lost.
+
+ - What is a byte?
+ - What is computer storage?
+
+What is a byte?
+
+  A byte is eight bits
+
+ - What is a computer bit?
+
+What is a computer bit?
+
+  A bit is a container that stores either the number 0 or the number 1.
+
+What is computer storage?
+
+  Storage is a place where a computer can store information that remains even if power is lost.
+
+  Hard drives and solid state drives are both considered storage.
+
+About CPU parallelism
+
+  A computer often has multiple CPUs, each of which is able to do its own work.
+
+  If the operating system assigns different work to different CPUs, then the work often can be completed in less time.
+
+  Instructions can also be parallelized within a CPU via instruction pipelining
+
+ - What is instruction pipelining?
+
+About CPU context switching
+
+  If a user or one of their processes has given the computer more things to do than it has CPUs, then the computer cannot work on all of them at once.
+
+  If the existing work is very difficult, and if the operating system chooses to complete work in order before starting new work, then it means the new work will take a long time before it is completed. Often this isn't what the user wants because it means that the user can't even check their email while the computer is doing something difficult.
+
+  To avoid this situation, computers can do context switching.
+
+  Context switching is the idea of pausing an existing process, and switching to work on another process instead.
+
+  Each context switch takes some time, so operating systems try not to do too many. For example, they might choose to do no more than 100 context switches per CPU per second. This is still fast enough that to a human, each CPU can appear to be doing multiple things at once.
+
+ - About CPU parallelism
+
+What is a 32-bit or 64-bit computer?
+
+  A 32-bit computer is a computer where each register can store 32 bits.
+
+  A 64-bit computer is a computer where each register can store 64 bits.
+
+ - What is a computer bit?
+ - What is a computer register?
+
+What is a 32-bit or 64-bit operating system?
+
+  An N-bit operating system can be run on a computer having at least N bits per register.
+
+ - What is a 32-bit or 64-bit computer?
+
+What is a computer register?
+
+  A computer register is a location in a CPU that stores some number of bits (usually 32 or 64).
+
+  Each register might be used to store things like this:
+  * An integer that the CPU is using as part of its calculations
+  * The location in memory of current instruction that the CPU is executing
+  * The type of instruction that the CPU is executing (such as add, load, or store)
+
+What is instruction pipelining?
+
+  Instruction pipelining is the idea that a CPU has multiple types of work that it needs to do, and it can be more efficient to do them in parallel.
+  
+  This is like if you have several loads of laundry to do, then after the first load has moved from the washer to the drier, you can put the second load into the washer before waiting for the first load to leave the drier.
+
+ - How does a CPU work?
+
+How does a computer process perform input or output?
+
+  A computer should have one or more devices that can provide information to it, including:
+  * A keyboard
+  * A mouse
+  * Storage
+  * Network
+
+  A computer should also have one or more devices that it can send information to, including:
+  * A display
+  * Speakers
+  * Network
+  * Storage
+
+  Each type of device may have its own method for reading or writing information. The operating system is generally responsible for providing this functionality to running processes.
+
+How does a CPU work?
+
+  A central processing unit processes computer instructions.
+
+  Essentially, it repeatedly does this:
+  1. Load an instruction
+  1. Decode the instruction to determine what it means
+  1. Execute the instruction
+  1. Save the result
+  1. Go to the next instruction
+
+About computer process priorities
+
+  Some operating systems allow the user to specify the priority of a process, to allow more important processes to take precedence over less important processes.
+
+  In Linux, process priority is its [nice value](https://www.tecmint.com/set-linux-process-priority-using-nice-and-renice-commands/) .
