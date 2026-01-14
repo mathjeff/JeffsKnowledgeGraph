@@ -213,7 +213,7 @@ What is instruction pipelining?
 
   Instruction pipelining is the idea that a CPU has multiple types of work that it needs to do, and it can be more efficient to do them in parallel.
   
-  This is like if you have several loads of laundry to do, then after the first load has moved from the washer to the drier, you can put the second load into the washer before waiting for the first load to leave the drier.
+  This is like if you have several loads of laundry to do, then after the first load has moved from the washer to the dryer, you can put the second load into the washer before waiting for the first load to leave the dryer.
 
  - How does a CPU work?
 
