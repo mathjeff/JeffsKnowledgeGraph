@@ -249,3 +249,47 @@ About computer process priorities
   Some operating systems allow the user to specify the priority of a process, to allow more important processes to take precedence over less important processes.
 
   In Linux, process priority is its [nice value](https://www.tecmint.com/set-linux-process-priority-using-nice-and-renice-commands/) .
+
+What is binary?
+
+  Binary, also known as base two, is a format for representing numbers.
+
+  The string "10" in base two refers to the number two.
+
+  (In base `N`, each position can hold up to `N` values.)
+
+  When you are counting in base 2, whenever you need to add 1 to a number ending in 1, you replace the 1 with a 0 and add 1 to the number to its left.
+
+  To count to 20 in base 2, count like this: 1 10 11 100 101 110 111 1000 1001 1010 1011 1100 1101 1110 1111 10000 10001 10010 10011 10100
+
+  To convert between binary and decimal, see [here](https://www.rapidtables.com/convert/number/decimal-to-binary.html)
+
+ - What is decimal?
+
+What is hexadecimal?
+
+  Hexadecimal, also known as base sixteen, is a format for representing numbers.
+
+  The string "10" in hexadecimal refers to the number sixteen.
+
+  (In base `N`, each position can hold up to `N` values.)
+
+  Because hexadecimal uses six more digits than decimal, hexadecimal uses six more symbols to represent ten through fifteen: A, B, C, D, E, and F.
+
+  Hexadecimal digits are usually written with "0x" at the beginning to clarify that their format is hexadecimal.
+
+  When you are counting in hexadecimal, whenever you need to add 1 to a number ending in F, you replace the F with a 0 and add 1 to the number to its left.
+
+  To count to 20 in hexadecimal, count like this: 0x1 0x2 0x3 0x4 0x5 0x6 0x7 0x8 0x9 0xA 0xB 0xC 0xD 0xE 0xF 0x10 0x11 0x12 0x13 0x14
+
+  To convert between hexadecimal and decimal, see [here](https://www.rapidtables.com/convert/number/hex-to-binary.html)
+
+ - What is decimal?
+
+What is decimal?
+
+  Decimal, also known as base ten, is a format for representing numbers. It is the format that people usually use for writing numbers.
+
+  The string string "10" in decimal refers to the number ten.
+
+  To count to twenty in base 10, count like this: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20

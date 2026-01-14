@@ -365,6 +365,8 @@ What is a bitmask?
   1. Concatenate the resulting bits to get `1000`
   1. These bits can be stored as a new number: `8`
 
+ - What is binary?
+
 What is a umask?
 
   A umask is a bitmask that controls the permissions that a new file or directory on your computer will have by default
