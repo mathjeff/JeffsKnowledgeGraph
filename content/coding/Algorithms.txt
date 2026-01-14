@@ -102,7 +102,7 @@ What is a balanced binary search tree?
 
 A balanced binary search tree is fast
 
-  If a binary search tree is balanced, then while searching for an item in it, each test should cut the number of nodes in half. This should usually be pretty fast: `O(n)` steps for a tree with `n` nodes.
+  If a binary search tree is balanced, then while searching for an item in it, each test should cut the number of nodes in half. This should usually be pretty fast: `O(log(n))` steps for a tree with `n` nodes.
 
   This is still usually not as fast as a lookup in a hash table (which is usually `O(1)` steps).
 
