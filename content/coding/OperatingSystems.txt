@@ -192,7 +192,7 @@ What is a 32-bit or 64-bit computer?
   A 64-bit computer is a computer where each register can store 64 bits.
 
  - What is a computer bit?
- - What is a computer register?
+ - What is a CPU register?
 
 What is a 32-bit or 64-bit operating system?
 
@@ -200,9 +200,9 @@ What is a 32-bit or 64-bit operating system?
 
  - What is a 32-bit or 64-bit computer?
 
-What is a computer register?
+What is a CPU register?
 
-  A computer register is a location in a CPU that stores some number of bits (usually 32 or 64).
+  A CPU register is a location in a CPU that stores some number of bits (usually 32 or 64).
 
   Each register might be used to store things like this:
   * An integer that the CPU is using as part of its calculations
@@ -238,11 +238,16 @@ How does a CPU work?
   A central processing unit processes computer instructions.
 
   Essentially, it repeatedly does this:
-  1. Load an instruction
+  1. Load an instruction from memory
   1. Decode the instruction to determine what it means
   1. Execute the instruction
+      * This might load a value from a specific memory address into a CPU register
+      * This might add, subtract, multiply, or divide values in two CPU registers and put the result in another register
+      * This might save a value from a CPU register into a specific memory address
   1. Save the result
   1. Go to the next instruction
+
+ - What is a CPU register?
 
 About computer process priorities
 
