@@ -293,3 +293,19 @@ What is decimal?
   The string string "10" in decimal refers to the number ten.
 
   To count to twenty in base 10, count like this: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
+
+How can computers represent characters?
+
+  Computers represent letters and other characters by encoding them as numbers and keeping track of which encoding was used.
+
+  For example, if you choose an encoding where A is 1, B is 2, C is 3... H is 8, and I is 9, then you can encode "HI" as 89. Then as long as you remember that this was the encoding, you can decode it back into "HI".
+
+ - What is hexadecimal?
+
+What is ASCII?
+
+  ASCII is a common encoding for characters that often appear in English text.
+
+  You can see the full table of characters and their encodings at https://ascii.co.uk/info
+
+ - How can computers represent characters?
