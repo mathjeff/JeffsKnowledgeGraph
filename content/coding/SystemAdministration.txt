@@ -261,7 +261,7 @@ Getting an ssh username and password
 
 Getting ssh keys
 
-  To generate an ssh key, you can run `ssh-keygen`.
+  To generate an ssh key, you can run `ssh-keygen`
 
  - What is an ssh key?
  - How do I run commands in a terminal?
@@ -475,7 +475,7 @@ How can I parallelize my program?
 
 Which partition is my file in?
 
-  To list the partitions in the system, you can run `df -h`.
+  To list the partitions in the system, you can run `df -h`
   Each partition is mounted to a specific directory.
   The most specific directory containing your filepath is the partition that the file belongs to.
 
@@ -522,7 +522,7 @@ How can I compress a directory?
 
 How can I compress a file?
 
-  An easy way to compress a file is via `gzip <file>`.
+  An easy way to compress a file is via `gzip <file>`
 
   Later:
   * To uncompress the file, regenerate the original file, and remove the uncompressed file, you can run `gunzip <file>.gz`

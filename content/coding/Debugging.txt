@@ -55,7 +55,7 @@ What is a computer process?
 
   It has instructions and arguments.
 
-  For example, running `ls /tmp` in a terminal will create a new process running `ls` with one argument, `/tmp`.
+  For example, running `ls /tmp` in a terminal will create a new process running `ls` with one argument, `/tmp`
 
  - What is a computer program?
 

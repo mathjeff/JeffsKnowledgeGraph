@@ -89,7 +89,7 @@ Python editors
 
 Python variables
 
-  In Python, you can create a variable and assign it a value using `=`.
+  In Python, you can create a variable and assign it a value using `=`
 
   For example:
 
@@ -210,7 +210,7 @@ Python lists
 
 Python slices
 
-  A slice in Python is a subsection of a list. It looks like `someList[startIndexInclusive:endIndexExclusive]`.
+  A slice in Python is a subsection of a list. It looks like `someList[startIndexInclusive:endIndexExclusive]`
 
   For example, if you have a list like this:
 

@@ -117,9 +117,9 @@ Which arguments can I give to a shell command?
 
   Many built-in commands provide a manual page. You can often type `man <commandName>` to open the manual page for that command
 
-  Many commands will explain how to use them if you add the "--help" argument. For example, you can run `grep --help` to learn about using `grep`.
+  Many commands will explain how to use them if you add the "--help" argument. For example, you can run `grep --help` to learn about using `grep`
 
-  Many commands will explain how to use them if you run them with no arguments. For example, you can run `git` to learn about using `git`.
+  Many commands will explain how to use them if you run them with no arguments. For example, you can run `git` to learn about using `git`
 
   Many commands are documented on the internet. You can often ask a search engine a question like `<commandName> arguments` for more information
 
@@ -196,7 +196,7 @@ Absolute file paths
   An absolute path is a string starting with "/".
 
     For example, `/tmp` is an absolute path.
-    To see the contents of the `/tmp` directory, you can run `ls /tmp`.
+    To see the contents of the `/tmp` directory, you can run `ls /tmp`
 
  - Filesystem directory hierarchy
 
@@ -350,7 +350,7 @@ What is grep?
 
 Bash variables
 
-  In Bash, you can create a variable and assign it a value using `=`.
+  In Bash, you can create a variable and assign it a value using `=`
 
   You can get the value of a variable by typing `$` followed by its name.
 
@@ -382,7 +382,7 @@ What is this shell command?
 
   then `echo` is the command name and `hi` is an argument.
 
-  If you want to know where a command is defined, you can run `type <command>`.
+  If you want to know where a command is defined, you can run `type <command>`
 
   For example:
 
@@ -427,7 +427,7 @@ How can I replace text in a shell?
 
   You can replace text in a shell using any command that can do the replacements that you need.
 
-  A common program for doing text replacement in the shell is `sed`.
+  A common program for doing text replacement in the shell is `sed`
 
  - How can I use sed?
 
@@ -597,7 +597,7 @@ What is standard input?
 
   For example:
 
-  * Run `head -n 3` and press `<enter>`.
+  * Run `head -n 3` and press `<enter>`
 
       * This will start a program called `head`, ask it to read the first 3 lines of input, and output them to the screen.
 
@@ -651,7 +651,7 @@ Shell nohup
 
   Similarly, if you run a command on your own computer and then you close your terminal, by default your command will be terminated.
 
-  If you don't want your command to stop when you close your terminal, you can use `nohup`.
+  If you don't want your command to stop when you close your terminal, you can use `nohup`
 
   To use `nohup`, you can run `nohup <command>`. Output from the command will usually be put into a file called `nohup.out`
 

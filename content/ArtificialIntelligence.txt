@@ -169,7 +169,7 @@ What is a gradient?
 
   A gradient tells how much one value changes as a result of a small change in another value.
 
-  For example, for a function `z = 3x + y*y`, the gradient is `(3, 2y)` because increasing `x` by a tiny amount will increase `z` by three times that amount, and increasing `y` by a tiny amount will increase `z` by that amount times `2y`.
+  For example, for a function `z = 3x + y*y`, the gradient is `(3, 2y)` because increasing `x` by a tiny amount will increase `z` by three times that amount, and increasing `y` by a tiny amount will increase `z` by that amount times `2y`
 
 Expectation Maximization
 
@@ -259,7 +259,7 @@ What is pytorch?
 
   Pytorch https://github.com/pytorch/pytorch is a python-based platform to train machine learning models with CPU/GPU.
 
-  You can install pytorch by `pip3 install torch` and import pytorch in python by `import torch`.
+  You can install pytorch by `pip3 install torch` and import pytorch in python by `import torch`
 
  - What is a GPU?
 
@@ -269,9 +269,9 @@ What is a tensor?
 
   Tensor is a form to hold n-dimensional arrays in a GPU.
 
-  You can convert Numpy arrays to tensors by `your_tensor = torch.from_numpy(your_array.np())`.
+  You can convert Numpy arrays to tensors by `your_tensor = torch.from_numpy(your_array.np())`
 
-  You can save tensors to GPU by `your_tensor.to('cuda')`.
+  You can save tensors to GPU by `your_tensor.to('cuda')`
 
  - What is a GPU?
 
@@ -285,7 +285,7 @@ What is Numpy?
 
   Numpy is a python package to do computation on arrays.
 
-  You can install Numpy by `pip install numpy` and run Numpy in python by `import numpy as np`.
+  You can install Numpy by `pip install numpy` and run Numpy in python by `import numpy as np`
 
  - What is Python?
 
@@ -293,17 +293,17 @@ How can I import Pandas data as tensors?
 
   Pandas is a python package that works with datasets.
 
-  You can install Numpy by `pip install pandas` and run Numpy in python by `import pandas as pd`.
+  You can install Numpy by `pip install pandas` and run Numpy in python by `import pandas as pd`
 
-  You can summarize your data in CSV files and import your data using Pandas by `data = pd.read_csv(data_file)`.
+  You can summarize your data in CSV files and import your data using Pandas by `data = pd.read_csv(data_file)`
 
-  Then you can convert the non-numeric columns of your data as categories of 0s and 1s by `non_num_data = data.loc[:,['non_num_col1','non_num_col2',...]]` and `non_num_data = pd.get_dummies(non_num_data, dummy_na=True)`.
+  Then you can convert the non-numeric columns of your data as categories of 0s and 1s by `non_num_data = data.loc[:,['non_num_col1','non_num_col2',...]]` and `non_num_data = pd.get_dummies(non_num_data, dummy_na=True)`
 
-  You can save the numeric columns of your data as `num_data = data.loc[:,['num_col1','num_col2',...]]`.
+  You can save the numeric columns of your data as `num_data = data.loc[:,['num_col1','num_col2',...]]`
 
-  You can check your data by `num_data.head()` and `non_num_data.head()`, and check their size (number of rows and number of columns) by `num_data.shape` and `non_num_data.shape`.
+  You can check your data by `num_data.head()` and `non_num_data.head()`, and check their size (number of rows and number of columns) by `num_data.shape` and `non_num_data.shape`
 
-  Now you can convert your data into tensors by `non_num_data = torch.tensor(non_num_data.to_numpy(dtype=float))` and `num_data = torch.tensor(num_data.to_numpy(dtype=float))`.
+  Now you can convert your data into tensors by `non_num_data = torch.tensor(non_num_data.to_numpy(dtype=float))` and `num_data = torch.tensor(num_data.to_numpy(dtype=float))`
 
  - What is a tensor?
 
@@ -317,9 +317,9 @@ How to deal with missing values in training/testing data?
 
   1) You can delete all rows and columns that contain missing data.
 
-  2) You can convert missing data into two columns: column 1 shows all the existing categories; and column 2 shows whether a category is missing by `data_with_categories = pd.get_dummies(input_with_missing_data, dummy_na=True)`.
+  2) You can convert missing data into two columns: column 1 shows all the existing categories; and column 2 shows whether a category is missing by `data_with_categories = pd.get_dummies(input_with_missing_data, dummy_na=True)`
 
-  3) You can replace missing data with averages by `data_with_means = input_with_missing_data.fillna(input_with_missing_data.mean())`.
+  3) You can replace missing data with averages by `data_with_means = input_with_missing_data.fillna(input_with_missing_data.mean())`
 
   Most importantly, you should always check whether the pattern you get from a model is associated with missing data.
 

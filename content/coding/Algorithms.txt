@@ -116,7 +116,7 @@ What is Big O notation?
 
   Big O notation is a precise way of describing approximately how much time an algorithm requires to run.
 
-  If the runtime of an algorithm is `O(f(n))`, then it means there exists some constant `k` such that for every `n >= 1`, the runtime of the algorithm is no more than `k*f(n)`.
+  If the runtime of an algorithm is `O(f(n))`, then it means there exists some constant `k` such that for every `n >= 1`, the runtime of the algorithm is no more than `k*f(n)`
 
   For example, if an algorithm takes exactly `sqrt(n) + 1` steps to run, then:
   * It is correct correct to say that the algorithm is `O(sqrt(n))`
@@ -124,5 +124,5 @@ What is Big O notation?
       * The algorithm takes no more than `k * sqrt(n)` steps to run for each `n >= 1`,
   * It is incorrect to say that the algorithm is `O(log(n))`
       * There is no contant `k` that we can find such that `sqrt(n) <= k * log(n)` for all `k >= 1`
-  * It is misleading to say that the algorithm is `O(n)`.
+  * It is misleading to say that the algorithm is `O(n)`
       * This is technically a correct statement, but people don't say this because `O(sqrt(n))` is a better description
