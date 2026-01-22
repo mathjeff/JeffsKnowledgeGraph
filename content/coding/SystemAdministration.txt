@@ -79,15 +79,39 @@ How to see the permissions of a file
 
 How to change the permissions of a file
 
-  To change the permissions of a file, you can use `chmod <who><addOrRemove><permission> <file>`
+  To change the permissions of a file:
 
-  `who` can be 'u' for the owner, 'g' for users in the same group, or 'o' for other users
+  * You can add or remove one permission from one type of user at a time
 
-  `addOrRemove` should be '+' or '-'
+      * You can use `chmod <who><addOrRemove><permission> <file>`
 
-  `permission` can be 'r' for reading, 'w' for writing, or 'x' for executing.
+          * `who` can be 'u' for the owner, 'g' for users in the same group, or 'o' for other users
 
-  For example, to allow the owner of a file to execute it, do `chmod u+x <file>`
+          * `addOrRemove` should be '+' or '-'
+
+          * `permission` can be 'r' for reading, 'w' for writing, or 'x' for executing.
+
+      * For example, to allow the owner of a file to execute it, do `chmod u+x <file>`
+
+  * If you want to set all of these permissions at once, you can do `chmod <digit><digit><digit>`
+
+      * The first digit describes permissions for the owner
+
+      * The second digit describes permissions for users in the same group
+
+      * The third digit describes permissions for other users
+
+      * Each of these digits is interpreted as binary number with three bits, where the first bit represents reading, the second bit represents writing, and the third bit represents writing
+
+      * Examples
+
+          * To allow the owner of a file to read and write it and no other permissions, you can do `chmod 600 <file>`
+
+          * To allow everyone to read a file and no other permissions, you can do `chmod 444 <file>`
+
+      * A four-digit number starting with a 0 is interpreted by `chmod` in the same way as a three-digit number made of the last three digits.
+
+          * For example, `chmod 0644` is the same as `chmod 644`
 
  - How to see the permissions of a file
  - How can I read command help?
@@ -239,10 +263,14 @@ Enabling ssh keys
 
   * Asking the computer to trust this key pair by copying the public key to ~/.ssh/authorized_keys
 
+      * This also requires setting the permissions on this file to 600
+      * This also requires setting the permissions on the `~/.ssh` directory to 700
+
   * Making sure that `sshd` is running
 
  - Getting a Linux user account
  - Getting ssh keys
+ - How to change the permissions of a file
 
 Getting a Linux user account
 
