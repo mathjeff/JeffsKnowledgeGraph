@@ -1,5 +1,5 @@
 #!python
-import json, os, shutil
+import json, os, re, shutil
 
 pathOfThisFile = __file__
 os.chdir(os.path.join(os.path.dirname(pathOfThisFile), ".."))
@@ -19,6 +19,8 @@ class KnowledgeGraph():
   def validate(self):
     self.validateDependenciesExist()
     self.validateNoCycles()
+    for node in self.nodesByName.values():
+      node.validate()
 
   def validateDependenciesExist(self):
     for node in self.nodesByName.values():
@@ -64,6 +66,20 @@ class KnowledgeNode():
     self.dependencyNames = dependencyNames
     self.topic = topic
 
+  def validate(self):
+    self.validateCodeNotFollowedByPeriod()
+
+  # If we have a code block followed by a period (marking the end of the sentence), it's common for people to think the period is part of the code block
+  # So, we validate that this doesn't happen
+  def validateCodeNotFollowedByPeriod(self):
+    if self.description is None:
+      return
+    lines = self.description.split('\n')
+    matcher = '` *\. *$'
+    for line in lines:
+      searchResult = re.search(matcher, line)
+      if searchResult:
+        raise Exception("In node '" + str(self.name) + "', line:\n\n  " + str(line) + "\n\nends with a codeblock and a '.', which can confuse readers")
 
   def toDict(self):
     return {"name": self.name, "description": self.description, "dependencies": self.dependencyNames, "topic": self.topic}
