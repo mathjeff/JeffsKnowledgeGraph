@@ -177,6 +177,7 @@ How can I run a Jupyter Notebook on a workstation from my laptop?
  - How can I ssh into another computer?
  - What is a port in networking?
  - SSH Port Forwarding
+ - What is a computer workstation?
 
 Why using Jupyter Notebook?
 
@@ -543,3 +544,9 @@ How can I find a file?
     `cd /opt && find -maxdepth 2 -name "*sample*"`
 
  - How do I run commands in a terminal?
+
+What is a computer workstation?
+
+  A workstation is a computer that is designed for a person to do work.
+
+  That often means that it is large enough to do more computing more quickly than a typical computer.
