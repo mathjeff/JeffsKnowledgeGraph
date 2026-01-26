@@ -1,4 +1,4 @@
-#! Information about communication
+# Information about communication
 
 Why is communication important?
 

@@ -1,0 +1,89 @@
+# Information about collaboration
+
+What is compensation?
+
+  Compensation is the concept of something valuable that you receive in exchange for something else
+
+Why is compensation important?
+
+  * Compensation makes it clear how important some work is
+
+      * If a person offers compensation for some work, then that person believes that work has that value
+
+      * Compensation can be a more reliable measurement of value than simple verbal communication
+
+          * A person that is giving compensation is incentivized to accurately describe the value of the work
+
+              * Describing the work as more valuable than it is means giving more compensation and having fewer resources remaining afterward
+
+              * Describing the work as less valuable than it is may cause the worker to choose not to do the work
+
+  * Compensation makes it clear whom to ask for updates about the importance of the task
+
+      * The entity giving the compensation is the one that is declaring the importance of the task, so that entity is the one to talk to if the task seems like it might have changed importance recently
+
+  * If some work isn't very difficult to do, then compensation for it is less important
+
+ - What is compensation?
+ - People make mistakes
+
+What are some ways to be compensated for work?
+
+  * The worker can be paid money for their work
+
+  * Two people can each work for the other one
+
+  * The worker can be thanked for their work
+      * This may be more effective when the work is small
+      * This may be more effective if the worker already cares about the person they are working for
+
+  * Someone can tell other people that the worker did a good job
+      * This may be more effective if the worker is looking for more work
+
+  * The worker can learn something as a result of doing the work
+      * Note that it can often be difficult to determine how helpful the learning is compared to the work
+
+  * Before the work happens, perhaps the work can be changed in a way that can be more easily compensated
+      * Perhaps the work can be modified in a way that it helps more people
+
+ - What is compensation?
+
+Consult approvers early
+
+  When working on a non-small project, it is often helpful to communicate with approvers before spending much effort on it.
+
+  It is possible that approvers may have different requirements than what you're aware of, and it's efficient to know about these requirements so you can plan for them accordingly.
+
+ - What is an approver?
+
+What is an approver?
+
+  An approver is a person whose approval is required before a project can be completed.
+
+  Perhaps this person's permission is required before the results of a project can be used.
+
+What is feedback?
+
+  Feedback is a description of a person's experience of a situation, which is communicated to someone that might be able to improve the experience.
+
+  Positive feedback describes a positive experience, such as something that was easy or enjoyable.
+
+  Negative feedback describes a negative experience, such as something that was difficult or unpleasant.
+
+Why is feedback important?
+
+  A common approach for deciding what to improve about a system is to prioritize what people complain about.
+
+  So, complaining about problems in a system can be helpful because it informs what about the system should be improved.
+
+  Similarly, positive feedback can communicate that a certain part of the system is working well and that it would be nice for other parts of the system to behave more like it.
+
+ - How can I decide what to automate?
+
+Writing things down helps future collaborators
+
+  Projects can take a while, and there may be more people working on a project in the future.
+
+  If you write information down, it can be helpful to people that work on the project in the future.
+
+ - New people take time to become efficient
