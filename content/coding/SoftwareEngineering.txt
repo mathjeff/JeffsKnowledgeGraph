@@ -68,7 +68,7 @@ What is net present value?
 
   The net present value of something in the future is a measurement of how much value today you would trade in exchange for that thing in the future.
 
-  In economics, we can compute the current value of future money via interest rates. For example, if someone has the opportunity to invest $1 today to get $1.10 next year, it means the net present value of $1.10 is $1. Then we can divide by 1.1 to get that the net present value of $1 next year is approximately $0.91.
+  In economics, we can compute the current value of future money via interest rates. For example, if someone has the opportunity to invest $1 today to get $1.10 next year, it means the net present value of $1.10 next year is $1. Then we can divide by 1.1 to get that the net present value of $1 next year is approximately $0.91.
 
   Similarly, $1 two years from now would be worth $1.21 so $1 next year would be worth about $0.82 . If we want to know the net present value of getting $1 every year forever, assuming a compounding rate of 1.1, this sum equals 1 + 1/1.1 + 1/1.1^2... which equals $10.
 
