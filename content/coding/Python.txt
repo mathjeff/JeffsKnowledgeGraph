@@ -75,6 +75,7 @@ Learning Python
  - Python classes
  - Python lists
  - Python slices
+ - Python substrings
 
 Python editors
 
@@ -101,6 +102,49 @@ Python variables
   displays the value `5`
 
  - What is Python?
+
+Python strings
+
+  In Python, you can write a string by putting quotes around some letters.
+
+  For example:
+
+  ```
+    print("hi")
+  ```
+
+  displays the text `hi`
+
+  Alternatively, you can quote strings using single quotes like this:
+
+  ```
+    print('single quotes can indicate strings in Python too')
+  ```
+
+  which displays the text `single quotes can indicate strings in Python too`
+
+Python substrings
+
+  You can get a piece of a string in Python using brackets, similar to the way that you can a slice of a list.
+
+  For example:
+
+  ```
+    print("abcdefg"[2])
+  ```
+
+  displays the text `c`
+
+  Also:
+
+  ```
+    print("hijklmnop"[1:3])
+  ```
+
+  displays the text `ij`
+
+ - Python strings
+ - Python slices
 
 Python functions
 
