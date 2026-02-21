@@ -287,13 +287,42 @@ Preparing for mistakes
 
           * That gives us more information about how to fix it
 
-  * It can help to make backups of things that are important
+  * If we can make it easy to undo the mistake, that can also be helpful
 
-      * If one copy of a piece of information is lost, if there is a backup, it can be restored from the backup
+      * It can help to make backups of information that is important
+
+          * If one copy of a piece of information is lost, if there is a backup, it can be restored from the backup
 
   If you're interested in a simulation of a large system with lots of opportunities for mistakes, you might be interested in [Oxygen Not Included](https://store.steampowered.com/app/457140/Oxygen_Not_Included/) or [Factorio](https://www.factorio.com/).
 
  - People make mistakes
+
+Protecting against data loss
+
+  There are several types of problems that can cause data to be unavailable:
+  * Someone can accidentally delete their own file
+  * Someone can accidentally delete someone else's file
+  * Someone can intentionally delete someone else's file
+  * A drive can get damaged
+  * A drive can get old and wear out
+  * The system can be so old that we no longer know how to read it
+
+  There are a few ways we can guard against data loss
+
+  * Having a backup of information can allow us to restore it if there is a problem that doesn't also affect the backup
+      * The safest backup strategy is usually to have a backup on some other system using different credentials
+          * A different system is least likely to be affected by one of these problems at the same time as the original
+          * There are websites that will store data for you
+              * GitHub can store code and smaller files, for example
+      * Making backups to another drive on the same system is another strategy
+      * Making backups to another part of the same drive is another strategy
+  * Setting file permissions can prevent people from modifying the file with software
+      * You can even set the permissions to prevent yourself from simply modifying the file
+      * This doesn't protect against drive failure
+
+ - Preparing for mistakes
+ - How to change the permissions of a file
+ - What is GitHub?
 
 People are forgetful
 
@@ -329,6 +358,14 @@ Why backwards compatibility?
 
  - Backwards compatibility
 
+What is GitHub?
+
+  [GitHub](https://github.com/) is a website for hosting `git` repositories.
+
+  It allows uploading and downloading information via the `git` command
+
+  Typically it stores code and small files
+
 How do I modify a repository in GitHub?
 
   To modify a repository in GitHub:
@@ -347,6 +384,8 @@ How do I fork a repository in GitHub?
   There should be a button in GitHub to fork it.
   This makes a copy in GitHub of the original repository and puts it under your account.
 
+ - What is GitHub?
+
 How do I modify my own repository in GitHub?
 
   Download the repository, make some changes, and upload your changes
@@ -357,6 +396,7 @@ How do I modify my own repository in GitHub?
 How do I download a repository from GitHub?
 
   Install [git](https://git-scm.com/) and use it to download the repository from [GitHub](https://github.com/).
+ - What is GitHub?
 
 How do I upload changes to a GitHub repository?
 
