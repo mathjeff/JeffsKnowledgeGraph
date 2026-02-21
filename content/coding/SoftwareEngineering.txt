@@ -324,6 +324,22 @@ Protecting against data loss
  - How to change the permissions of a file
  - What is GitHub?
 
+Recovering from data loss
+
+  Ways to potentially restore files that have been deleted:
+
+  * Copy from a backup
+      * This is usually the easiest and safest way, but requires that you made a backup beforehand
+  * Regenerate the files
+      * If you recorded how the files were made, then you may be able to run the same process again
+      * If you remember approximately how the files were made, then you might be able to approximately make them again
+  * Attempt to search the drive for files that haven't been deleted yet
+      * When a drive deletes a file, it usually marks the file's location as available but doesn't delete it yet
+      * If the file hasn't been overwritten yet, then there's a chance it may still be recoverable
+      * You can try `testdisk` explained at https://itsfoss.com/recover-deleted-files-linux/
+
+ - Protecting against data loss
+
 People are forgetful
 
   Different people may forget different pieces of information at different times.
