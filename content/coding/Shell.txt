@@ -504,10 +504,47 @@ What commands can I run in Bash?
                   /usr/bin
                   ```
 
-
  - Shell paths
  - What is this shell command?
  - How can I use sed?
+
+Finding a program
+
+  If you are looking for a program:
+  * If you expect it to be on your computer
+      * You can ask your computer to search for it, like you can search for other files
+      * If you can already run the program by typing it into a terminal (for example, the program `ls`), you can find it using the `type` command
+          * You can run `type <commandName>` to find the command named `<commandName>`
+      * If you have run the program in a terminal before
+          * You may be able to find it via the `history` command
+          * If you set up SessionManager, you should be able to find this command via SessionManager's history search
+  * You can ask someone else where to find it
+  * You might have to install the program first
+      * You may want to ask a search engine how to install it
+ - How can I find a file?
+ - Asking for help
+ - How can I read command help?
+ - SessionManager
+
+Adding a program to the shell path
+
+  To add a program to the shell path, change the `PATH` variable
+
+  To make a program be runnable in the shell without typing its filepath, you can add its directory to the search path.
+  * This means adding `:<parentDir>` to the `PATH` variable
+      * For example, if the command is in `~/bin`, you can do this via `PATH="$PATH:~/bin"`
+
+ - What commands can I run in Bash?
+ - How can I read command help?
+
+What to do about Command Not Found in the shell
+
+  If you try to run a command and the shell says it is not found:
+  * You may need to find the program yourself first
+  * You need to tell the shell where to find it
+
+ - Finding a program
+ - Adding a program to the shell path
 
 How can I run multiple commands in parallel in the shell?
 

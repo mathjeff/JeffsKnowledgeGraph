@@ -571,7 +571,13 @@ How can I find a file?
 
     `cd /opt && find -maxdepth 2 -name "*sample*"`
 
+  * This might take longer if the directory has lots of inodes in it
+  * This might not find the file you want if you don't have permission to read it
+  * This might not find the file you want if the file is not there
+
  - How do I run commands in a terminal?
+ - What is an inode?
+ - Linux files have permissions
 
 What is a computer workstation?
 
