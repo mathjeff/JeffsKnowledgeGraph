@@ -417,6 +417,16 @@ function requestClearFamiliarity() {
   document.getElementById("content").innerHTML = newContent
 }
 
+function requestRandomEdgeFamiliar() {
+  var nodeName = getRandomEdgeFamiliarName()
+  if (nodeName != null) {
+    var node = getNodeByName(nodeName)
+    goToNode(node["index"], "reviewRandom")
+  } else {
+    explainSelf()
+  }
+}
+
 // Declares that the user is familiar with this node
 function declareFamiliarity(nodeName, isFamiliar) {
   if (familiarityByName[nodeName] == isFamiliar) {
@@ -573,6 +583,38 @@ function curiosityNeedsDependenciesOf(nodeName) {
   }
 }
 
+// finds the nodes that the user is familiar with, filters them to the ones that aren't dependencies of nodes that the user is familiar with, and returns one at random
+function getRandomEdgeFamiliarName() {
+  var candidates = new Set()
+  // get familiar nodes
+  for (var nodeName in familiarityByName) {
+    if (getFamiliarityByName(nodeName)) {
+      candidates.add(nodeName)
+    }
+  }
+  // remove familiar dependencies
+  for (var nodeName of new Set(candidates)) {
+    for (var dependencyName of getDirectDependencyNames(nodeName)) {
+      candidates.delete(dependencyName)
+    }
+  }
+  // remove nodes with empty description
+  for (var nodeName of new Set(candidates)) {
+    var node = getNodeByName(nodeName)
+    if (node.description == null) {
+      candidates.delete(nodeName);
+    }
+  }
+  // check for empty set
+  if (candidates.size < 1) {
+    return null
+  }
+  // choose random candidate
+  candidates = Array.from(candidates)
+  var randInt = Math.floor(Math.random() * candidates.length)
+  return candidates[randInt]
+}
+
 function getNodeByName(name) {
   result = nodesByName[name]
   return result
@@ -619,6 +661,10 @@ function makeListAllDependenciesButton(numDependencies) {
 
 function makeOutlineAllDependenciesButton(numDependencies) {
   return "<button class='knowledge-button button-expand' onclick='expandAllDependenciesOutline()'>Outline all " + numDependencies + " dependencies</button>"
+}
+
+function makeRandomEdgeFamiliarButton() {
+  return "<button class='knowledge-button button-request-random-edge-familiarity' onclick='requestRandomEdgeFamiliar()'>Random Familiar</button>"
 }
 
 function makeRequestClearFamiliarityButton() {
@@ -968,7 +1014,8 @@ function goToNode(nodeIndex, actionType) {
   var dependents = getDirectDependentNames(nodeName)
   var alreadyFamiliarHelpNames = getAlreadyFamiliarHelpNames(nodeName)
   var render = ""
-  render += makeHomeButton() + makeBackButton() + makeExplainSelfButton() + makeRequestClearFamiliarityButton()
+  render += makeHomeButton() + makeBackButton() + makeExplainSelfButton() + makeRandomEdgeFamiliarButton() + makeRequestClearFamiliarityButton()
+
   render += "<div id='text'>"
   render +=   formatNodeText(node)
   render += "</div>"
