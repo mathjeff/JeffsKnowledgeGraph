@@ -72,3 +72,24 @@ Being thanked for something you don't plan to do
   * Perhaps you never agreed to work on the task that you are being volunteered for, and you don't agree that it is the most important thing to be doing
 
  - Correcting other people
+
+Convincing other people
+
+  If you believe an idea and you want someone else to believe it too, often it works to explain why you believe it.
+
+  If you tried this and it did not work, it might mean:
+  * Perhaps this idea is not actually true
+      * You can ask the other person which of your reasons they agree with
+          * If you find one or more reasons that the other person disagrees with, now you have a slightly simpler problem to solve, and you can repeat this process
+  * Perhaps different people have different interpretations of what the idea is
+      * You can try explaining it using different words
+      * You can try explaining it using a diagram
+      * You can try making an example
+  * Perhaps this person has other things that they would prefer to be doing instead
+      * If the person is busy, you can try summarizing why this is important
+      * If the person is tired, you might be able to talk about it at another time
+  * Perhaps the other person doesn't enjoy being convinced
+      * Asking questions can be more effective than explaining reasoning
+
+ - Correcting other people
+ - Why is compensation important?
