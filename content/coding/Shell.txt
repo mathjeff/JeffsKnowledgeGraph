@@ -716,3 +716,29 @@ Shell tmux
   * Each one can be reattached to later by another terminal
 
   You can find some information about how to use it [here](https://www.howtogeek.com/671422/how-to-use-tmux-on-linux-and-why-its-better-than-screen/)
+
+What to do about Killed in the terminal
+
+ - Why was my process killed?
+ - What to do about a process killed due to insufficient memory
+
+Why was my process killed?
+
+  If you run a shell command and the terminal says "Killed", it may mean:
+  * The computer was too low on memory and invoked the OOM Killer to terminate the process
+  * Something ran the `kill` command to kill it
+
+  To check what killed your process, you can run `sudo dmesg | grep "Killed"`
+
+ - About the OOM Killer
+ - How do I run commands in a terminal?
+
+What to do about a process killed due to insufficient memory
+
+  * Check whether available memory is still low after the process is killed
+      * If available memory is still low, then the problem isn't solely the process that was killed
+  * Try running fewer tasks at one time
+  * Check for options that the program offers that makes it use less memory
+  * Try buying more memory for your computer
+
+ - How busy is my memory using Linux?
