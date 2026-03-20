@@ -4,25 +4,14 @@ What is Jeff's Knowledge Graph?
 
   This is Jeff's Knowledge Graph!
 
-  It is:
-
-    * A prototype/experimental collection of information
-    * Originally populated with things that Jeff knows
-    * Organized to make it easy to skip to what you're interested in
-        * The idea is:
-            * We've written down some information
-            * Each piece of information is pretty short
-            * For each piece of information, we have:
-                * Written down what you should know before reading about it
-                * Categorized it a little bit to make it easier to find
-            * This web page keeps track of what you know and what you're interested in
-            * This web page tries to use this information to make it easy to jump to what you should read next.
-                * Various topics have several types of outgoing links to other topics ranging from much simpler to much more advanced
-                * Outgoing links are color-coded based on type
-
-    * Different from a usual [knowledge graph](https://en.wikipedia.org/wiki/Knowledge_graph)
-        * Most other knowledge graphs are organized such that each node is an entity
-        * In Jeff's Knowledge Graph, each node tries to be a statement or other small piece of knowledge
+  * Knows what information is needed to understand an idea, and lets you see it all at once
+      * This is done via a dependency graph
+  * Remembers what you know, to make it easy to skip re-reading
+  * Different from a usual [knowledge graph](https://en.wikipedia.org/wiki/Knowledge_graph)
+      * Most other knowledge graphs are organized such that each node is an entity
+      * In Jeff's Knowledge Graph, each node tries to be a statement or other small piece of knowledge
+  * Offers suggestions for topics to read next
+      * See the buttons at the bottom
 
 Who is Jeff?
 
