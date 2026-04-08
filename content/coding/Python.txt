@@ -374,3 +374,12 @@ Python booleans
 
   `print(1 == 2)` will output `False`
   `print(3 > 2)` will output `True`
+
+Python input
+
+  To ask the user a question in Python, you can use the `input` function. This will display a message, wait for a response, and return the result
+
+  For example, if you write `color = input("What is your favorite color?")`, this will display "What is your favorite color?", wait for the user to type something, and store the result in the `color` variable
+
+ - Python functions
+ - Python variables
