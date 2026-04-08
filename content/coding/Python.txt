@@ -68,6 +68,7 @@ Learning Python
 
  - Should I learn Python?
  - Python editors
+ - How can I run Python code?
  - Python variables
  - Python if
  - Python functions
@@ -76,6 +77,7 @@ Learning Python
  - Python lists
  - Python slices
  - Python substrings
+ - Python arithmetic
 
 Python editors
 
@@ -300,3 +302,67 @@ What is Python?
   Python is a programming language. Its files end with `.py`
 
  - What is a computer program?
+
+Python arithmetic
+
+  Arithmatic can be written similarly in Python to the way you normally write it in mathematics. For example if you run this:
+
+  ```
+  print(1 + 2)
+  print(1 * 2)
+  print(1 - 2)
+  print(1 / 2)
+  ```
+
+  Python will say this:
+
+  ```
+  3
+  2
+  -1
+  0.5
+  ```
+
+How can I run Python code?
+
+  If you have a Python editor, it will often offer a feature for running code.
+
+  Here are some other ways to run Python code.
+
+ - Running Python files
+ - Python interactive prompt
+ - Python online interpreter
+ - Python editors
+
+Running Python files
+
+  To run a python script named 'sample.py', run `python sample.py`
+
+ - How do I run commands in a terminal?
+
+Python interactive prompt
+
+  You can type code directly into the Python interpreter. To start the Python interpreter in interactive more, just run `python`. Then you can type your code into it.
+
+  For example:
+
+    ```
+    $ python
+    Python 3.8.5 (tags/v3.8.5:580fbb0, Jul 20 2020, 15:57:54) [MSC v.1924 64 bit (AMD64)] on win32
+    Type "help", "copyright", "credits" or "license" for more information.
+    >>> print("hi")
+    hi
+    >>>
+    ```
+
+  This can be convenient if you want to test a small amount of code quickly
+
+ - How do I run commands in a terminal?
+
+Python online interpreter
+
+  There are websites that will run a simple Python program for you and show you the results.
+
+  This can be nice if you don't want to install Python.
+
+  One such website is https://www.online-python.com/
