@@ -179,6 +179,7 @@ Python if
   ```
 
  - What is Python?
+ - Python booleans
 
 Python scope
 
@@ -366,3 +367,10 @@ Python online interpreter
   This can be nice if you don't want to install Python.
 
   One such website is https://www.online-python.com/
+
+Python booleans
+
+  A boolean is True or False
+
+  `print(1 == 2)` will output `False`
+  `print(3 > 2)` will output `True`
