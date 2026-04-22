@@ -70,6 +70,18 @@ How do I run commands in a terminal?
 
  - Which arguments can I give to a shell command?
 
+ - How do I open a terminal?
+
+How do I open a terminal?
+
+  Instructions for Windows: https://www.wikihow.com/Open-Terminal-in-Windows
+
+  Instructions for Mac: https://support.apple.com/en-sg/guide/terminal/apd5265185d-f365-44cb-8b09-71a064a42125/mac
+
+  Instructions for Linux: https://www.geeksforgeeks.org/linux-unix/how-to-open-terminal-in-linux/
+
+ - What is a terminal?
+
 What is the format of a shell command?
 
   A shell command can be one of:
