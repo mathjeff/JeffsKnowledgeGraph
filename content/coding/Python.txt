@@ -340,6 +340,11 @@ Running Python files
   To run a python script named 'sample.py', run `python sample.py`
 
  - How do I run commands in a terminal?
+ - Installing Python
+
+Installing Python
+
+  To install Python, go to https://www.python.org/downloads/
 
 Python interactive prompt
 
