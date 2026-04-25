@@ -411,8 +411,12 @@ How do I modify my own repository in GitHub?
 
 How do I download a repository from GitHub?
 
-  Install [git](https://git-scm.com/) and use it to download the repository from [GitHub](https://github.com/).
+  Install [git](https://git-scm.com/) and use it to [clone](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) the repository from [GitHub](https://github.com/).
+
+  For example, to clone Jeff's Knowledge Graph, you can run `git clone https://github.com/mathjeff/JeffsKnowledgeGraph`
+
  - What is GitHub?
+ - How do I run commands in a terminal?
 
 How do I upload changes to a GitHub repository?
 
