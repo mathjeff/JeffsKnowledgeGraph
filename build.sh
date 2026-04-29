@@ -35,6 +35,7 @@ copyAndAddVersion ui/renderer.js out/site
 copyAndAddVersion out/work/knowledge.json.js out/site
 cp deps/marked.min.js out/site
 cp ui/KnowledgeGraph.css out/site
+cp ui/annisite.css out/site
 # copy the html page and update and file references in it
 cat ui/index.html | sed $renamingArguments > out/site/index.html
 echo Done building

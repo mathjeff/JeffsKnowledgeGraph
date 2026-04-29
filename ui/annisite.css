@@ -1,0 +1,51 @@
+/* General color theme */
+body {
+    color:white;
+    background-color:black;
+}
+
+/* Link colors */
+a:link {
+    color:#6495ed
+}
+a:visited {
+    color: #a64dff;
+}
+a:hover {
+    color: #3366ff;
+}
+
+/* Left menu */
+.left-link {
+    margin-top: 2px;
+    margin-right: 5px;
+    margin-bottom: 2px;
+    margin-left: 20px;
+}
+
+/* Left padding */
+body {
+    padding-left: 70px;
+    padding-right: 70px;
+}
+
+/* Top menu */
+.top-link {
+    margin-top: 0px;
+    margin-right: 45px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+}
+
+/* Carousel */
+.hidden {
+    display:none
+}
+.case-study {
+    margin:30px
+}
+
+/* Font */
+body {
+    font-family: Helvetica, sans-serif;
+}
