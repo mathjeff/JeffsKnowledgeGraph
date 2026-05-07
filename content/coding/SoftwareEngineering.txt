@@ -60,21 +60,11 @@ How can I decide what to automate?
 
  - What is net present value?
 
- - How do you estimate the benefit of automating?
+ - How can I estimate the benefit of automating?
 
- - How do you estimate the cost of automating?
+ - How can I estimate the cost of a project?
 
-What is net present value?
-
-  The net present value of something in the future is a measurement of how much value today you would trade in exchange for that thing in the future.
-
-  In economics, we can compute the current value of future money via interest rates. For example, if someone has the opportunity to invest $1 today to get $1.10 next year, it means the net present value of $1.10 next year is $1. Then we can divide by 1.1 to get that the net present value of $1 next year is approximately $0.91.
-
-  Similarly, $1 two years from now would be worth $1.21 so $1 next year would be worth about $0.82 . If we want to know the net present value of getting $1 every year forever, assuming a compounding rate of 1.1, this sum equals 1 + 1/1.1 + 1/1.1^2... which equals $10.
-
-  Note that the net present value of a future event is dependent on the interest rate (0.1 in the example above).
-
-How do you estimate the benefit of automating?
+How can I estimate the benefit of automating?
 
   The benefit of automation is to not have to do a certain task manually in the future.
 
@@ -99,24 +89,6 @@ How do you estimate the benefit of automating?
  - What is automation?
 
  - People make mistakes
-
-How do you estimate the cost of automating?
-
-  Estimating the cost of automation is difficult. Here are some possible approaches:
-
-  *   In many cases, it's not necessary to get a precise estimate, and instead it's adequate to just determine whether one task is more difficult than another.
-
-  *   One way to estimate the difficulty of the project is to start the project and see what difficulties are found.
-
-      * If you can identify the aspects of the project that are most unknown/risky and work on them first, this allows you to more quickly improve your estimate of the difficulty of the project
-
-  *   These types of things tend to take more time:
-
-      * Modifying a large amount of code
-
-      * Working in an unfamiliar system
-
- - What is automation?
 
 How can I automate a task?
 
