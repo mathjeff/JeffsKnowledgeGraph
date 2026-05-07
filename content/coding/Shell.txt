@@ -375,7 +375,10 @@ Bash variables
 
   should output `5`
 
+  If you want this variable to still have the same value when you open a new terminal, you probably also should add this to a shell initialization script
+
  - What is echo?
+ - Shell initialization scripts
 
 What is echo?
 
@@ -546,8 +549,11 @@ Adding a program to the shell path
   * This means adding `:<parentDir>` to the `PATH` variable
       * For example, if the command is in `~/bin`, you can do this via `PATH="$PATH:~/bin"`
 
+  If you want this program to still be in the shell path when you open a new terminal, you probably also should add this to a shell initialization script
+
  - What commands can I run in Bash?
  - How can I read command help?
+ - Shell initialization scripts
 
 What to do about Command Not Found in the shell
 
