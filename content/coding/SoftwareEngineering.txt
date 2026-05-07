@@ -611,3 +611,35 @@ How do I use a Conda tool that I just built locally?
  - How do I create a Conda environment?
  - How do I add a local tool to Conda?
  - Working directory
+
+What is a dependency graph?
+
+  A dependency graph is a network, where each node represents a task or action, and each edge represents that one action must wait for the other one.
+
+  For example, you could describe the process of making bread with a dependency graph like this:
+
+  * You need to get flour (node)
+  * You need to get yeast (node)
+  * You need to get water (node)
+  * You need to get salt (node)
+  * You need to combine these ingredients into bread (node)
+    * This depends on getting the flour (edge)
+    * This depends on getting the yeast (edge)
+    * This depends on getting the water (edge)
+    * This depends on getting the salt (edge)
+
+Evaluating a dependency graph in software
+
+  If you have a collection of specific computer tasks, you can make it easy to run them all by describing them with a dependency graph and passing them to a program that can evaluate dependency graphs.
+
+  Programs that execute dependency graphs are often referred to as [build tools](https://en.wikipedia.org/wiki/Software_build), because a common use case for these programs is to build other software.
+
+  These programs often provide various features for evaluating these graphs more quickly or conveniently, including parallelism (doing multiple things at one time) and incrementalism (skipping things that are already done).
+
+  An older example of a tool for evaluating dependency graphs is [Make](https://www.gnu.org/software/make/).
+
+  A more recent tool for evaluating dependency graphs is [Gradle](https://gradle.org/). It also provides various plugins for some popular use cases, particularly building Java projects.
+
+  If you just want a graph executor and don't want any help describing the task graph, you can consider [ninja](https://ninja-build.org/).
+
+ - What is a dependency graph?

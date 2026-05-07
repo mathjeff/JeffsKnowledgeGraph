@@ -13,6 +13,8 @@ What is Jeff's Knowledge Graph?
   * Offers suggestions for topics to read next
       * See the buttons at the bottom
 
+ - What is a dependency graph?
+
 Who is Jeff?
 
   Jeff Gaston is the person that created this knowledge graph.
