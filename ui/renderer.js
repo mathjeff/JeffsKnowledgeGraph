@@ -763,7 +763,8 @@ function makeOpenIssueLink() {
 
 function runQuery(queryText) {
   var currentNode = getCurrentNode()
-  var queryResults = findQueryResults(queryText, currentNode["name"])
+  var nodeName = currentNode["name"]
+  var queryResults = findQueryResults(queryText, nodeName)
   if (queryResults.length > 0) {
     html = makeNodeList(queryResults, "searchResult")
   } else {
@@ -774,6 +775,7 @@ function runQuery(queryText) {
     html = "No results found" + whereText + ". " + makeOpenIssueLink()
   }
   document.getElementById("search-results").innerHTML = html
+  plausible("queryNotFound", {"props":{"node":nodeName, "query":queryText}})
 }
 
 function queryBoxKeyPress(event) {
