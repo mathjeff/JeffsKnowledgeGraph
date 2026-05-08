@@ -31,3 +31,22 @@ How can I estimate the cost of a project?
     * Perhaps you will eventually think of an idea that you like better than your first idea
 
       * If you are interested in trying a computer game that can demonstrate this concept, see [Into the Breach](https://store.steampowered.com/app/590380/Into_the_Breach/).
+
+Prioritizing
+
+  What you should do depends on:
+  * How valuable each choice is
+  * How difficult each choice is
+  * How hard it is to to find other options
+
+  For a large task:
+  * If you have an option that is highly valuable but seems very difficult, then it is often worthwhile to give it more consideration, because you may find that your estimate of the difficulty improves after further consideration.
+
+  If you haven't found any highly valuable options, it may help to explore for more options.
+
+  For many small tasks:
+  * If you would like to automate the process of keeping track of what you like and finding ideas for what to do next, you might like [ActivityRecommender](https://github.com/mathjeff/ActivityRecommender).
+
+ - How can I estimate the benefit of automating?
+ - What is net present value?
+ - How can I estimate the cost of a project?
