@@ -4,6 +4,26 @@ What is a version control system?
 
   A version control system is a system that keeps track of the history of a collection of files, and allows inspecting and labelling changes along with undoing and redoing named changes.
 
+Benefits of version control
+
+  A version control system can be helpful in these cases:
+
+  * A version control system can allow you to compare two versions to see what changed
+      * This can be helpful if something stopped working and you want to see what might explain it
+      * This can be helpful when doing code review so you can see what changed between two versions
+  * A version control system can allow you to restore a previous version
+      * This can be helpful if something stopped working and you want to return to the previous version
+  * A version control system can allow you to merge your changes with another person's changes
+      * This can help multiple people to work on the same project at the same time without overwriting each other's changes
+  * A version control system can allow you to easily undo a set of related changes all at once
+      * This can be helpful if you discover that there was a problem with just that set of changes and you don't want to undo all of the changes that happened since then
+  * A version control system can allow you to easily set aside your changes for later
+      * This can be helpful if your changes are not done yet but you found something else you want to work on first
+
+ - What is a version control system?
+ - What is a merge conflict?
+ - What is code review?
+
 What is git?
 
   Git is a version control system

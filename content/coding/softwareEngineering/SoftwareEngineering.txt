@@ -8,6 +8,8 @@ Software engineering tips
 
  - What is software engineering?
 
+ - Benefits of version control
+
  - Automating
 
  - Avoid duplicate code
