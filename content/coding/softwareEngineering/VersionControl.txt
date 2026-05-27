@@ -1,5 +1,15 @@
 # Information about Version Control
 
+What is a version control system?
+
+  A version control system is a system that keeps track of the history of a collection of files, and allows inspecting and labelling changes along with undoing and redoing named changes.
+
+What is git?
+
+  Git is a version control system
+
+ - What is a version control system?
+
 What is GitHub?
 
   [GitHub](https://github.com/) is a website for hosting `git` repositories.
@@ -7,6 +17,8 @@ What is GitHub?
   It allows uploading and downloading information via the `git` command
 
   Typically it stores code and small files
+
+ - What is git?
 
 How do I modify a repository in GitHub?
 
