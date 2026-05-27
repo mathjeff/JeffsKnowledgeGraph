@@ -22,7 +22,8 @@ body {
   background-color: #ffff00;
 }
 
-.button-elaborate {
+.button-elaborate,
+.button-random {
   background-color: #3399ff;
 }
 

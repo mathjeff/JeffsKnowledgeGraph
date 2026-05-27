@@ -339,6 +339,31 @@ function getDirectDependentNames(nodeName) {
   return nodeDependents[nodeName]
 }
 
+function hasDependent(nodeName) {
+  return getDirectDependentNames(nodeName).length > 0
+}
+
+function getUnfamiliarNodeNamesWithoutDependents() {
+  let candidates = []
+  for (let i = 0; i < knowledgeGraph.length; i++) {
+    let nodeName = knowledgeGraph[i]["name"]
+    if (hasSubtopics(nodeName))
+      continue
+    if (hasDependent(nodeName))
+      continue
+    if (isFamiliar(nodeName))
+      continue
+    candidates.push(nodeName)
+  }
+  return candidates
+}
+
+function isFamiliar(nodeName) {
+  if (!(nodeName in familiarityByName))
+    return false
+  return familiarityByName[nodeName]
+}
+
 function getAllFamiliarNodes() {
   var result = new Set()
   for (var key in familiarityByName) {
@@ -610,6 +635,14 @@ function getRandomEdgeFamiliarName() {
     return null
   }
   // choose random candidate
+  candidates = Array.from(candidates)
+  var randInt = Math.floor(Math.random() * candidates.length)
+  return candidates[randInt]
+}
+
+// finds all unfamiliar nodes that have no dependents and chooses one at random
+function getRandomUnfamiliarEdgeNodeName() {
+  let candidates = getUnfamiliarNodeNamesWithoutDependents()
   candidates = Array.from(candidates)
   var randInt = Math.floor(Math.random() * candidates.length)
   return candidates[randInt]
@@ -1099,13 +1132,29 @@ function goToNode(nodeIndex, actionType) {
   if (latestFamiliarity != null) {
     statusSections.push("<h4>Familiar with " + numFamiliarNodes + " entries, including:</h4>" + latestFamiliarity + "<br/>")
   }
+
+  if (statusSections.length < 1 || node == rootNode) {
+    // For new users, display some random nodes until they give us some feedback
+    // For returning users, display some random nodes on the root node only
+    randomNodeNames = []
+    for (let i = 0; i < 4; i++) {
+      randomNodeName = getRandomUnfamiliarEdgeNodeName()
+      if (randomNodeName) {
+        if (!randomNodeNames.includes(randomNodeName)) {
+          randomNodeNames.push(randomNodeName)
+        }
+      }
+    }
+    if (randomNodeNames.length > 0)
+      render += makeNodeList(randomNodeNames, "random")
+  }
+
   if (statusSections.length > 0) {
     render += "<h3>My Status:</h3>"
     for (var i = 0; i < statusSections.length; i++) {
       render += statusSections[i]
     }
   }
-
   if (node != rootNode) {
     render += makePermalinkAnchor(nodeName) + "<br/>"
   }
