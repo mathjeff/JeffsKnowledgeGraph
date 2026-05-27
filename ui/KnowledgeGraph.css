@@ -33,3 +33,8 @@ body {
 table {
   border-spacing: 10px;
 }
+
+td.multicolumn-table {
+  border: 1px solid;
+  border-color: darkgrey;
+}

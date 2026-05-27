@@ -916,7 +916,8 @@ function makeTable(columns) {
   result += "<table>"
   result += "<tr>"
   // If there is only one column then we don't need to explain it ("Tell me about:") because it's already explained by the "Explore" above
-  var outputColumnHeaders = (columns.length > 1)
+  var haveMultipleColumns = (columns.length > 1)
+  var outputColumnHeaders = haveMultipleColumns
   if (outputColumnHeaders) {
     for (i = 0; i < columns.length; i++) {
       column = columns[i]
@@ -927,7 +928,11 @@ function makeTable(columns) {
   result += "<tr>"
   for (i = 0; i < columns.length; i++) {
     column = columns[i]
-    result += "<td>" + column["content"] + "</td>\n"
+    if (haveMultipleColumns)
+      result += "<td class='multicolumn-table'>"
+    else
+      result += "<td>"
+    result += column["content"] + "</td>\n"
   }
   result += "</table>"
   return result
