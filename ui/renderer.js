@@ -1106,7 +1106,9 @@ function goToNode(nodeIndex, actionType) {
     }
   }
 
-  render += makePermalinkAnchor(nodeName) + "<br/>"
+  if (node != rootNode) {
+    render += makePermalinkAnchor(nodeName) + "<br/>"
+  }
 
   document.getElementById("content").innerHTML = "<div>" + render + "</div>"
 
