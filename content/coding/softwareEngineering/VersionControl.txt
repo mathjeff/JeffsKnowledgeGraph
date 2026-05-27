@@ -76,6 +76,14 @@ How do I download a repository from GitHub?
  - What is GitHub?
  - How do I run commands in a terminal?
 
+How can I fetch a change from GitHub?
+
+  After you have cloned the repository:
+
+  * If the change you want has already been uploaded to a branch in the same repository, you can run `git fetch`
+
+ - How do I download a repository from GitHub?
+
 How do I upload changes to a GitHub repository?
 
   1. inform Git about any changes you made: run `git commit -a`
@@ -213,3 +221,44 @@ Why do code review?
     * Reviewers can learn things from code that they are reviewing
 
  - What is code review?
+
+How can I check out someone else's changes on my computer?
+
+  Fetch the changes and run `git checkout <branchname>`
+
+ - How can I fetch a change from GitHub?
+ - How can I read command help?
+
+How can I cherry-pick someone else's changes on my computer?
+
+  First fetch the changes and then run `git cherry-pick ..<branchname>`
+
+ - How can I fetch a change from GitHub?
+ - How can I read command help?
+ - How can I resolve a merge conflict?
+
+How can I merge someone else's changes on my computer?
+
+  Fetch the changes and then run `git merge <branchname>`
+
+ - How can I fetch a change from GitHub?
+ - How can I read command help?
+ - How can I resolve a merge conflict?
+
+How can I get somebody else's change on my computer?
+
+  Getting somebody else's change on your computer requires choosing whether you want to:
+
+  * Get the exact file state that that person's change describes, including all of the history
+      * If this is what you want, then you want to check out that person's changes
+  * Apply that person's change on top of your changes
+      * This keeps that person's change and discards history before it
+      * If this is what you want, then you want to cherry-pick that person's changes
+  * Combine that person's change with your changes
+      * This preserves any changes before that other person's changes
+      * This preserves any changes before any of your own changes
+      * If this is what you want, then you want to merge that person's changes
+
+ - How can I check out someone else's changes on my computer?
+ - How can I cherry-pick someone else's changes on my computer?
+ - How can I merge someone else's changes on my computer?
