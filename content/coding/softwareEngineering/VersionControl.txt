@@ -1,0 +1,183 @@
+# Information about Version Control
+
+What is GitHub?
+
+  [GitHub](https://github.com/) is a website for hosting `git` repositories.
+
+  It allows uploading and downloading information via the `git` command
+
+  Typically it stores code and small files
+
+How do I modify a repository in GitHub?
+
+  To modify a repository in GitHub:
+
+  1. fork the repository to your account
+  1. modify your fork
+  1. contribute the changes back via a pull request
+
+ - How do I modify my own repository in GitHub?
+ - How do I fork a repository in GitHub?
+ - How do I make a pull request in GitHub?
+ - How do I submit a pull request in GitHub?
+
+How do I fork a repository in GitHub?
+
+  There should be a button in GitHub to fork it.
+  This makes a copy in GitHub of the original repository and puts it under your account.
+
+ - What is GitHub?
+
+How do I modify my own repository in GitHub?
+
+  Download the repository, make some changes, and upload your changes
+
+ - How do I download a repository from GitHub?
+ - How do I upload changes to a GitHub repository?
+
+How do I download a repository from GitHub?
+
+  Install [git](https://git-scm.com/) and use it to [clone](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) the repository from [GitHub](https://github.com/).
+
+  For example, to clone Jeff's Knowledge Graph, you can run `git clone https://github.com/mathjeff/JeffsKnowledgeGraph`
+
+ - What is GitHub?
+ - How do I run commands in a terminal?
+
+How do I upload changes to a GitHub repository?
+
+  1. inform Git about any changes you made: run `git commit -a`
+  2. `git push`
+
+ - How do I download a repository from GitHub?
+
+How do I make a pull request in GitHub?
+
+  GitHub should have a button for making a pull request if you have forked the repository
+
+ - How do I fork a repository in GitHub?
+
+How do I submit a pull request in GitHub?
+
+  The pull request should have a button for submitting it
+
+  You may have to wait for all of the checks to be satisfied first
+
+  * This may include automated checks ensuring that the code works correctly
+  * This usually includes getting a person to review your change and approve it
+
+ - How do I make a pull request in GitHub?
+ - What is code review?
+
+What is a merge conflict?
+
+  A [merge conflict](https://stackoverflow.com/questions/24852116/what-exactly-is-a-merge-conflict) is when two different people make different changes to the same part of a file, and someone is trying to apply both of these changes at once.
+
+What is a mergetool?
+
+  A mergetool is a tool that Git runs to help you resolve merge conflicts.
+
+ - What is a merge conflict?
+
+How can I enable vimdiff as the default mergetool in Git?
+
+  As described [here](https://gist.github.com/karenyyng/f19ff75c60f18b4b8149), run this:
+
+  ```
+  git confit --global merge.tool vimdiff
+  git config merge.conflictstyle diff3
+  ```
+
+ - What is a mergetool?
+
+How can I interact with vimdiff?
+
+  Vimdiff is essentially vim with multiple windows. Specifically:
+
+  * To move your cursor to another window, press `ctrl-W ctrl-W`
+  * To search forward for text, press "/" and type the text and press <Enter>
+  * To search reverse for text, press "?" and type the text and press <Enter>
+  * To move your cursor when using Cygwin, you might have to use "h", "j", "k", and "l" instead of the arrow keys
+  * To insert text, type "i" and type some text and press <Escape>
+  * To save and quit all files, type ":wqa"
+
+How can I resolve merge conflicts with vimdiff?
+
+ - How can I enable vimdiff as the default mergetool in Git?
+ - How can I interact with vimdiff?
+
+How can I resolve merge conflicts without a mergetool?
+
+  To resolve a merge conflict without a mergetool, you can edit the files directly.
+  Run `git status` to see the files that need changing.
+  Use your favorite editor to edit them.
+  Use `git add <filename>` to tell git when you are done editing a file.
+
+How can I restore state from a git commit?
+
+  Each git commit has a set of files and some history.
+
+  Your git repository also has a HEAD pointer, some files, and usually a current branch
+
+  * If you want to update the commit that the current branch points to:
+      * If you want to update your files too, run `git reset <otherCommit> --hard`
+          * Careful - this will overwrite any uncommitted changes you have and can be dangerous
+      * If you don't want to update your files, run `git reset <otherCommit>`
+  * If you don't want to update the commit that the current branch points to:
+      * If you want to update the HEAD pointer and your current files, run `git checkout <otherCommit>`
+      * If you don't want to update the HEAD pointer:
+          * If you want to update all your files, do `git checkout <otherCommit> -- .`
+              * This will also overwrite any changes
+          * If you want to update some of your files, do `git chekout <otherCommit> -- <subdirectory>`
+
+What is git reflog?
+
+  Git's reflog is a history of commits that you have checked out. Run `git reflog` to see it.
+
+  This will output a history of:
+
+  * The hash of the commit
+  * The names of any branches pointing at this commit
+  * A description of which git commit brought you to that commit
+
+How do I restore changes from the reflog?
+
+  After you get a history of changes from `git reflog`, you can get them back like any other commit.
+
+ - What is git reflog?
+ - How can I restore state from a git commit?
+
+How can I resolve a merge conflict?
+
+  If you would like to see all of the versions of the file (common ancestor, left version, right version, and merge version) at once and would like to use `vim`, tell `git` to use `vimdiff` as a mergetool.
+
+  If you would like to edit the file with another program, you don't need to configure a mergetool.
+
+  When you think you have resolved all of the conflicts, make sure to check that your changes look right (`git status` and `git log -p`)
+
+  If you make a mistake, you can go back to old versions of files or commits using the reflog
+
+  When you are sure you have resolved all of the conflicts, tell Git that you are done by rerunning the command that caused the conflict: either `git rebase --continue` or `git merge --continue`
+
+ - How can I resolve merge conflicts with vimdiff?
+ - How can I resolve merge conflicts without a mergetool?
+ - How do I restore changes from the reflog?
+
+What is code review?
+
+  Code review is the process of having a person look at code you've written to check for problems.
+
+  Code review is done before the code is submitted, usually.
+
+  If a code reviewer finds a problem, they usually write a comment on the change, which can often be located on a certain line of a certain file.
+
+Why do code review?
+
+  * Code review can reduce issues in the near future
+    * Code review can prevent bugs from being submitted into the system
+    * Code review can prevent performance issues from being submitted into the system
+  * Code review can improve quality later
+    * Reviewers can share things that they have learned that are relevant to the code
+    * Reviewers can learn things from code that they are reviewing
+
+ - What is code review?
