@@ -106,7 +106,7 @@ function groupNodesByName() {
 }
 
 function makeRootNode() {
-  rootNode = {"name":"Welcome to Jeff's Knowledge Graph", "description":"", dependencies:[], "topic":null, "subtopics": []}
+  rootNode = {"name":"Welcome to Jeff's Knowledge Graph", "description":"A dependency graph of knowledge", dependencies:[], "topic":null, "subtopics": []}
   knowledgeGraph.push(rootNode)
 }
 
