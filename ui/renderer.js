@@ -844,7 +844,7 @@ function compareNodePriorities(nodeName1, nodeName2) {
     return 1
   }
 
-  // nodes that the user are slightly unfamiliar with are ideal
+  // If a node has lots of dependencies, it probably more clearly explains why it is interesting
   var numUnfamiliarDependencies1 = countNumUnfamiliarDependencies(nodeName1)
   if (numUnfamiliarDependencies1 <= 0)
     numUnfamiliarDependencies1 = 2000000
@@ -857,7 +857,7 @@ function compareNodePriorities(nodeName1, nodeName2) {
   if (getDirectSubtopicNames(nodeName2).length > 0)
     numUnfamiliarDependencies2 = 1000000
   if (numUnfamiliarDependencies1 != numUnfamiliarDependencies2) {
-    if (numUnfamiliarDependencies1 < numUnfamiliarDependencies2)
+    if (numUnfamiliarDependencies1 > numUnfamiliarDependencies2)
       return -1
     return 1
   }
