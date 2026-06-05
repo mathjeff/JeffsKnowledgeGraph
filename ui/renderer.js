@@ -1160,6 +1160,9 @@ function goToNode(nodeIndex, actionType) {
   }
 
   document.getElementById("content").innerHTML = "<div>" + render + "</div>"
+  if (node == rootNode && actionType == "init") {
+    document.getElementById("query").focus()
+  }
 
   plausible("goToNode", {"props":{"node":nodeName, "action":actionType}})
 }
