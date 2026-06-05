@@ -1,5 +1,23 @@
 # Information about collaboration
 
+Checking for problems
+
+  People make lots of kinds of mistakes.
+
+  Some kinds of mistakes can cause increasingly large problems until they are corrected, such as working on a less useful task or using a less efficient process.
+
+  If we check for problems, we may catch these problems and fix them before they cause larger problems.
+
+  Checking for problems requires effort, so we often only do it periodically.
+
+  If a problem is more important and easier to check for, we usually check for it more often.
+
+  If a problem is less important and harder to check for, we usually check for it less often.
+
+  A common approach for checking for several types of problems at once involves investigating how much progress has been made and considering whether that suggests the existence of an important problem.
+
+ - Preparing for mistakes
+
 When do people collaborate?
 
   Two people tend to collaborate when:
