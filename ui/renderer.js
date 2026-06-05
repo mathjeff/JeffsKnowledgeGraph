@@ -808,7 +808,7 @@ function runQuery(queryText) {
     html = "No results found" + whereText + ". " + makeOpenIssueLink()
   }
   document.getElementById("search-results").innerHTML = html
-  plausible("queryNotFound", {"props":{"node":nodeName, "query":queryText}})
+  plausible("search", {"props":{"node":nodeName, "query":queryText}})
 }
 
 function queryBoxKeyPress(event) {
