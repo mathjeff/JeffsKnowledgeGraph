@@ -1,5 +1,20 @@
 # Information about collaboration
 
+When do people collaborate?
+
+  Two people tend to collaborate when:
+  * They interact with each other multiple times
+  * The environment makes collaboration beneficial
+  * Mistakes are not too common
+
+  You can read more about this and play a game that demonstrates it at https://ncase.me/trust/
+
+ - What is collaboration?
+
+What is collaboration?
+
+  Collaboration refers to working together with other people
+
 What is compensation?
 
   Compensation is the concept of something valuable that you receive in exchange for something else
