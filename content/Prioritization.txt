@@ -44,9 +44,13 @@ Prioritizing
 
   If you haven't found any highly valuable options, it may help to explore for more options.
 
-  For many small tasks:
+  For many small, similar tasks:
   * If you would like to automate the process of keeping track of what you like and finding ideas for what to do next, you might like [ActivityRecommender](https://github.com/mathjeff/ActivityRecommender).
+
+  For many different tasks:
+  * You may be interested in writing the tasks down in a system called an issue tracker
 
  - How can I estimate the benefit of automating?
  - What is net present value?
  - How can I estimate the cost of a project?
+ - Issue trackers

@@ -329,11 +329,35 @@ People are forgetful
 Take notes
 
   This can help you to more easily remember what you've been doing.
+
   You might find it useful to record things that you're more likely to forget, such as:
 
   * Important file paths that you discovered recently
   * Your latest progress on your current project
 
+ - People are forgetful
+
+Issue trackers
+
+  An issue tracker is a system that helps people to remember work that needs to be done, by allowing a user to do this:
+
+  * Write down tasks that need to be completed
+  * Search for tasks that haven't been completed yet
+  * Record that a specific task is now complete
+
+  Some issue trackers also include other features, including:
+  * Allowing users to directly specify the importance of a task
+  * Allowing users to vote in favor of raising the importance of a task
+  * Allowing users to specify that one task needs to wait for something else before it can be worked on
+
+  Some popular issue trackers:
+  * [Jira](https://www.atlassian.com/software/jira)
+  * [GitHub Issues](https://github.com/features/issues)
+
+Write things down
+
+ - Issue trackers
+ - Take notes
  - People are forgetful
 
 Backwards compatibility
