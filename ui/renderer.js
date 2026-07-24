@@ -300,7 +300,8 @@ function expandDependencies(includeFamiliar, moreComplicatedFirst, shouldIndent)
     candidates = removeFamiliarDependencies(candidates)
   var html = ""
   console.log("expanding dependencies of " + nodeName)
-  if (moreComplicatedFirst && shouldIndent)
+  var treeOrder = moreComplicatedFirst && shouldIndent
+  if (treeOrder)
     candidates = getAllDependenciesInTreeOrderOf(nodeName, indentations)
   for (var i = 0; i < candidates.length; i++) {
     var candidateName = candidates[i]
@@ -317,6 +318,8 @@ function expandDependencies(includeFamiliar, moreComplicatedFirst, shouldIndent)
     }
   }
   document.getElementById("text").innerHTML = html
+
+  plausible("expandDependencies", {"props":{"node":nodeName, "expandFamiliar": includeFamiliar, "expandTree": treeOrder}})
 }
 
 function expandUnfamiliarDependenciesList() {
