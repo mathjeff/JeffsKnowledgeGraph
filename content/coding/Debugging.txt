@@ -194,3 +194,4 @@ What is using space on my drive?
 
  - Working directory
  - How can I read command help?
+ - How do I run commands in a terminal?
