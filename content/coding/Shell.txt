@@ -74,7 +74,9 @@ How do I run commands in a terminal?
 
 How do I open a terminal?
 
-  Instructions for Windows: https://www.wikihow.com/Open-Terminal-in-Windows
+  Instructions for Windows:
+    * To open a Windows Terminal: https://www.wikihow.com/Open-Terminal-in-Windows
+    * To open a terminal that resembles a Linux terminal: https://cygwin.com
 
   Instructions for Mac: https://support.apple.com/en-sg/guide/terminal/apd5265185d-f365-44cb-8b09-71a064a42125/mac
 
@@ -685,8 +687,8 @@ What is a shell pipe?
 
 Tips for slow shell commands
 
- - What to do about a slow command?
  - Keeping a shell command running after closing the terminal
+ - What to do about a slow command?
 
 Keeping a shell command running after closing the terminal
 

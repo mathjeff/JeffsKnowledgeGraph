@@ -330,17 +330,18 @@ How can I run Python code?
 
   Here are some other ways to run Python code.
 
- - Running Python files
+ - Running Python files locally
  - Python interactive prompt
  - Python online interpreter
  - Python editors
 
-Running Python files
+Running Python files locally
 
   To run a python script named 'sample.py', run `python sample.py`
 
  - How do I run commands in a terminal?
  - Installing Python
+ - What is local in a computer?
 
 Installing Python
 
