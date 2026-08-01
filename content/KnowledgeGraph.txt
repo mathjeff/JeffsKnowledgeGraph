@@ -27,7 +27,9 @@ Who is Jeff?
 
 Can I contribute to Jeff's Knowledge Graph?
 
-  Yes! Jeff's Knowledge Graph is stored in GitHub at https://github.com/mathjeff/JeffsKnowledgeGraph
+  Yes! Jeff's Knowledge Graph is stored in GitHub at https://github.com/mathjeff/JeffsKnowledgeGraph .
+
+  From there you can look at how it works and suggest changes!
 
  - How do I modify a repository in GitHub?
 
