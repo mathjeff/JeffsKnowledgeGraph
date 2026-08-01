@@ -1,0 +1,464 @@
+# Some information about neural networks
+
+Neural networks
+
+  A neural network is a type of AI model.
+
+  It involves a collection of nodes, each of which is connected to many other nodes.
+
+  Most nodes combine their inputs and apply a nonlinear function to produce an output.
+
+  The details of how a node combines its inputs is dependent on its weights.
+
+  The weights of node connections in a graph make up the parameters of the neural network.
+
+  Neural networks can model many different functions and can be trained.
+
+ - What is AI?
+
+What is a deep neural network?
+
+  A deep neural network is a neural network with at least 3 layers
+
+ - Neural networks
+
+What is deep learning?
+
+  Deep learning refers to training a deep neural network
+
+ - What is a deep neural network?
+ - Training neural networks
+
+Training neural networks
+
+  A neural network is a complicated function that makes predictions for an input based on its internal parameters.
+
+  Training a neural network involves changing its parameters in such a way that its predictions for a training set get more accurate.
+
+  Usually the way this works is:
+
+  1. The user identifies some training data
+
+  2. The user chooses a loss function
+
+  3. Backpropagation identifies the gradient of the loss on this training set with respect to the network parameters
+
+  4. Gradient descent repeatedly uses backpropagation to compute the gradient, and uses the gradient to change the network's parameters to reduce the loss
+
+  The purpose is not simply to minimize the loss on training sets, but to find parameters that can accuractly predict previously unseen data (testing sets) - generalization.
+
+ - Neural networks
+
+ - What is a loss function?
+
+ - Gradient descent
+
+ - What is backpropagation?
+
+Large Language Models
+
+  Large language models are neural networks that attempt to understand language.
+
+  They're often trained to predict a specific word in a text given the rest of the surrounding words.
+
+ - Neural networks
+
+What is backpropagation?
+
+  Backpropagation is a way of determining the gradient of the output of a neural network with respect to each of the network's parameters
+
+  Backpropagation starts at the last layer in the neural network and computes the gradient of each output of the network with respect to each parameter in the last layer of the network.
+
+  Then, backpropagation proceeds to the previous layer (this is why it's called "backpropagation") and computes the gradient of each output of the network as a function of each parameter in that layer of the network.
+
+  This process continues until each gradient is computed.
+
+ - What is a gradient?
+
+ - Neural networks
+
+How to train a neural network in Pytorch?
+
+  1) Define a neural network (model) using `def forward()`. `forward()` defines the calculation on inputs (x) to generate outputs (y).
+
+  2) Choose an optimization method (optimizer) using `torch.optim`, which improves the parameters in the neural network.
+
+      * Example: Stochastic gradient descent (`torch.optim.SGD()`).
+
+      * Example: Adam optimizer (`torch.optim.Adam()`).
+
+  3) Choose a loss function (loss_fn), that measures how wrong the predictions (y_predicted by the model) are compared to the truth (y).
+
+      * Example: MAE (mean absolute error) loss function for regression problems (predicting a number)
+
+      * Example: Binary cross entropy loss function for classification problems (predicting one thing or another).
+
+  4) Prepare training data (60-80%), testing data (10-20%), and validation data (10-20%).
+
+  5) Define the training loop:
+
+    Set model mode to training by `model.train()`
+
+    Pass the training data through the model by `y_predicted = model(x_train)`
+
+    Calculate loss by `loss = loss_fn(y_predicted,y_train)`
+
+    Clean up old gradients in the optimizer by `optimizer.zero_grad()`
+
+    Backpropagation to compute the gradient of the loss for each model parameter by `loss.backward()`
+
+    Optimize the model parameters by `optimizer.step()`
+
+    NOTE: loss should be calculated before backpropagation; gradients should be cleaned before backpropagation; parameters should be optimized after backpropagation
+
+  6) Define the testing loop:
+
+    Set model mode to evaluation (model.eval())
+
+    Pass the testing data through the model by `y_predicted = model(x_test)`
+
+    Calculate loss by `loss = loss_fn(y_predicted,y_test)`
+
+    Evaluate model performance, for example, visualize average loss or accuracy for every 10 epochs
+
+    NOTE: testing loop doesn't contain backpropagation and paramater optimization.
+
+ - What is pytorch?
+
+ - Neural networks
+
+ - What is a validation dataset?
+
+How can I train a neural network on a GPU?
+
+  1) Check whether a GPU is available by `torch.cuda.is_available()` and set `device = "cuda" if torch.cuda.is_available() else "cpu"`
+
+  2) Move your neural network to GPU by `model_1.to(device)`
+
+  3) Move all data to GPU by
+
+  `x_train = x_train.to(device)`
+
+  `x_test = x_test.to(device)`
+
+  `y_train = y_train.to(device)`
+
+  `y_test = y_test.to(device)`
+
+ - How to train a neural network in Pytorch?
+
+ - What is a GPU?
+
+ - What is pytorch?
+
+ - Neural networks
+
+Handling overfitting in neural networks
+
+  Things we can do to prevent overfitting in a neural network
+
+    1) Design representative training data and testing data. For examples, bacterial species in testing data should not be included in training data.
+
+    2) Early stop: stopping the training when testing loss reaches a minimum (it could be a local minimum though).
+
+    3) Drop out: randomly dropping out X% nodes (set activations to 0) in each epoch of training. It forces the neural network to not rely on any single node.
+
+    4) I guess trying different neural network size, structure, optimizers, activation functions?
+
+ - What is overfitting?
+
+ - Neural networks
+
+Handling neural network local minimums
+
+  Neural networks are often trained via gradient descent, which does not guarantee that the training process will find the set of parameters that produce the absolute minimum loss for the given training set. Sometimes it will find a local minimum instead.
+
+  Things we can try to be not stuck with local minimum
+
+    1) adapt learning rates to the landscape of gradient - try different optimizers
+
+    2) try different initial states (random values we give to parameters before trainig)
+
+ - Gradient descent
+
+ - Neural networks
+
+Common problems training a neural network
+
+ - Handling overfitting in neural networks
+
+ - Handling neural network local minimums
+
+What is a recurrent neural network (RNN)?
+
+  A recurrent neural network is a network that remembers some past inputs for previous steps in a task.
+
+  This means its output at any given step is dependent on both the input (x_t) for the current step but also some special outputs from the previous step (h_t-1).
+
+  An RNN can work well with sequential data, such as voice, sentences, DNA/protein sequences, ..., where current states are determined by both input and previous states.
+
+  The loss of RNN is the sum of the losses over all time steps (y_predicted_t VS y_t).
+
+ - Neural networks
+
+ - What is a loss function?
+
+Problems in training an RNN
+
+  Backpropagation in RNN changes the parameters way more (t) times than a simple neural network - a parameter can go too big (explode) or too small (vanish) very quickly.
+
+  Things we can do:
+
+    1) Better activation functions - ReLU
+
+    2) Initialize the parameters smartly - initialize weights to identity matrix, initialize biases to zero. This helps to prevent the weights from shrinking to zero. Why?
+
+    3) Gated call - add more computations within the recurrent cell to selectively keep or remove information, such as long short term memory (LSTMs).
+
+  It's hard for an RNN to deal with long sequencial data efficiently. It's hard to paralize RNN computation.
+
+  Solution:
+
+    Not think about each time step in isolation. Let's learn which part of the sequence data is actually important - attention!
+
+ - What is a recurrent neural network (RNN)?
+
+What is an attention head?
+
+  An attention head (also described [here](https://towardsdatascience.com/all-you-need-to-know-about-attention-and-transformers-in-depth-understanding-part-1-552f0b41d021#8607)) takes as input a matrix representing a list of embeddings of tokens, and produces as output a list of attention values.
+
+  An attention head has three matrices of parameters that can be learned like other parameters in a neural network. Let's call these matrices P1, P2, and P3.
+
+  When evaluating an attention head for a specific input matrix, we do this:
+
+  ```
+
+  Queries = Input * P1
+
+  Keys = Input * P2
+
+  Values = Input * P3
+
+  ```
+
+  Then, for each token, we compute the similarity of its entry in Queries with each other entry in Keys via a dot product. This generates a list of similarities.
+
+  Then, we renormalize these similarities so that the total similarity for a given token equals 1.
+
+  Then, for each token, we multiply each similarity by the corresponding entry from the Values.
+
+  The output of this process is the attention values.
+
+  Each attention head in a model is given the raw input directly (usually tokenized words), but has its own set of parameters that can be learned independently.
+
+ - What is an embedding?
+
+ - Neural networks
+
+ - Training neural networks
+
+What is multi-head attention?
+
+  Multi-head attention is the idea of using and training several attention heads separately, and concatenating their results into a single output.
+
+ - What is an attention head?
+
+What is a transformer?
+
+  A [transformer](https://en.wikipedia.org/wiki/Transformer_(deep_learning_architecture)) is a machine learning model that consists of several layers.
+
+  Each layer contains a multi-headed attention block, and a neural network.
+
+  The attention blocks help the model to identify important words.
+
+  The neural network allows the model to learn more complicated patterns, and generates the output for that layer.
+
+  The output of the last layer of the transformer is considered to be the output of the transformer.
+
+ - What is multi-head attention?
+
+ - Neural networks
+
+Why use a transformer?
+
+  A transformer can be more easily parallelized than some other algorithms like CNN or RNN.
+
+  A transformer isn't affected by the vanishing-gradient problem that can affect RNNs.
+
+ - What is a transformer?
+
+ - What is a recurrent neural network (RNN)?
+
+ - Problems in training an RNN
+
+ - What is a convolutional network (CNN)?
+
+What is a convolutional network (CNN)?
+
+  CNN applies convolution functions to the input (usually an image).
+
+  The convolution function is called a filter. CNN applies a filter to a small patch of the input (image) to pick up patterns from a small region.
+
+  The filter (weights) is trained by back propagation.
+
+  A CNN usually has multiple filters to pick up different patterns.
+
+  The output of a filter applied to a patch of input is called feature. A feature map contains all output of a filter applied to the whole input.
+
+  Activation, such as ReLu, is also necessary in CNN to learn non-linear relationships.
+
+  Usually, we want to decrease data size and increase filters to learn more patterns with simialr number of parameters.
+
+  This is done by pooling, which pool features of nearby image positions into one number, e.g. max or average.
+
+ - Neural networks
+
+ - What is a feature in machine learning?
+
+What is multi-head latent attention (MLA)?
+
+  Generative LLMs output one word a time. Each round, it uses previous words to predict the next word. So, people cache K and V values of previous words to avoid duplicated computation - called KV cache.
+
+  A KV cache is two big matrixes (embedding dimension * dimension per head), and multi-head attention makes it even bigger (* number of heads). This requires lots of GPU memory during inference (model prediction).
+
+  To reduce GPU memory, DeepSeek creates a latent vector for KV cache (lower dimension like PCA), by jointly compressing the keys and values.
+
+ - What is multi-head attention?
+
+ - What is an attention head?
+
+What is a feed-forward network of transformers?
+
+  A feed-forward network is a network in which information only moves in one direction: it has no cycles.
+
+ - Neural networks
+ - What is a transformer?
+
+What is DeepSeekMOE?
+
+  1) fine grained expert segmentation: use a larger number of smaller experts (double the number, half the parameters compared to other conventional MoE models). Each expert has less variants, together they make better decisions.
+
+  2) shared experts: to store common knolwedge, which is always picked during inference.
+
+  Problem: load balancing problem: during training, the model might reinforce the most strongest experts - might not be able to generalize.
+
+  Solution:
+
+  1) give loss or penalty to experts that received many training tokens.
+
+  2) loss-free: add a bias in softmax, bias is controlled by how many training tokens an expert received (more tokens, less bias). This bias does not impact the loss function and inference.
+
+ - What is mixture of experts (MOE)?
+
+What else does DeepSeekMOE do?
+
+  1) Node-limited routing: Moving tokens from a GPU node to another is expensive. DeepSeek sets a limit that each token can only be transferred to `m` GPU nodes.
+
+  2) Token dropping: when some experts have high load balance, tokens would skip the feed-forward network and go directly to residue layer (directly add the input to the output layer).
+
+ - What is DeepSeekMOE?
+
+How to train LLMs?
+
+  The purpose of an LLM is to output text. Training an LLM involves asking it to generate text, assigning a score to the text that it generated, and changing its parameters in a way that improves the score.
+
+ - Large Language Models
+
+ - Training neural networks
+
+What is multi-token prediction (MTP)?
+
+  [Multi-token prediction](https://www.clioapp.ai/research/multi-token-prediction) in an LLM involves splitting one head into several heads: head 1 predicts the next token, head 2 predicts the next next, heads 3 predicts the next next next, etc. Each head makes its predictions independently of the other heads.
+
+  During training, the overall loss for the model is based on the combined losses of each head.
+
+  During inference, there are two possible approaches:
+
+  * Only the first head is used, and the other heads are ignored. This is expected to be more accurate.
+
+  * Each head is used to generate its own token in parallel. This is expected to be faster.
+
+  Advantages:
+
+  * Speed: predicting the next `N` tokens generally requires less than `N` times as much time but allows us to compute `N` different scores (one per head per token), so this takes less time per score
+  * Accuracy:
+      * Sometimes a word in a sentence isn't very important and can be replaced with another word.
+      * Sometimes a word in a sentence is important, and to change it requires changing other words in the sentence.
+      * If you train an LLM by giving it the beginning of the desired text and asking it to predict the next token in the sentence, then getting either of these cases wrong produces an equal loss (1 token).
+      * However, the case of dependent words is more important than the case of mostly interchangeable words, and deserves to be assigned a larger loss.
+          * This larger loss is produced with multi-token prediction for other heads that predict subsequent words.
+      * This is expected to cause the model to prioritize these important words more highly.
+
+  Disadvantage:
+
+  Not autoregressive or causal, because head 2 and 3 do not rely on head 1.
+
+ - How to train LLMs?
+ - What is an attention head?
+ - What is teacher forcing?
+
+Why LLM inference is expensive/slow?
+
+  Transferring data and parameters (huge) from GPU memory to cache (for matrix dot computation) is slow.
+
+  Can we use small LLMs to speed up big LLMs?
+
+  e.g. Small models compute all answers. Big LLMs can check the answers of small LLMs and recompute those that are wrong.
+
+ - What is a transformer?
+
+Speculative decode
+
+  1) quick guess: small LLMs -> even better some heads with small parameters in big LLMs, e.g. medusa or EAGLE
+
+  2) cheap verification: big LLMs, check whether the probability of each token is the biggest.
+
+  3) recompute: accept correct tokens and recompute the wrong token -> small LLMs recompute the next token
+
+ - Why LLM inference is expensive/slow?
+
+What is DeepSeekMTP?
+
+  Main model: traditional transformer model, predict the next tokens
+
+  MTP module 1: predict the next next tokens
+
+  MTP module 2: predict the next next next tokens
+
+  Main model gives its feature to the MTP module 1, concat with the MTP module 1 input embedding -> causal/autoregressive
+
+  MTP module 1 gives its feature to the MTP module 2 -> causal/autoregressive
+
+ - Speculative decode
+
+ - What is multi-token prediction (MTP)?
+
+DeepSeek-R1
+
+  It's a reasoning model based on DeepSeek V3.
+
+  DeepSeek-R1-Zero only trained with reinforcement learning without supervised fine-tuning (SFT) has poor readability, and language mixing.
+
+  DeepSeek-R1 uses a small set of starting data (cold-start) for fine-tuning, and then do reinforcement learning with bootstrapping (generating new SFT synthetic data to train in iterations).
+
+  I think 1) the cold-start starting data is really important.
+
+  2) DeepSeek sets many different rules/policies to decide scores for an answer, instead of using human beings.
+
+  Rules/policies for math and coding such as accuracy, language consistency, compiler should not fail...
+
+  I think this is the future of AI -> sets good rules/policies in our domain to help AI learn based on our knowledge!
+
+  3) DeepSeek-R1 generates new training data, and filtered by human beings.
+
+  4) Second round of RL of DeepSeek-R1 on the new training data
+
+  SFT -> RL -> SFT -> RL is a very efficient way of machine learning.
+
+  Another improvement of DeepSeek-R1 compared to GPT-o is that it removes the reward model (a small model trained based on human feedback) from the reinforcement learning, but uses rules to give feedback.
+
+  I think another cool part of DeepSeek-R1 reinforcement learning is that it regulates loss optimization by small steps (by clipping) to avoid jumping too far.
+
+  This made their training very stable and efficient.
+
+ - What is reinforcement learning?
