@@ -542,6 +542,7 @@ function addDependenciesRecursivelyInTreeOrderTo(newDependency, destinationList,
     return
   destinationSet.add(newDependency)
   destinationList.push(newDependency)
+  var ourIndentation = indentations[newDependency]
   var newDependencies = getDirectDependencyNames(newDependency)
   // process dependencies from maximum indent to minimum indent, in case an ancestor node decreased the indent of one of our children
   var dependenciesByIndent = []
@@ -555,6 +556,10 @@ function addDependenciesRecursivelyInTreeOrderTo(newDependency, destinationList,
     dependenciesByIndent[indent].push(dependency)
   }
   for (var i = dependenciesByIndent.length - 1; i >= 0; i--) {
+    if (i < ourIndentation) {
+      // If this dependency node is also requested in the graph because of a shallower node, we show the dependency node at the shallower level instead because we think it's more important there
+      continue
+    }
     var dependenciesHere = dependenciesByIndent[i]
     for (var dependency of dependenciesHere) {
       addDependenciesRecursivelyInTreeOrderTo(dependency, destinationList, destinationSet, indentations)
