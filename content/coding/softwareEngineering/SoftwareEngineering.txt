@@ -459,3 +459,7 @@ Evaluating a dependency graph in software
   If you just want a graph executor and don't want any help describing the task graph, you can consider [ninja](https://ninja-build.org/).
 
  - What is a dependency graph?
+
+What is a permalink?
+
+  A [permalink](https://en.wikipedia.org/wiki/Permalink) is a link to a specific part of a website, which is supposed to refer to the same content for a long time in the future.

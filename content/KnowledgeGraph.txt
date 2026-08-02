@@ -54,3 +54,15 @@ How do I find information in Jeff's Knowledge Graph?
   * If you don't know the name of what you're looking for, try clicking the buttons at the bottom to explore
 
  - What is Jeff's Knowledge Graph?
+
+How can I share information from Jeff's Knowledge Graph?
+
+  If you want to share a specific piece of information from Jeff's Knowledge Graph with another person:
+
+  1. You can get its permalink by clicking the "permalink" link at the bottom
+  1. Your browser should navigate to a page that represents that node in the graph
+  1. You can copy that url from your browser
+  1. You can send that url to someone else
+  1. When that other person clicks on that link, it should send that person to the same piece of information that you were looking at
+
+ - What is a permalink?
