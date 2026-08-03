@@ -263,6 +263,19 @@ What is multi-head attention?
 
  - What is an attention head?
 
+What is teacher forcing?
+
+  Teacher forcing is the idea of asking an LLM to generate one token and scoring that one token alone, rather than asking the model to generate an entire sentence at once.
+
+  After the model generates one token, regardless of whether that token was correct or not, the next step is to give the model the correct token and ask it to generate the following token.
+
+  When an LLM generates one token at a time, this should be:
+
+  * faster: it's not necessary to generate the entire sentence
+  * more meaningful. If the model predicts that token #2 is the best to follow token #1, but it turns out that token #1 isn't the best starting token, it doesn't necessarily mean that token #2 isn't the best token to follow token #1.
+
+ - How to train LLMs?
+
 What is a transformer?
 
   A [transformer](https://en.wikipedia.org/wiki/Transformer_(deep_learning_architecture)) is a machine learning model that consists of several layers.
@@ -348,7 +361,7 @@ What is DeepSeekMOE?
 
   2) loss-free: add a bias in softmax, bias is controlled by how many training tokens an expert received (more tokens, less bias). This bias does not impact the loss function and inference.
 
- - What is mixture of experts (MOE)?
+ - What is a mixture of experts (MOE)?
 
 What else does DeepSeekMOE do?
 

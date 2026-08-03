@@ -216,7 +216,7 @@ How can I import Pandas data as tensors?
 
   Pandas is a python package that works with datasets.
 
-  You can install Numpy by `pip install pandas` and run Numpy in python by `import pandas as pd`
+  You can install Pandas by running `pip install pandas` and use it in a Python file by adding `import pandas as pd` at the top
 
   You can summarize your data in CSV files and import your data using Pandas by `data = pd.read_csv(data_file)`
 
@@ -231,24 +231,6 @@ How can I import Pandas data as tensors?
  - What is a tensor?
 
  - What is Python?
-
-How to deal with missing values in training/testing data?
-
-  Dealing with missing data (Na or NaN or '') properly is very important in data science.
-
-  An example of how missing data (as 0s) fooling people: [Major data analysis errors invalidate cancer microbiome findings](https://journals.asm.org/doi/10.1128/mbio.01607-23)
-
-  1) You can delete all rows and columns that contain missing data.
-
-  2) You can convert missing data into two columns: column 1 shows all the existing categories; and column 2 shows whether a category is missing by `data_with_categories = pd.get_dummies(input_with_missing_data, dummy_na=True)`
-
-  3) You can replace missing data with averages by `data_with_means = input_with_missing_data.fillna(input_with_missing_data.mean())`
-
-  Most importantly, you should always check whether the pattern you get from a model is associated with missing data.
-
- - What is Python?
-
- - How can I import Pandas data as tensors?
 
 Sampling size VS uncertainty
 
@@ -412,53 +394,46 @@ Variation Autoencoders
 
  - Autoencoders
 
-Regularization on the latent space
+What is regularization?
 
-  We choose an assumption or prior on the latent distribution to regulatarize the training.
+  [Regularization](https://en.wikipedia.org/wiki/Regularization_(mathematics)) is a method for avoiding overfitting.
 
-  For example, we use normal Gaussian distribution as a prior to
+  It is the idea to add a penalty to a model when the parameter values it learned are more complicated.
 
-  1) encourage encodings to distribute evenly around the center of the latent space;
+  Examples:
+  * Additional loss = the sum of the absolute values of the model parameters times a constant
+  * Additional loss = the number of model parameters whose absolute value is more than a constant
 
-  2) penalize models that cheat by memorizing the data - which would not likely to follow a normal distribution
+ - What is overfitting?
+ - What is a loss function?
 
-  We want the latent space to be
+How can I interpret an AI model?
 
-  1) continuity: points that are close in latent space should have similar content after decoding
-
-  2) completeness: samples from latent space should have meaningful content after deconding
-
- - Variation Autoencoders
-
- - What is generative modeling?
-
- - Autoencoders
-
-How to interpret latent space?
-
-  We can hold all vairables but one fixed and see how changing that single variable impact the reconstructed output.
-
- - Variation Autoencoders
-
- - What is generative modeling?
+  * Sometimes a system can directly explain itself
+    * If the model is an LLM you can directly ask it for an explanation, and the explanation might be correct
+    * Some other systems can provide explanations for how they made their decisions
+  * You can train a similar, more easily interpreted AI model, using outputs from the first model
+    * An autoencoder is often chosen for this kind of task
+  * You can ask for help
+  * You could test different inputs if the model is deterministic
+    * You can change one input at a time and see how that affects the output
+    * You can try [simplifying the inputs that you give it](https://medium.com/@mathjeff/some-automated-simplification-of-build-failures-e4a27cb1fb45)
+  * You could make changes to the model or its training process
+    * This will probably take a lot of time, effort, and skill
 
  - Autoencoders
+ - Large Language Models
 
 Disentanglement in machine learning
 
-  We want the latent variables to be uncorrelated with each other -> to maximize the amount of information the model learns across a few set of latent variables.
+  [Disentanglement](https://subclassy.github.io/disentanglement-overview) is the idea of extracting independent features from a datapoint.
 
-  This can be done by disentanglement - to enforce diagonal prior on the latent variables to encourage independence.
+  This can be helpful because:
 
-  For example, to tune the relative strength of reconstruction term and regularization term (by increasing it) in the loss calculation.
-
- - Variation Autoencoders
-
- - What is generative modeling?
-
- - Autoencoders
-
- - Regularization on the latent space
+  * Each individual feature is more likely to correspond to something meaningful.
+    * For example, if a model is interpreting images of faces, perhaps one feature could correspond to the lighting and another feature could correspond to the pose
+    * This can make the model easier for humans to interpret
+    * This can make the model more accurate by allowing it to better understand the impact of each feature
 
 What is a generative adversarial network (GAN)?
 
@@ -528,7 +503,7 @@ Value learning in reinforcement learning
 
   Or for each state, the Q function outputs Q value for each action - more efficient. Then we infer the optimal policy pie function from the action yielding the max Q value.
 
-  Limitation: cannot learn continuous action spaces.
+  Note this kind of approach is unable to learn a continuous action space
 
  - What is reinforcement learning?
 
@@ -548,59 +523,38 @@ Policy learning in reinforcement learning
 
  - Value learning in reinforcement learning
 
-How to build AlphaGo?
+How to build AlphaGo
 
-  Train a supervised model with human data of play
+  To make the AlphaGo AI that plays [go](https://en.wikipedia.org/wiki/Go_(game))
 
-  Self-play of pretrained models against each other with reinforcement learning
+  Make an initial model based on data about how humans play
 
-    Increase the probability of all the actions of the agent that won.
+  Have two models play against each other. After each game:
 
-    Decrease the probability of all the actions of the agent that lost the game.
+    Increase the probabilities of all of the actions of the agent that won
 
-  Run millions or billions of steps
+    Decrease the probabilities of all of the actions of the agent that lost
 
-  Intuition about the board state -> achieve state in and value out (Q function)
-
-  You can skil step 1 (observing human data) to achieve even better performance while it would take longer training steps.
-
-  Summary: human expert positions -> classification -> supervised learning policy network -> self-play - reinforcement learning policy network - self-play -> self-play data -> regression -> value network
+  Continue until the two models have played a large number of games (millions or billions)
 
  - What is reinforcement learning?
 
  - Policy learning in reinforcement learning
 
-What is mixture of experts (MOE)?
+What is a mixture of experts (MOE)?
 
-  A mixture of experts machine learning model is one model that asks several other models (called "experts") to make predictions, and then uses those predictions to make its own prediction.
+  A [mixture of experts](https://en.wikipedia.org/wiki/Mixture_of_experts) machine learning model is one model that asks several other models (called "experts") to make predictions, and then uses those predictions to make its own prediction.
 
   Some common ways to combine predictions from individual experts:
 
   * Have each expert compute its own probability, give different weights to different experts, and compute a weighted sum (dense MOE)
   * Rank experts by their confidence, pick the top K experts, and compute a weighted sum (sparse MOE).
 
-  MOE can help scale-up transformers, reducing computation costs.
-
- - What is a feed-forward network of transformers?
-
-What is teacher forcing?
-
-  Teacher forcing is the idea of asking an LLM to generate one token and scoring that one token alone, rather than asking the model to generate an entire sentence at once.
-
-  After the model generates one token, regardless of whether that token was correct or not, the next step is to give the model the correct token and ask it to generate the following token.
-
-  When an LLM generates one token at a time, this should be:
-
-  * faster: it's not necessary to generate the entire sentence
-  * more meaningful. If the model predicts that token #2 is the best to follow token #1, but it turns out that token #1 isn't the best starting token, it doesn't necessarily mean that token #2 isn't the best token to follow token #1.
-
- - How to train LLMs?
+  A MOE model tends to [train more quickly](https://huggingface.co/blog/moe#what-is-a-mixture-of-experts-moe) for a given model size and data size, which means that if enough data is available, a MOE model can be trained with more parameters and/or more data in a comparable amount of time.
 
 Knowledge distillation
 
-  Use a big LLM (teacher) to train a small LLM (student). Usually generates better performance than directly trainin a small LLM.
-
- - What is a transformer?
+  Knowledge distillation refers to using a larger model (called a teacher) to train a smaller model (called a student). This usually generates better performance than directly training the small model.
 
 Machine learning scaling law
 
