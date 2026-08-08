@@ -212,23 +212,52 @@ What is Numpy?
 
  - What is Python?
 
-How can I import Pandas data as tensors?
+Pytorch tensor from Pandas DataFrame
 
-  Pandas is a python package that works with datasets.
+  To create a Pytorch tensor from a Pandas DataFrame, you can do this:
 
-  You can install Pandas by running `pip install pandas` and use it in a Python file by adding `import pandas as pd` at the top
+  `torch.tensor(data.to_numpy(dtype=float))`
 
-  You can summarize your data in CSV files and import your data using Pandas by `data = pd.read_csv(data_file)`
+ - How can I import Pandas data as a DataFrame?
+ - What is pytorch?
 
-  Then you can convert the non-numeric columns of your data as categories of 0s and 1s by `non_num_data = data.loc[:,['non_num_col1','non_num_col2',...]]` and `non_num_data = pd.get_dummies(non_num_data, dummy_na=True)`
+Working with Pandas data
 
-  You can save the numeric columns of your data as `num_data = data.loc[:,['num_col1','num_col2',...]]`
+  After loading a DataFrame, you can:
 
-  You can check your data by `num_data.head()` and `non_num_data.head()`, and check their size (number of rows and number of columns) by `num_data.shape` and `non_num_data.shape`
+  * select certain columns
+    * `data.loc[:,['non_num_col1','non_num_col2',...]]`
+  * searh for missing values
+    * `pd.get_dummies(data, dummy_na=True)`
+  * inspect a few rows
+    * `data.head()`
+  * check its size
+    * `data.shape`
 
-  Now you can convert your data into tensors by `non_num_data = torch.tensor(non_num_data.to_numpy(dtype=float))` and `num_data = torch.tensor(num_data.to_numpy(dtype=float))`
+ - How can I import Pandas data as a DataFrame?
+
+How can I import Pandas data as a DataFrame?
+
+  You can [read](https://pandas.pydata.org/pandas-docs/version/2.3/reference/api/pandas.read_csv.html) a .csv file using Pandas like this:
+
+  `data = pd.read_csv(data_file)`
+
+  This creates an object called a [DataFrame](https://pandas.pydata.org/pandas-docs/version/2.3/reference/frame.html)
 
  - What is a tensor?
+ - Installing Pandas
+
+Installing Pandas
+
+  You can [install](https://pandas.pydata.org/docs/getting_started/index.html) Pandas by running `pip install pandas`
+
+  Then you can use it in a Python file by adding `import pandas as pd` at the top
+
+ - What is Pandas?
+
+What is Pandas?
+
+  [Pandas](https://pandas.pydata.org/docs/) provides data structures and data analysis tools for Python.
 
  - What is Python?
 
@@ -555,6 +584,8 @@ What is a mixture of experts (MOE)?
 Knowledge distillation
 
   Knowledge distillation refers to using a larger model (called a teacher) to train a smaller model (called a student). This usually generates better performance than directly training the small model.
+
+ - What is AI?
 
 Machine learning scaling law
 
