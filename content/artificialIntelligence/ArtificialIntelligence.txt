@@ -227,7 +227,7 @@ Working with Pandas data
 
   * select certain columns
     * `data.loc[:,['non_num_col1','non_num_col2',...]]`
-  * searh for missing values
+  * search for missing values
     * `pd.get_dummies(data, dummy_na=True)`
   * inspect a few rows
     * `data.head()`
