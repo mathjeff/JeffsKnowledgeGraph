@@ -245,9 +245,21 @@ People make mistakes
 
   So, we try to set up systems to prevent the most common and most important mistakes
 
-Preparing for mistakes
+Rushing can increase mistakes
 
-  Sometimes people make mistakes, which introduce problems that prevent us from being able to do what we want to do.
+  When someone is in a hurry to complete a task, it is often more likely to make a mistake than when taking the time to be more careful.
+
+  If you would like to see this for yourself, you can consider completing some tasks quickly and some tasks more carefully and comparing the results of each.
+
+  * You may find that an easy way to get a sense of urgency is to do an efficiency experiment in [ActivityRecommender](https://github.com/mathjeff/ActivityRecommender)
+
+  An advantage of rushing is that relevant work can get done more quickly.
+
+  In cases where mistakes are more costly it often helps to be more careful, and in cases where mistakes are more harmless it often helps to be efficient.
+
+ - People make mistakes
+
+Mistakes in large systems
 
   In a large enough system, mistakes will happen fairly often.
 
@@ -270,6 +282,13 @@ Preparing for mistakes
   If you're interested in a simulation of a large system with lots of opportunities for mistakes, you might be interested in [Oxygen Not Included](https://store.steampowered.com/app/457140/Oxygen_Not_Included/) or [Factorio](https://www.factorio.com/).
 
  - People make mistakes
+
+Preparing for mistakes
+
+  If we plan ahead, we may be able to reduce the impact of mistakes.
+
+ - Mistakes in large systems
+ - Rushing can increase mistakes
 
 Protecting against data loss
 
