@@ -1,6 +1,8 @@
 # Jeff's Knowledge Graph
 
-A dependency graph of information that originally started with things that Jeff knows. To browse information in this graph, see https://genomiverse.net/JeffsKnowledgeGraph/index.html .
+A dependency graph of knowledge.
+
+To browse information in this graph, see https://genomiverse.net/JeffsKnowledgeGraph/index.html .
 
 To view/edit the source of the knowledge graph, see the `content` directory in this repository.
 
