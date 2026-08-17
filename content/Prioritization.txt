@@ -34,10 +34,10 @@ How can I estimate the cost of a project?
 
 Prioritizing
 
-  What you should do depends on:
-  * How valuable each choice is
-  * How difficult each choice is
-  * How hard it is to to find other options
+  What you should spend your time on depends on:
+  * How valuable each of your options is
+  * How difficult each of your options is
+  * How hard it is to to find other ideas
 
   For a large task:
   * If you have an option that is highly valuable but seems very difficult, then it is often worthwhile to give it more consideration, because you may find that your estimate of the difficulty improves after further consideration.

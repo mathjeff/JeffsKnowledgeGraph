@@ -334,6 +334,7 @@ SessionManager
   * What tasks you've been doing
   * Why you've been doing them
   * What the status of each is
+  * Recent commands that you ran for each task
 
   It can be found at https://github.com/mathjeff/SessionManager
 

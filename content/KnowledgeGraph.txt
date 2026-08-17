@@ -2,16 +2,14 @@
 
 What is Jeff's Knowledge Graph?
 
-  This is Jeff's Knowledge Graph!
+  Jeff's Knowledge Graph is:
+  * a dependency graph of knowledge, where each node is a piece of knowledge
+  * a user interface to display the part of this knowledge that you're interested in
 
-  * Knows what information is needed to understand an idea, and lets you see it all at once
-      * This is done via a dependency graph
-  * Remembers what you know, to make it easy to skip re-reading
-  * Different from a usual [knowledge graph](https://en.wikipedia.org/wiki/Knowledge_graph)
-      * Most other knowledge graphs are organized such that each node is an entity
-      * In Jeff's Knowledge Graph, each node tries to be a statement or other small piece of knowledge
-  * Offers suggestions for topics to read next
-      * See the buttons at the bottom
+  Different from a usual [knowledge graph](https://en.wikipedia.org/wiki/Knowledge_graph)
+    * Most other knowledge graphs are organized such that each node is an entity
+
+  You're reading it right now!
 
  - What is a dependency graph?
 
@@ -66,3 +64,34 @@ How can I share information from Jeff's Knowledge Graph?
   1. When that other person clicks on that link, it should send that person to the same piece of information that you were looking at
 
  - What is a permalink?
+
+Why might I want to look at Jeff's Knowledge Graph?
+
+  Easily view dependencies
+  * When you are reading something confusing, you can easily view all of the prerequisite information onscreen at once by pressing the appropriate button at the bottom
+
+  Skip familiar information
+  * Jeff's Knowledge Graph keeps track of what you're already familiar with
+  * When expanding prerequisite information inline, there is a separate button for displaying only unfamiliar information
+
+  Browse related information
+  * Other information that depends on the current piece of information is displayed at the bottom too
+
+  Curated
+  * Information here tends to have a similar style: helpful and concise.
+
+ - What is Jeff's Knowledge Graph?
+
+Why might I want to write in Jeff's Knowledge Graph?
+
+  Easy for viewers to see dependencies
+  * If you want to write about a simple topic but it requires a lot of prior knowledge to understand it, you don't need to explain the prior knowledge more than once
+    * You can simply reference the prior knowledge as a dependency
+
+  Easy for viewers to skip dependencies
+  * If a reader is already familiar with some prerequisite information, it's easy for that person to skip re-reading that information
+
+  Dependencies more easily up-to-date
+  * If some prerequisite information changes in the future, it doesn't necessarily need to be updated more than once
+
+ - What is Jeff's Knowledge Graph?

@@ -312,6 +312,11 @@ Protecting against data loss
   * Setting file permissions can prevent people from modifying the file with software
       * You can even set the permissions to prevent yourself from simply modifying the file
       * This doesn't protect against drive failure
+  * You can record the exact instructions that you used to create the data
+    * Then you can rerun those instructions later
+    * This still requires you to have a backup of these instructions somewhere
+
+  If the data is important enough, you may also want to test that you can restore from the backup
 
  - Preparing for mistakes
  - How to change the permissions of a file
