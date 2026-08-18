@@ -94,4 +94,12 @@ Why might I want to write in Jeff's Knowledge Graph?
   Dependencies more easily up-to-date
   * If some prerequisite information changes in the future, it doesn't necessarily need to be updated more than once
 
+  Recognition for your contribution
+  * Whenever someone checks who contributed to Jeff's Knowledge Graph, that person may see your name
+
  - What is Jeff's Knowledge Graph?
+ - Who contributed to Jeff's Knowledge Graph?
+
+Who contributed to Jeff's Knowledge Graph?
+
+  You can see a graph of changes to Jeff's Knowledge Graph at https://github.com/mathjeff/JeffsKnowledgeGraph/graphs/contributors?all=1
