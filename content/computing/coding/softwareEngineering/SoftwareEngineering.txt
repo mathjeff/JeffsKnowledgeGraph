@@ -259,7 +259,7 @@ Rushing can increase mistakes
 
  - People make mistakes
 
-Mistakes in large systems
+Automation to reduce mistakes
 
   In a large enough system, mistakes will happen fairly often.
 
@@ -287,8 +287,11 @@ Preparing for mistakes
 
   If we plan ahead, we may be able to reduce the impact of mistakes.
 
- - Mistakes in large systems
+  We can get some guesses about what future mistakes might be by considering past mistakes.
+
+ - Automation to reduce mistakes
  - Rushing can increase mistakes
+ - Prioritizing
 
 Protecting against data loss
 

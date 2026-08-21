@@ -34,6 +34,22 @@ More complicated models benefit from more data
 
  - We want AI models to be generalizable
 
+Estimating model accuracy
+
+  When you make an AI model, you usually want to know approximately how accurate it will be at making predictions for future data.
+
+  After you train your model, you can collect more data and ask your model to make predictions about the new data, and calculate how often those predictions are right
+
+  However, it can sometimes be difficult to collect more data, so it's common to approximate this process by splitting your data into a training and testing set ahead of time.
+  * Note that if you expect your future data to be different from your past data, you should create a training and testing set that are also different enough that the model can't simply memorize the answers from the training set
+    * If there are too many examples from your training and testing set that are very similar to each other, this is called data leakage
+  * Note that if you make many models and evaluate each of them on the testing dataset, this introduces the risk of P-hacking
+
+ - We want AI models to be generalizable
+ - What is a training dataset?
+ - What is a testing dataset?
+ - P-hacking
+
 Decision trees
 
   A decision tree is a type of AI model. When a tree makes a prediction about a specific datapoint, it evaluates a series of yes/no questions until it arrives an answer.

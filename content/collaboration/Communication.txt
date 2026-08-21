@@ -93,3 +93,4 @@ Convincing other people
 
  - Correcting other people
  - Why is compensation important?
+ - Estimating model accuracy
