@@ -296,13 +296,13 @@ function expandDependencies(includeFamiliar, moreComplicatedFirst, shouldIndent)
   var order = ""
   var candidates = getAllDependenciesOf(nodeName)
   var indentations = computeIndentations(candidates)
-  if (!includeFamiliar)
-    candidates = removeFamiliarDependencies(candidates)
   var html = ""
   console.log("expanding dependencies of " + nodeName)
   var treeOrder = moreComplicatedFirst && shouldIndent
   if (treeOrder)
     candidates = getAllDependenciesInTreeOrderOf(nodeName, indentations)
+  if (!includeFamiliar)
+    candidates = removeFamiliarDependencies(candidates)
   for (var i = 0; i < candidates.length; i++) {
     var candidateName = candidates[i]
     var candidate = getNodeByName(candidateName)
