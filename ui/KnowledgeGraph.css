@@ -26,6 +26,10 @@ body {
   background-color: #ffff00;
 }
 
+.button-expand-outline {
+  margin-left:20px;
+}
+
 .button-elaborate,
 .button-random {
   background-color: #3399ff;

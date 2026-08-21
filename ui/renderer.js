@@ -693,7 +693,7 @@ function makeListUnfamiliarDependenciesButton(numDependencies) {
 }
 
 function makeOutlineUnfamiliarDependenciesButton(numDependencies) {
-  return "<button class='knowledge-button button-expand-unfamiliar' onclick='expandUnfamiliarDependenciesOutline()'>Outline " + numDependencies + " unfamiliar dependencies</button>"
+  return "<button class='knowledge-button button-expand-unfamiliar button-expand-outline' onclick='expandUnfamiliarDependenciesOutline()'>Outline " + numDependencies + " unfamiliar dependencies</button>"
 }
 
 function makeListAllDependenciesButton(numDependencies) {
@@ -701,7 +701,7 @@ function makeListAllDependenciesButton(numDependencies) {
 }
 
 function makeOutlineAllDependenciesButton(numDependencies) {
-  return "<button class='knowledge-button button-expand-all' onclick='expandAllDependenciesOutline()'>Outline all " + numDependencies + " dependencies</button>"
+  return "<button class='knowledge-button button-expand-all button-expand-outline' onclick='expandAllDependenciesOutline()'>Outline all " + numDependencies + " dependencies</button>"
 }
 
 function makeRandomEdgeFamiliarButton() {
