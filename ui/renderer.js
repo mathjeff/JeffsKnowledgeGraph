@@ -689,19 +689,19 @@ function makeExplainSelfButton() {
 }
 
 function makeListUnfamiliarDependenciesButton(numDependencies) {
-  return "<button class='knowledge-button button-expand' onclick='expandUnfamiliarDependenciesList()'>List " + numDependencies + " unfamiliar dependencies</button>"
+  return "<button class='knowledge-button button-expand-unfamiliar' onclick='expandUnfamiliarDependenciesList()'>List " + numDependencies + " unfamiliar dependencies</button>"
 }
 
 function makeOutlineUnfamiliarDependenciesButton(numDependencies) {
-  return "<button class='knowledge-button button-expand' onclick='expandUnfamiliarDependenciesOutline()'>Outline " + numDependencies + " unfamiliar dependencies</button>"
+  return "<button class='knowledge-button button-expand-unfamiliar' onclick='expandUnfamiliarDependenciesOutline()'>Outline " + numDependencies + " unfamiliar dependencies</button>"
 }
 
 function makeListAllDependenciesButton(numDependencies) {
-  return "<button class='knowledge-button button-expand' onclick='expandAllDependenciesList()'>List all " + numDependencies + " dependencies</button>"
+  return "<button class='knowledge-button button-expand-all' onclick='expandAllDependenciesList()'>List all " + numDependencies + " dependencies</button>"
 }
 
 function makeOutlineAllDependenciesButton(numDependencies) {
-  return "<button class='knowledge-button button-expand' onclick='expandAllDependenciesOutline()'>Outline all " + numDependencies + " dependencies</button>"
+  return "<button class='knowledge-button button-expand-all' onclick='expandAllDependenciesOutline()'>Outline all " + numDependencies + " dependencies</button>"
 }
 
 function makeRandomEdgeFamiliarButton() {

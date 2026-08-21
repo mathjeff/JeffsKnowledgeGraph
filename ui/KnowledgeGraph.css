@@ -18,7 +18,11 @@ body {
   background-color: #ff9900;
 }
 
-.button-expand {
+.button-expand-unfamiliar {
+  background-color: #ffcc00;
+}
+
+.button-expand-all {
   background-color: #ffff00;
 }
 
