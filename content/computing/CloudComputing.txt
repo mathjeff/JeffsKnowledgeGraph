@@ -1,0 +1,42 @@
+# Information about cloud computing
+
+What is cloud computing?
+
+  [Cloud computing](https://en.wikipedia.org/wiki/Cloud_computing) is the idea of having a pool of computers that people can connect to and use.
+
+ - What is local in a computer?
+
+Should I use cloud computing?
+
+  Potential advantages of cloud computing:
+  * Rent fractional computers
+    * If the amount of computing that you need to do is small, then it can be cheaper to pay for a little bit of computing time than to buy your own computer and set it up
+      * Note that this can be more efficient if there are multiple people that each need to only use a small amount of computing, because different people may be able to use the same physical computers at different times
+  * Dynamically adjust computing
+    * If you need a large amount of computing at some times and a small amount of computing at other times, then renting compute in the cloud can be more efficient than buying enough computers to handle the maximum load
+      * If you don't know how much computing you will need, you don't need to prepare enough computing ahead of time
+  * Easier
+    * You don't need to physically set up and store a computer; you can just rent one in the cloud
+      * This can be particularly helpful if you don't know what how powerful of a computer you should use - you can just try a few different types of computers and see which one you like best.
+
+  Potential disadvantages of cloud computing
+  * Cost
+    * Renting a computer full-time in the cloud is usually more expensive than buying your own computer and leaving it running all the time
+      * So, if you actually need to use the computer most of the time, it's usually cheaper to buy your own computer
+  * Requires internet
+    * You can only communicate with the computer when you have an internet connection
+    * This can slightly increase the latency between giving an instruction and getting a response
+  * Security
+    * Having computers that are managed by a separate system in a different location can increase the number of ways in which someone could access information on them in a way that is not intended.
+
+ - What is cloud computing?
+
+How can I get cloud computing?
+
+  Popular cloud providers:
+  * [AWS](https://aws.amazon.com/)
+    * See instructions to set up a computer [here](https://www.geeksforgeeks.org/devops/amazon-ec2-creating-an-elastic-cloud-compute-instance/)
+  * [Google Cloud](https://cloud.google.com/)
+  * [Azure](https://azure.microsoft.com/)
+
+ - What is cloud computing?
