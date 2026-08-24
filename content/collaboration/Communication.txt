@@ -94,3 +94,54 @@ Convincing other people
  - Correcting other people
  - Why is compensation important?
  - Estimating model accuracy
+
+What is a scam?
+
+  A [scam](https://dictionary.cambridge.org/dictionary/english/scam) is a scheme for tricking you into giving something to someone else without giving something similarly valuable to you.
+
+  Scams are bad.
+
+ - Communication allows people to make trades
+ - People make mistakes
+ - Why is compensation important?
+
+Why do scams exist?
+
+  Scams exist most likely because:
+
+  * Scams involve transferring resources from one person to another one
+  * The person receiving those resources cares more about getting the resources than about scamming the first person
+  * The person giving the resources believed at the time that it was legitimate
+
+ - When do people collaborate?
+ - What is a scam?
+
+Avoiding scams
+
+  Careful of unfamiliar contacts
+  * If a previously unfamiliar person reaches out to communicate with you, you may want to be more careful to evaluate whether it seems legitimate
+
+  Careful of false urgency
+  * A scam may involve someone telling you that you need to do something urgently. This is often because the person doing the scam knows that being in a hurry can increase the probability that you will make a mistake.
+  * So, if you suspect that something may be a scam, it can often be helpful to slow down. You can considering saying that you will take some time to think about the idea.
+
+  Research
+  * You can ask a search engine for more information
+  * You can ask some people that you're already familiar with
+
+ - When do people collaborate?
+ - Rushing can increase mistakes
+ - Disclaimer
+
+Disclaimer
+
+  If you're making an important decision, you shouldn't rely solely on the information in Jeff's Knowledge Graph.
+
+  There could be mistakes in this information and we wouldn't want you to make a bad choice.
+
+  We hope the information here is interesting and helpful, though.
+
+  If you notice a mistake in Jeff's Knowledge Graph, please go to https://github.com/mathjeff/JeffsKnowledgeGraph/issues/new to report it so we can fix it. Thanks in advance.
+
+ - People make mistakes
+ - Prioritizing
