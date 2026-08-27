@@ -1,14 +1,14 @@
 # Information about Prioritization
 
-What is net present value?
+What is present value?
 
-  The net present value of something in the future is a measurement of how much value today you would trade in exchange for that thing in the future.
+  The [present value](https://en.wikipedia.org/wiki/Present_value) of something in the future is a measurement of how much value today you would trade now in exchange for that thing in the future.
 
-  In economics, we can compute the current value of future money via interest rates. For example, if someone has the opportunity to invest $1 today to get $1.10 next year, it means the net present value of $1.10 next year is $1. Then we can divide by 1.1 to get that the net present value of $1 next year is approximately $0.91.
+  In economics, we can compute the current value of future money via interest rates. For example, if someone has the opportunity to invest $1 today to get $1.10 next year, it means the present value of $1.10 next year is $1. Then we can divide by 1.1 to get that the present value of $1 next year is approximately $0.91.
 
-  Similarly, $1 two years from now would be worth $1.21 so $1 at that time would be worth about $0.82 . If we want to know the net present value of getting $1 every year forever, assuming a compounding rate of 1.1, this sum equals 1 + 1/1.1 + 1/1.1^2... which equals $10.
+  Similarly, $1 two years from now would be worth $1.21 so $1 at that time would be worth about $0.82 . If we want to know the present value of getting $1 every year forever (including right now), assuming a compounding rate of 1.1, this sum equals 1 + 1/1.1 + 1/1.1^2... which equals $11.
 
-  Note that the net present value of a future event is dependent on the interest rate (0.1 in the example above).
+  Note that the present value of a future event is dependent on the interest rate (0.1 in the example above).
 
 How can I estimate the cost of a project?
 
@@ -51,6 +51,6 @@ Prioritizing
   * You may be interested in writing the tasks down in a system called an issue tracker
 
  - How can I estimate the benefit of automating?
- - What is net present value?
+ - What is present value?
  - How can I estimate the cost of a project?
  - Issue trackers

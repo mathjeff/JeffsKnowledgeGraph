@@ -54,13 +54,13 @@ What is automation?
 
 How can I decide what to automate?
 
-  Tasks that are valuable to automate are tasks whose net present value of their benefits are higher than their costs.
+  Tasks that are valuable to automate are tasks whose present value of their benefits are higher than their costs.
 
   If you want to know whether to automate a particular task, you should be reasonably confident about the costs and benefits, along with other things you could be doing instead.
 
   You should also incorporate potential risks of automating a task incorrectly: what's the cost of a potential bug in an automation solution?
 
- - What is net present value?
+ - What is present value?
 
  - How can I estimate the benefit of automating?
 
