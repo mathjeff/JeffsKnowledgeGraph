@@ -22,6 +22,8 @@ Software engineering tips
 
  - Software testing
 
+ - Faster programs are easier to work on
+
  - Backwards compatibility
 
 Automating
@@ -490,3 +492,15 @@ Evaluating a dependency graph in software
 What is a permalink?
 
   A [permalink](https://en.wikipedia.org/wiki/Permalink) is a link to a specific part of a website, which is supposed to refer to the same content for a long time in the future.
+
+Faster programs are easier to work on
+
+  When you are developing software, if it takes a long time to test it, then:
+
+  * While it runs, you have to choose between either waiting for it or switching to another task
+    * If you wait for the program to run, then you're not accomplishing much while you wait
+    * If you work on something completely unrelated in the meanwhile, it can require more effort to switch to the other task and back
+    * If you have something that's both easy and useful to do in the meanwhile, that can be efficient
+  * When a test runs more quickly, you can run it more often (each time testing a different variant of the algorithm) and get more feedback in the same amount of time
+
+ - Mental context switching

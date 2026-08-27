@@ -54,3 +54,9 @@ Prioritizing
  - What is present value?
  - How can I estimate the cost of a project?
  - Issue trackers
+
+Mental context switching
+
+  [Mental context switching](https://www.atlassian.com/work-management/project-management/context-switching) is when you switch from thinking about one task to thinking about another one.
+
+  People have found that it often takes more time to become efficient when [switching between tasks that are more complex](https://www.apa.org/topics/research/multitasking) (than when switching between tasks that are less complex).
