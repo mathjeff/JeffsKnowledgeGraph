@@ -31,7 +31,8 @@ How can non-pathogenic bacteria be good?
 
 What are antibiotics?
 
-  Antibiotics are molecules that are more dangerous to many bacteria than they are dangerous to humans (bleach isn't considered an antibiotic because it's also dangerous to human cells).
+  Antibiotics are molecules that are more dangerous to many bacteria than they are dangerous to humans
+  * For example, bleach isn't considered an antibiotic because it's also dangerous to human cells
 
  - What is a bacteria?
 
@@ -399,3 +400,22 @@ How can I use genome sequencing?
   * [Oxford Nanopore](https://nanoporetech.com/) can offer the longest reads.
 
  - What is genome sequencing?
+
+What is a biofilm?
+
+  A [biofilm](https://en.wikipedia.org/wiki/Biofilm) is group of microbes that stick together
+
+Biofilms resist antibiotics
+
+  This can make bacteria more difficult to treat when they form biofilms
+
+ - What is a biofilm?
+ - What is a pathogen?
+ - What are antibiotics?
+
+How can a biofilm form?
+
+  One way for a biofilm to form is for some microbes in a group to pop and leave DNA behind.
+  * This happens [in Pseudomonas aeruginosa](https://pmc.ncbi.nlm.nih.gov/articles/PMC7698413/).
+
+ - What is a biofilm?
