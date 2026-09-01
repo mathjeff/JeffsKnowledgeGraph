@@ -1145,7 +1145,7 @@ function goToNode(nodeIndex, actionType) {
     // For new users, display some random nodes until they give us some feedback
     // For returning users, display some random nodes on the root node only
     randomNodeNames = []
-    for (let i = 0; i < 4; i++) {
+    for (let i = 0; i < 5; i++) {
       randomNodeName = getRandomUnfamiliarEdgeNodeName()
       if (randomNodeName) {
         if (!randomNodeNames.includes(randomNodeName)) {
