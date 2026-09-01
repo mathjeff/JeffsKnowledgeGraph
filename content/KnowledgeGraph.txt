@@ -67,8 +67,8 @@ How can I share information from Jeff's Knowledge Graph?
 
 Why might I want to look at Jeff's Knowledge Graph?
 
-  Easily view dependencies
-  * When you are reading something confusing, you can easily view all of the prerequisite information onscreen at once by pressing the appropriate button at the bottom
+  Easily see prerequisite information
+  * When you are reading something confusing, you can easily view onscreen all of the information that you need to know before understanding what you are reading. There are buttons at the bottom to jump to, list, or outline dependencies.
 
   Skip familiar information
   * Jeff's Knowledge Graph keeps track of what you're already familiar with
@@ -78,6 +78,7 @@ Why might I want to look at Jeff's Knowledge Graph?
   * Other information that depends on the current piece of information is displayed at the bottom too
 
   Curated
+  * We try to make the information here be useful.
   * Information here tends to have a similar style: helpful and concise.
 
  - What is Jeff's Knowledge Graph?
