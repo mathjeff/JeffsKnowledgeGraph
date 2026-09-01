@@ -121,7 +121,7 @@ How to change the owner of a file
   To change the owner of a file, you can use `chown <newOwner> <file>`
 
  - How to see the permissions of a file
- - How can I read command help?
+ - How do I run commands in a terminal?
 
 Why should I change the permissions of a file?
 
