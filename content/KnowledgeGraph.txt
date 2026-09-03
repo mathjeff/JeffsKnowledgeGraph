@@ -104,3 +104,16 @@ Why might I want to write in Jeff's Knowledge Graph?
 Who contributed to Jeff's Knowledge Graph?
 
   You can see a graph of changes to Jeff's Knowledge Graph at https://github.com/mathjeff/JeffsKnowledgeGraph/graphs/contributors?all=1
+
+Disclaimer
+
+  If you're making an important decision, you shouldn't rely solely on the information in Jeff's Knowledge Graph.
+
+  There could be mistakes in this information and we wouldn't want you to make a bad choice.
+
+  We hope the information here is interesting and helpful, though.
+
+  If you notice a mistake in Jeff's Knowledge Graph, please go to https://github.com/mathjeff/JeffsKnowledgeGraph/issues/new to report it so we can fix it. Thanks in advance.
+
+ - People make mistakes
+ - Prioritizing
