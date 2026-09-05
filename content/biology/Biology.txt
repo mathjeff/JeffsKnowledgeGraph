@@ -419,3 +419,28 @@ How can a biofilm form?
   * This happens [in Pseudomonas aeruginosa](https://pmc.ncbi.nlm.nih.gov/articles/PMC7698413/).
 
  - What is a biofilm?
+
+What is MicrobiomeConnectome?
+
+  [MicrobiomeConnectome](https://genomiverse.net/MicrobiomeConnectome/index.html) is a knowledge graph about microbes, based on information publications in PubMed.
+
+ - What is PubMed?
+
+What is PubMed?
+
+  [PubMed](https://pmc.ncbi.nlm.nih.gov) is an archive of life science publications.
+
+About pseudomonas aeruginosa
+
+  [Pseudomonas aeruginosa](https://en.wikipedia.org/wiki/Pseudomonas_aeruginosa) is a pathogen.
+
+  You can also read about it in [MicrobiomeConnectome](https://genomiverse.net/MicrobiomeConnectome/index.html).
+
+  Some people [study it](https://scelse.sg/?type=all&s=pseudomonas+aeruginosa) at SCELSE.
+
+ - What is MicrobiomeConnectome?
+ - What is SCELSE?
+
+What is SCELSE?
+
+  [SCELSE](https://scelse.sg/) is a group of people in Singapore who study microbes
