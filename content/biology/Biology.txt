@@ -432,13 +432,14 @@ What is PubMed?
 
 About pseudomonas aeruginosa
 
-  [Pseudomonas aeruginosa](https://en.wikipedia.org/wiki/Pseudomonas_aeruginosa) is a pathogen.
+  [Pseudomonas aeruginosa](https://en.wikipedia.org/wiki/Pseudomonas_aeruginosa) is a pathogen and can [cause food spoilage](https://link.springer.com/article/10.1186/s12866-023-03153-9).
 
   You can also read about it in [MicrobiomeConnectome](https://genomiverse.net/MicrobiomeConnectome/index.html).
 
   Some people [study it](https://scelse.sg/?type=all&s=pseudomonas+aeruginosa) at SCELSE.
 
  - What is MicrobiomeConnectome?
+ - About food spoilage
  - What is SCELSE?
 
 What is SCELSE?
