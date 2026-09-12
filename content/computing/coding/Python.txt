@@ -78,6 +78,8 @@ Learning Python
  - Python slices
  - Python substrings
  - Python arithmetic
+ - Using Python imports
+ - Sample Python programs
 
 Python editors
 
@@ -389,3 +391,61 @@ Python input
 
  - Python functions
  - Python variables
+
+Using Python imports
+
+  Some Python features are stored in other modules that you must import before you can use them.
+
+  For example, if you run:
+
+  ```
+  import math
+  print(math.log(16, 2))
+  ```
+
+  then Python will say "4.0"
+
+  You can also import a specific name from a module, like this:
+
+  ```
+  from math import log
+  print(log(25, 5))
+  ```
+
+  which will output "2"
+
+Why does Python offer imports?
+
+  Python allows you to import symbols from other modules because:
+
+  * This allows you to use functions that other people have published as libraries
+
+  * Handle name clashes efficiently
+
+    * If you need a function from another module, you can just import it and then refer to it via its short name
+
+      * For example, after `from math import log` you can use `log(9, 3)` to return `2`
+
+    * If you two libraries each offer the same function with the same name, you can use the long name to refer to just those specific functions
+
+      * For example, after `import math`, you can use `math.log(8, 2)`, even if you also imported another library that also offers a `log` function (such as for logging information to a log file)
+
+ - Using Python imports
+
+Sample Python programs
+
+  Here are some example programs that use Python.
+
+  * Some small examples
+
+    * https://github.com/mathjeff/JeffsKnowledgeGraph/blob/main/util/formatGraph.py
+
+    * https://github.com/mathjeff/web-shard/blob/main/generate.py
+
+  * A game
+
+    * https://github.com/mathjeff/ColorNetworkGame/
+
+  There are many other Python programs on the internet - try asking a search engine for more examples
+
+ - How do I download a repository from GitHub?
