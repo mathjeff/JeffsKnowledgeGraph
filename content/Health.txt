@@ -8,7 +8,7 @@ About smoking
 
   Please don't smoke.
 
- - Disclaimer
+ - Health Disclaimer
 
 About secondhand smoke
 
@@ -17,7 +17,7 @@ About secondhand smoke
   Secondhand smoke [can also cause](https://www.lung.org/quit-smoking/smoking-facts/health-effects/secondhand-smoke) health problems, including lung cancer.
 
  - About smoking
- - Disclaimer
+ - Health Disclaimer
 
 Avoiding secondhand smoke
 
@@ -32,7 +32,7 @@ Avoiding secondhand smoke
 
  - About secondhand smoke
  - Convincing other people
- - Disclaimer
+ - Health Disclaimer
 
 About food spoilage
 
@@ -47,3 +47,22 @@ About food spoilage
   Food spoilage can be expedited by:
   * Adding microbes to the food
     * This can happen if someone eats touches the food
+
+Doctors know about health
+
+  A [doctor](https://en.wikipedia.org/wiki/Medical_doctor) is someone that spends substantial time improving human health.
+
+  They usually undergo significant training, after which point they tend to know a lot about health.
+
+  They often have substantial experience, which also means they tend to know a lot about health.
+
+ - Familiarity with a system tends to increase
+
+Health Disclaimer
+
+  The information in Jeff's Knowledge Graph is likely less specific and less accurate than advice from a doctor would be.
+
+  If you have an important question about health, you could probably get a better answer from consulting a doctor.
+
+ - Disclaimer
+ - Doctors know about health
