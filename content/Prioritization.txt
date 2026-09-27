@@ -42,7 +42,7 @@ Prioritizing
   For a large task:
   * If you have an option that is highly valuable but seems very difficult, then it is often worthwhile to give it more consideration, because you may find that your estimate of the difficulty improves after further consideration.
 
-  If you haven't found any highly valuable options, it may help to explore for more options.
+  * If you haven't found any highly valuable options, it may help to explore for more options.
 
   For many small, similar tasks:
   * If you would like to automate the process of keeping track of what you like and finding ideas for what to do next, you might like [ActivityRecommender](https://github.com/mathjeff/ActivityRecommender).

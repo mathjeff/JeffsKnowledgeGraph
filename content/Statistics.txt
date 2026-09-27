@@ -56,39 +56,54 @@ Cross validation
 
 Independence
 
-  Two variables are independent if conditioning on the value of A does not cause any change to the probability distribution associated with B and vice versa.
+  Suppose you have two variables that you're interested in, and a dataset of examples having values for those variables.
 
-  -> P(A|B) = P(A)
+  These two variables are independent in this dataset if filtering the dataset using one variable doesn't affect the probability distribution of the other variable.
 
-  -> P(A,B) = P(B|A)*P(A) = P(B)*P(A)
-
-  Interestingly, two variables (e.g. broken bones and lung cancer) can be independent in general but become dependent when conditioning on a third variable (e.g. being in the hospital).
-
-  And conversely, two dependent random variables (e.g. shoe size and reading level in primariy school) can become independent upon conditioning on a third variable (e.g. age). This often happens when two otherwise unrelated events have a common cause.
+  Examples
+  * If you roll a 6-sided die and an 8-sided die many times and make a dataset of their numbers:
+    * You should find that the value on the first die is independent from the value on the second die
+      * Changing the value on one die doesn't affect the value on the other
+    * You should find that the sum of the two numbers is dependent on the value of the 6-sided die
+      * Changing the value on the first die does affect the total
 
  - Conditional probabilities
 
- - Probability VS statistics
+Bayes' Theorem
+
+  Bayes' Theorem helps us calculate conditional probabilities
+
+  It says this:
+
+  P(A|B) = P(B|A)*P(A)/P(B)
+
+ - Conditional probabilities
 
 Conditional probabilities
 
-  Probability associated with the event B = b, once we condition on the fact A = a took place.
+  A conditional probability is the probability of one thing happening given that another thing has happened
 
-  -> P(B = b | A = a) = P(A = a, B = b)/P(A = a)
+  For example, if you roll a 6-sided die, the probability that a 1 is on top should be 1/6.
 
-  -> P(A = a, B = b) = P(B = b | A = a)*P(A = a) or P(A,B) = P(B|A)*P(A) = P(A|B)*P(B)
+  However, if your friend rolled a 6-sided die and told you that the result was 3 or less, then the probability that a 1 is on top should be 1/3.
 
- - Probability VS statistics
+  A conditional probability can be written like this:
 
-Probability VS statistics
+  `P(yourEvent | previousEvent)` and is read as:
 
-  A probability
+  "The probability of yourEvent given previousEvent".
+
+ - What is a probability?
+
+What is a probability?
+
+  A probability:
 
   * Refers to the likelihood that something will happen
   * Is dependent on the process for generating the data
       * For example, the probability for getting heads when tossing a coin is 0.5
 
-  A statistic
+What is a statistic?
 
-  * Is a description of observed data
-      * For example, if you toss a coin 100 times and count the number of heads, that number is a statistic
+  A statistic is a numerical description of observed data
+    * For example, if you toss a coin 100 times and count the number of heads, that number is a statistic

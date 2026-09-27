@@ -287,7 +287,8 @@ Sampling size VS uncertainty
 
       * The next 1000 observations only offer 1.41 times reduction.
 
- - Probability VS statistics
+ - What is a probability?
+ - What is a statistic?
 
 What is a training dataset?
 

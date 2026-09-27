@@ -422,7 +422,7 @@ How can a biofilm form?
 
 What is MicrobiomeConnectome?
 
-  [MicrobiomeConnectome](https://genomiverse.net/MicrobiomeConnectome/index.html) is a knowledge graph about microbes, based on information publications in PubMed.
+  [MicrobiomeConnectome](https://genomiverse.net/MicrobiomeConnectome/index.html) is a knowledge graph about microbes, based on publications in PubMed.
 
  - What is PubMed?
 

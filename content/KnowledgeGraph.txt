@@ -91,6 +91,7 @@ Why might I want to write in Jeff's Knowledge Graph?
 
   Easy for viewers to skip dependencies
   * If a reader is already familiar with some prerequisite information, it's easy for that person to skip re-reading that information
+  * There is a button that automatically expands all unfamiliar dependencies and shows them all at once
 
   Dependencies more easily up-to-date
   * If some prerequisite information changes in the future, it doesn't necessarily need to be updated more than once
