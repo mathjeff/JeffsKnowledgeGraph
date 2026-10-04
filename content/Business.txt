@@ -1,0 +1,155 @@
+# Information about businesses
+
+Starting a business
+
+ - What is it like to work at a startup?
+ - How can I start a business?
+
+How can I start a business?
+
+  Starting a successful business is difficult and risky.
+
+  It probably requires these things, and potentially more:
+
+  * An idea that benefits people
+  * Knowing who will pay for it
+  * Incorporating a business
+  * Getting enough money to develop the idea
+  * Assembling a team that can make the idea work
+  * Preventing competitors from copying it
+
+  You might also consider:
+  * Joining a business accelerator
+
+ - People might not buy a new product
+ - Ways to get funding for a new business
+ - How can I incorporate a business?
+ - Finding business accelerators
+ - Disclaimer
+
+People might not buy a new product
+
+  You can read about some examples at https://www.failory.com/startups/bad-market-fit-failures
+
+ - People might not want a new product
+ - Someone might appreciate something but be unwilling to pay for it
+
+People might not want a new product
+
+  Even if the creator of a product likes the product, it's common for other people to not want it
+
+To learn what someone wants, try asking
+
+  People are often happy to tell you what they want.
+
+  This is often easier than guessing.
+
+ - People might not want a new product
+ - Communication allows people to make trades
+ - People don't usually like to spend money
+
+Someone might appreciate something but be unwilling to pay for it
+
+  It can be difficult to determine whether something is worth buying
+
+  It is also possible that its value to one person is more than its price
+  * This may be more common when it provides value to multiple people
+
+ - Some things benefit many people
+ - Deciding to spend money can be hard
+ - People don't usually like to spend money
+ - Why is compensation important?
+
+Some things benefit many people
+
+  Examples:
+  * Cleaning up public spaces
+  * Artwork in public spaces
+
+Deciding to spend money can be hard
+
+  * Spending money requires authorizing a payment
+  * Spending money requires estimating whether the purchase is worthwhile
+    * This requires estimating whether making the purchase is better than buying nothing
+    * This requires estimating whether buying something else would be better
+
+ - People don't usually like to spend money
+
+People don't usually like to spend money
+
+  People only have a limited amount of money.
+
+  If a person runs out of money, then that person doesn't have any more money to spend.
+
+  People often try to avoid spending money so they have enough money to spend on more important things.
+
+Ways to get funding for a new business
+
+  * Savings
+    * If you have money from having worked before, that can help you to pay to run a business initially
+  * Customers
+    * If you can find customers and give them something useful, they might be willing to pay for it
+    * Offering to sell to customers also gives you the opportunity to receive feedback about what customers will pay for and what they won't
+  * Grants
+    * Sometimes governments or foundations will give money to companies to help them to accomplish a goal
+    * Receiving these grants might require that you submit an application
+    * You should also check that the grant doesn't have other requirements that might distract your business from its most important goals
+  * Venture Capital
+    * You might be able give some a fraction of your company to a [venture capital](https://en.wikipedia.org/wiki/Venture_capital) firm in exchange for money
+
+ - Funding via venture capital
+
+Funding via venture capital
+
+  You might be able give some a fraction of your company to a [venture capital](https://en.wikipedia.org/wiki/Venture_capital) firm in exchange for money
+  * This may require convincing the venture capitalist that your company has a good chance to make enough money to be worth the investment
+  * This may require finding the right venture capitalist who is interested in your business and/or familiar with type of things your business may be doing
+  * You probably don't want to wait until you have run out of money to negotiate with a venture capitalist
+    * Then you might only receive unfavorable offers (giving a large amount of your company for a small amount of money)
+  * Venture capitalists may also offer advice, including introductions to people you could collaborate with
+  * You might find that it takes a long time between when you pitch your idea to a venture capitalist and that person decides to invest in your company
+
+ - When do people collaborate?
+
+Finding business accelerators
+
+  You can find a map of some business accelerators [here](https://toughtechmap.engine.xyz/).
+
+ - What is a business accelerator?
+
+Accelerators often offer machines
+
+  If several companies each need to use a certain expensive machine for a small amount of time, it's often more efficient for several companies to each share the same machine than for each company to buy their own.
+
+  So, business accelerators often contain expensive equipment that resident companies can use.
+
+ - Some businesses need to use expensive machines
+ - What is a business accelerator?
+
+Some businesses need to use expensive machines
+
+  For example, biology labs might need to use highly precise microscopes
+
+What is a business accelerator?
+
+  An accelerator is a place that hosts startups and tries to help them grow more effectively.
+
+How can I incorporate a business?
+
+  You can find a lawyer and ask the lawyer for help incorporating a business.
+
+ - What does it mean to incorporate a business?
+
+What does it mean to incorporate a business?
+
+  [Incorporating](https://en.wikipedia.org/wiki/Incorporation_(business)) a business means creating a legal entity to represent the business.
+
+What is it like to work at a startup?
+
+  * Busy
+    * A startup usually has a small number of people and a lot of things to do, so it often involves a lot of work from each person
+  * Varied
+    * A startup usually has a small number of people and a variety of things to do, so it often involves each person doing a larger number of different things than they would at a larger company where they can specialize
+  * Inspiring
+    * In a startup, a person's compensation is usually more closely tied to the success or failure of the business than it is in a larger business
+    * A person often joins a startup due to being inspired by or hopeful about its mission
