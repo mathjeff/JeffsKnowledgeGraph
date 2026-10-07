@@ -206,8 +206,10 @@ function getFamiliarityByName(name) {
   return familiarityByName[name]
 }
 
-// make a guess about how to help a user that is very confused
+// list nodes to offer to a user that is very confused
 function getSoConfusedHelpNames(nodeName) {
+  return [] // currently disabled
+
   // find everything that the user will need to know to learn this topic
   var candidates = getUnfamiliarDependencies(nodeName)
 
