@@ -50,7 +50,6 @@ Prioritizing
   For many different tasks:
   * You may be interested in writing the tasks down in a system called an issue tracker
 
- - How can I estimate the benefit of automating?
  - What is present value?
  - How can I estimate the cost of a project?
  - Issue trackers

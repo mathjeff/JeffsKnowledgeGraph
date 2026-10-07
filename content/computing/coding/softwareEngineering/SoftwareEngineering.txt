@@ -68,6 +68,11 @@ How can I decide what to automate?
 
  - How can I estimate the cost of a project?
 
+Prioritizing automation
+
+ - How can I estimate the benefit of automating?
+ - Prioritizing
+
 How can I estimate the benefit of automating?
 
   The benefit of automation is to not have to do a certain task manually in the future.
