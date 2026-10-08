@@ -13,6 +13,8 @@ Communication allows people to make trades
 
 Communication allows people to learn from other people
 
+  This is often more efficient than having to identify the solution to every problem on your own.
+
   You are reading JeffsKnowledgeGraph right now!
 
  - What is Jeff's Knowledge Graph?

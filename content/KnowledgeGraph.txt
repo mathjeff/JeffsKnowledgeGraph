@@ -6,7 +6,7 @@ What is Jeff's Knowledge Graph?
   * a dependency graph of knowledge, where each node is a piece of knowledge
   * a user interface to display the part of this knowledge that you're interested in
 
-  Different from a usual [knowledge graph](https://en.wikipedia.org/wiki/Knowledge_graph)
+  It's different from a usual [knowledge graph](https://en.wikipedia.org/wiki/Knowledge_graph)
     * Most other knowledge graphs are organized such that each node is an entity
 
   You're reading it right now!
@@ -17,9 +17,9 @@ Who is Jeff?
 
   Jeff Gaston is the person that created this knowledge graph.
 
-  You can find his Github at https://github.com/mathjeff
-
   He likes working on projects that are interesting and useful.
+
+  You can see projects he's worked on at https://github.com/mathjeff .
 
  - What is Jeff's Knowledge Graph?
 
