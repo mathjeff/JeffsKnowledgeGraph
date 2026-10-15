@@ -1080,18 +1080,17 @@ function goToNode(nodeIndex, actionType) {
   render += "<div id=\"search-results\"></div>"
   linksInformation = []
   var allDependencies = getAllDependenciesOf(nodeName)
-  if (soConfusedHelpNames.length > 0 || allDependencies.length >= 3) {
+  if (soConfusedHelpNames.length > 0 || allDependencies.length >= 2) {
     var confusedNodes = makeNodeList(soConfusedHelpNames, "confused")
     var unfamiliarDependencies = removeFamiliarDependencies(allDependencies)
     var expansionNodes = []
     var numDependencies = allDependencies.length - 1 // exclude self from the count
     var numUnfamiliarDependencies = unfamiliarDependencies.length - 1 // exclude self from the count
-    if (numUnfamiliarDependencies >= 2) {
-      // exclude self from the count so subtract 1 from the count
+    if (numUnfamiliarDependencies >= 1) {
       expansionNodes.push(makeListUnfamiliarDependenciesButton(numUnfamiliarDependencies))
       expansionNodes.push(makeOutlineUnfamiliarDependenciesButton(numUnfamiliarDependencies))
     }
-    if (numDependencies > numUnfamiliarDependencies && numDependencies >= 2) {
+    if (numDependencies > numUnfamiliarDependencies && numDependencies >= 1) {
       expansionNodes.push(makeListAllDependenciesButton(numDependencies))
       expansionNodes.push(makeOutlineAllDependenciesButton(numDependencies))
     }
