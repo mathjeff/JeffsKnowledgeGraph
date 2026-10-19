@@ -3,8 +3,10 @@
 What is Jeff's Knowledge Graph?
 
   Jeff's Knowledge Graph is:
-  * a dependency graph of knowledge, where each node is a piece of knowledge
-  * a user interface to display the part of this knowledge that you're interested in
+  * A dependency graph of knowledge
+    * Each node is a concise statement
+    * Each edge describes that understanding one piece of knowledge requires first understanding a different piece of knowledge
+  * A user interface to conveniently display what you're interested in
 
   It's different from a usual [knowledge graph](https://en.wikipedia.org/wiki/Knowledge_graph)
     * Most other knowledge graphs are organized such that each node is an entity
